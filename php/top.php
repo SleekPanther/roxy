@@ -59,13 +59,19 @@ include "lib/constants.php";
     $whichPass = "w";
     $thisDatabaseWriter = new Database($dbUserName, $whichPass, $dbName);
 
+    require 'supplementary/helper-functions.php';
     ?>	
 
 </head>
 
 <!-- **********************     Body section      ********************** -->
 <?php
-print '<body id="' . $PATH_PARTS['filename'] . '">';
+if($parentFolder=='magic'){
+    print '<body id="' . $parentFolder . '">';
+}
+else{
+    print '<body id="' . $PATH_PARTS['filename'] . '">';
+}
 include "header.php";
 include "nav.php";
 ?>

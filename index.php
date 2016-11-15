@@ -3,7 +3,8 @@ session_start();
 include	"php/top.php";
 ?>
 	<article>
-		page
+		<h1>index page</h1>
+
 	</article>
 <?php
 include	"php/footer.php";
