@@ -3,7 +3,7 @@
 
 //convert sql date to nice human readable dale with php date()
 function dateSqlToNice($inputdate){
-	$outputdate=" yay date "
+	$outputdate=" yay date ";
 	return $outputdate;
 }
 
