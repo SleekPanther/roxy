@@ -4,12 +4,22 @@ include	"../php/top.php";
 
 $tabIndex=1;
 
-$title='';			//variables to hold form input
-$runtime='';
+// $title='';			//variables to hold form input
+// $runtime='';
+// $rating='PG-13';	//most common rating
+// $releaseDate='';
+// $display='Hidden';	//default is hidden (since don't want 2 display movie without showtimes)
+// $director='';
+
+
+//testing purposed default vals
+$title='Inception';			//variables to hold form input
+$runtime='123';
 $rating='PG-13';	//most common rating
-$releaseDate='';
+$releaseDate='2016-11-30';
 $display='Hidden';	//default is hidden (since don't want 2 display movie without showtimes)
-$director='';
+$director='Christopher Nolan';
+
 
 $titleError=false;		//error variables for form input validation
 $runtimeError=false;
@@ -24,7 +34,7 @@ $ratings=array("G","PG","PG-13","R","Not Rated","NC-17");	//only valid options f
 $displayOptions=array('Hidden', 'Current', 'Coming Soon');		//only valid options 4 display listbox
 
 if(isset($_POST['btnAddMovie'])){
-	echo "<pre>".print_r($_POST)."</pre>";	//prints extra 1 from print_r saying "true"
+	//echo "<pre>".print_r($_POST)."</pre>";	//prints extra 1 from print_r saying "true"
 	$title=htmlentities($_POST['txtMovieTitle'], ENT_QUOTES, "UTF-8");
 	$runtime=htmlentities($_POST['txtRuntime'], ENT_QUOTES, "UTF-8");
 	$rating=htmlentities($_POST['lstRating'], ENT_QUOTES, "UTF-8");
@@ -56,7 +66,9 @@ if(isset($_POST['btnAddMovie'])){
 	}
 
 	if(!$errorMsg){
-		//
+		$query="INSERT INTO tblMovies (fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector) VALUES (?,?,?,?,?,?)";
+		$data=array($title,$runtime,$rating,$releaseDate,$display,$director);
+		$thisDatabaseWriter->insert($query,$data,0);
 	}
 }
 
