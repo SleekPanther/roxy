@@ -4,12 +4,12 @@ include	"../php/top.php";
 
 $tabIndex=1;
 
-$title='title';			//variables to hold form input
-$runtime='run';
-$rating='pg';
-$releaseDate='hidden';
-$display='dis';
-$director='direc';
+$title='';			//variables to hold form input
+$runtime='';
+$rating='PG-13';	//most common rating
+$releaseDate='';
+$display='Hidden';	//default is hidden (since don't want 2 display movie without showtimes)
+$director='';
 
 $titleError=false;		//error variables for form input validation
 $runtimeError=false;
@@ -32,12 +32,43 @@ if(isset($_POST['btnAddMovie'])){
 	$display=htmlentities($_POST['lstDisplay'], ENT_QUOTES, "UTF-8");
 	$director=htmlentities($_POST['txtDirector'], ENT_QUOTES, "UTF-8");
 
-	//if rating not emptu
-	//if rating not in $ratings
+	if($title==""){
+		$errorMsg[]="Title cannot be empty";
+		$titleError=true;
+	}elseif (!verifyAlphaNum($title)) {
+		$errorMsg[]="Title cannot have Special Characters";
+		$titleError=true;
+	}
+
+	if($runtime==""){
+		$errorMsg[]="Runtime cannot be empty";
+		$runtimeError=true;
+	}elseif(!verifyNumeric($runtime)){
+		$errorMsg[]="Runtime must be a number";
+		$runtimeError=true;
+	}
+
+	//skip rating & visibility validation since listboxes almost impossible to "hack". Date practially impossible since type='date'
+
+	if(!verifyAlphaNum($director)){
+		$errorMsg[]="Director text cannot have special characters";
+		$directorError=true;
+	}
 
 	if(!$errorMsg){
-
+		//
 	}
+}
+
+if ($errorMsg) {
+	echo "<div id='errors'>\n";
+	echo "<h1>Your form has the following mistakes</h1>\n";
+	echo "<ol>\n";
+	foreach ($errorMsg as $err) {
+		echo "<li>" .$err . "</li>\n";
+	}
+	echo "</ol>\n";
+	echo "</div>\n";
 }
 ?>
 	<article>
@@ -48,7 +79,7 @@ if(isset($_POST['btnAddMovie'])){
 			echo "<label for='txtMovieTitle'>Title</label>\n";
 			echo "\t\t\t<input type='text' name='txtMovieTitle' id='txtMovieTitle' tabindex='".$tabIndex++."' value='".$title."'";
 			if($titleError){echo " class='mistake' ";}
-			echo"><br>\n";
+			echo" autofocus><br>\n";
 
 			echo "<label for='txtRuntime'>Runtime (minutes)</label>\n";
 			echo "\t\t\t<input type='text' name='txtRuntime' id='txtRuntime' tabindex='".$tabIndex++."' value='".$runtime."'";
@@ -84,7 +115,7 @@ if(isset($_POST['btnAddMovie'])){
 			//if(){echo " class='mistake' ";}
 			echo "><br>\n";
 
-			echo "\t\t\t<input type='submit' name='btnAddMovie' id='btnAddMovie' value='Add Movie'>\n";
+			echo "\t\t\t<input type='submit' name='btnAddMovie' id='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'>\n";
 			?>
 		</form>
 	</article>
