@@ -168,10 +168,14 @@ if ($errorMsg) {
 			echo ">".$_SESSION['synopsis']."</textarea></td>\n";	//make it sticky to remember what they entered
 			echo "\t\t\t\t</tr>\n";
 
-			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td><input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'></td>\n";
-			echo "\t\t\t\t</tr>\n";
+			// echo "\t\t\t\t<tr>\n";
+			// echo "\t\t\t\t\t<td><input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'></td>\n";
+			// echo "\t\t\t\t</tr>\n";
 			echo "\t\t\t</table>\n";
+
+			print_r(getFilesInDirectory("../images/posters/") );
+
+			echo "\t\t\t<input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'><br>\n";
 
 
 			$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
@@ -196,7 +200,6 @@ if ($errorMsg) {
 					echo "\t\t\t\t\t<p>Director: ".$movie['fldDirector']."</p>\n";
 					echo "\t\t\t\t\t<p>Synopsis:<br> ".$movie['fldSynopsis']."</p>\n";
 
-					//echo "\t\t\t\t\t<input type='submit' name='btnEditMovie' value='Edit Info (add showtimes)'>\n";
 					echo "\t\t\t\t\t<a class='specialButtonLink' href='edit.php?pmkMovieId=".$movie['pmkMovieId']."'>Edit Info</a> (add showtimes & reviews)\n";
 					echo "\t\t\t\t</article >\n";
 				}
