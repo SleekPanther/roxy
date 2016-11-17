@@ -4,6 +4,9 @@ include	"../php/top.php";
 
 $tabIndex=1;
 
+$imageFolderPath='../images/posters/';		//directory to search when adding image to movie
+$imagesList=getFilesInDirectory($imageFolderPath);
+
 // $_SESSION['title']='';			//variables to hold form input
 // $_SESSION['runtime']='';
 // $_SESSION['rating']='PG-13';	//most common rating
@@ -168,14 +171,28 @@ if ($errorMsg) {
 			echo ">".$_SESSION['synopsis']."</textarea></td>\n";	//make it sticky to remember what they entered
 			echo "\t\t\t\t</tr>\n";
 
+
+			echo "\t\t\t\t<tr>\n";
+			echo "\t\t\t\t\t<td colspan='2'>Choose Image (contact webmaster if no images are left)</td>";
+			echo "\t\t\t\t</tr>\n";
+
+			echo "\t\t\t\t<tr>\n";
+			echo "\t\t\t\t\t<td>other</td>";
+			echo "\t\t\t\t</tr>\n";
+			echo "\t\t\t\t<tr>\n";
+			echo "\t\t\t\t\t<td>22</td>";
+			echo "\t\t\t\t\t<td>33</td>";
+			echo "\t\t\t\t</tr>\n";
+
 			// echo "\t\t\t\t<tr>\n";
 			// echo "\t\t\t\t\t<td><input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'></td>\n";
 			// echo "\t\t\t\t</tr>\n";
 			echo "\t\t\t</table>\n";
 
-			print_r(getFilesInDirectory("../images/posters/") );
+			//print_r(getFilesInDirectory($imageFolderPath) );
 
-			echo "\t\t\t<input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'><br>\n";
+
+			echo "\t\t\t<br><input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'><br>\n";
 
 
 			$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
