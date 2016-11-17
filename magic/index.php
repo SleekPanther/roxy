@@ -5,7 +5,7 @@ include	"../php/top.php";
 $tabIndex=1;
 
 $imageFolderPath='../images/posters/';		//directory to search when adding image to movie
-$imagesList=getFilesInDirectory($imageFolderPath);
+$imageList=getFilesInDirectory($imageFolderPath);
 
 // $_SESSION['title']='';			//variables to hold form input
 // $_SESSION['runtime']='';
@@ -175,6 +175,24 @@ if ($errorMsg) {
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td colspan='2'>Choose Image (contact webmaster if no images are left)</td>";
 			echo "\t\t\t\t</tr>\n";
+
+			//query database to get list of all pictures already associated with a movie
+			$query ="SELECT fldImgFilename FROM tblPictures";
+			$dbPictures=$thisDatabaseReader->select($query,"",0);
+
+			$pictures=array();		//this array converts the mysql associative array to a normal array
+			foreach($dbPictures as $onePic){
+				$pictures[]=$onePic['fldImgFilename'];
+			}
+			echo "<pre>";
+			print_r($pictures);
+			echo "</pre>";
+
+			foreach($imageList as $image){		//iterate through all possible files in folder (called @ start of this file)
+				if(!in_array($image, $pictures)){	//only print picture if it's NOT already in the database
+					echo "<br>".$image;
+				}
+			}
 
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td>other</td>";
