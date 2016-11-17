@@ -111,69 +111,6 @@ if ($errorMsg) {
 		<h2>Add Movie</h2>
 		<form action="<?php echo PHP_SELF;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
-			// echo "<section class='formColumnContainer'>\n";
-			// echo "\t\t\t\t<article>\n";
-
-			// echo "\t\t\t<label for='txtMovieTitle'>Title</label><br>\n";
-
-			// echo "\t\t\t<label for='txtRuntime'>Runtime (minutes)</label><br>\n";
-
-			// echo "\t\t\t<label for='lstRating'>Rating</label><br>\n";
-
-			// echo "\t\t\t<label for='datReleateDate'>Release Date</label><br>\n";
-
-			// echo "\t\t\t<label for='lstDisplay'>Visibility (display to public or not)</label><br>\n";
-
-			// echo "\t\t\t<label for='txtDirector'>Director (optional)</label><br>\n";
-
-			// echo "\t\t\t<label for='txtSynopsis'>Synopsis (optional) <br>(1000 characters max)</label><br>\n";
-
-			// echo "\t\t\t\t</article>\n";
-
-
-			// echo "\t\t\t\t<article>\n";
-
-			// echo "\t\t\t<input type='text' name='txtMovieTitle' id='txtMovieTitle' tabindex='".$tabIndex++."' value='".$_SESSION['title']."'";
-			// if($titleError){echo " class='mistake' ";}
-			// echo" autofocus><br>\n";
-
-			// echo "\t\t\t<input type='text' name='txtRuntime' id='txtRuntime' tabindex='".$tabIndex++."' value='".$_SESSION['runtime']."'";
-			// if($runtimeError){echo " class='mistake' ";}
-			// echo"><br>\n";
-
-			// echo "\t\t\t<select id='lstRating' name='lstRating' tabindex='".$tabIndex++."' >\n";
-			// 	foreach($ratings as $oneRating){
-			// 		echo "\t\t\t\t<option value='".$oneRating."'";
-			// 		if($oneRating==$_SESSION['rating']){ echo ' selected ';}
-			// 		echo ">".$oneRating."</option>\n";
-			// 	}
-			// echo "\t\t\t</select><br>\n";
-
-			// echo "\t\t\t<input type='date' name='datReleaseDate' id='datReleateDate' tabindex='".$tabIndex++."' value='".$_SESSION['releaseDate']."'";
-			// echo "><br>\n";
-
-			// echo "\t\t\t<select id='lstDisplay' name='lstDisplay' tabindex='".$tabIndex++."' >\n";
-			// 	foreach($displayOptions as $option){
-			// 		echo "\t\t\t\t<option value='".$option."'";
-			// 		if($option==$_SESSION['display']){echo ' selected ';}
-			// 		echo ">".$option."</option>\n";
-			// 	}
-			// echo "\t\t\t</select><br>\n";
-
-			// echo "\t\t\t<input type='text' name='txtDirector' id='txtDirector' tabindex='".$tabIndex++."' value='".$_SESSION['director']."'";
-			// if($directorError){echo " class='mistake' ";}
-			// echo "><br>\n";
-
-			// // echo "\t\t\t<textarea name='txtSynopsis' id='txtSynopsis' tabindex='".$tabIndex++."'";
-			// // if($synopsisError){echo " class='mistake' ";}
-			// // echo ">".$_SESSION['synopsis']."</textarea><br>\n";	//make it sticky to remember what they entered
-
-			// echo "\t\t\t\t</article>\n";
-			// echo "\t\t\t<br><input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'>\n";
-
-			// echo "\t\t\t</section>\n";
-
-
 			echo "<table>\n";
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtMovieTitle'>Title</label></td>\n";
