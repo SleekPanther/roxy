@@ -20,12 +20,12 @@ include "lib/constants.php";
     $parentFolder=$directories[count($directories)-1];
 
     $cdPlaceholder='';      //holds ../ if 1 directory down, otherwise just empty
-    //include special libraries for admin page
-    if($parentFolder=='magic'){
+    
+    if($parentFolder=='magic'){     //include special libraries for admin page
         $cdPlaceholder='../';
 
         //get the current user (uvm id)
-        //$username = strtolower(htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8"));     //also convert to lowercase to be safe
+        $username = strtolower(htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8"));     //also convert to lowercase to be safe
         include "lib/net-id-conversion.php";
         require "lib/validation-functions.php";
         require "lib/security.php";

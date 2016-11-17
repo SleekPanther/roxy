@@ -1,0 +1,12 @@
+<Files *>
+AuthType WebAuth
+
+require user npatullo
+
+require user rerickso
+require user ylin19
+require user lpatullo
+
+satisfy any
+order allow,deny
+</Files>
