@@ -161,6 +161,7 @@ if ($errorMsg) {
 			if(!empty($movies)){	//only print if there are movies to show
 				echo "\n\t\t\t<h3>All Movies in Database</h3>\n";
 				echo "\t\t\t<section class='admin-movie-list'>\n";
+				echo "put listbox to narrow by DISPLAY";
 				foreach($movies as $movie){
 					echo "\t\t\t\t<article class='movieInfo'>\n";
 					echo "\t\t\t\t\t<p>Title: ".$movie['fldTitle']."</p>\n";
@@ -171,8 +172,8 @@ if ($errorMsg) {
 					echo "\t\t\t\t\t<p>Director: ".$movie['fldDirector']."</p>\n";
 					echo "\t\t\t\t\t<p>Synopsis:<br> ".$movie['fldSynopsis']."</p>\n";
 
-					//link maybe?
-					echo "\t\t\t\t\t<input type='submit' name='btnEditMovie' value='Edit Info (add showtimes)'>\n";
+					//echo "\t\t\t\t\t<input type='submit' name='btnEditMovie' value='Edit Info (add showtimes)'>\n";
+					echo "\t\t\t\t\t<a class='specialButtonLink' href='edit.php?pmkMovieId=".$movie['pmkMovieId']."'>Edit Info</a> (add showtimes & reviews)\n";
 					echo "\t\t\t\t</article >\n";
 				}
 				echo "\t\t\t</section>\n";
