@@ -30,5 +30,28 @@ textarea[name='txtSynopsis'] {
 }
 
 .specialButtonLink {
-	
+
+}
+
+form table tr>td:nth-child(1){
+	text-align: right;
+}
+
+label {
+	display: inline-block;
+}
+.formColumnContainer {	/* block level element to contain a left & right element so that labels line up & align */
+
+}
+.formColumnContainer article input, .formColumnContainer article label, .formColumnContainer article select {	/* give height to items in the form to align rows */
+    height: 1.5em;
+}
+.formColumnContainer article {	/* make 2 child elements be next to each other on the same line */
+    display: inline-block;
+}
+.formColumnContainer article:nth-child(1) {
+	text-align: right;
+}
+.formColumnContainer article:nth-child(2) {
+	text-align: left;
 }
