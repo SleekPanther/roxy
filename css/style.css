@@ -1,3 +1,7 @@
+p {
+	margin: .5em 0;
+}
+
 nav a {
 	display: inline-block;
 	padding: .5em;
@@ -8,4 +12,19 @@ nav a {
 
 .mistake{
 	background: red;
+}
+
+footer{
+	text-align: center;
+}
+
+.movieInfo {
+    background: grey;
+    padding: .5em;
+    margin: 1em 0;
+}
+
+textarea[name='txtSynopsis'] {
+    width: 30em;
+    height: 10em;
 }
