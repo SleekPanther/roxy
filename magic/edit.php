@@ -93,39 +93,31 @@ if(isset($_POST['btnUpdateMovie'])){
 		$directorError=true;
 	}
 
-	if(!verifyAlphaNum($synopsis)){
-		$errorMsg[]="Synopsis Cannot have special characters";
-		$synopsisError=true;
+	if($synopsis !=''){		//only validate if NOT empty
+		if(!verifyAlphaNum($synopsis)){
+			$errorMsg[]="Synopsis Cannot have special characters";
+			$synopsisError=true;
+		}
 	}
 
 	if(!$errorMsg){
-		$query="INSERT INTO tblMovies (fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector) VALUES (?,?,?,?,?,?)";
-		$data=array($title,$runtime,$rating,$releaseDate,$display,$director);
-		$thisDatabaseWriter->insert($query,$data,0);
-		$lastMovieId=$thisDatabaseWriter->lastInsert();		//get id of movie just added so for synopsis
+		$query="UPDATE tblMovies SET fldTitle=?, fldRuntime=?, fldRating=?, fldReleaseDate=?, fldDisplay=?, fldDirector=? WHERE pmkMovieId LIKE ?";
+		$data=array($title,$runtime,$rating,$releaseDate,$display,$director,$currentMovieId);
+		$thisDatabaseWriter->insert($query,$data,1);
 
-		$query="INSERT INTO tblSynopses (fnkMovieId, fldSynopsis) VALUES (?,?)";
-		$data=array($lastMovieId,$synopsis);
-		$thisDatabaseWriter->insert($query,$data,0);
-
-		//only insert into table if they selected a radio button image filename
-		if($poster !='none'){
-			$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename) VALUES (?,?)";
-			$data=array($lastMovieId,$poster);
-			$thisDatabaseWriter->insert($query,$data,0);
+		if($synopsis !=''){		//only add to table if NOT empty
+			$query="UPDATE tblSynopses SET fldSynopsis=? WHERE fnkMovieId LIKE ?";
+			$data=array($synopsis,$lastMovieId);
+			$thisDatabaseWriter->insert($query,$data,1);
 		}
+		
 
-		//now reset session variables values so that it DOESN't remeber the last info entered
-		// $title='reset title';
-		// $runtime='10';
-		// $rating='R';	//most common rating
-		// $releaseDate='2017-11-30';
-		// $display='Coming Soon';	//default is hidden (since don't want 2 display movie without showtimes)
-		// $director='reset Nolan';
-		// $synopsis='reset synopsis is optional';
-		// $poster='none';		//reset value to none (default)
-
-		header('Location: edit.php');		//redirect to Edit page
+		// //only insert into table if they selected a radio button image filename
+		// if($poster !='none'){
+		// 	$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename) VALUES (?,?)";
+		// 	$data=array($lastMovieId,$poster);
+		// 	$thisDatabaseWriter->insert($query,$data,0);
+		// }
 	}
 }
 
@@ -142,7 +134,7 @@ if ($errorMsg) {
 ?>
 	<article>
 		<h1>Edit Movie Info (admin)</h1>
-		<form action="<?php echo PHP_SELF;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
+		<form action="<?php echo PHP_SELF.'?pmkMovieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
 			echo "<table>\n";
 			echo "\t\t\t\t<tr>\n";
