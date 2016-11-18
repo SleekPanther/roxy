@@ -21,6 +21,10 @@ if(empty($movieInfo)){			//redirect them again if the movie doesn't exist
 	header('Location: index.php');
 }
 
+// echo "<pre>";
+// print_r($movieInfo);
+// echo "</pre>";
+
 $imageFolderPath='../images/posters/';		//directory to search when adding image to movie
 $imageList=getFilesInDirectory($imageFolderPath);
 
@@ -140,10 +144,6 @@ if ($errorMsg) {
 		<h1>Edit Movie Info (admin)</h1>
 		<form action="<?php echo PHP_SELF;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
-echo "<pre>";
-print_r($movieInfo);
-echo "</pre>";
-
 			echo "<table>\n";
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtMovieTitle'>Title</label></td>\n";
@@ -237,32 +237,6 @@ echo "</pre>";
 
 			echo "\t\t\t<br><input type='submit' name='btnUpdateMovie' value='Update Movie' tabindex='".$tabIndex++."'><br>\n";
 
-
-			$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
-			 fldSynopsis FROM tblMovies 
-			  LEFT JOIN tblSynopses ON pmkMovieId=fnkMovieId";		//need left join since I DO want to have movie info even if there's no synopsis
-			$movies=$thisDatabaseReader->select($query,'',0);
-
-			if(!empty($movies)){	//only print if there are movies to show
-				echo "\n\t\t\t<h3>All Movies in Database</h3>\n";
-				echo "\t\t\t<section class='admin-movie-list'>\n";
-				echo "put listbox to narrow by DISPLAY";
-				foreach($movies as $movie){
-					echo "\t\t\t\t<article class='movieInfo'>\n";
-					echo "\t\t\t\t\t<p>Title: ".$movie['fldTitle']."</p>\n";
-					echo "\t\t\t\t\t<p>Runtime: ".$movie['fldRuntime']." minutes</p>\n";
-					echo "\t\t\t\t\t<p>Rating: ".$movie['fldRating']."</p>\n";
-					echo "\t\t\t\t\t<p>Release Date: ".dateSqlToNice($movie['fldReleaseDate'])."</p>\n";
-					echo "\t\t\t\t\t<p>Visibility (show or hide): ".$movie['fldDisplay']."</p>\n";
-					echo "\t\t\t\t\t<p>Director: ".$movie['fldDirector']."</p>\n";
-					echo "\t\t\t\t\t<p>Synopsis:<br> ".$movie['fldSynopsis']."</p>\n";
-
-					echo "\t\t\t\t\t<a class='specialButtonLink' href='edit.php?pmkMovieId=".$movie['pmkMovieId']."'>Edit Info</a> (add showtimes & reviews)\n";
-					echo "\t\t\t\t</article >\n";
-				}
-				echo "\t\t\t</section>\n";
-			}
-			
 			?>
 		</form>
 	</article>
