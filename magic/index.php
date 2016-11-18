@@ -14,6 +14,7 @@ $imageList=getFilesInDirectory($imageFolderPath);
 // $_SESSION['display']='Hidden';	//default is hidden (since don't want 2 display movie without showtimes)
 // $_SESSION['director']='';
 // $_SESSION['synopsis']='';
+// $_SESSION['poster']='none';
 
 //SESSION variables to hold form input. Using SESSION so that 1)if a form has errors, keep the value & reprint it & 2)if it was successfully added, clear the values instead of remembering the last thing added
 $_SESSION['title']='Inception';			
@@ -23,6 +24,7 @@ $_SESSION['releaseDate']='2016-11-30';
 $_SESSION['display']='Hidden';	//default is hidden (since don't want 2 display movie without showtimes)
 $_SESSION['director']='Christopher Nolan';
 $_SESSION['synopsis']='synopsis is optional';
+$_SESSION['poster']='none';
 
 
 $titleError=false;		//error variables for form input validation
@@ -48,6 +50,7 @@ if(isset($_POST['btnAddMovie'])){
 	$_SESSION['display']=htmlentities($_POST['lstDisplay'], ENT_QUOTES, "UTF-8");
 	$_SESSION['director']=htmlentities($_POST['txtDirector'], ENT_QUOTES, "UTF-8");
 	$_SESSION['synopsis']=htmlentities($_POST['txtSynopsis'], ENT_QUOTES, "UTF-8");
+	$_SESSION['poster']=htmlentities($_POST['radImageChoose'], ENT_QUOTES, "UTF-8");
 
 	if($_SESSION['title']==""){
 		$errorMsg[]="Title cannot be empty";
@@ -87,6 +90,13 @@ if(isset($_POST['btnAddMovie'])){
 		$data=array($lastMovieId,$_SESSION['synopsis']);
 		$thisDatabaseWriter->insert($query,$data,0);
 
+		//only insert into table if they selected a radio button image filename
+		if($_SESSION['poster'] !='none'){
+			$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename) VALUES (?,?)";
+			$data=array($lastMovieId,$_SESSION['poster']);
+			$thisDatabaseWriter->insert($query,$data,0);
+		}
+
 		//now reset session variables values so that it DOESN't remeber the last info entered
 		$_SESSION['title']='reset title';
 		$_SESSION['runtime']='10';
@@ -95,6 +105,7 @@ if(isset($_POST['btnAddMovie'])){
 		$_SESSION['display']='Coming Soon';	//default is hidden (since don't want 2 display movie without showtimes)
 		$_SESSION['director']='reset Nolan';
 		$_SESSION['synopsis']='reset synopsis is optional';
+		$_SESSION['poster']='none';		//reset value to none (default)
 	}
 }
 
@@ -110,8 +121,7 @@ if ($errorMsg) {
 }
 ?>
 	<article>
-		<h1>admin</h1>
-		<h2>Add Movie</h2>
+		<h1>Add Movie (admin)</h1>
 		<form action="<?php echo PHP_SELF;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
 			echo "<table>\n";
@@ -173,7 +183,7 @@ if ($errorMsg) {
 
 
 			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td colspan='2'>Choose Image (contact webmaster if no images are left)</td>";
+			echo "\t\t\t\t\t<td colspan='2'>Choose Poster Image (contact webmaster if no images are left)</td>";
 			echo "\t\t\t\t</tr>\n";
 
 			//query database to get list of all pictures already associated with a movie
@@ -184,31 +194,29 @@ if ($errorMsg) {
 			foreach($dbPictures as $onePic){
 				$pictures[]=$onePic['fldImgFilename'];
 			}
-			echo "<pre>";
-			print_r($pictures);
-			echo "</pre>";
+			// echo "<pre>";
+			// print_r($pictures);
+			// echo "</pre>";
 
+			//always print the 1st row so that they can choose NO IMAGE
+			echo "\t\t\t\t<tr>\n";
+			echo "<td><label for='radImg-none'>No Image</label></td>\n";
+			echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' ";
+			if($_SESSION['poster']=='none'){echo ' checked ';}
+			echo "></td>\n";
+			echo "\t\t\t\t</tr>\n";
 			foreach($imageList as $image){		//iterate through all possible files in folder (called @ start of this file)
 				if(!in_array($image, $pictures)){	//only print picture if it's NOT already in the database
-					echo "<br>".$image;
+					echo "\t\t\t\t<tr>\n";
+					echo "<td><label for='radImg-".$image."'>".$image."</label> <a href='".$imageFolderPath.$image."' target='_blank'>View Image (new tab)</a></td>\n";
+					echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$image."' value='".$image."' ";
+					if($_SESSION['poster']==$image){echo ' checked ';}
+					echo "></td>\n";
+					echo "\t\t\t\t</tr>\n";
 				}
 			}
 
-			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td>other</td>";
-			echo "\t\t\t\t</tr>\n";
-			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td>22</td>";
-			echo "\t\t\t\t\t<td>33</td>";
-			echo "\t\t\t\t</tr>\n";
-
-			// echo "\t\t\t\t<tr>\n";
-			// echo "\t\t\t\t\t<td><input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'></td>\n";
-			// echo "\t\t\t\t</tr>\n";
 			echo "\t\t\t</table>\n";
-
-			//print_r(getFilesInDirectory($imageFolderPath) );
-
 
 			echo "\t\t\t<br><input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'><br>\n";
 

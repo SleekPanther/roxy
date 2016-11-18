@@ -26,16 +26,26 @@ footer{
 
 textarea[name='txtSynopsis'] {
     width: 30em;
-    height: 10em;
+    height: 7em;
 }
 
 .specialButtonLink {
 
 }
 
-form table tr>td:nth-child(1){
+table {
+	border-collapse: collapse;
+}
+form tr>td:nth-child(1){
 	text-align: right;
 }
+body article tr td[colspan='2']{	/* center text to override default of align-right */
+	text-align: left;
+}
+
+/* td, th {
+	border:1px solid black;
+} */
 
 label {
 	display: inline-block;
