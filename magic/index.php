@@ -75,9 +75,11 @@ if(isset($_POST['btnAddMovie'])){
 		$directorError=true;
 	}
 
-	if(!verifyAlphaNum($_SESSION['synopsis'])){
-		$errorMsg[]="Synopsis Cannot have special characters";
-		$synopsisError=true;
+	if($_SESSION['synopsis'] !=''){		//only validate if NOT empty
+		if(!verifyAlphaNum($_SESSION['synopsis'])){
+			$errorMsg[]="Synopsis Cannot have special characters";
+			$synopsisError=true;
+		}
 	}
 
 	if(!$errorMsg){
@@ -86,9 +88,11 @@ if(isset($_POST['btnAddMovie'])){
 		$thisDatabaseWriter->insert($query,$data,0);
 		$lastMovieId=$thisDatabaseWriter->lastInsert();		//get id of movie just added so for synopsis
 
-		$query="INSERT INTO tblSynopses (fnkMovieId, fldSynopsis) VALUES (?,?)";
-		$data=array($lastMovieId,$_SESSION['synopsis']);
-		$thisDatabaseWriter->insert($query,$data,0);
+		if($_SESSION['synopsis'] !=''){		//only add to table if NOT empty
+			$query="INSERT INTO tblSynopses (fnkMovieId, fldSynopsis) VALUES (?,?)";
+			$data=array($lastMovieId,$_SESSION['synopsis']);
+			$thisDatabaseWriter->insert($query,$data,0);
+		}
 
 		//only insert into table if they selected a radio button image filename
 		if($_SESSION['poster'] !='none'){
@@ -107,7 +111,7 @@ if(isset($_POST['btnAddMovie'])){
 		$_SESSION['synopsis']='reset synopsis is optional';
 		$_SESSION['poster']='none';		//reset value to none (default)
 
-		header('Location: edit.php');		//redirect to Edit page
+		header('Location: edit.php?pmkMovieId='.$lastMovieId);		//redirect to Edit page
 	}
 }
 
