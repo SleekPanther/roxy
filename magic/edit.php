@@ -44,7 +44,6 @@ if($movieInfo[0]['fldImgFilename'] == NULL){	//if no image is selected, then sto
 }
 
 
-
 $titleError=false;		//error variables for form input validation
 $runtimeError=false;
 $ratingError=false;
@@ -212,13 +211,25 @@ if ($errorMsg) {
 				$pictures[]=$onePic['fldImgFilename'];
 			}
 
-			//always print the 1st row so that they can choose NO IMAGE
-			echo "\t\t\t\t<tr>\n";
-			echo "<td><label for='radImg-none'>No Image</label></td>\n";
-			echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' ";
-			if($poster=='none'){echo ' checked ';}
-			echo "></td>\n";
-			echo "\t\t\t\t</tr>\n";
+
+			//current image (if set) print row here
+			if($poster !='none'){
+				echo "\t\t\t\t<tr>\n";
+				echo "<td><label for='radImg-".$poster."'><strong>".$poster." CURRENT: </strong></label> <a href='".$imageFolderPath.$poster."' target='_blank'>View Image (new tab)</a></td>\n";
+				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$poster."' value='".$poster."' ";
+				// if($poster==$image){echo ' checked ';}
+				echo " checked ></td>\n";
+				echo "\t\t\t\t</tr>\n";
+			}
+			else{		//else print no image
+				echo "\t\t\t\t<tr>\n";
+				echo "<td><label for='radImg-none'><strong>CURRENT: No Image</strong></label></td>\n";
+				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' ";
+				if($poster=='none'){echo ' checked ';}
+				echo "></td>\n";
+				echo "\t\t\t\t</tr>\n";
+			}
+
 			foreach($imageList as $image){		//iterate through all possible files in folder (called @ start of this file)
 				if(!in_array($image, $pictures)){	//only print picture if it's NOT already in the database
 					echo "\t\t\t\t<tr>\n";
