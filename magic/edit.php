@@ -4,27 +4,41 @@ include	"../php/top.php";
 
 $tabIndex=1;		//print on every form input element & increment
 
+if (!isset($_GET['pmkMovieId'])){
+	header('Location: index.php');	//redirect to homepage if they accidentally clicked this page & GET isn't set
+}
+$currentMovieId=htmlentities($_GET['pmkMovieId'], ENT_QUOTES, "UTF-8");		//sanitize value from GET array
+
+$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
+fldSynopsis,
+fldImgFilename FROM tblMovies
+ LEFT JOIN tblSynopses ON pmkMovieId=tblSynopses.fnkMovieId
+ LEFT JOIN tblPictures ON pmkMovieId=tblPictures.fnkMovieId
+ WHERE pmkMovieId LIKE ?";
+$data=array($currentMovieId);
+$movieInfo=$thisDatabaseReader->select($query,$data,1);	//query database to see if movie exists
+if(empty($movieInfo)){			//redirect them again if the movie doesn't exist
+	header('Location: index.php');
+}
+
 $imageFolderPath='../images/posters/';		//directory to search when adding image to movie
 $imageList=getFilesInDirectory($imageFolderPath);
 
-// $_SESSION['title']='';			//variables to hold form input
-// $_SESSION['runtime']='';
-// $_SESSION['rating']='PG-13';				//most common rating
-// $_SESSION['releaseDate']='';
-// $_SESSION['display']='Hidden';				//default is hidden (since don't want 2 display movie without showtimes)
-// $_SESSION['director']='';
-// $_SESSION['synopsis']='';
-// $_SESSION['poster']='none';
 
-//SESSION variables to hold form input. Using SESSION so that 1)if a form has errors, keep the value & reprint it & 2)if it was successfully added, clear the values instead of remembering the last thing added
-$_SESSION['title']='Inception';			
-$_SESSION['runtime']='123';
-$_SESSION['rating']='PG-13';				//most common rating
-$_SESSION['releaseDate']='2016-11-30';
-$_SESSION['display']='Hidden';				//default is hidden (since don't want 2 display movie without showtimes)
-$_SESSION['director']='Christopher Nolan';
-$_SESSION['synopsis']='synopsis is optional';
-$_SESSION['poster']='none';
+//variables to hold form input (get from database)
+$title=$movieInfo[0]['fldTitle'];
+$runtime=$movieInfo[0]['fldRuntime'];
+$rating=$movieInfo[0]['fldRating'];
+$releaseDate=$movieInfo[0]['fldReleaseDate'];
+$display=$movieInfo[0]['fldDisplay'];
+$director=$movieInfo[0]['fldDirector'];
+$synopsis=$movieInfo[0]['fldSynopsis'];
+if($movieInfo[0]['fldImgFilename'] == NULL){	//if no image is selected, then store 'none' so that the correct radio button will be CHECKED
+	$poster='none';
+}else{
+	$poster=$movieInfo[0]['fldImgFilename'];
+}
+
 
 
 $titleError=false;		//error variables for form input validation
@@ -43,69 +57,69 @@ if(isset($_POST['btnUpdateMovie'])){
 	echo "<pre>";
 	print_r($_POST);
 	echo "</pre>";
-	$_SESSION['title']=htmlentities($_POST['txtMovieTitle'], ENT_QUOTES, "UTF-8");
-	$_SESSION['runtime']=htmlentities($_POST['txtRuntime'], ENT_QUOTES, "UTF-8");
-	$_SESSION['rating']=htmlentities($_POST['lstRating'], ENT_QUOTES, "UTF-8");
-	$_SESSION['releaseDate']=htmlentities($_POST['datReleaseDate'], ENT_QUOTES, "UTF-8");
-	$_SESSION['display']=htmlentities($_POST['lstDisplay'], ENT_QUOTES, "UTF-8");
-	$_SESSION['director']=htmlentities($_POST['txtDirector'], ENT_QUOTES, "UTF-8");
-	$_SESSION['synopsis']=htmlentities($_POST['txtSynopsis'], ENT_QUOTES, "UTF-8");
-	$_SESSION['poster']=htmlentities($_POST['radImageChoose'], ENT_QUOTES, "UTF-8");
+	$title=htmlentities($_POST['txtMovieTitle'], ENT_QUOTES, "UTF-8");
+	$runtime=htmlentities($_POST['txtRuntime'], ENT_QUOTES, "UTF-8");
+	$rating=htmlentities($_POST['lstRating'], ENT_QUOTES, "UTF-8");
+	$releaseDate=htmlentities($_POST['datReleaseDate'], ENT_QUOTES, "UTF-8");
+	$display=htmlentities($_POST['lstDisplay'], ENT_QUOTES, "UTF-8");
+	$director=htmlentities($_POST['txtDirector'], ENT_QUOTES, "UTF-8");
+	$synopsis=htmlentities($_POST['txtSynopsis'], ENT_QUOTES, "UTF-8");
+	$poster=htmlentities($_POST['radImageChoose'], ENT_QUOTES, "UTF-8");
 
-	if($_SESSION['title']==""){
+	if($title==""){
 		$errorMsg[]="Title cannot be empty";
 		$titleError=true;
-	}elseif (!verifyAlphaNum($_SESSION['title'])) {
+	}elseif (!verifyAlphaNum($title)) {
 		$errorMsg[]="Title cannot have Special Characters";
 		$titleError=true;
 	}
 
-	if($_SESSION['runtime']==""){
+	if($runtime==""){
 		$errorMsg[]="Runtime cannot be empty";
 		$runtimeError=true;
-	}elseif(!verifyNumeric($_SESSION['runtime'])){
+	}elseif(!verifyNumeric($runtime)){
 		$errorMsg[]="Runtime must be a number";
 		$runtimeError=true;
 	}
 
 	//skip rating & visibility validation since listboxes almost impossible to "hack". Date practially impossible since type='date'
 
-	if(!verifyAlphaNum($_SESSION['director'])){
+	if(!verifyAlphaNum($director)){
 		$errorMsg[]="Director text cannot have special characters";
 		$directorError=true;
 	}
 
-	if(!verifyAlphaNum($_SESSION['synopsis'])){
+	if(!verifyAlphaNum($synopsis)){
 		$errorMsg[]="Synopsis Cannot have special characters";
 		$synopsisError=true;
 	}
 
 	if(!$errorMsg){
 		$query="INSERT INTO tblMovies (fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector) VALUES (?,?,?,?,?,?)";
-		$data=array($_SESSION['title'],$_SESSION['runtime'],$_SESSION['rating'],$_SESSION['releaseDate'],$_SESSION['display'],$_SESSION['director']);
+		$data=array($title,$runtime,$rating,$releaseDate,$display,$director);
 		$thisDatabaseWriter->insert($query,$data,0);
 		$lastMovieId=$thisDatabaseWriter->lastInsert();		//get id of movie just added so for synopsis
 
 		$query="INSERT INTO tblSynopses (fnkMovieId, fldSynopsis) VALUES (?,?)";
-		$data=array($lastMovieId,$_SESSION['synopsis']);
+		$data=array($lastMovieId,$synopsis);
 		$thisDatabaseWriter->insert($query,$data,0);
 
 		//only insert into table if they selected a radio button image filename
-		if($_SESSION['poster'] !='none'){
+		if($poster !='none'){
 			$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename) VALUES (?,?)";
-			$data=array($lastMovieId,$_SESSION['poster']);
+			$data=array($lastMovieId,$poster);
 			$thisDatabaseWriter->insert($query,$data,0);
 		}
 
 		//now reset session variables values so that it DOESN't remeber the last info entered
-		$_SESSION['title']='reset title';
-		$_SESSION['runtime']='10';
-		$_SESSION['rating']='R';	//most common rating
-		$_SESSION['releaseDate']='2017-11-30';
-		$_SESSION['display']='Coming Soon';	//default is hidden (since don't want 2 display movie without showtimes)
-		$_SESSION['director']='reset Nolan';
-		$_SESSION['synopsis']='reset synopsis is optional';
-		$_SESSION['poster']='none';		//reset value to none (default)
+		// $title='reset title';
+		// $runtime='10';
+		// $rating='R';	//most common rating
+		// $releaseDate='2017-11-30';
+		// $display='Coming Soon';	//default is hidden (since don't want 2 display movie without showtimes)
+		// $director='reset Nolan';
+		// $synopsis='reset synopsis is optional';
+		// $poster='none';		//reset value to none (default)
 
 		header('Location: edit.php');		//redirect to Edit page
 	}
@@ -126,17 +140,21 @@ if ($errorMsg) {
 		<h1>Edit Movie Info (admin)</h1>
 		<form action="<?php echo PHP_SELF;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
+echo "<pre>";
+print_r($movieInfo);
+echo "</pre>";
+
 			echo "<table>\n";
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtMovieTitle'>Title</label></td>\n";
-			echo "\t\t\t\t\t<td><input type='text' name='txtMovieTitle' id='txtMovieTitle' tabindex='".$tabIndex++."' value='".$_SESSION['title']."'";
+			echo "\t\t\t\t\t<td><input type='text' name='txtMovieTitle' id='txtMovieTitle' tabindex='".$tabIndex++."' value='".$title."'";
 			if($titleError){echo " class='mistake' ";}
 			echo" autofocus></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtRuntime'>Runtime (minutes)</label></td>\n";
-			echo "\t\t\t\t\t<td><input type='text' name='txtRuntime' id='txtRuntime' tabindex='".$tabIndex++."' value='".$_SESSION['runtime']."'";
+			echo "\t\t\t\t\t<td><input type='text' name='txtRuntime' id='txtRuntime' tabindex='".$tabIndex++."' value='".$runtime."'";
 			if($runtimeError){echo " class='mistake' ";}
 			echo"></td>\n";
 			echo "\t\t\t\t</tr>\n";
@@ -146,7 +164,7 @@ if ($errorMsg) {
 			echo "\t\t\t\t\t<td><select id='lstRating' name='lstRating' tabindex='".$tabIndex++."' >\n";
 				foreach($ratings as $oneRating){
 					echo "\t\t\t\t\t\t<option value='".$oneRating."'";
-					if($oneRating==$_SESSION['rating']){ echo ' selected ';}
+					if($oneRating==$rating){ echo ' selected ';}
 					echo ">".$oneRating."</option>\n";
 				}
 			echo "\t\t\t\t\t</select></td>\n";
@@ -154,7 +172,7 @@ if ($errorMsg) {
 
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='datReleateDate'>Release Date</label></td>\n";
-			echo "\t\t\t\t\t<td><input type='date' name='datReleaseDate' id='datReleateDate' tabindex='".$tabIndex++."' value='".$_SESSION['releaseDate']."'";
+			echo "\t\t\t\t\t<td><input type='date' name='datReleaseDate' id='datReleateDate' tabindex='".$tabIndex++."' value='".$releaseDate."'";
 			echo "></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
@@ -163,7 +181,7 @@ if ($errorMsg) {
 			echo "\t\t\t\t\t<td><select id='lstDisplay' name='lstDisplay' tabindex='".$tabIndex++."' >\n";
 				foreach($displayOptions as $option){
 					echo "\t\t\t\t\t\t<option value='".$option."'";
-					if($option==$_SESSION['display']){echo ' selected ';}
+					if($option==$display){echo ' selected ';}
 					echo ">".$option."</option>\n";
 				}
 			echo "\t\t\t\t\t</select></td>\n";
@@ -171,7 +189,7 @@ if ($errorMsg) {
 
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtDirector'>Director (optional)</label></td>\n";
-			echo "\t\t\t\t\t<td><input type='text' name='txtDirector' id='txtDirector' tabindex='".$tabIndex++."' value='".$_SESSION['director']."'";
+			echo "\t\t\t\t\t<td><input type='text' name='txtDirector' id='txtDirector' tabindex='".$tabIndex++."' value='".$director."'";
 			if($directorError){echo " class='mistake' ";}
 			echo "></td>\n";
 			echo "\t\t\t\t</tr>\n";
@@ -180,7 +198,7 @@ if ($errorMsg) {
 			echo "\t\t\t\t\t<td><label for='txtSynopsis'>Synopsis (optional) <br>(1000 characters max)</label></td>\n";
 			echo "\t\t\t\t\t<td><textarea name='txtSynopsis' id='txtSynopsis' tabindex='".$tabIndex++."'";
 			if($synopsisError){echo " class='mistake' ";}
-			echo ">".$_SESSION['synopsis']."</textarea></td>\n";	//make it sticky to remember what they entered
+			echo ">".$synopsis."</textarea></td>\n";	//make it sticky to remember what they entered
 			echo "\t\t\t\t</tr>\n";
 
 
@@ -201,7 +219,7 @@ if ($errorMsg) {
 			echo "\t\t\t\t<tr>\n";
 			echo "<td><label for='radImg-none'>No Image</label></td>\n";
 			echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' ";
-			if($_SESSION['poster']=='none'){echo ' checked ';}
+			if($poster=='none'){echo ' checked ';}
 			echo "></td>\n";
 			echo "\t\t\t\t</tr>\n";
 			foreach($imageList as $image){		//iterate through all possible files in folder (called @ start of this file)
@@ -209,7 +227,7 @@ if ($errorMsg) {
 					echo "\t\t\t\t<tr>\n";
 					echo "<td><label for='radImg-".$image."'>".$image."</label> <a href='".$imageFolderPath.$image."' target='_blank'>View Image (new tab)</a></td>\n";
 					echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$image."' value='".$image."' ";
-					if($_SESSION['poster']==$image){echo ' checked ';}
+					if($poster==$image){echo ' checked ';}
 					echo "></td>\n";
 					echo "\t\t\t\t</tr>\n";
 				}
