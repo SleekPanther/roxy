@@ -2,16 +2,16 @@
 session_start();
 include	"../php/top.php";
 
-$tabIndex=1;
+$tabIndex=1;		//print on every form input element & increment
 
 $imageFolderPath='../images/posters/';		//directory to search when adding image to movie
 $imageList=getFilesInDirectory($imageFolderPath);
 
 // $_SESSION['title']='';			//variables to hold form input
 // $_SESSION['runtime']='';
-// $_SESSION['rating']='PG-13';	//most common rating
+// $_SESSION['rating']='PG-13';				//most common rating
 // $_SESSION['releaseDate']='';
-// $_SESSION['display']='Hidden';	//default is hidden (since don't want 2 display movie without showtimes)
+// $_SESSION['display']='Hidden';				//default is hidden (since don't want 2 display movie without showtimes)
 // $_SESSION['director']='';
 // $_SESSION['synopsis']='';
 // $_SESSION['poster']='none';
@@ -19,9 +19,9 @@ $imageList=getFilesInDirectory($imageFolderPath);
 //SESSION variables to hold form input. Using SESSION so that 1)if a form has errors, keep the value & reprint it & 2)if it was successfully added, clear the values instead of remembering the last thing added
 $_SESSION['title']='Inception';			
 $_SESSION['runtime']='123';
-$_SESSION['rating']='PG-13';	//most common rating
+$_SESSION['rating']='PG-13';				//most common rating
 $_SESSION['releaseDate']='2016-11-30';
-$_SESSION['display']='Hidden';	//default is hidden (since don't want 2 display movie without showtimes)
+$_SESSION['display']='Hidden';				//default is hidden (since don't want 2 display movie without showtimes)
 $_SESSION['director']='Christopher Nolan';
 $_SESSION['synopsis']='synopsis is optional';
 $_SESSION['poster']='none';
@@ -106,6 +106,8 @@ if(isset($_POST['btnAddMovie'])){
 		$_SESSION['director']='reset Nolan';
 		$_SESSION['synopsis']='reset synopsis is optional';
 		$_SESSION['poster']='none';		//reset value to none (default)
+
+		header('Location: edit.php');		//redirect to Edit page
 	}
 }
 
@@ -194,9 +196,6 @@ if ($errorMsg) {
 			foreach($dbPictures as $onePic){
 				$pictures[]=$onePic['fldImgFilename'];
 			}
-			// echo "<pre>";
-			// print_r($pictures);
-			// echo "</pre>";
 
 			//always print the 1st row so that they can choose NO IMAGE
 			echo "\t\t\t\t<tr>\n";
@@ -225,9 +224,6 @@ if ($errorMsg) {
 			 fldSynopsis FROM tblMovies 
 			  LEFT JOIN tblSynopses ON pmkMovieId=fnkMovieId";		//need left join since I DO want to have movie info even if there's no synopsis
 			$movies=$thisDatabaseReader->select($query,'',0);
-			// echo "<pre>";
-			// print_r($movies);
-			// echo "</pre>";
 
 			if(!empty($movies)){	//only print if there are movies to show
 				echo "\n\t\t\t<h3>All Movies in Database</h3>\n";
