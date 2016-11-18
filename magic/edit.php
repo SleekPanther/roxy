@@ -105,9 +105,11 @@ if(isset($_POST['btnUpdateMovie'])){
 		$data=array($title,$runtime,$rating,$releaseDate,$display,$director,$currentMovieId);
 		$thisDatabaseWriter->insert($query,$data,1);
 
-		$query="INSERT INTO tblSynopses SET fnkMovieId=?, fldSynopsis=? ON DUPLICATE KEY UPDATE fldSynopsis=?";
-		$data=array($currentMovieId,$synopsis,$synopsis);
-		$thisDatabaseWriter->insert($query,$data,0);
+		if($synopsis !=''){
+			$query="INSERT INTO tblSynopses SET fnkMovieId=?, fldSynopsis=? ON DUPLICATE KEY UPDATE fldSynopsis=?";
+			$data=array($currentMovieId,$synopsis,$synopsis);
+			$thisDatabaseWriter->insert($query,$data,0);
+		}
 		
 
 		// //only insert into table if they selected a radio button image filename
