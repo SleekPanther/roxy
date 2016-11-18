@@ -105,10 +105,15 @@ if(isset($_POST['btnUpdateMovie'])){
 		$data=array($title,$runtime,$rating,$releaseDate,$display,$director,$currentMovieId);
 		$thisDatabaseWriter->insert($query,$data,1);
 
-		if($synopsis !=''){
+		if($synopsis !=''){		//if it's not empty, add to the database
 			$query="INSERT INTO tblSynopses SET fnkMovieId=?, fldSynopsis=? ON DUPLICATE KEY UPDATE fldSynopsis=?";
 			$data=array($currentMovieId,$synopsis,$synopsis);
 			$thisDatabaseWriter->insert($query,$data,0);
+		}
+		else{	//else delete empty entries. This technically attempts to remove even if not in databse, but doesn't matter & is mainly for when they already havea description, but then clear the textarea (avoid leaving empty synopses left in table)
+			$query="DELETE FROM tblSynopses WHERE fnkMovieId LIKE ?";
+			$data=array($currentMovieId);
+			$thisDatabaseWriter->insert($query,$data,1);
 		}
 		
 
@@ -195,7 +200,7 @@ if ($errorMsg) {
 
 
 			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td colspan='2'>Choose Poster Image (contact webmaster if no images are left)</td>";
+			echo "\t\t\t\t\t<td colspan='2'>Change Image (contact webmaster if no images are left)</td>";
 			echo "\t\t\t\t</tr>\n";
 
 			//query database to get list of all pictures already associated with a movie
