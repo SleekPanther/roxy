@@ -230,7 +230,7 @@ if ($errorMsg) {
 					echo "\t\t\t\t\t<p>Title: ".$movie['fldTitle']."</p>\n";
 					echo "\t\t\t\t\t<p>Runtime: ".$movie['fldRuntime']." minutes</p>\n";
 					echo "\t\t\t\t\t<p>Rating: ".$movie['fldRating']."</p>\n";
-					echo "\t\t\t\t\t<p>Release Date: ".$movie['fldReleaseDate']."</p>\n";
+					echo "\t\t\t\t\t<p>Release Date: ".dateSqlToNice($movie['fldReleaseDate'])."</p>\n";
 					echo "\t\t\t\t\t<p>Visibility (show or hide): ".$movie['fldDisplay']."</p>\n";
 					echo "\t\t\t\t\t<p>Director: ".$movie['fldDirector']."</p>\n";
 					echo "\t\t\t\t\t<p>Synopsis:<br> ".$movie['fldSynopsis']."</p>\n";

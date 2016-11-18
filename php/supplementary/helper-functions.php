@@ -3,8 +3,8 @@
 
 //convert sql date to nice human readable dale with php date()
 function dateSqlToNice($inputdate){
-	$outputdate=" yay date ";
-	return $outputdate;
+	$dateInSeconds = strtotime($inputdate);	//convert date to number of seconds since 1970
+	return date('l F d, Y', $dateInSeconds);
 }
 
 //convert total minutes to hours & minutes
