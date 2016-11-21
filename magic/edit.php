@@ -26,9 +26,6 @@ if(empty($movieInfo)){			//redirect them again if the movie doesn't exist
 //query reviews table
 //query the showtimes table
 
-// echo "<pre>";
-// print_r($movieInfo);
-// echo "</pre>";
 
 $imageFolderPath='../images/posters/';		//directory to search when adding image to movie
 $imageList=getFilesInDirectory($imageFolderPath);
@@ -284,6 +281,45 @@ if ($errorMsg) {
 			echo "\t\t\t</table>\n";
 
 			//print existing showtimes
+			// $query="SELECT pmkShowtimeId, fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension FROM tblShowtimes WHERE fnkMovieId=? ORDER BY fldShowtimePosts"
+			// $data=array($currentMovieId);
+			// $allShowtimes=$thisDatabaseReader->select($query,$data,1,1);
+
+			//get unique list of weeks
+			// $query="SELECT DISTINCT WEEK(fldShowtimePosts) as fldWeekNumber FROM tblShowtimes WHERE fnkMovieId=? ORDER BY fldWeekNumber";
+			// $date=array($currentMovieId);
+			// $weekNumbers=$thisDatabaseReader->select($query,$data,1);
+
+			// foreach($weekNumbers as $weekNum){
+
+			// }
+
+			//get loop boundaries (olest & newest showtime)
+			$query="SELECT MIN(fldShowtimePosts) as oldestShowtime FROM tblShowtimes";
+			$oldestShowtime=$thisDatabaseReader->select($query,'',0);
+
+			$query="SELECT MAX(fldShowtimePosts) as newestShowtime FROM tblShowtimes";
+			$newestShowtime=$thisDatabaseReader->select($query,'',0);
+
+			//loops week by week (fridays) starting @ the nearest friday to the oldest date, up until the nearest friday the newest showtime, increment by 7 days each iteration
+			for($friday=nearestDate("friday",$oldestShowtime[0][0]); $friday<=nearestDate("friday",$newestShowtime[0][0]); $friday=date('Y-m-d', strtotime($friday.' +7 days'))){
+				$query="SELECT pmkShowtimeId, fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension FROM tblShowtimes WHERE ( fnkMovieId=? AND (fldShowtimePosts BETWEEN CAST(? AS DATE)  AND CAST(? AS DATE) ) ) ORDER BY fldShowtimePosts";
+				$nextFriday=date('Y-m-d', strtotime($friday.' +7 days'));
+				$data=array($currentMovieId,$friday,$nextFriday);
+				$weekOfShowtimes=$thisDatabaseReader->select($query,$data,1,3);
+
+				echo "<pre>";
+				print_r($weekOfShowtimes);
+				echo "</pre>";
+
+				if(!empty($weekOfShowtimes)){	//only print showtime info if there are showtimes that week
+					foreach($weekOfShowtimes as $oneShowtime){
+						print_r($oneShowtime);
+					}
+				}
+			}
+
+			
 
 			?>
 		</form>
