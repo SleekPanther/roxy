@@ -10,6 +10,10 @@ if (!isset($_GET['movieId'])){
 	header('Location: index.php');	//redirect to homepage if they accidentally clicked this page & GET isn't set
 }
 $currentMovieId=htmlentities($_GET['movieId'], ENT_QUOTES, "UTF-8");		//sanitize value from GET array
+$currentMovieIdError=false;
+
+$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector FROM tblMovies";
+$moviesDropdownList=$thisDatabaseReader->select($query,'',0);
 
 $query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
 fldSynopsis,
@@ -24,7 +28,6 @@ if(empty($movieInfo)){			//redirect them again if the movie doesn't exist
 }
 
 //query reviews table
-//query the showtimes table
 
 
 $imageFolderPath='../images/posters/';		//directory to search when adding image to movie
@@ -63,9 +66,6 @@ $ratings=array("G","PG","PG-13","R","Not Rated","NC-17");	//only valid options f
 $displayOptions=array('Hidden', 'Current', 'Coming Soon');		//only valid options 4 display listbox
 
 if(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime'])){
-	echo "<pre>";
-	print_r($_POST);
-	echo "</pre>";
 	$title=htmlentities($_POST['txtMovieTitle'], ENT_QUOTES, "UTF-8");
 	$runtime=htmlentities($_POST['txtRuntime'], ENT_QUOTES, "UTF-8");
 	$rating=htmlentities($_POST['lstRating'], ENT_QUOTES, "UTF-8");
@@ -147,6 +147,26 @@ if(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime'])){
 	}
 }
 
+if(isset($_POST['btnChooseMovie'])){
+	// echo "<pre>";
+	// print_r($_POST);
+	// echo "</pre>";
+	$currentMovieId=htmlentities($_POST['lstChooseMovie'], ENT_QUOTES, "UTF-8");
+
+	$query="SELECT pmkMovieId FROM tblMovies WHERE pmkMovieId=?";
+	$data=array($currentMovieId);
+	$newMovie=$thisDatabaseReader->select($query,$data,1);
+
+	if(empty($newMovie)){
+		$errorMsg[]='"Choose Movie" dropdown has Invalid Movie Id';
+		$currentMovieIdError=true;
+	}
+
+	if(!$errorMsg){		//switch the movie selected using a redirect
+		header('Location: edit.php?movieId='.$currentMovieId);
+	}
+}
+
 if ($errorMsg) {
 	echo "<div id='errors'>\n";
 	echo "<h1>Your form has the following mistakes</h1>\n";
@@ -159,15 +179,27 @@ if ($errorMsg) {
 }
 ?>
 	<article>
-		<h1>Edit Movie Info (admin) <br>dropdown to switch btwen movies</h1>
-		<p><a href="index.php">Return to all movies list (edit another movie)</a></p>
+		<h1>Edit Movie Info (admin)</h1>
 		<form action="<?php echo PHP_SELF.'?movieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
+			echo "<select name='lstChooseMovie' id='lstChooseMovie'";
+			if($currentMovieIdError){echo "class='mistake'";}
+			echo ">\n";
+			foreach($moviesDropdownList as $oneMovie){
+				echo "\t\t\t\t<option value='".$oneMovie['pmkMovieId']."'";
+				if($currentMovieId==$oneMovie['pmkMovieId']){
+					echo ' selected ';
+				}
+				echo ">".$oneMovie['fldTitle']."</option>\n";
+			}
+			echo "\t\t\t</select>\n";
+			echo "\t\t\t<input type='submit' name='btnChooseMovie' id='btnChooseMovie' value='Choose Movie to edit'>";
+			
 			if($movieUpdated){
 				echo "<p class='movieUpdated'>Movie Successfully updated!</p>";
 			}
 
-			echo "<table>\n";
+			echo "\t\t\t<table>\n";
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtMovieTitle'>Title</label></td>\n";
 			echo "\t\t\t\t\t<td><input type='text' name='txtMovieTitle' id='txtMovieTitle' tabindex='".$tabIndex++."' value='".$title."'";
