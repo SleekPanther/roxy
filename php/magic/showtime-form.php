@@ -4,7 +4,7 @@ echo "\t\t\t\t\t<td><h2>Add Showtime</h2></td>\n";
 echo "\t\t\t\t</tr>\n";
 
 echo "\t\t\t\t<tr class='showtimeRow noAlign'>\n";
-echo "\t\t\t\t\t<td><label for='lstHour'>Hour </label>\n";
+echo "\t\t\t\t\t<td colspan='2'><label for='lstHour'>Hour </label>\n";
 echo "\t\t\t\t\t<select id='lstHour' name='lstHour' tabindex='".$tabIndex++."'";
 if($showtimeHourError){echo " class='mistake' ";}
 echo ">\n";
@@ -36,12 +36,30 @@ foreach($validMeridians as $oneMeridian){
 	if($showtimeMeridian==$oneMeridian){ echo ' selected '; }
 	echo ">".$oneMeridian."</option>\n";
 }
-// for($i=0; $i<=59; $i++){
-// 	if($i<10){ $i=sprintf("%02d",$i);}	//add leading zeros
-// 	echo "\t\t\t\t\t\t<option value='".$i."'";
-// 	if($showtimeHour==$i){ echo ' selected '; }
-// 	echo ">".$i."</option>\n";
-// }
+echo "\t\t\t\t\t</select>\n";
+echo "\t\t\t\t\t</td>\n";
+echo "\t\t\t\t</tr>\n";
+
+echo "\t\t\t\t<tr>\n";
+echo "\t\t\t\t\t<td colspan='2'><label for='datShowtimePosts'>Showtime Posts</label>\n";
+echo "\t\t\t\t\t<input type='date' name='datShowtimePosts' id='datShowtimePosts' tabindex='".$tabIndex++."' value='".$showtimePosts."'";
+if($showtimePostsError){echo " class='mistake' ";}
+echo ">\n";
+
+echo "\t\t\t\t\t<label for='datShowtimeExpires'>Showtime Expires</label>\n";
+echo "\t\t\t\t\t<input type='date' name='datShowtimeExpires' id='datShowtimeExpires' tabindex='".$tabIndex++."' value='".$showtimeExpires."'";
+if($showtimeExpiresError){echo " class='mistake' ";}
+echo ">\n";
+
+$validDimensionss=array("2D","3D");
+echo "\t\t\t\t\t<select id='lstDimension' name='lstDimension' tabindex='".$tabIndex++."'";
+if($showtimeDimensionError){echo " class='mistake' ";}
+echo ">\n";
+foreach($validDimensionss as $onedimension){
+	echo "\t\t\t\t\t\t<option value='".$onedimension."'";
+	if($showtimeMeridian==$onedimension){ echo ' selected '; }
+	echo ">".$onedimension."</option>\n";
+}
 echo "\t\t\t\t\t</select>\n";
 
 echo "\t\t\t\t\t</td>\n";

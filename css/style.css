@@ -68,3 +68,6 @@ label {
 /* .showtimeRow.noAlign td, .noAlign th{
 	text-align: left;
 } */
+input[type='date'] {	/* target all date input fields to have the same width */
+    width: 10em;
+}

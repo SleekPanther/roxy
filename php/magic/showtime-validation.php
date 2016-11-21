@@ -4,6 +4,9 @@
 $showtimeHour=htmlentities($_POST['lstHour'], ENT_QUOTES, "UTF-8");
 $showtimeMinute=htmlentities($_POST['lstMinute'], ENT_QUOTES, "UTF-8");
 $showtimeMeridian=strtoupper(htmlentities($_POST['lstMeridian'], ENT_QUOTES, "UTF-8"));
+$showtimePosts=htmlentities($_POST['datShowtimePosts'], ENT_QUOTES, "UTF-8");
+$showtimeExpires=htmlentities($_POST['datShowtimeExpires'], ENT_QUOTES, "UTF-8");
+$showtimeDimension=strtoupper(htmlentities($_POST['lstDimension'], ENT_QUOTES, "UTF-8"));
 
 if($showtimeHour==''){
 	$errorMsg[]='Showtime Hour cannot be empty';
@@ -35,6 +38,28 @@ if($showtimeMeridian==''){
 	$showtimeMeridianError=true;
 }
 
+if($showtimePosts==''){
+	$errorMsg[]='Showtime Post date cannot be empty';
+	$showtimePostsError=true;
+}elseif(!validateSqlDate($showtimePosts)){
+	$errorMsg[]='Showtime Post date must be in the form YYYY-MM-DD (January 15, 2016 is 2016-15-01)';
+	$showtimePostsError=true;
+}
 
+if($showtimeExpires==''){
+	$errorMsg[]='Showtime Expiration date cannot be empty';
+	$showtimeExpiresError=true;
+}elseif(!validateSqlDate($showtimeExpires)){
+	$errorMsg[]='Showtime Expiration date must be in the form YYYY-MM-DD (January 15, 2016 is 2016-15-01)';
+	$showtimeExpiresError=true;
+}
+	
+if($showtimeDimension==''){
+	$errorMsg[]='Showtime 2D or 3D cannot be empty';
+	$showtimeDimensionError=true;
+}elseif(!($showtimeDimension=="2D" || $showtimeDimension=="3D")) {
+	$errorMsg[]='Showtime must be 2D or 3D';
+	$showtimeDimensionError=true;
+}
 
 ?>

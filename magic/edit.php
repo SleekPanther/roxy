@@ -65,7 +65,7 @@ $errorMsg=array();
 $ratings=array("G","PG","PG-13","R","Not Rated","NC-17");	//only valid options for MPAA ratings listbox
 $displayOptions=array('Hidden', 'Current', 'Coming Soon');		//only valid options 4 display listbox
 
-if(isset($_POST['btnUpdateMovie'])){
+if(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime'])){
 	echo "<pre>";
 	print_r($_POST);
 	echo "</pre>";
@@ -195,8 +195,8 @@ if ($errorMsg) {
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td><label for='datReleateDate'>Release Date (YYYY-MM-DD)</label></td>\n";
-			echo "\t\t\t\t\t<td><input type='date' name='datReleaseDate' id='datReleateDate' tabindex='".$tabIndex++."' value='".$releaseDate."'";
+			echo "\t\t\t\t\t<td><label for='datReleaseDate'>Release Date (YYYY-MM-DD)</label></td>\n";
+			echo "\t\t\t\t\t<td><input type='date' name='datReleaseDate' id='datReleaseDate' tabindex='".$tabIndex++."' value='".$releaseDate."'";
 			if($releaseDateError){echo " class='mistake' ";}
 			echo "></td>\n";
 			echo "\t\t\t\t</tr>\n";
@@ -271,11 +271,19 @@ if ($errorMsg) {
 				}
 			}
 
+			echo "\t\t\t\t<tr>\n";
+			echo "\t\t\t<td><br><input type='submit' name='btnUpdateMovie' value='Update Movie Info' tabindex='".$tabIndex++."'></td>\n";
+			echo "\t\t\t\t</tr>\n";
+
 			include "../php/magic/showtime-form.php";
+
+			echo "\t\t\t\t<tr>\n";
+			echo "\t\t\t<td><br><input type='submit' name='btnAddShowtime' value='Add New Showtime' tabindex='".$tabIndex++."'></td>\n";
+			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t</table>\n";
 
-			echo "\t\t\t<br><input type='submit' name='btnUpdateMovie' value='Update Movie' tabindex='".$tabIndex++."'><br>\n";
+			//print existing showtimes
 
 			?>
 		</form>
