@@ -1,8 +1,4 @@
 <?php
-echo "\t\t\t\t<tr>\n";
-echo "\t\t\t\t\t<td><h2>Add Showtime</h2></td>\n";
-echo "\t\t\t\t</tr>\n";
-
 echo "\t\t\t\t<tr class='showtimeRow noAlign'>\n";
 echo "\t\t\t\t\t<td colspan='2'><label for='lstHour'>Hour </label>\n";
 echo "\t\t\t\t\t<select id='lstHour' name='lstHour' tabindex='".$tabIndex++."'";

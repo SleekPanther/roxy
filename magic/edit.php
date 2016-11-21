@@ -139,7 +139,9 @@ if(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime'])){
 		$thisDatabaseWriter->insert($query,$data,0);
 
 		//execute sql statements to add to database
-		include "../php/magic/showtime-sql.php";
+		$query="INSERT INTO tblShowtimes (fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension) VALUES (?,?,?,?,?,?,?)";
+		$data=array($currentMovieId,$showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension);
+		$thisDatabaseWriter->insert($query,$data,0);
 
 		$movieUpdated=true;
 	}
@@ -272,6 +274,10 @@ if ($errorMsg) {
 			echo "\t\t\t<td><br><input type='submit' name='btnUpdateMovie' value='Update Movie Info' tabindex='".$tabIndex++."'></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
+			echo "\t\t\t\t<tr>\n";
+			echo "\t\t\t\t\t<td><h2>Add Showtime</h2></td>\n";
+			echo "\t\t\t\t</tr>\n";
+			
 			include "../php/magic/showtime-form.php";
 
 			echo "\t\t\t\t<tr>\n";
@@ -306,9 +312,6 @@ if ($errorMsg) {
 			echo "\t\t\t<section class='showtimesListAdmin'>\n";
 			//loops week by week (fridays) starting @ the nearest friday to the oldest date, up until the nearest friday the newest showtime, increment by 7 days each iteration
 			for($friday=nearestDate("friday",$oldestShowtime[0][0]); $friday<=nearestDate("friday",$newestShowtime[0][0]); $friday=date('Y-m-d', strtotime($friday.' +7 days'))){
-				echo "\t\t\t<section>\n";
-				echo "\t\t\t\t<h4>Week: ".dateSqlToNice($friday)." (Friday to Thursday)</h4>\n";
-
 				//select showtimes in 1 week increments using BETWEEN & only showtimes for the current movie
 				$query="SELECT pmkShowtimeId, fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension FROM tblShowtimes WHERE ( fnkMovieId=? AND (fldShowtimePosts BETWEEN CAST(? AS DATE)  AND CAST(? AS DATE) ) ) ORDER BY fldShowtimePosts";
 				$nextThursday=date('Y-m-d', strtotime($friday.' +6 days'));		//plus 6 days so week is friday-thursday, not friday-friday (this would duplicate showtimes on fridays)
@@ -318,16 +321,22 @@ if ($errorMsg) {
 				// echo "<pre>";
 				// print_r($weekOfShowtimes);
 				// echo "</pre>";
+				if(!empty($weekOfShowtimes)){
+					echo "\t\t\t<section>\n";
+					echo "\t\t\t\t<h4>Week: ".dateSqlToNice($friday)." (Friday to Thursday)</h4>\n";
+				}
 
 
 				foreach($weekOfShowtimes as $oneShowtime){
 					echo "\t\t\t\t\t<section>\n";
 					echo "\t\t\t\t\t\t<p>".$oneShowtime['fldHour'].":".leadingZeros($oneShowtime['fldMinute'],2)." ".$oneShowtime['fldMeridian']." ".$oneShowtime['fldDimension']." (".dateSqlToNice($oneShowtime['fldShowtimePosts'])." to ".dateSqlToNice($oneShowtime['fldShowtimeExpires']).") ";
-					//edit link
+					echo "<a href='edit-showtime.php?showtimeId=".$oneShowtime['pmkShowtimeId']."&movieId=".$oneShowtime['fnkMovieId']."' class='buttonLink'>Edit Showtime</a>\n";
 					echo "<a href='delete-showtime.php?showtimeId=".$oneShowtime['pmkShowtimeId']."&movieId=".$oneShowtime['fnkMovieId']."' class='buttonLink'>Delete Showtime</a></p>\n";
 					echo "\t\t\t\t\t</section>\n";
 				}
-				echo "\t\t\t</section>\n";
+				if(!empty($weekOfShowtimes)){
+					echo "\t\t\t</section>\n";
+				}
 			}
 			echo "\t\t\t</section>\n";
 
