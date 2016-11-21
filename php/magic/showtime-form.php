@@ -15,7 +15,7 @@ echo "\t\t\t\t\t<label for='lstMinute'>Minute </label>\n";
 echo "\t\t\t\t\t<select id='lstMinute' name='lstMinute' tabindex='".$tabIndex++."'";
 if($showtimeMinuteError){echo " class='mistake' ";}
 echo ">\n";
-for($i=0; $i<=59; $i++){
+for($i=0; $i<=59; $i=$i+5){
 	$i=leadingZeros($i,2);		//add leading for 2 digits
 	echo "\t\t\t\t\t\t<option value='".$i."'";
 	if($showtimeMinute==$i){ echo ' selected '; }
