@@ -295,29 +295,41 @@ if ($errorMsg) {
 			// }
 
 			//get loop boundaries (olest & newest showtime)
-			$query="SELECT MIN(fldShowtimePosts) as oldestShowtime FROM tblShowtimes";
-			$oldestShowtime=$thisDatabaseReader->select($query,'',0);
+			$query="SELECT MIN(fldShowtimePosts) as oldestShowtime FROM tblShowtimes WHERE fnkMovieId=?";
+			$data=array($currentMovieId);
+			$oldestShowtime=$thisDatabaseReader->select($query,$data,1);
 
-			$query="SELECT MAX(fldShowtimePosts) as newestShowtime FROM tblShowtimes";
-			$newestShowtime=$thisDatabaseReader->select($query,'',0);
+			$query="SELECT MAX(fldShowtimePosts) as newestShowtime FROM tblShowtimes WHERE fnkMovieId=?";
+			$newestShowtime=$thisDatabaseReader->select($query,$data,1);	//uses same $data array
 
+			echo "\t\t\t<h3>Current Showtimes</h3>\n";
+			echo "\t\t\t<section class='showtimesListAdmin'>\n";
 			//loops week by week (fridays) starting @ the nearest friday to the oldest date, up until the nearest friday the newest showtime, increment by 7 days each iteration
 			for($friday=nearestDate("friday",$oldestShowtime[0][0]); $friday<=nearestDate("friday",$newestShowtime[0][0]); $friday=date('Y-m-d', strtotime($friday.' +7 days'))){
+				echo "\t\t\t<section>\n";
+				echo "\t\t\t\t<h4>Week: ".dateSqlToNice($friday)." (Friday to Thursday)</h4>\n";
+
+				//select showtimes in 1 week increments using BETWEEN & only showtimes for the current movie
 				$query="SELECT pmkShowtimeId, fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension FROM tblShowtimes WHERE ( fnkMovieId=? AND (fldShowtimePosts BETWEEN CAST(? AS DATE)  AND CAST(? AS DATE) ) ) ORDER BY fldShowtimePosts";
-				$nextFriday=date('Y-m-d', strtotime($friday.' +7 days'));
-				$data=array($currentMovieId,$friday,$nextFriday);
+				$nextThursday=date('Y-m-d', strtotime($friday.' +6 days'));		//plus 6 days so week is friday-thursday, not friday-friday (this would duplicate showtimes on fridays)
+				$data=array($currentMovieId,$friday,$nextThursday);
 				$weekOfShowtimes=$thisDatabaseReader->select($query,$data,1,3);
 
-				echo "<pre>";
-				print_r($weekOfShowtimes);
-				echo "</pre>";
+				// echo "<pre>";
+				// print_r($weekOfShowtimes);
+				// echo "</pre>";
 
-				if(!empty($weekOfShowtimes)){	//only print showtime info if there are showtimes that week
-					foreach($weekOfShowtimes as $oneShowtime){
-						print_r($oneShowtime);
-					}
+
+				foreach($weekOfShowtimes as $oneShowtime){
+					echo "\t\t\t\t\t<summary>\n";
+					echo "\t\t\t\t\t\t<p>".$oneShowtime['fldHour'].":".leadingZeros($oneShowtime['fldMinute'],2)." ".$oneShowtime['fldMeridian']." ".$oneShowtime['fldDimension']." (".dateSqlToNice($oneShowtime['fldShowtimePosts'])." to ".dateSqlToNice($oneShowtime['fldShowtimeExpires']).")</p>\n";
+					// print_r($oneShowtime);
+					//delete link & edit lnk
+					echo "\t\t\t\t\t</summary>\n";
 				}
+				echo "\t\t\t</section>\n";
 			}
+			echo "\t\t\t</section>\n";
 
 			
 
