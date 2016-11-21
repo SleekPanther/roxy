@@ -4,6 +4,8 @@ include	"../php/top.php";
 
 $tabIndex=1;		//print on every form input element & increment
 
+$movieUpdated=false;	//changed to true if they click submit so that a success message is added
+
 if (!isset($_GET['pmkMovieId'])){
 	header('Location: index.php');	//redirect to homepage if they accidentally clicked this page & GET isn't set
 }
@@ -116,12 +118,11 @@ if(isset($_POST['btnUpdateMovie'])){
 		}
 		
 
-		// //only insert into table if they selected a radio button image filename
-		// if($poster !='none'){
-		// 	$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename) VALUES (?,?)";
-		// 	$data=array($lastMovieId,$poster);
-		// 	$thisDatabaseWriter->insert($query,$data,0);
-		// }
+		$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename) VALUES (?,?) ON DUPLICATE KEY UPDATE fldImgFilename=?";
+		$data=array($currentMovieId,$poster,$poster);
+		$thisDatabaseWriter->insert($query,$data,0);
+
+		$movieUpdated=true;
 	}
 }
 
@@ -140,6 +141,10 @@ if ($errorMsg) {
 		<h1>Edit Movie Info (admin)</h1>
 		<form action="<?php echo PHP_SELF.'?pmkMovieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
+			if($movieUpdated){
+				echo "<p class='movieUpdated'>Movie Successfully updated!</p>";
+			}
+
 			echo "<table>\n";
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtMovieTitle'>Title</label></td>\n";
@@ -211,22 +216,24 @@ if ($errorMsg) {
 				$pictures[]=$onePic['fldImgFilename'];
 			}
 
-
-			//current image (if set) print row here
+			//Print the currently selected image (this basically puts 'checked' )
 			if($poster !='none'){
+				//print the option to select NO IMAGE
 				echo "\t\t\t\t<tr>\n";
-				echo "<td><label for='radImg-".$poster."'><strong>".$poster." CURRENT: </strong></label> <a href='".$imageFolderPath.$poster."' target='_blank'>View Image (new tab)</a></td>\n";
-				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$poster."' value='".$poster."' ";
-				// if($poster==$image){echo ' checked ';}
-				echo " checked ></td>\n";
+				echo "<td><label for='radImg-none'>No Image</label></td>\n";
+				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' ></td>\n";
+				echo "\t\t\t\t</tr>\n";
+
+				// Print the actual image from the database
+				echo "\t\t\t\t<tr>\n";
+				echo "<td><label for='radImg-".$poster."'><strong>".$poster." (CURRENT)</strong></label> <a href='".$imageFolderPath.$poster."' target='_blank'>View Image (new tab)</a></td>\n";
+				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$poster."' value='".$poster."' checked ";
 				echo "\t\t\t\t</tr>\n";
 			}
-			else{		//else print no image
+			else{		//else print no image. Similar to above, but this time it's current
 				echo "\t\t\t\t<tr>\n";
-				echo "<td><label for='radImg-none'><strong>CURRENT: No Image</strong></label></td>\n";
-				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' ";
-				if($poster=='none'){echo ' checked ';}
-				echo "></td>\n";
+				echo "<td><label for='radImg-none'><strong>No Image (CURRENT)</strong></label></td>\n";
+				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' checked ></td>\n";
 				echo "\t\t\t\t</tr>\n";
 			}
 
@@ -235,7 +242,6 @@ if ($errorMsg) {
 					echo "\t\t\t\t<tr>\n";
 					echo "<td><label for='radImg-".$image."'>".$image."</label> <a href='".$imageFolderPath.$image."' target='_blank'>View Image (new tab)</a></td>\n";
 					echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$image."' value='".$image."' ";
-					if($poster==$image){echo ' checked ';}
 					echo "></td>\n";
 					echo "\t\t\t\t</tr>\n";
 				}
