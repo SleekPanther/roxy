@@ -23,6 +23,9 @@ if(empty($movieInfo)){			//redirect them again if the movie doesn't exist
 	header('Location: index.php');
 }
 
+//query reviews table
+//query the showtimes table
+
 // echo "<pre>";
 // print_r($movieInfo);
 // echo "</pre>";
@@ -45,6 +48,8 @@ if($movieInfo[0]['fldImgFilename'] == NULL){	//if no image is selected, then sto
 	$poster=$movieInfo[0]['fldImgFilename'];
 }
 
+include '../php/magic/showtime-variables.php';	//initialize variables in separate file
+
 
 $titleError=false;		//error variables for form input validation
 $runtimeError=false;
@@ -53,6 +58,7 @@ $releaseDateError=false;
 $displayError=false;
 $directorError=false;
 $synopsisError=false;
+//showtime error variables innitialized in showtime-variables.php
 
 $errorMsg=array();
 
@@ -110,6 +116,10 @@ if(isset($_POST['btnUpdateMovie'])){
 		}
 	}
 
+
+	include '../php/magic/showtime-validation.php';
+	
+
 	if(!$errorMsg){
 		$query="UPDATE tblMovies SET fldTitle=?, fldRuntime=?, fldRating=?, fldReleaseDate=?, fldDisplay=?, fldDirector=? WHERE pmkMovieId LIKE ?";
 		$data=array($title,$runtime,$rating,$releaseDate,$display,$director,$currentMovieId);
@@ -131,6 +141,10 @@ if(isset($_POST['btnUpdateMovie'])){
 		$data=array($currentMovieId,$poster,$poster);
 		$thisDatabaseWriter->insert($query,$data,0);
 
+		// $query="INSERT INTO tblShowtimes (fnkMovieId, fldHour, fldMinute, fldShowtimePosts, fldShowtimeExpires, fldDimension) VALUES (?,?,?,?,?,?)";
+		// $data=array();
+		// $thisDatabaseWriter->insert($query,$data,0);
+
 		$movieUpdated=true;
 	}
 }
@@ -147,7 +161,7 @@ if ($errorMsg) {
 }
 ?>
 	<article>
-		<h1>Edit Movie Info (admin)</h1>
+		<h1>Edit Movie Info (admin) <br>dropdown to switch btwen movies</h1>
 		<p><a href="index.php">Return to all movies list (edit another movie)</a></p>
 		<form action="<?php echo PHP_SELF.'?pmkMovieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
@@ -231,19 +245,19 @@ if ($errorMsg) {
 			if($poster !='none'){
 				//print the option to select NO IMAGE
 				echo "\t\t\t\t<tr>\n";
-				echo "<td><label for='radImg-none'>No Image</label></td>\n";
+				echo "\t\t\t\t\t<td><label for='radImg-none'>No Image</label></td>\n";
 				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' ></td>\n";
 				echo "\t\t\t\t</tr>\n";
 
 				// Print the actual image from the database
 				echo "\t\t\t\t<tr>\n";
-				echo "<td><label for='radImg-".$poster."'><strong>".$poster." (CURRENT)</strong></label> <a href='".$imageFolderPath.$poster."' target='_blank'>View Image (new tab)</a></td>\n";
-				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$poster."' value='".$poster."' checked ";
+				echo "\t\t\t\t\t<td><label for='radImg-".$poster."'><strong>".$poster." (CURRENT)</strong></label> <a href='".$imageFolderPath.$poster."' target='_blank'>View Image (new tab)</a></td>\n";
+				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$poster."' value='".$poster."' checked >";
 				echo "\t\t\t\t</tr>\n";
 			}
 			else{		//else print no image. Similar to above, but this time it's current
 				echo "\t\t\t\t<tr>\n";
-				echo "<td><label for='radImg-none'><strong>No Image (CURRENT)</strong></label></td>\n";
+				echo "\t\t\t\t\t<td><label for='radImg-none'><strong>No Image (CURRENT)</strong></label></td>\n";
 				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' checked ></td>\n";
 				echo "\t\t\t\t</tr>\n";
 			}
@@ -251,12 +265,14 @@ if ($errorMsg) {
 			foreach($imageList as $image){		//iterate through all possible files in folder (called @ start of this file)
 				if(!in_array($image, $pictures)){	//only print picture if it's NOT already in the database
 					echo "\t\t\t\t<tr>\n";
-					echo "<td><label for='radImg-".$image."'>".$image."</label> <a href='".$imageFolderPath.$image."' target='_blank'>View Image (new tab)</a></td>\n";
+					echo "\t\t\t\t\t<td><label for='radImg-".$image."'>".$image."</label> <a href='".$imageFolderPath.$image."' target='_blank'>View Image (new tab)</a></td>\n";
 					echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$image."' value='".$image."' ";
 					echo "></td>\n";
 					echo "\t\t\t\t</tr>\n";
 				}
 			}
+
+			include "../php/magic/showtime-form.php";
 
 			echo "\t\t\t</table>\n";
 
