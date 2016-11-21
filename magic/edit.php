@@ -65,7 +65,26 @@ $errorMsg=array();
 $ratings=array("G","PG","PG-13","R","Not Rated","NC-17");	//only valid options for MPAA ratings listbox
 $displayOptions=array('Hidden', 'Current', 'Coming Soon');		//only valid options 4 display listbox
 
-if(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime'])){
+if(isset($_POST['btnChooseMovie'])){
+	// echo "<pre>";
+	// print_r($_POST);
+	// echo "</pre>";
+	$currentMovieId=htmlentities($_POST['lstChooseMovie'], ENT_QUOTES, "UTF-8");
+
+	$query="SELECT pmkMovieId FROM tblMovies WHERE pmkMovieId=?";
+	$data=array($currentMovieId);
+	$newMovie=$thisDatabaseReader->select($query,$data,1);
+
+	if(empty($newMovie)){
+		$errorMsg[]='"Choose Movie" dropdown has Invalid Movie Id';
+		$currentMovieIdError=true;
+	}
+
+	if(!$errorMsg){		//switch the movie selected using a redirect
+		header('Location: edit.php?movieId='.$currentMovieId);
+	}
+}
+elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) ){
 	$title=htmlentities($_POST['txtMovieTitle'], ENT_QUOTES, "UTF-8");
 	$runtime=htmlentities($_POST['txtRuntime'], ENT_QUOTES, "UTF-8");
 	$rating=htmlentities($_POST['lstRating'], ENT_QUOTES, "UTF-8");
@@ -146,25 +165,8 @@ if(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime'])){
 		$movieUpdated=true;
 	}
 }
-
-if(isset($_POST['btnChooseMovie'])){
-	// echo "<pre>";
-	// print_r($_POST);
-	// echo "</pre>";
-	$currentMovieId=htmlentities($_POST['lstChooseMovie'], ENT_QUOTES, "UTF-8");
-
-	$query="SELECT pmkMovieId FROM tblMovies WHERE pmkMovieId=?";
-	$data=array($currentMovieId);
-	$newMovie=$thisDatabaseReader->select($query,$data,1);
-
-	if(empty($newMovie)){
-		$errorMsg[]='"Choose Movie" dropdown has Invalid Movie Id';
-		$currentMovieIdError=true;
-	}
-
-	if(!$errorMsg){		//switch the movie selected using a redirect
-		header('Location: edit.php?movieId='.$currentMovieId);
-	}
+elseif(isset($_POST['btnDeleteMovie'])){
+	header('Location: delete-movie.php?movieId='.$currentMovieId);
 }
 
 if ($errorMsg) {
@@ -303,7 +305,9 @@ if ($errorMsg) {
 			}
 
 			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t<td><br><input type='submit' name='btnUpdateMovie' value='Update Movie Info' tabindex='".$tabIndex++."'></td>\n";
+			echo "\t\t\t<td><br><input type='submit' name='btnUpdateMovie' value='Update Movie Info' tabindex='".$tabIndex++."'></td>";
+			echo "<td><br><input type='submit' name='btnDeleteMovie' value='Delete Movie' tabindex='".$tabIndex++."'>";
+			echo "</td>\n";
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t\t<tr>\n";
