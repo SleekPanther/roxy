@@ -30,6 +30,7 @@ $_SESSION['poster']='none';
 $titleError=false;		//error variables for form input validation
 $runtimeError=false;
 $ratingError=false;
+$releaseDateError=false;
 $displayError=false;
 $directorError=false;
 $synopsisError=false;
@@ -68,7 +69,15 @@ if(isset($_POST['btnAddMovie'])){
 		$runtimeError=true;
 	}
 
-	//skip rating & visibility validation since listboxes almost impossible to "hack". Date practially impossible since type='date'
+	//skip rating & visibility validation since listboxes almost impossible to "hack".
+
+	if($_SESSION['releaseDate']==''){
+		$errorMsg[]='Release Date cannot be empty';
+		$releaseDateError=true;
+	}elseif(!validateSqlDate($_SESSION['releaseDate'])){
+		$errorMsg[]='Release Date must be in the form YYYY-MM-DD (January 15, 2016 is 2016-15-01)';
+		$releaseDateError=true;
+	}
 
 	if(!verifyAlphaNum($_SESSION['director'])){
 		$errorMsg[]="Director text cannot have special characters";
@@ -157,7 +166,7 @@ if ($errorMsg) {
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td><label for='datReleateDate'>Release Date</label></td>\n";
+			echo "\t\t\t\t\t<td><label for='datReleateDate'>Release Date (YYYY-MM-DD)</label></td>\n";
 			echo "\t\t\t\t\t<td><input type='date' name='datReleaseDate' id='datReleateDate' tabindex='".$tabIndex++."' value='".$_SESSION['releaseDate']."'";
 			echo "></td>\n";
 			echo "\t\t\t\t</tr>\n";
