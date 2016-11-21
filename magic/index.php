@@ -253,7 +253,7 @@ if ($errorMsg) {
 					echo "\t\t\t\t\t<p>Director: ".$movie['fldDirector']."</p>\n";
 					echo "\t\t\t\t\t<p>Synopsis:<br> ".$movie['fldSynopsis']."</p>\n";
 
-					echo "\t\t\t\t\t<a class='specialButtonLink' href='edit.php?pmkMovieId=".$movie['pmkMovieId']."'>Edit Info</a> (add showtimes & reviews)\n";
+					echo "\t\t\t\t\t<a class='specialButtonLink' href='edit.php?movieId=".$movie['pmkMovieId']."'>Edit Info</a> (add showtimes & reviews)\n";
 					echo "\t\t\t\t</article >\n";
 				}
 				echo "\t\t\t</section>\n";

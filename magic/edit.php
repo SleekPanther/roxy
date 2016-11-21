@@ -6,10 +6,10 @@ $tabIndex=1;		//print on every form input element & increment
 
 $movieUpdated=false;	//changed to true if they click submit so that a success message is added
 
-if (!isset($_GET['pmkMovieId'])){
+if (!isset($_GET['movieId'])){
 	header('Location: index.php');	//redirect to homepage if they accidentally clicked this page & GET isn't set
 }
-$currentMovieId=htmlentities($_GET['pmkMovieId'], ENT_QUOTES, "UTF-8");		//sanitize value from GET array
+$currentMovieId=htmlentities($_GET['movieId'], ENT_QUOTES, "UTF-8");		//sanitize value from GET array
 
 $query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
 fldSynopsis,
@@ -159,7 +159,7 @@ if ($errorMsg) {
 	<article>
 		<h1>Edit Movie Info (admin) <br>dropdown to switch btwen movies</h1>
 		<p><a href="index.php">Return to all movies list (edit another movie)</a></p>
-		<form action="<?php echo PHP_SELF.'?pmkMovieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
+		<form action="<?php echo PHP_SELF.'?movieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
 			if($movieUpdated){
 				echo "<p class='movieUpdated'>Movie Successfully updated!</p>";
@@ -321,11 +321,11 @@ if ($errorMsg) {
 
 
 				foreach($weekOfShowtimes as $oneShowtime){
-					echo "\t\t\t\t\t<summary>\n";
-					echo "\t\t\t\t\t\t<p>".$oneShowtime['fldHour'].":".leadingZeros($oneShowtime['fldMinute'],2)." ".$oneShowtime['fldMeridian']." ".$oneShowtime['fldDimension']." (".dateSqlToNice($oneShowtime['fldShowtimePosts'])." to ".dateSqlToNice($oneShowtime['fldShowtimeExpires']).")</p>\n";
-					// print_r($oneShowtime);
-					//delete link & edit lnk
-					echo "\t\t\t\t\t</summary>\n";
+					echo "\t\t\t\t\t<section>\n";
+					echo "\t\t\t\t\t\t<p>".$oneShowtime['fldHour'].":".leadingZeros($oneShowtime['fldMinute'],2)." ".$oneShowtime['fldMeridian']." ".$oneShowtime['fldDimension']." (".dateSqlToNice($oneShowtime['fldShowtimePosts'])." to ".dateSqlToNice($oneShowtime['fldShowtimeExpires']).") ";
+					//edit link
+					echo "<a href='delete-showtime.php?showtimeId=".$oneShowtime['pmkShowtimeId']."&movieId=".$oneShowtime['fnkMovieId']."' class='buttonLink'>Delete Showtime</a></p>\n";
+					echo "\t\t\t\t\t</section>\n";
 				}
 				echo "\t\t\t</section>\n";
 			}

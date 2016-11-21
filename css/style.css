@@ -9,6 +9,15 @@ nav a {
 	background: lightblue;
 	margin: 0;
 }
+.buttonLink{	/* for special anchor tags to make them look like buttons */
+	display: inline-block;
+	background:blue;
+	color: white;
+	border-radius: .5em;
+}
+.buttonLink:hover, .buttonLink:focus {
+    box-shadow: black 1px 1px 5px;
+}
 
 .mistake{
 	background: red;
@@ -73,5 +82,5 @@ input[type='date'] {	/* target all date input fields to have the same width */
 }
 
 .showtimesListAdmin{
-	
+
 }
