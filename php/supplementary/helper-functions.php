@@ -7,6 +7,14 @@ function dateSqlToNice($inputdate){
 	return date('l F d, Y', $dateInSeconds);
 }
 
+//add leading zeros for number less than 10
+function leadingZeros($inputNumber,$desiredNumberOfDigits){
+    if($inputNumber<pow(10,($desiredNumberOfDigits-1)) ){   //when 10^(n-1)
+        return sprintf("%0".$desiredNumberOfDigits."d",$inputNumber);
+    }
+    return $inputNumber;
+}
+
 //find nearest date given a dat & date (e.g. find nearest friday looks ahead & to previous to find closest)
 function nearestDate($day, $date){
     //$last=date("Y-m-d", strtotime("last $day", strtotime($date)) );
