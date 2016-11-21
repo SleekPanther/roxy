@@ -148,6 +148,7 @@ if ($errorMsg) {
 ?>
 	<article>
 		<h1>Edit Movie Info (admin)</h1>
+		<p><a href="index.php">Return to all movies list (edit another movie)</a></p>
 		<form action="<?php echo PHP_SELF.'?pmkMovieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
 			if($movieUpdated){
