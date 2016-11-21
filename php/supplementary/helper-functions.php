@@ -7,10 +7,36 @@ function dateSqlToNice($inputdate){
 	return date('l F d, Y', $dateInSeconds);
 }
 
+//find nearest date given a dat & date (e.g. find nearest friday looks ahead & to previous to find closest)
+function nearestDate($day, $date){
+    //$last=date("Y-m-d", strtotime("last $day", strtotime($date)) );
+    //$nextOrThis=date("Y-m-d", strtotime("this $day", strtotime($date)) );
+    
+    $last=strtotime("last $day", strtotime($date));         //previous week
+    $nextOrThis=strtotime("this $day", strtotime($date));   //look forward (gives current if it matches the current day)
+    
+    //Subtract to find magnitude of the distance between the input date & the next & previous day. Returns the correct value (the closer date)
+    if( (strtotime($date) - $last) < ($nextOrThis - strtotime($date)) ){
+        return date("Y-m-d", $last);
+    }
+    return date("Y-m-d", $nextOrThis);
+    
+    //return strtotime($date) - $last;
+    
+    //return $nextOrThis - strtotime($date);
+    
+    
+    //return date('d', strtotime($nextOrThis) - strtotime($last) );
+    
+    //return $nextOrThis. " :: " .$last;
+}
+
 //convert total minutes to hours & minutes
-function runtimeToHours($minutes){
-	$hrMinArray=array();	//size=2. 0th index=hours, 1st index=minutes
-	return $hrMinArray;
+function runtimeToHoursMinutes($minutes){
+    $hrMinArray=array();    //size=2. 0th index=hours, 1st index=minutes
+    $hrMinArray[0]=floor($minutes/60);
+    $hrMinArray[1]=$minutes%60;
+    return $hrMinArray;
 }
 
 //Pass in a folder & get a list of files in that folder (including extension)
