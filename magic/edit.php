@@ -277,7 +277,7 @@ if ($errorMsg) {
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><h2>Add Showtime</h2></td>\n";
 			echo "\t\t\t\t</tr>\n";
-			
+
 			include "../php/magic/showtime-form.php";
 
 			echo "\t\t\t\t<tr>\n";
@@ -285,20 +285,6 @@ if ($errorMsg) {
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t</table>\n";
-
-			//print existing showtimes
-			// $query="SELECT pmkShowtimeId, fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension FROM tblShowtimes WHERE fnkMovieId=? ORDER BY fldShowtimePosts"
-			// $data=array($currentMovieId);
-			// $allShowtimes=$thisDatabaseReader->select($query,$data,1,1);
-
-			//get unique list of weeks
-			// $query="SELECT DISTINCT WEEK(fldShowtimePosts) as fldWeekNumber FROM tblShowtimes WHERE fnkMovieId=? ORDER BY fldWeekNumber";
-			// $date=array($currentMovieId);
-			// $weekNumbers=$thisDatabaseReader->select($query,$data,1);
-
-			// foreach($weekNumbers as $weekNum){
-
-			// }
 
 			//get loop boundaries (olest & newest showtime)
 			$query="SELECT MIN(fldShowtimePosts) as oldestShowtime FROM tblShowtimes WHERE fnkMovieId=?";

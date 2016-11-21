@@ -40,10 +40,6 @@ $showtimeDimension=$showtimeInfo[0]['fldDimension'];
 if(isset($_POST['btnUpdateShowtime'])){
 	include "../php/magic/showtime-validation.php";
 
-	echo "<pre>";
-	print_r($_POST);
-	echo "</pre>";
-
 	$query="UPDATE tblShowtimes SET fldHour=?, fldMinute=?, fldMeridian=?, fldShowtimePosts=?, fldShowtimeExpires=?, fldDimension=? WHERE pmkShowtimeId=?";
 	$data=array($showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension,$showtimeInfo[0]['pmkShowtimeId']);
 	$thisDatabaseWriter->insert($query,$data,1);
