@@ -12,8 +12,8 @@ if (!isset($_GET['movieId'])){
 $currentMovieId=htmlentities($_GET['movieId'], ENT_QUOTES, "UTF-8");		//sanitize value from GET array
 $currentMovieIdError=false;
 
-$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector FROM tblMovies";
-$moviesDropdownList=$thisDatabaseReader->select($query,'',0);
+$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector FROM tblMovies ORDER BY fldReleaseDate";
+$moviesDropdownList=$thisDatabaseReader->select($query,'',0,1);
 
 $query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
 fldSynopsis,

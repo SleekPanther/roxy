@@ -20,7 +20,7 @@ $showtimeInfo=$thisDatabaseReader->select($query,$data,1);
 if(empty($showtimeInfo)){		//redirect if showtime doesn't exist
 	header('Location: index.php');	
 }else{	//query movies table & redirect if movie doesn't exist
-	$query="SELECT * FROM tblMovies WHERE pmkMovieId=?";
+	$query="SELECT pmkMovieId FROM tblMovies WHERE pmkMovieId=?";
 	$data=array($currentMovieId);
 	$movieInfo=$thisDatabaseReader->select($query,$data,1);
 	if(empty($movieInfo)){
@@ -41,7 +41,7 @@ $tabIndex=1;		//print on every form input element & increment
 ?>		
 	<article>
 		<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId."'";?>' method='post'>
-			<h2>Delte Confirmation</h2>
+			<h2>Delte Showtime Confirmation</h2>
 			<h3>Are you sure you want to delete the showtime with the following information?</h3>
 			<?php
 			foreach($showtimeInfo as $oneShowtime){
