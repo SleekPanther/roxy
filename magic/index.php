@@ -168,6 +168,7 @@ if ($errorMsg) {
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='datReleateDate'>Release Date (YYYY-MM-DD)</label></td>\n";
 			echo "\t\t\t\t\t<td><input type='date' name='datReleaseDate' id='datReleateDate' tabindex='".$tabIndex++."' value='".$_SESSION['releaseDate']."'";
+			if($releaseDateError){echo " class='mistake' ";}
 			echo "></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
