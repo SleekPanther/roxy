@@ -141,9 +141,8 @@ if(isset($_POST['btnUpdateMovie'])){
 		$data=array($currentMovieId,$poster,$poster);
 		$thisDatabaseWriter->insert($query,$data,0);
 
-		// $query="INSERT INTO tblShowtimes (fnkMovieId, fldHour, fldMinute, fldShowtimePosts, fldShowtimeExpires, fldDimension) VALUES (?,?,?,?,?,?)";
-		// $data=array();
-		// $thisDatabaseWriter->insert($query,$data,0);
+		//execute sql statements to add to database
+		include "../php/magic/showtime-sql.php";
 
 		$movieUpdated=true;
 	}
