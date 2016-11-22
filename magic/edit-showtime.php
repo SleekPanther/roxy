@@ -31,12 +31,14 @@ $showtimeDimension=$showtimeInfo[0]['fldDimension'];
 if(isset($_POST['btnUpdateShowtime'])){
 	include "../php/magic/showtime-validation.php";
 
-	$query="UPDATE tblShowtimes SET fldHour=?, fldMinute=?, fldMeridian=?, fldShowtimePosts=?, fldShowtimeExpires=?, fldDimension=? WHERE pmkShowtimeId=?";
-	$data=array($showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension,$showtimeInfo[0]['pmkShowtimeId']);
-	$thisDatabaseWriter->insert($query,$data,1);
+	if(!$errorMsg){
+		$query="UPDATE tblShowtimes SET fldHour=?, fldMinute=?, fldMeridian=?, fldShowtimePosts=?, fldShowtimeExpires=?, fldDimension=? WHERE pmkShowtimeId=?";
+		$data=array($showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension,$showtimeInfo[0]['pmkShowtimeId']);
+		$thisDatabaseWriter->insert($query,$data,1);
 
-	$_SESSION['whatJustHappened']='Showtime Updated';
-	header('Location: edit.php?movieId='.$currentMovieId);
+		$_SESSION['whatJustHappened']='Showtime Updated';
+		header('Location: edit.php?movieId='.$currentMovieId);
+	}
 }elseif(isset($_POST['btnCancel'])){
 	$_SESSION['whatJustHappened']='Canceled Updating Showtime';
 	header('Location: edit.php?movieId='.$currentMovieId);
@@ -46,6 +48,18 @@ $tabIndex=1;		//print on every form input element & increment
 
 ?>		
 	<article>
+	<?php
+	if ($errorMsg) {
+		echo "<div id='errors'>\n";
+		echo "<h1>Your form has the following mistakes</h1>\n";
+		echo "<ol>\n";
+		foreach ($errorMsg as $err) {
+			echo "<li>" .$err . "</li>\n";
+		}
+		echo "</ol>\n";
+		echo "</div>\n";
+	}
+	?>
 		<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId."'";?>' method='post'>
 			<?php
 			echo "\t\t\t<table>\n";
