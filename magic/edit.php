@@ -328,7 +328,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td><h2>Add Review</h2></td>\n";
+			echo "\t\t\t\t\t<td><h2>Add Review (optional)</h2></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
 			include '../php/magic/review-form.php';

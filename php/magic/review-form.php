@@ -20,7 +20,7 @@ echo "\t\t\t\t</tr>\n";
 
 echo "\t\t\t\t<tr>\n";
 echo "\t\t\t\t\t<td colspan='2'><label for='txtReview'></label>\n";
-echo "\t\t\t\t\t<textarea name='txtReview' id='txtReview' tabindex='".$tabIndex++."' placeholder='Review is Optional' ";
+echo "\t\t\t\t\t<textarea name='txtReview' id='txtReview' tabindex='".$tabIndex++."' placeholder='Review text goes here' ";
 if($reviewError){echo " class='mistake' ";}
 echo ">".$_SESSION['review']."</textarea>\n";
 echo "\t\t\t\t\t</td>\n";

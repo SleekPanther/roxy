@@ -123,19 +123,20 @@ if(isset($_POST['btnAddMovie'])){
 		header('Location: edit.php?movieId='.$lastMovieId);		//redirect to Edit page
 	}
 }
-
-if ($errorMsg) {
-	echo "<div id='errors'>\n";
-	echo "<h1>Your form has the following mistakes</h1>\n";
-	echo "<ol>\n";
-	foreach ($errorMsg as $err) {
-		echo "<li>" .$err . "</li>\n";
-	}
-	echo "</ol>\n";
-	echo "</div>\n";
-}
 ?>
 	<article>
+	<?php
+	if ($errorMsg) {
+		echo "<div id='errors'>\n";
+		echo "<h1>Your form has the following mistakes</h1>\n";
+		echo "<ol>\n";
+		foreach ($errorMsg as $err) {
+			echo "<li>" .$err . "</li>\n";
+		}
+		echo "</ol>\n";
+		echo "</div>\n";
+	}
+	?>
 		<h1>Add Movie (admin)</h1>
 		<form action="<?php echo PHP_SELF;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
