@@ -73,5 +73,9 @@ else{
     print '<body id="' . $PATH_PARTS['filename'] . '">';
 }
 include "header.php";
-include "nav.php";
+if($parentFolder=='magic'){
+    include "nav-magic.php";
+}else{
+    include "nav.php";
+}
 ?>
