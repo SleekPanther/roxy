@@ -1,5 +1,5 @@
 <?php
-$showtimeHour=1;
+$showtimeHour=6;
 $showtimeMinute=05;
 $showtimeMeridian="PM";
 $showtimePosts=date('Y-m-d', strtotime('this friday'));
