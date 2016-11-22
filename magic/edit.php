@@ -43,6 +43,8 @@ if($movieInfo[0]['fldImgFilename'] == NULL){	//if no image is selected, then sto
 	$poster=$movieInfo[0]['fldImgFilename'];
 }
 
+include '../php/magic/review-variables.php';
+
 include '../php/magic/showtime-variables.php';	//initialize variables in separate file
 
 
@@ -79,7 +81,7 @@ if(isset($_POST['btnChooseMovie'])){
 		header('Location: edit.php?movieId='.$currentMovieId);
 	}
 }
-elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) ){
+elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || isset($_POST['btnAddReview'])){
 	$title=htmlentities($_POST['txtMovieTitle'], ENT_QUOTES, "UTF-8");
 	$runtime=htmlentities($_POST['txtRuntime'], ENT_QUOTES, "UTF-8");
 	$rating=htmlentities($_POST['lstRating'], ENT_QUOTES, "UTF-8");
@@ -127,6 +129,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) ){
 		}
 	}
 
+	include '../php/magic/review-validation.php';
 
 	include '../php/magic/showtime-validation.php';
 	
@@ -142,7 +145,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) ){
 				$data=array($currentMovieId,$synopsis,$synopsis);
 				$thisDatabaseWriter->insert($query,$data,0);
 			}
-			else{	//else delete empty entries. This technically attempts to remove even if not in databse, but doesn't matter & is mainly for when they already havea description, but then clear the textarea (avoid leaving empty synopses left in table)
+			else{	//else delete empty entries. This technically attempts to remove even if not in databse, but doesn't matter & is mainly for when they already have a description, but then clear the textarea (This avoids leaving empty synopses left in table)
 				$query="DELETE FROM tblSynopses WHERE fnkMovieId LIKE ?";
 				$data=array($currentMovieId);
 				$thisDatabaseWriter->insert($query,$data,1);
@@ -154,8 +157,14 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) ){
 			$thisDatabaseWriter->insert($query,$data,0);
 
 			$_SESSION['whatJustHappened']='Movie Info Updated';
-		}
-		elseif(isset($_POST['btnAddShowtime'])){
+		}elseif(isset($_POST['btnAddReview'])){
+			$query="INSERT INTO tblReviews (fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReview) VALUES (?,?,?,?,?)";
+			$data=array($currentMovieId,$reviewAuthor,$reviewDate,$reviewSource,$review);
+			$thisDatabaseWriter->testquery($query,$data,0);
+			$thisDatabaseWriter->insert($query,$data,0);
+
+			$_SESSION['whatJustHappened']='Review added';
+		}elseif(isset($_POST['btnAddShowtime'])){
 			$query="INSERT INTO tblShowtimes (fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension) VALUES (?,?,?,?,?,?,?)";
 			$data=array($currentMovieId,$showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension);
 			$thisDatabaseWriter->insert($query,$data,0);
@@ -208,7 +217,7 @@ if ($errorMsg) {
 			echo "\t\t\t\t\t<td><label for='txtMovieTitle'>Title</label></td>\n";
 			echo "\t\t\t\t\t<td><input type='text' name='txtMovieTitle' id='txtMovieTitle' tabindex='".$tabIndex++."' value='".$title."'";
 			if($titleError){echo " class='mistake' ";}
-			echo" autofocus></td>\n";
+			echo" ></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t\t<tr>\n";
@@ -311,6 +320,12 @@ if ($errorMsg) {
 			echo "<td><br><input type='submit' name='btnDeleteMovie' value='Delete Movie' tabindex='".$tabIndex++."'>";
 			echo "</td>\n";
 			echo "\t\t\t\t</tr>\n";
+
+			echo "\t\t\t\t<tr>\n";
+			echo "\t\t\t\t\t<td><h2>Add Review</h2></td>\n";
+			echo "\t\t\t\t</tr>\n";
+
+			include '../php/magic/review-form.php';
 
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><h2>Add Showtime</h2></td>\n";

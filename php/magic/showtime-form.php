@@ -61,6 +61,4 @@ echo "\t\t\t\t\t</select>\n";
 echo "\t\t\t\t\t</td>\n";
 echo "\t\t\t\t</tr>\n";
 
-echo "\t\t\t\t\n";
-
 ?>

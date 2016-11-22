@@ -48,6 +48,10 @@ textarea[name='txtSynopsis'] {
     width: 30em;
     height: 7em;
 }
+textarea[name='txtReview']{
+	width: 60em;
+	height:7em;
+}
 
 table {
 	border-collapse: collapse;
