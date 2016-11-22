@@ -350,7 +350,7 @@ if ($errorMsg) {
 					echo "\t\t\t\t<tr>\n";
 					echo "\t\t\t\t\t<td colspan='2'><details><summary>Expand/Collapse Review";
 					echo "";
-					echo "</summary>\n".$oneReview['fldReview']."</details><br></td>\n";
+					echo "</summary>\n<pre>".$oneReview['fldReview']."</pre></details><br></td>\n";
 					echo "\t\t\t\t</tr>\n";
 				}
 			}

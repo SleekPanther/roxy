@@ -25,7 +25,7 @@ if(($_SESSION['reviewSource']!='') && !verifyAlphaNum($_SESSION['reviewSource'])
 if($_SESSION['review']==''){
 	$errorMsg[]='Review cannot be empty';
 	$reviewError=true;
-}elseif(!verifyAlphaNum($_SESSION['review'])) {
+}elseif(!verifyAlphaNumNewline($_SESSION['review'])) {
 	$errorMsg[]='Review cannot have special characters';
 	$reviewError=true;
 }
