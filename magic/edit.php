@@ -203,7 +203,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			}
 
 			//get a list of all possible movies to edit. Must do after form validation, or it doesn't get the update title if they clicked "Update Movie Info"
-			$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector FROM tblMovies ORDER BY fldReleaseDate";
+			$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector FROM tblMovies ORDER BY fldReleaseDate DESC";
 			$moviesDropdownList=$thisDatabaseReader->select($query,'',0,1);
 			echo "<select name='lstChooseMovie' id='lstChooseMovie'";
 			if($currentMovieIdError){echo "class='mistake'";}
@@ -350,7 +350,8 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 					echo "\t\t\t\t\t<td colspan='2'>By ".$oneReview['fldAuthor'];
 					if(!empty($oneReview['fldReviewSource'])){ echo " <em>".$oneReview['fldReviewSource']."</em>";}
 					echo " (".$oneReview['fldReviewDate'].") ";
-					echo "<a class='buttonLink' href='edit-review.php?reviewId=".$oneReview['pmkReviewId']."&movieId=".$currentMovieId."'>Edit Review</a> </td>\n";
+					echo "<a class='buttonLink' href='edit-review.php?reviewId=".$oneReview['pmkReviewId']."&movieId=".$currentMovieId."'>Edit Review</a> \n";
+					echo "<a class='buttonLink' href='delete-review.php?reviewId=".$oneReview['pmkReviewId']."&movieId=".$currentMovieId."'>Delete Review</a></td>\n";
 					echo "\t\t\t\t</tr>\n";
 
 					echo "\t\t\t\t<tr>\n";
@@ -382,6 +383,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			$newestShowtime=$thisDatabaseReader->select($query,$data,1);	//uses same $data array
 
 			echo "\t\t\t<h3>Current Showtimes</h3>\n";
+			echo "\t\t\t<p>Showtimes are only displayed to the public during the specified date range. (No need to delete old ones, they will just be hidden)<br>Since 2D showings are most common the site only prints 3D if a showing is 3D (So it's important to know if a showtime is 2D or 3D, but you will never see 2D on the public site)</p>\n";
 			echo "\t\t\t<section class='showtimesListAdmin'>\n";
 			//loops week by week (fridays) starting @ the nearest friday to the oldest date, up until the nearest friday the newest showtime, increment by 7 days each iteration
 			for($friday=nearestDate("friday",$oldestShowtime[0][0]); $friday<=nearestDate("friday",$newestShowtime[0][0]); $friday=date('Y-m-d', strtotime($friday.' +7 days'))){

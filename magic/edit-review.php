@@ -53,7 +53,7 @@ $tabIndex=1;		//print on every form input element & increment
 
 ?>		
 	<article>
-		<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId."'";?>' method='post'>
+		<form name='frmEditReview' id='frmEditReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId."'";?>' method='post'>
 			<?php
 			echo "\t\t\t<table>\n";
 
