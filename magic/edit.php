@@ -332,6 +332,10 @@ if ($errorMsg) {
 
 			include '../php/magic/review-form.php';
 
+			echo "\t\t\t\t\t<tr>\n";
+			echo "\t\t\t\t<td><input type='submit' name='btnAddReview' id='btnAddReview' tabindex='".$tabIndex++."' value='Add Review'></td>\n";
+			echo "\t\t\t\t</tr>\n";
+
 			//get a list of reviews already in database
 			$query="SELECT pmkReviewId, fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReview FROM tblReviews WHERE fnkMovieId=? ORDER BY fldReviewDate, fldAuthor";
 			$data=array($currentMovieId);
@@ -344,7 +348,8 @@ if ($errorMsg) {
 					echo "\t\t\t\t<tr>\n";
 					echo "\t\t\t\t\t<td colspan='2'>By ".$oneReview['fldAuthor'];
 					if(!empty($oneReview['fldReviewSource'])){ echo " <em>".$oneReview['fldReviewSource']."</em>";}
-					echo " (".$oneReview['fldReviewDate'].")</td>\n";
+					echo " (".$oneReview['fldReviewDate'].") ";
+					echo "<a class='buttonLink' href='edit-review.php?reviewId=".$oneReview['pmkReviewId']."&movieId=".$currentMovieId."'>Edit Review</a> </td>\n";
 					echo "\t\t\t\t</tr>\n";
 
 					echo "\t\t\t\t<tr>\n";
@@ -385,9 +390,6 @@ if ($errorMsg) {
 				$data=array($currentMovieId,$friday,$nextThursday);
 				$weekOfShowtimes=$thisDatabaseReader->select($query,$data,1,3);
 
-				// echo "<pre>";
-				// print_r($weekOfShowtimes);
-				// echo "</pre>";
 				if(!empty($weekOfShowtimes)){
 					echo "\t\t\t<section>\n";
 					echo "\t\t\t\t<h4>Week: ".dateSqlToNice($friday)." (Friday to Thursday)</h4>\n";

@@ -2,8 +2,6 @@
 session_start();
 include	"../php/top.php";
 
-$currentMovieId=-1;
-$showtimeId=-1;		//initialize to bad number
 if (!( isset($_GET['showtimeId']) && isset($_GET['movieId']) )){
 	header('Location: index.php');	//redirect if they accidentally clicked this page & GET isn't set
 }

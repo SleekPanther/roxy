@@ -26,7 +26,4 @@ echo ">".$_SESSION['review']."</textarea>\n";
 echo "\t\t\t\t\t</td>\n";
 echo "\t\t\t\t</tr>\n";
 
-echo "\t\t\t\t\t<tr>\n";
-echo "\t\t\t\t<td><input type='submit' name='btnAddReview' id='btnAddReview' tabindex='".$tabIndex++."' value='Add Review'></td>\n";
-echo "\t\t\t\t</tr>\n";
 ?>
