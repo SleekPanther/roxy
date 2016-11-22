@@ -26,4 +26,8 @@ echo ">".$_SESSION['review']."</textarea>\n";
 echo "\t\t\t\t\t</td>\n";
 echo "\t\t\t\t</tr>\n";
 
+echo "\t\t\t\t<tr class='displayNone'>\n";	//extra 2-column row to to pass validation on pages edit pages that don't have columns below
+echo "\t\t\t\t\t<td></td><td></td>\n";
+echo "\t\t\t\t</tr>\n";
+
 ?>

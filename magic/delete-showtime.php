@@ -35,19 +35,7 @@ $tabIndex=1;		//print on every form input element & increment
 
 ?>		
 	<article>
-	<?php
-	if ($errorMsg) {
-		echo "<div id='errors'>\n";
-		echo "<h1>Your form has the following mistakes</h1>\n";
-		echo "<ol>\n";
-		foreach ($errorMsg as $err) {
-			echo "<li>" .$err . "</li>\n";
-		}
-		echo "</ol>\n";
-		echo "</div>\n";
-	}
-	?>
-		<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId."'";?>' method='post'>
+		<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId;?>' method='post'>
 			<h2>Delte Showtime Confirmation</h2>
 			<h3>Are you sure you want to delete the showtime with the following information?</h3>
 			<?php

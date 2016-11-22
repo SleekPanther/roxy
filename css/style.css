@@ -13,7 +13,9 @@ pre,textarea {
     font-family: "times new roman";
     margin: 0;
 }
-
+.displayNone{
+	display:none;
+}
 
 
 p {

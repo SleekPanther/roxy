@@ -20,6 +20,7 @@ if(empty($showtimeInfo)){		//redirect if showtime doesn't exist
 }
 
 include '../php/magic/showtime-variables.php';		//initialize variables
+$errorMsg=array();
 
 $showtimeHour=$showtimeInfo[0]['fldHour'];		//fill out form with data from table, not the original php include
 $showtimeMinute=$showtimeInfo[0]['fldMinute'];
@@ -60,13 +61,11 @@ $tabIndex=1;		//print on every form input element & increment
 		echo "</div>\n";
 	}
 	?>
-		<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId."'";?>' method='post'>
+		<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId;?>' method='post'>
 			<?php
-			echo "\t\t\t<table>\n";
+			echo "\t\t\t\t\t<h2>Edit Showtime</h2>\n";
 
-			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td><h2>Edit Showtime</h2></td>\n";
-			echo "\t\t\t\t</tr>\n";
+			echo "\t\t\t<table>\n";
 
 			include '../php/magic/showtime-form.php';
 

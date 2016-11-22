@@ -20,6 +20,7 @@ if(empty($reviewInfo)){		//redirect if review/movie doesn't exist
 }
 
 include '../php/magic/review-variables.php';		//initialize variables
+$errorMsg=array();
 
 $_SESSION['reviewAuthor']=$reviewInfo[0]['fldAuthor'];
 $_SESSION['reviewDate']=$reviewInfo[0]['fldReviewDate'];
@@ -53,11 +54,11 @@ $tabIndex=1;		//print on every form input element & increment
 
 ?>		
 	<article>
-		<form name='frmEditReview' id='frmEditReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId."'";?>' method='post'>
+		<form name='frmEditReview' id='frmEditReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId;?>' method='post'>
 			<?php
-			echo "\t\t\t<table>\n";
+			echo "\t\t\t\t\t<h2>Edit Review</h2>\n";
 
-			echo "\t\t\t\t\t<h2 colspan='2'>Edit Review</h2>\n";
+			echo "\t\t\t<table>\n";
 
 			include '../php/magic/review-form.php';
 

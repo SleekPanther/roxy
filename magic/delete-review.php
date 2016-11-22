@@ -35,7 +35,7 @@ $tabIndex=1;		//print on every form input element & increment
 
 ?>		
 	<article>
-		<form name='frmDeleteReview' id='frmDeleteReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId."'";?>' method='post'>
+		<form name='frmDeleteReview' id='frmDeleteReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId;?>' method='post'>
 			<h2>Delte Review Confirmation</h2>
 			<h3>Are you sure you want to delete the following Review?</h3>
 			<?php
@@ -44,7 +44,7 @@ $tabIndex=1;		//print on every form input element & increment
 				echo "\t\t\t<p>Author: ".$oneReview['fldAuthor']."</p>\n";
 				echo "\t\t\t<p>Review Date: ".dateSqlToNice($oneReview['fldReviewDate'])."</p>\n";
 				if(!empty($oneReview['fldSource']) ){echo "\t\t\t<p>Source: ".$oneReview['fldSource']."</p>\n"; }
-				echo "\t\t\t<p><pre>".$oneReview['fldReview']."</pre></p>\n";
+				echo "\t\t\t<pre>".$oneReview['fldReview']."</pre>\n";
 			}
 			echo "\t\t\t<br><input type='submit' name='btnDeleteReview' id='btnDeleteReview' value='Delete Review'>";
 			echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
