@@ -129,7 +129,24 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 		}
 	}
 
-	include '../php/magic/review-validation.php';
+	if(isset($_POST['btnAddReview'])){
+		include '../php/magic/review-validation.php';
+
+		if(!$errorMsg){
+			$query="INSERT INTO tblReviews (fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReview) VALUES (?,?,?,?,?)";
+			$data=array($currentMovieId,$_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['review']);
+			$thisDatabaseWriter->insert($query,$data,0);
+
+			//reset values so it doesn't "remember the last thing entered"
+			$_SESSION['reviewAuthor']='';
+			$_SESSION['reviewDate']=date('Y-m-d', strtotime('today'));
+			$_SESSION['reviewSource']='';
+			$_SESSION['review']='';
+
+			$_SESSION['whatJustHappened']='Review added';
+		}
+	}
+	
 
 	include '../php/magic/showtime-validation.php';
 	
@@ -157,18 +174,6 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			$thisDatabaseWriter->insert($query,$data,0);
 
 			$_SESSION['whatJustHappened']='Movie Info Updated';
-		}elseif(isset($_POST['btnAddReview'])){
-			$query="INSERT INTO tblReviews (fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReview) VALUES (?,?,?,?,?)";
-			$data=array($currentMovieId,$_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['review']);
-			$thisDatabaseWriter->insert($query,$data,0);
-
-			//reset values so it doesn't "remember the last thing entered"
-			$_SESSION['reviewAuthor']='';
-			$_SESSION['reviewDate']=date('Y-m-d', strtotime('today'));
-			$_SESSION['reviewSource']='';
-			$_SESSION['review']='';
-
-			$_SESSION['whatJustHappened']='Review added';
 		}elseif(isset($_POST['btnAddShowtime'])){
 			$query="INSERT INTO tblShowtimes (fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension) VALUES (?,?,?,?,?,?,?)";
 			$data=array($currentMovieId,$showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension);
