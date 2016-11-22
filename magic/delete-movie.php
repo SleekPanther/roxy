@@ -32,7 +32,11 @@ if(isset($_POST['btnDeleteMovie'])){
 	$query="DELETE FROM tblMovies WHERE pmkMovieId=?";
 	$thisDatabaseWriter->select($query,$data,1);		//uses same data array
 
+	$_SESSION['whatJustHappened']='Movie Succesfully Deleted';
 	header('Location: index.php');
+}elseif(isset($_POST['btnCancel'])){
+	$_SESSION['whatJustHappened']='Canceled Movie Deletion';
+	header('Location: edit.php?movieId='.$currentMovieId);
 }
 
 $tabIndex=1;		//print on every form input element & increment
@@ -55,8 +59,8 @@ $tabIndex=1;		//print on every form input element & increment
 				echo "<p>Visibility: ".$oneMovie['fldDisplay']."</p>\n";
 				echo "<p>Director: ".$oneMovie['fldDirector']."</p>\n";
 			}
-			echo "\t\t\t<br><input type='submit' name='btnDeleteMovie' id='btnDeleteMovie' value='Delete Movie'>\n";
-			//cancel
+			echo "\t\t\t<br><input type='submit' name='btnDeleteMovie' id='btnDeleteMovie' value='Delete Movie'>";
+			echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
 			?>
 		</form>
 	</article>

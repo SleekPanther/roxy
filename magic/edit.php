@@ -4,8 +4,6 @@ include	"../php/top.php";
 
 $tabIndex=1;		//print on every form input element & increment
 
-$movieUpdated=false;	//changed to true if they click submit so that a success message is added
-
 if (!isset($_GET['movieId'])){
 	header('Location: index.php');	//redirect to homepage if they accidentally clicked this page & GET isn't set
 }
@@ -137,35 +135,40 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) ){
 	
 
 	if(!$errorMsg){
-		$query="UPDATE tblMovies SET fldTitle=?, fldRuntime=?, fldRating=?, fldReleaseDate=?, fldDisplay=?, fldDirector=? WHERE pmkMovieId LIKE ?";
-		$data=array($title,$runtime,$rating,$releaseDate,$display,$director,$currentMovieId);
-		$thisDatabaseWriter->insert($query,$data,1);
-
-		if($synopsis !=''){		//if it's not empty, add to the database
-			$query="INSERT INTO tblSynopses SET fnkMovieId=?, fldSynopsis=? ON DUPLICATE KEY UPDATE fldSynopsis=?";
-			$data=array($currentMovieId,$synopsis,$synopsis);
-			$thisDatabaseWriter->insert($query,$data,0);
-		}
-		else{	//else delete empty entries. This technically attempts to remove even if not in databse, but doesn't matter & is mainly for when they already havea description, but then clear the textarea (avoid leaving empty synopses left in table)
-			$query="DELETE FROM tblSynopses WHERE fnkMovieId LIKE ?";
-			$data=array($currentMovieId);
+		if(isset($_POST['btnUpdateMovie'])){
+			$query="UPDATE tblMovies SET fldTitle=?, fldRuntime=?, fldRating=?, fldReleaseDate=?, fldDisplay=?, fldDirector=? WHERE pmkMovieId LIKE ?";
+			$data=array($title,$runtime,$rating,$releaseDate,$display,$director,$currentMovieId);
 			$thisDatabaseWriter->insert($query,$data,1);
+
+			if($synopsis !=''){		//if it's not empty, add to the database
+				$query="INSERT INTO tblSynopses SET fnkMovieId=?, fldSynopsis=? ON DUPLICATE KEY UPDATE fldSynopsis=?";
+				$data=array($currentMovieId,$synopsis,$synopsis);
+				$thisDatabaseWriter->insert($query,$data,0);
+			}
+			else{	//else delete empty entries. This technically attempts to remove even if not in databse, but doesn't matter & is mainly for when they already havea description, but then clear the textarea (avoid leaving empty synopses left in table)
+				$query="DELETE FROM tblSynopses WHERE fnkMovieId LIKE ?";
+				$data=array($currentMovieId);
+				$thisDatabaseWriter->insert($query,$data,1);
+			}
+			
+
+			$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename) VALUES (?,?) ON DUPLICATE KEY UPDATE fldImgFilename=?";
+			$data=array($currentMovieId,$poster,$poster);
+			$thisDatabaseWriter->insert($query,$data,0);
+
+			$_SESSION['whatJustHappened']='Movie Info Updated';
 		}
+		elseif(isset($_POST['btnAddShowtime'])){
+			$query="INSERT INTO tblShowtimes (fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension) VALUES (?,?,?,?,?,?,?)";
+			$data=array($currentMovieId,$showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension);
+			$thisDatabaseWriter->insert($query,$data,0);
+
+			$_SESSION['whatJustHappened']='Showtime Added';
+		}
+
 		
-
-		$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename) VALUES (?,?) ON DUPLICATE KEY UPDATE fldImgFilename=?";
-		$data=array($currentMovieId,$poster,$poster);
-		$thisDatabaseWriter->insert($query,$data,0);
-
-		//execute sql statements to add to database
-		$query="INSERT INTO tblShowtimes (fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension) VALUES (?,?,?,?,?,?,?)";
-		$data=array($currentMovieId,$showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension);
-		$thisDatabaseWriter->insert($query,$data,0);
-
-		$movieUpdated=true;
 	}
-}
-elseif(isset($_POST['btnDeleteMovie'])){
+}elseif(isset($_POST['btnDeleteMovie'])){
 	header('Location: delete-movie.php?movieId='.$currentMovieId);
 }
 
@@ -184,6 +187,11 @@ if ($errorMsg) {
 		<h1>Edit Movie Info (admin)</h1>
 		<form action="<?php echo PHP_SELF.'?movieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
+			if(isset($_SESSION['whatJustHappened'])){	//tell user last action the form did & then unset the value
+				echo "<p class='whatJustHappened'>".$_SESSION['whatJustHappened']."</p>\n";
+				unset($_SESSION['whatJustHappened']);
+			}
+
 			echo "<select name='lstChooseMovie' id='lstChooseMovie'";
 			if($currentMovieIdError){echo "class='mistake'";}
 			echo ">\n";
@@ -197,10 +205,6 @@ if ($errorMsg) {
 			echo "\t\t\t</select>\n";
 			echo "\t\t\t<input type='submit' name='btnChooseMovie' id='btnChooseMovie' value='Choose Movie to edit'>";
 			
-			if($movieUpdated){
-				echo "<p class='movieUpdated'>Movie Successfully updated!</p>";
-			}
-
 			echo "\t\t\t<table>\n";
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtMovieTitle'>Title</label></td>\n";
@@ -351,7 +355,7 @@ if ($errorMsg) {
 
 				foreach($weekOfShowtimes as $oneShowtime){
 					echo "\t\t\t\t\t<section>\n";
-					echo "\t\t\t\t\t\t<p>".$oneShowtime['fldHour'].":".leadingZeros($oneShowtime['fldMinute'],2)." ".$oneShowtime['fldMeridian']." ".$oneShowtime['fldDimension']." (".dateSqlToNice($oneShowtime['fldShowtimePosts'])." to ".dateSqlToNice($oneShowtime['fldShowtimeExpires']).") ";
+					echo "\t\t\t\t\t\t<p>".$oneShowtime['fldHour'].":".leadingZeros($oneShowtime['fldMinute'],2)." ".$oneShowtime['fldMeridian']." ".$oneShowtime['fldDimension']." (<strong>Displayed: </strong>".dateSqlToNice($oneShowtime['fldShowtimePosts'])." to ".dateSqlToNice($oneShowtime['fldShowtimeExpires']).") ";
 					echo "<a href='edit-showtime.php?showtimeId=".$oneShowtime['pmkShowtimeId']."&movieId=".$oneShowtime['fnkMovieId']."' class='buttonLink'>Edit Showtime</a>\n";
 					echo "<a href='delete-showtime.php?showtimeId=".$oneShowtime['pmkShowtimeId']."&movieId=".$oneShowtime['fnkMovieId']."' class='buttonLink'>Delete Showtime</a></p>\n";
 					echo "\t\t\t\t\t</section>\n";

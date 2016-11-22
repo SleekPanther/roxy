@@ -1,6 +1,5 @@
 <?php
 //validation for showtime variables
-
 $showtimeHour=htmlentities($_POST['lstHour'], ENT_QUOTES, "UTF-8");
 $showtimeMinute=htmlentities($_POST['lstMinute'], ENT_QUOTES, "UTF-8");
 $showtimeMeridian=strtoupper(htmlentities($_POST['lstMeridian'], ENT_QUOTES, "UTF-8"));

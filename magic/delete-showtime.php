@@ -13,19 +13,12 @@ $currentMovieId=htmlentities($_GET['movieId'], ENT_QUOTES, "UTF-8");
 $query="SELECT fldTitle, pmkShowtimeId, fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension 
 	 FROM tblShowtimes
 	 JOIN tblMovies ON pmkMovieId=fnkMovieId
-	 WHERE pmkShowtimeId=?";
-$data=array($showtimeId);
-$showtimeInfo=$thisDatabaseReader->select($query,$data,1);
+	 WHERE pmkShowtimeId=? AND fnkMovieId=?";
+$data=array($showtimeId,$currentMovieId);
+$showtimeInfo=$thisDatabaseReader->select($query,$data,1,1);
 
 if(empty($showtimeInfo)){		//redirect if showtime doesn't exist
 	header('Location: index.php');	
-}else{	//query movies table & redirect if movie doesn't exist
-	$query="SELECT pmkMovieId FROM tblMovies WHERE pmkMovieId=?";
-	$data=array($currentMovieId);
-	$movieInfo=$thisDatabaseReader->select($query,$data,1);
-	if(empty($movieInfo)){
-		header('Location: index.php');	//redirect them if no showtime/movie exists in the database
-	}
 }
 
 if(isset($_POST['btnDeleteShowtime'])){
@@ -33,6 +26,10 @@ if(isset($_POST['btnDeleteShowtime'])){
 	$data=array($showtimeId);
 	$thisDatabaseWriter->insert($query,$data,1);
 
+	$_SESSION['whatJustHappened']='Showtime Deleted';
+	header('Location: edit.php?movieId='.$currentMovieId);
+}elseif(isset($_POST['btnCancel'])){
+	$_SESSION['whatJustHappened']='Canceled Showtime Deletion';
 	header('Location: edit.php?movieId='.$currentMovieId);
 }
 
@@ -49,7 +46,8 @@ $tabIndex=1;		//print on every form input element & increment
 				echo "\t\t\t<p>".$oneShowtime['fldHour'].":".leadingZeros($oneShowtime['fldMinute'],2)." ".$oneShowtime['fldMeridian']." ".$oneShowtime['fldDimension']."\n";
 				echo "\t\t\t<p>Showtime Displays: ".dateSqlToNice($oneShowtime['fldShowtimePosts'])." to ".dateSqlToNice($oneShowtime['fldShowtimeExpires'])."\n";
 			}
-			echo "\t\t\t<br><input type='submit' name='btnDeleteShowtime' id='btnDeleteShowtime' value='Delete Showtime'>\n";
+			echo "\t\t\t<br><input type='submit' name='btnDeleteShowtime' id='btnDeleteShowtime' value='Delete Showtime'>";
+			echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
 			?>
 		</form>
 	</article>

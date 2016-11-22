@@ -1,3 +1,13 @@
+body {
+	margin:0;
+	padding: 0 1em;
+}
+img {
+	width: 100%;
+}
+
+
+
 p {
 	margin: .5em 0;
 }
@@ -14,6 +24,7 @@ nav a {
 	background:blue;
 	color: white;
 	border-radius: .5em;
+    padding: .1em .4em;
 }
 .buttonLink:hover, .buttonLink:focus {
     box-shadow: black 1px 1px 5px;
@@ -36,10 +47,6 @@ footer{
 textarea[name='txtSynopsis'] {
     width: 30em;
     height: 7em;
-}
-
-.specialButtonLink {
-
 }
 
 table {
@@ -82,5 +89,9 @@ input[type='date'] {	/* target all date input fields to have the same width */
 }
 
 .showtimesListAdmin{
+
+}
+
+.whatJustHappened {
 
 }

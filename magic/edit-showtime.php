@@ -13,19 +13,12 @@ $currentMovieId=htmlentities($_GET['movieId'], ENT_QUOTES, "UTF-8");
 $query="SELECT fldTitle, pmkShowtimeId, fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension 
 	 FROM tblShowtimes
 	 JOIN tblMovies ON pmkMovieId=fnkMovieId
-	 WHERE pmkShowtimeId=?";
-$data=array($showtimeId);
-$showtimeInfo=$thisDatabaseReader->select($query,$data,1);
+	 WHERE pmkShowtimeId=? AND fnkMovieId=?";
+$data=array($showtimeId,$currentMovieId);
+$showtimeInfo=$thisDatabaseReader->select($query,$data,1,1);
 
 if(empty($showtimeInfo)){		//redirect if showtime doesn't exist
 	header('Location: index.php');	
-}else{	//query movies table & redirect if movie doesn't exist
-	$query="SELECT * FROM tblMovies WHERE pmkMovieId=?";
-	$data=array($currentMovieId);
-	$movieInfo=$thisDatabaseReader->select($query,$data,1);
-	if(empty($movieInfo)){
-		header('Location: index.php');	//redirect them if no showtime/movie exists in the database
-	}
 }
 
 include '../php/magic/showtime-variables.php';		//initialize variables
@@ -44,6 +37,10 @@ if(isset($_POST['btnUpdateShowtime'])){
 	$data=array($showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension,$showtimeInfo[0]['pmkShowtimeId']);
 	$thisDatabaseWriter->insert($query,$data,1);
 
+	$_SESSION['whatJustHappened']='Showtime Updated';
+	header('Location: edit.php?movieId='.$currentMovieId);
+}elseif(isset($_POST['btnCancel'])){
+	$_SESSION['whatJustHappened']='Canceled Updating Showtime';
 	header('Location: edit.php?movieId='.$currentMovieId);
 }
 
@@ -63,7 +60,8 @@ $tabIndex=1;		//print on every form input element & increment
 
 			echo "\t\t\t</table>\n";
 			
-			echo "\t\t\t<br><input type='submit' name='btnUpdateShowtime' id='btnUpdateShowtime' value='Update Showtime'>\n";
+			echo "\t\t\t<br><input type='submit' name='btnUpdateShowtime' id='btnUpdateShowtime' value='Update Showtime'>";
+			echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
 			?>
 		</form>
 	</article>

@@ -120,7 +120,7 @@ if(isset($_POST['btnAddMovie'])){
 		$_SESSION['synopsis']='reset synopsis is optional';
 		$_SESSION['poster']='none';		//reset value to none (default)
 
-		header('Location: edit.php?pmkMovieId='.$lastMovieId);		//redirect to Edit page
+		header('Location: edit.php?movieId='.$lastMovieId);		//redirect to Edit page
 	}
 }
 
@@ -139,6 +139,11 @@ if ($errorMsg) {
 		<h1>Add Movie (admin)</h1>
 		<form action="<?php echo PHP_SELF;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
+			if(isset($_SESSION['whatJustHappened'])){	//tell user last action the form did & then unset the value
+				echo "<p class='whatJustHappened'>".$_SESSION['whatJustHappened']."</p>\n";
+				unset($_SESSION['whatJustHappened']);
+			}
+
 			echo "<table>\n";
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtMovieTitle'>Title</label></td>\n";
@@ -253,7 +258,7 @@ if ($errorMsg) {
 					echo "\t\t\t\t\t<p>Director: ".$movie['fldDirector']."</p>\n";
 					echo "\t\t\t\t\t<p>Synopsis:<br> ".$movie['fldSynopsis']."</p>\n";
 
-					echo "\t\t\t\t\t<a class='specialButtonLink' href='edit.php?movieId=".$movie['pmkMovieId']."'>Edit Info</a> (add showtimes & reviews)\n";
+					echo "\t\t\t\t\t<a class='buttonLink' href='edit.php?movieId=".$movie['pmkMovieId']."'>Edit Info</a> (add showtimes & reviews)\n";
 					echo "\t\t\t\t</article >\n";
 				}
 				echo "\t\t\t</section>\n";
