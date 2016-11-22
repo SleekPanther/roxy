@@ -159,9 +159,14 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			$_SESSION['whatJustHappened']='Movie Info Updated';
 		}elseif(isset($_POST['btnAddReview'])){
 			$query="INSERT INTO tblReviews (fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReview) VALUES (?,?,?,?,?)";
-			$data=array($currentMovieId,$reviewAuthor,$reviewDate,$reviewSource,$review);
-			$thisDatabaseWriter->testquery($query,$data,0);
+			$data=array($currentMovieId,$_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['review']);
 			$thisDatabaseWriter->insert($query,$data,0);
+
+			//reset values so it doesn't "remember the last thing entered"
+			$_SESSION['reviewAuthor']='';
+			$_SESSION['reviewDate']=date('Y-m-d', strtotime('today'));
+			$_SESSION['reviewSource']='';
+			$_SESSION['review']='';
 
 			$_SESSION['whatJustHappened']='Review added';
 		}elseif(isset($_POST['btnAddShowtime'])){
