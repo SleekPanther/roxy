@@ -332,6 +332,29 @@ if ($errorMsg) {
 
 			include '../php/magic/review-form.php';
 
+			//get a list of reviews already in database
+			$query="SELECT pmkReviewId, fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReview FROM tblReviews WHERE fnkMovieId=? ORDER BY fldReviewDate, fldAuthor";
+			$data=array($currentMovieId);
+			$reviewList=$thisDatabaseReader->select($query,$data,1,1);
+			if(!empty($reviewList)){
+				echo "\t\t\t\t<tr>\n";
+				echo "\t\t\t\t\t<td><h3>Reviews for This Movie</h3></td>\n";
+				echo "\t\t\t\t</tr>\n";
+				foreach($reviewList as $oneReview){
+					echo "\t\t\t\t<tr>\n";
+					echo "\t\t\t\t\t<td colspan='2'>By ".$oneReview['fldAuthor'];
+					if(!empty($oneReview['fldReviewSource'])){ echo " <em>".$oneReview['fldReviewSource']."</em>";}
+					echo " (".$oneReview['fldReviewDate'].")</td>\n";
+					echo "\t\t\t\t</tr>\n";
+
+					echo "\t\t\t\t<tr>\n";
+					echo "\t\t\t\t\t<td colspan='2'><details><summary>Expand/Collapse Review";
+					echo "";
+					echo "</summary>\n".$oneReview['fldReview']."</details><br></td>\n";
+					echo "\t\t\t\t</tr>\n";
+				}
+			}
+
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><h2>Add Showtime</h2></td>\n";
 			echo "\t\t\t\t</tr>\n";
