@@ -16,7 +16,6 @@ $imageList=getFilesInDirectory($imageFolderPath);
 // $synopsis='';
 // $poster='none';
 
-//SESSION variables to hold form input. Using SESSION so that 1)if a form has errors, keep the value & reprint it & 2)if it was successfully added, clear the values instead of remembering the last thing added
 $title='Inception';			
 $runtime='123';
 $rating='PG-13';				//most common rating

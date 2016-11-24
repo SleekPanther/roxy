@@ -60,8 +60,14 @@ include "lib/constants.php";
     $thisDatabaseWriter = new Database($dbUserName, $whichPass, $dbName);
 
     require 'supplementary/helper-functions.php';
-    ?>	
 
+    //htaccess only allows certain people. But this gets the netid to display admin links only if they're an admin
+    $validAdmins=array('npatullo', 'rerickso', 'ylin19');
+    $netId='';      //initialize variable to empty since $_SERVER["REMOTE_USER"] is unset if they're not logged in
+    if(isset($_SERVER["REMOTE_USER"])){
+        $netId=strtolower(htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8"));  //get uvm netid
+    }
+    ?>
 </head>
 
 <!-- **********************     Body section      ********************** -->
@@ -78,4 +84,7 @@ if($parentFolder=='magic'){
 }else{
     include "nav.php";
 }
+
+
+//$upFolderPlaceholder ===== convert later using php-magic-linking
 ?>
