@@ -70,8 +70,9 @@ include "lib/constants.php";
     ?>
 </head>
 
-<!-- **********************     Body section      ********************** -->
+<!-- **********************  Body section  ********************** -->
 <?php
+//print correct php includes
 if($parentFolder=='magic'){
     print '<body id="' . $parentFolder . '">';
 }
