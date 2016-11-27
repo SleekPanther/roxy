@@ -1,7 +1,28 @@
-body {
-	margin:0;
-	padding: 0 1em;
+//image/file links
+@picMovieReelBg: '../images/logos/film-reel.jpg';
+
+//color variables
+@baseBgColor:#db5c02;
+
+//LESS extends
+.displayNone{
+	display:none;
 }
+
+
+body {
+	margin: -11px 0 0 0;
+	background: @baseBgColor url(@picMovieReelBg);
+	//https://stock-clip.com/video/4043056-film-reel-background
+	//http://il3.picdn.net/shutterstock/videos/4043056/thumb/1.jpg
+}
+.container {
+	margin: 0 auto;
+	background: lighten(@baseBgColor, 10%);
+	width:100%;
+	transition: .5s ease-in-out;
+}
+
 h1, h2, h3, h4, h5, h6 {
     margin: .5em 0;
 }
@@ -13,13 +34,33 @@ pre,textarea {
     font-family: "times new roman",serif;
     margin: 0;
 }
-.displayNone{
-	display:none;
-}
-
 
 p {
 	margin: .5em 0;
+}
+figure {
+	margin: 1em 0;
+}
+
+header{
+	.headerImgRow{
+		text-align: center;
+	}
+	figure {
+		display: inline-block;
+		width: 19%;
+	    vertical-align: top;
+	}
+	figure:nth-child(2) {
+		width: 60%;
+	    /*vertical-align: baseline;*/
+	}
+	
+	.socialMediaPics{
+		img{
+			width:20%;
+		}
+	}
 }
 
 nav a {
@@ -46,6 +87,13 @@ nav a {
 
 footer{
 	text-align: center;
+}
+
+/*media queries for small screens*/
+@media (min-width: 700px) {
+	.container {
+		width:80%;
+	}
 }
 
 .movieInfo {
