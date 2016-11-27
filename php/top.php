@@ -19,10 +19,10 @@ include "lib/constants.php";
     $directories =explode("/",$PATH_PARTS['dirname']);
     $parentFolder=$directories[count($directories)-1];
 
-    $cdPlaceholder='';      //holds ../ if 1 directory down, otherwise just empty
+    $upFolderPlaceholder='';      //holds ../ if 1 directory down, otherwise just empty
     
     if($parentFolder=='magic'){     //include special libraries for admin page
-        $cdPlaceholder='../';
+        $upFolderPlaceholder='../';
 
         //get the current user (uvm id)
         $username = strtolower(htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8"));     //also convert to lowercase to be safe
@@ -30,7 +30,7 @@ include "lib/constants.php";
         require "lib/validation-functions.php";
         require "lib/security.php";
     }
-    echo "\t\t<link rel='stylesheet' href='".$cdPlaceholder."css/style.css' type='text/css' media='screen'>\n";
+    echo "\t\t<link rel='stylesheet' href='".$upFolderPlaceholder."css/style.css' type='text/css' media='screen'>\n";
 
     // %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%
     //
@@ -74,11 +74,12 @@ include "lib/constants.php";
 <?php
 //print correct php includes
 if($parentFolder=='magic'){
-    print '<body id="' . $parentFolder . '">';
+    print "<body id='" . $parentFolder . "''>\n";
 }
 else{
-    print '<body id="' . $PATH_PARTS['filename'] . '">';
+    print "<body id='" . $PATH_PARTS['filename'] . "''>\n";
 }
+echo "\t<section class='container'>\n";
 include "header.php";
 if($parentFolder=='magic'){
     include "nav-magic.php";
