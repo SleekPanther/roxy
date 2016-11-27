@@ -1,0 +1,111 @@
+body {
+	margin:0;
+	padding: 0 1em;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: .5em 0;
+}
+img {
+	width: 100%;
+}
+pre,textarea {
+    font-size: .9em;
+    font-family: "times new roman",serif;
+    margin: 0;
+}
+.displayNone{
+	display:none;
+}
+
+
+p {
+	margin: .5em 0;
+}
+
+nav a {
+	display: inline-block;
+	padding: .5em;
+	border-radius: 1em;
+	background: lightblue;
+	margin: 0;
+}
+.buttonLink{	/* for special anchor tags to make them look like buttons */
+	display: inline-block;
+	background:blue;
+	color: white;
+	border-radius: .5em;
+    padding: .1em .4em;
+}
+.buttonLink:hover, .buttonLink:focus {
+    box-shadow: black 1px 1px 5px;
+}
+
+.mistake{
+	background: red;
+}
+
+footer{
+	text-align: center;
+}
+
+.movieInfo {
+    background: grey;
+    padding: .5em;
+    margin: 1em 0;
+}
+
+textarea[name='txtSynopsis'] {
+    width: 30em;
+    height: 7em;
+}
+textarea[name='txtReview']{
+	width: 60em;
+	height:7em;
+}
+
+table {
+	border-collapse: collapse;
+}
+form tr>td:nth-child(1){
+	text-align: right;
+}
+body article tr td[colspan='2']{	/* center text to override default of align-right */
+	text-align: left;
+}
+
+/* td, th {
+	border:1px solid black;
+} */
+
+label {
+	display: inline-block;
+}
+.formColumnContainer {	/* block level element to contain a left & right element so that labels line up & align */
+
+}
+.formColumnContainer article input, .formColumnContainer article label, .formColumnContainer article select {	/* give height to items in the form to align rows */
+    height: 1.5em;
+}
+.formColumnContainer article {	/* make 2 child elements be next to each other on the same line */
+    display: inline-block;
+}
+.formColumnContainer article:nth-child(1) {
+	text-align: right;
+}
+.formColumnContainer article:nth-child(2) {
+	text-align: left;
+}
+/* .showtimeRow.noAlign td, .noAlign th{
+	text-align: left;
+} */
+input[type='date'] {	/* target all date input fields to have the same width */
+    width: 10em;
+}
+
+.showtimesListAdmin{
+
+}
+
+.whatJustHappened {
+
+}
