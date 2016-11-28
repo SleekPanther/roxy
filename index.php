@@ -40,9 +40,6 @@ include	"php/top.php";
 			// $thisDatabaseReader->testquery($query,$data,1,3,0,2);
 			// $showtimes=$thisDatabaseReader->testquery($query,$data,1,3,0,2);
 			$showtimes=$thisDatabaseReader->select($query,$data,1,3,0,2);
-			// echo "<pre>";
-			// print_r($showtimes);
-			// echo "</pre>";
 
 			$showtimes2D=array();
 			$showtimes3D=array();
