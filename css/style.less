@@ -28,7 +28,7 @@
     margin: .2em .2em 0 0;
     border-radius: 1em;
     background: @yellowHighlight;
-    &:extend(.tCent);
+    
 }
 
 
@@ -165,7 +165,41 @@ article.movie {
 	float: left;
 	height: 188px;
 	&:extend(.articleBg);
+	&:extend(.tCent);
 }
+
+/*************** Synopses **********************/
+#synopses .articleBg{
+	display: table;
+	width: 98%;
+	h2{
+		&:extend(.tCent);
+	}
+	@synopsisImgWidth: 200px;
+	div {
+		display: table-cell;
+		background: red;
+		border:1px solid black;
+		&:nth-child(2){
+		    width: @synopsisImgWidth;
+		}
+	}
+	figure {
+		width:@synopsisImgWidth;
+	}
+	/*div {
+		&:nth-child(1){
+		    width: 80%;;
+		}
+		&:nth-child(2){
+		    width: 15%;;
+		}
+		display: table-cell;
+		background: red;
+		border:1px solid black;
+	}*/
+}
+/*************** end Synopses **********************/
 
 .showtimesDetail {
 	

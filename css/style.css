@@ -12,10 +12,10 @@
   font-weight: bold;
 }
 .tCent,
-.articleBg,
 header .headerImgRow,
 nav,
-article.movie {
+article.movie,
+#synopses .articleBg h2 {
   text-align: center;
 }
 .articleBg,
@@ -137,6 +137,34 @@ article.movie {
   float: left;
   height: 188px;
 }
+/*************** Synopses **********************/
+#synopses .articleBg {
+  display: table;
+  width: 98%;
+  /*div {
+		&:nth-child(1){
+		    width: 80%;;
+		}
+		&:nth-child(2){
+		    width: 15%;;
+		}
+		display: table-cell;
+		background: red;
+		border:1px solid black;
+	}*/
+}
+#synopses .articleBg div {
+  display: table-cell;
+  background: red;
+  border: 1px solid black;
+}
+#synopses .articleBg div:nth-child(2) {
+  width: 200px;
+}
+#synopses .articleBg figure {
+  width: 200px;
+}
+/*************** end Synopses **********************/
 textarea[name='txtSynopsis'] {
   width: 30em;
   height: 7em;
