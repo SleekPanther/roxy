@@ -123,7 +123,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 	}
 
 	if($synopsis !=''){		//only validate if NOT empty
-		if(!verifyAlphaNum($synopsis)){
+		if(!verifyAlphaNumNewline($synopsis)){
 			$errorMsg[]="Synopsis Cannot have special characters";
 			$synopsisError=true;
 		}
