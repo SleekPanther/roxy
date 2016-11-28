@@ -23,9 +23,10 @@ include	"php/top.php";
 		foreach($movies as $movie){
 			echo "\t\t<article class='movie'>\n";
 			//pictures are ratio 8.5:12 
+			echo "\t\t\t<figure><img alt='' src='".$upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename']."'></figure>\n";
 			echo "\t\t\t<h2>".$movie['fldTitle']."</h2>\n";
 			$runtime=runtimeToHoursMinutes($movie['fldRuntime']);
-			echo "\t\t\t<p> (".$movie['fldRating'].') '.$runtime[0].' h '.$runtime[1].' m'."</p>\n";
+			echo "\t\t\t<p>(".$movie['fldRating'].') '.$runtime[0].' h '.$runtime[1].' m'."</p>\n";
 			echo "\t\t\t<section class='showtimesDetail'>\n";
 
 			// $query="SELECT fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension FROM tblShowtimes
@@ -54,18 +55,20 @@ include	"php/top.php";
 					$showtimes2D[]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2);
 				}
 			}
-			echo "\t\t\t\t<p>";
-			foreach($showtimes2D as $time){
-				echo $time.' ';
+			if(!empty($showtimes2D)){
+				echo "\t\t\t\t<p>";
+				foreach($showtimes2D as $time){
+					echo $time.' ';
+				}
+				echo "</p>\n";
 			}
-			echo "<p>\n";
 
 			if(!empty($showtimes3D)){
 				echo "\t\t\t\t<p>";
 				foreach($showtimes3D as $time){
 					echo $time." &nbsp;";
 				}
-				echo "<p>\n";
+				echo "</p>\n";
 			}
 
 			echo "\t\t\t</section>\n";

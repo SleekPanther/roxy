@@ -3,10 +3,30 @@
 
 //color variables
 @baseBgColor:#db5c02;
+@yellowHighlight: #ffe35d;
 
 //LESS extends
 .displayNone{
 	display:none;
+}
+.marg0 {
+	margin:0;
+}
+.margCent {
+	martin: 0 auto;
+}
+.bold{
+	font-weight: bold;
+}
+.tCent{
+	text-align: center;
+}
+.articleBg{
+    padding: 1em;
+    margin: .2em .2em 0 0;
+    border-radius: 1em;
+    background: @yellowHighlight;
+    &:extend(.tCent);
 }
 
 
@@ -14,6 +34,7 @@ body {
 	margin: -11px 0 0 0;
 	background: @baseBgColor url(@picMovieReelBg);
 	font-size: 1em;
+	font-family: "times new roman",serif;
 	//https://stock-clip.com/video/4043056-film-reel-background
 	//http://il3.picdn.net/shutterstock/videos/4043056/thumb/1.jpg
 }
@@ -26,18 +47,18 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     margin: .5em 0;
+    font-family: arial, sans-serif;
 }
 img {
 	width: 100%;
 }
 pre,textarea {
     font-size: .9em;
-    font-family: "times new roman",serif;
     margin: 0;
 }
 
 p {
-	margin: .5em 0;
+	margin: .4em 0;
 }
 figure {
 	margin: 1em 0;
@@ -64,22 +85,38 @@ header{
 	}
 }
 
-nav a {
-	display: inline-block;
-	padding: .5em;
-	border-radius: 1em;
-	background: lightblue;
-	margin: 0;
-}
+
 .buttonLink{	/* for special anchor tags to make them look like buttons */
 	display: inline-block;
 	background:blue;
 	color: white;
 	border-radius: .5em;
     padding: .1em .4em;
+	.boxShadowHover();
 }
-.buttonLink:hover, .buttonLink:focus {
+/*.boxShadowHover(@selector){
+	@{selector}:hover, @{selector}:focus{
+		box-shadow: black 1px 1px 5px;
+	}
+}*/
+.boxShadowHover(){
+	&:hover, &:focus{
+		box-shadow: black 1px 1px 5px;
+	}
+}
+
+/*.buttonLink:hover, .buttonLink:focus {
     box-shadow: black 1px 1px 5px;
+}*/
+nav a {
+	&:extend(.buttonLink);
+	.boxShadowHover();
+	
+	/*display: inline-block;
+	padding: .5em;
+	border-radius: 1em;
+	background: lightblue;
+	margin: 0;*/
 }
 
 .mistake{
@@ -98,15 +135,27 @@ footer{
     margin: 1em 0;
 }
 
+.movie {
+	figure {
+	    float: left;
+	    width: 120px;
+		margin: 0 1em 0 0;
+	}
+	.showtimesDetail{
+		&:extend(.bold);
+	}
+}
+
 article.movieContainer {
 	overflow: auto;
 }
 article.movie {
-	background: white;
-	border: 1px solid black;
 	width: 100%;
 	float: left;
+	height: 188px;
+	&:extend(.articleBg);
 }
+
 .showtimesDetail {
 	
 }
@@ -173,6 +222,6 @@ input[type='date'] {	/* target all date input fields to have the same width */
 		width:80%;
 	}
 	article.movie {
-		width: 49%;
+		width: 47%;
 	}
 }

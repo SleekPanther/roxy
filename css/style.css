@@ -1,10 +1,33 @@
 .displayNone {
   display: none;
 }
+.marg0 {
+  margin: 0;
+}
+.margCent {
+  martin: 0 auto;
+}
+.bold,
+.movie .showtimesDetail {
+  font-weight: bold;
+}
+.tCent,
+.articleBg,
+article.movie {
+  text-align: center;
+}
+.articleBg,
+article.movie {
+  padding: 1em;
+  margin: .2em .2em 0 0;
+  border-radius: 1em;
+  background: #ffe35d;
+}
 body {
   margin: -11px 0 0 0;
   background: #db5c02 url('../images/logos/film-reel.jpg');
   font-size: 1em;
+  font-family: "times new roman", serif;
 }
 .container {
   margin: 0 auto;
@@ -19,6 +42,7 @@ h4,
 h5,
 h6 {
   margin: .5em 0;
+  font-family: arial, sans-serif;
 }
 img {
   width: 100%;
@@ -26,11 +50,10 @@ img {
 pre,
 textarea {
   font-size: .9em;
-  font-family: "times new roman", serif;
   margin: 0;
 }
 p {
-  margin: .5em 0;
+  margin: .4em 0;
 }
 figure {
   margin: 1em 0;
@@ -50,14 +73,8 @@ header figure:nth-child(2) {
 header .socialMediaPics img {
   width: 20%;
 }
+.buttonLink,
 nav a {
-  display: inline-block;
-  padding: .5em;
-  border-radius: 1em;
-  background: lightblue;
-  margin: 0;
-}
-.buttonLink {
   /* for special anchor tags to make them look like buttons */
   display: inline-block;
   background: blue;
@@ -67,6 +84,25 @@ nav a {
 }
 .buttonLink:hover,
 .buttonLink:focus {
+  box-shadow: black 1px 1px 5px;
+}
+/*.boxShadowHover(@selector){
+	@{selector}:hover, @{selector}:focus{
+		box-shadow: black 1px 1px 5px;
+	}
+}*/
+/*.buttonLink:hover, .buttonLink:focus {
+    box-shadow: black 1px 1px 5px;
+}*/
+nav a {
+  /*display: inline-block;
+	padding: .5em;
+	border-radius: 1em;
+	background: lightblue;
+	margin: 0;*/
+}
+nav a:hover,
+nav a:focus {
   box-shadow: black 1px 1px 5px;
 }
 .mistake {
@@ -80,14 +116,18 @@ footer {
   padding: .5em;
   margin: 1em 0;
 }
+.movie figure {
+  float: left;
+  width: 120px;
+  margin: 0 1em 0 0;
+}
 article.movieContainer {
   overflow: auto;
 }
 article.movie {
-  background: white;
-  border: 1px solid black;
   width: 100%;
   float: left;
+  height: 188px;
 }
 textarea[name='txtSynopsis'] {
   width: 30em;
@@ -145,5 +185,6 @@ input[type='date'] {
     width: 80%;
   }
   article.movie {
+    width: 47%;
   }
 }
