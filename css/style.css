@@ -75,16 +75,19 @@ nav a {
 footer {
   text-align: center;
 }
-/*media queries for small screens*/
-@media (min-width: 700px) {
-  .container {
-    width: 80%;
-  }
-}
 .movieInfo {
   background: grey;
   padding: .5em;
   margin: 1em 0;
+}
+article.movieContainer {
+  overflow: auto;
+}
+article.movie {
+  background: white;
+  border: 1px solid black;
+  width: 100%;
+  float: left;
 }
 textarea[name='txtSynopsis'] {
   width: 30em;
@@ -135,4 +138,12 @@ label {
 input[type='date'] {
   /* target all date input fields to have the same width */
   width: 10em;
+}
+/*media queries for small screens*/
+@media (min-width: 700px) {
+  .container {
+    width: 80%;
+  }
+  article.movie {
+  }
 }

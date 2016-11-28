@@ -2,7 +2,7 @@
 session_start();
 include	"php/top.php";
 ?>
-	<article>
+	<article class='movieContainer'>
 		<?php
 
 		//get current movies. & only if the release date is BEFORE today

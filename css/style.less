@@ -90,12 +90,7 @@ footer{
 	text-align: center;
 }
 
-/*media queries for small screens*/
-@media (min-width: 700px) {
-	.container {
-		width:80%;
-	}
-}
+
 
 .movieInfo {
     background: grey;
@@ -103,8 +98,14 @@ footer{
     margin: 1em 0;
 }
 
-.movie {
-
+article.movieContainer {
+	overflow: auto;
+}
+article.movie {
+	background: white;
+	border: 1px solid black;
+	width: 100%;
+	float: left;
 }
 .showtimesDetail {
 	
@@ -164,4 +165,14 @@ input[type='date'] {	/* target all date input fields to have the same width */
 
 .whatJustHappened {
 
+}
+
+/*media queries for small screens*/
+@media (min-width: 700px) {
+	.container {
+		width:80%;
+	}
+	article.movie {
+		width: 49%;
+	}
 }
