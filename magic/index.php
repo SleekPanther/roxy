@@ -253,7 +253,6 @@ if(isset($_POST['btnAddMovie'])){
 				}
 				echo "\t\t\t</section>\n";
 			}
-			
 			?>
 		</form>
 	</article>
