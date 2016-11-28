@@ -48,7 +48,7 @@ function runtimeToHoursMinutes($minutes){
 }
 
 //Pass in a folder & get a list of files in that folder (including extension)
-function getFilesInDirectory($url, $extensions = array("jpg", "png", "jpeg")) {
+function getFilesInDirectory($url, $extensions = array("jpg","jpeg","png","gif")) {
     $correctedFileList = array();	//array holds list of image filenames (not their whole path)
 
     $allFilesList = scandir($url);		//all files in folder including . & ..
@@ -56,12 +56,12 @@ function getFilesInDirectory($url, $extensions = array("jpg", "png", "jpeg")) {
     if (count($allFilesList) > 0) {
         //Start at index 2, to ignore the ".." and "." folders
         for ($i = 2; $i < count($allFilesList); $i++) {  			//maybe even start i @ 0 since it seems to work
-        	$correctedFileList[]=$allFilesList[$i];
-            //Only add files to the image array that have the expected extension
-            // $ext = pathinfo($allFilesList[$i], PATHINFO_EXTENSION);
-            // if (in_array($ext, $extensions)) {
-            //     array_push($correctedFileList, $allFilesList[$i]);
-            // }
+            // Only add files to the image array that have the expected extension
+            $ext = pathinfo($allFilesList[$i], PATHINFO_EXTENSION);
+            if (in_array($ext, $extensions)) {
+                $correctedFileList[]=$allFilesList[$i];
+                // array_push($correctedFileList, $allFilesList[$i]);
+            }
         }
     }
     return $correctedFileList;

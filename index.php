@@ -22,8 +22,11 @@ include	"php/top.php";
 		//$date2=date("Y-m-d", strtotime($date.'+6 days'));
 		foreach($movies as $movie){
 			echo "\t\t<article class='movie'>\n";
-			//pictures are ratio 8.5:12 
-			echo "\t\t\t<figure><img alt='' src='".$upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename']."'></figure>\n";
+			$imgFile=$upFolderPlaceholder.'images/posters/ref/placeholder.png';
+			if(file_exists($upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'])){
+				$imgFile=$upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'];
+			}
+			echo "\t\t\t<figure><img alt='' src='".$imgFile."'></figure>\n";
 			echo "\t\t\t<h2>".$movie['fldTitle']."</h2>\n";
 			$runtime=runtimeToHoursMinutes($movie['fldRuntime']);
 			echo "\t\t\t<p>(".$movie['fldRating'].') '.$runtime[0].' h '.$runtime[1].' m'."</p>\n";

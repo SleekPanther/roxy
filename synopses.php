@@ -25,19 +25,25 @@ include	"php/top.php";
 			echo "\t\t\t\t<p>";
 			$runtimeArray=runtimeToHoursMinutes($movie['fldRuntime']);
 			echo $runtimeArray[0].' h '.$runtimeArray[1]." min<br>";
+			echo $movie['fldRating']."<br>";
 			if($movie['fldDirector'] !=''){echo "Directed by ".$movie['fldDirector']."<br>"; }
 			echo "</p>\n";
 			echo "\t\t\t\t<p>".$movie['fldSynopsis']."</p>\n";
 			echo "\t\t\t</div>\n";
+
 			echo "\t\t\t<div>\n";
-			echo "\t\t\t\t<figure><img alt='".$movie['fldTitle']."' src='".$upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename']."'></figure>\n";
+			$imgFile=$upFolderPlaceholder.'images/posters/ref/placeholder.png';
+			if(file_exists($upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'])){
+				$imgFile=$upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'];
+			}
+			echo "\t\t\t\t<figure><img alt='".$movie['fldTitle']."' src='".$imgFile."'></figure>\n";
 			echo "\t\t\t</div>\n";
 			echo "\t\t</section>\n";
 		}
 
-		echo "<pre>";
-		print_r($synopsesList);
-		echo "</pre>";
+		// echo "<pre>";
+		// print_r($synopsesList);
+		// echo "</pre>";
 
 		?>
 	</article>
