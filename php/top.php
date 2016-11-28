@@ -74,18 +74,18 @@ include "lib/constants.php";
 <?php
 //print correct php includes
 if($parentFolder=='magic'){
-    print "<body id='" . $parentFolder . "''>\n";
+    print "<body id='" . $parentFolder . "'>\n";
 }
 else{
-    print "<body id='" . $PATH_PARTS['filename'] . "''>\n";
+    print "<body id='" . $PATH_PARTS['filename'] . "'>\n";
 }
 echo "\t<section class='container'>\n";
 include "header.php";
-if($parentFolder=='magic'){
-    include "nav-magic.php";
-}else{
+// if($parentFolder=='magic'){
+//     include "nav-magic.php";
+// }else{
     include "nav.php";
-}
+// }
 
 
 //$upFolderPlaceholder ===== convert later using php-magic-linking
