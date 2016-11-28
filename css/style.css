@@ -13,6 +13,8 @@
 }
 .tCent,
 .articleBg,
+header .headerImgRow,
+nav,
 article.movie {
   text-align: center;
 }
@@ -58,9 +60,6 @@ p {
 figure {
   margin: 1em 0;
 }
-header .headerImgRow {
-  text-align: center;
-}
 header figure {
   display: inline-block;
   width: 19%;
@@ -77,14 +76,16 @@ header .socialMediaPics img {
 nav a {
   /* for special anchor tags to make them look like buttons */
   display: inline-block;
-  background: blue;
-  color: white;
+  background: #ffe35d;
+  color: black;
   border-radius: .5em;
   padding: .1em .4em;
 }
 .buttonLink:hover,
 .buttonLink:focus {
   box-shadow: black 1px 1px 5px;
+  text-decoration: none;
+  background: #ffec90;
 }
 /*.boxShadowHover(@selector){
 	@{selector}:hover, @{selector}:focus{
@@ -94,16 +95,23 @@ nav a {
 /*.buttonLink:hover, .buttonLink:focus {
     box-shadow: black 1px 1px 5px;
 }*/
+nav {
+  background: #751d00;
+  border-radius: .5em;
+  padding: .5em 0;
+}
 nav a {
   /*display: inline-block;
-	padding: .5em;
-	border-radius: 1em;
-	background: lightblue;
-	margin: 0;*/
+		padding: .5em;
+		border-radius: 1em;
+		background: lightblue;
+		margin: 0;*/
 }
 nav a:hover,
 nav a:focus {
   box-shadow: black 1px 1px 5px;
+  text-decoration: none;
+  background: #ffec90;
 }
 .mistake {
   background: red;

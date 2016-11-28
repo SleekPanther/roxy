@@ -4,6 +4,8 @@
 //color variables
 @baseBgColor:#db5c02;
 @yellowHighlight: #ffe35d;
+@red:#751d00;
+
 
 //LESS extends
 .displayNone{
@@ -66,7 +68,7 @@ figure {
 
 header{
 	.headerImgRow{
-		text-align: center;
+		&:extend(.tCent);
 	}
 	figure {
 		display: inline-block;
@@ -88,8 +90,8 @@ header{
 
 .buttonLink{	/* for special anchor tags to make them look like buttons */
 	display: inline-block;
-	background:blue;
-	color: white;
+	background:@yellowHighlight;
+	color: black;
 	border-radius: .5em;
     padding: .1em .4em;
 	.boxShadowHover();
@@ -102,21 +104,30 @@ header{
 .boxShadowHover(){
 	&:hover, &:focus{
 		box-shadow: black 1px 1px 5px;
+	    text-decoration: none;
+	    background:lighten(@yellowHighlight,10%);
 	}
 }
 
 /*.buttonLink:hover, .buttonLink:focus {
     box-shadow: black 1px 1px 5px;
 }*/
-nav a {
-	&:extend(.buttonLink);
-	.boxShadowHover();
+nav {
+	background: @red;
+	&:extend(.tCent);
+	border-radius: .5em;
+	padding: .5em 0;
 	
-	/*display: inline-block;
-	padding: .5em;
-	border-radius: 1em;
-	background: lightblue;
-	margin: 0;*/
+	a{
+		&:extend(.buttonLink);
+		.boxShadowHover();
+
+		/*display: inline-block;
+		padding: .5em;
+		border-radius: 1em;
+		background: lightblue;
+		margin: 0;*/
+	}
 }
 
 .mistake{
