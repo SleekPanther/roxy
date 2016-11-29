@@ -23,9 +23,8 @@ include	"php/top.php";
 			echo "\t\t\t<div>\n";
 			echo "\t\t\t\t<h2>".$movie['fldTitle']."</h2>\n";
 			echo "\t\t\t\t<p>";
-			$runtimeArray=runtimeToHoursMinutes($movie['fldRuntime']);
-			echo $runtimeArray[0].' h '.$runtimeArray[1]." min<br>";
-			echo $movie['fldRating']."<br>";
+			echo runtimeToHoursMinutes($movie['fldRuntime'])."<br>\n";
+			echo $movie['fldRating']."<br>\n";
 			if($movie['fldDirector'] !=''){echo "Directed by ".$movie['fldDirector']."<br>"; }
 			echo "</p>\n";
 			echo "\t\t\t\t<p>".$movie['fldSynopsis']."</p>\n";

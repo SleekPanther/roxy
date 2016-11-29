@@ -40,11 +40,16 @@ function nearestDate($day, $date){
 }
 
 //convert total minutes to hours & minutes
-function runtimeToHoursMinutes($minutes){
+function runtimeToHoursMinutes($minutes,$returnArray=false,$minuteLabel='m',$hourLabel='h'){
     $hrMinArray=array();    //size=2. 0th index=hours, 1st index=minutes
     $hrMinArray[0]=floor($minutes/60);
     $hrMinArray[1]=$minutes%60;
-    return $hrMinArray;
+    
+    if($returnArray){
+        return $hrMinArray;
+    }
+    //default is to return the following: components separated by labels after hour & minute
+    return $hrMinArray[0].' '.$hourLabel.' '.$hrMinArray[1].' '.$minuteLabel;
 }
 
 //Pass in a folder & get a list of files in that folder (including extension)

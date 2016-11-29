@@ -39,8 +39,7 @@ include	"php/top.php";
 				}
 				echo "\t\t\t<figure><img alt='' src='".$imgFile."'></figure>\n";
 				echo "\t\t\t<h2>".$movie['fldTitle']."</h2>\n";
-				$runtime=runtimeToHoursMinutes($movie['fldRuntime']);
-				echo "\t\t\t<p>(".$movie['fldRating'].') '.$runtime[0].' h '.$runtime[1].' m'."</p>\n";
+				echo "\t\t\t<p>(".$movie['fldRating'].') '.runtimeToHoursMinutes($movie['fldRuntime'])."</p>\n";
 				echo "\t\t\t<section class='showtimesDetail'>\n";
 
 				// $query="SELECT fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension FROM tblShowtimes

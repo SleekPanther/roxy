@@ -52,8 +52,7 @@ $tabIndex=1;		//print on every form input element & increment
 			<?php
 			foreach($movieInfo as $oneMovie){
 				echo "<p>Title: ".$oneMovie['fldTitle']."</p>\n";
-				$runtimeArray=runtimeToHoursMinutes($oneMovie['fldRuntime']);
-				echo "<p>Runtime: ".$runtimeArray[0]." Hours ".$runtimeArray[1]." Minutes</p>\n";
+				echo "<p>Runtime: ".$oneMovie['fldRuntime']." Minutes</p>\n";
 				echo "<p>Rating: ".$oneMovie['fldRating']."</p>\n";
 				echo "<p>Release Date: ".$oneMovie['fldReleaseDate']."</p>\n";
 				echo "<p>Visibility: ".$oneMovie['fldDisplay']."</p>\n";
