@@ -19,6 +19,9 @@ article.movie,
 #synopses .articleBg h2 {
   text-align: center;
 }
+.clear {
+  clear: both;
+}
 .articleBg,
 article.movie {
   padding: 1em;
