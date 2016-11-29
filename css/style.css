@@ -14,6 +14,7 @@
 .tCent,
 header .headerImgRow,
 nav,
+article.movieContainer > h1,
 article.movie,
 #synopses .articleBg h2 {
   text-align: center;
@@ -131,6 +132,9 @@ footer {
 }
 article.movieContainer {
   overflow: auto;
+}
+article.movieContainer > h1 {
+  /*main h1 title for every page is centered*/
 }
 article.movie {
   width: 100%;

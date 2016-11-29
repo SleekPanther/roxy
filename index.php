@@ -20,6 +20,10 @@ include	"php/top.php";
 		// for($date=date("Y-m-d", strtotime('last sunday')); $counter<1; $date2=date("Y-m-d", strtotime($date.'+7 days'))){
 		$date=date("Y-m-d", strtotime('last friday'));
 		//$date2=date("Y-m-d", strtotime($date.'+6 days'));
+		echo "\t\t<section class='tCent'>\n";
+		echo "\t\t\t<h2>Showtimes for</h2>\n";
+		echo "\t\t\t<h3>".dateSqlToNice($date)." to ".dateSqlToNice( date("Y-m-d", strtotime($date.'+6 days')) )."</h3>\n";
+		echo "\t\t</section>\n";
 		foreach($movies as $movie){
 			echo "\t\t<article class='movie'>\n";
 			$imgFile=$upFolderPlaceholder.'images/posters/ref/placeholder.png';
