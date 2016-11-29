@@ -48,10 +48,10 @@ include	"php/top.php";
 				//   ORDER BY fldMeridian, fldHour, fldMinute";
 				//WHERE ((fldShowtimePosts >= CAST('2016-11-25' AS DATE) ) AND (fldShowtimeExpires >= CURDATE() ) AND  fnkMovieId=41)
 				$query="SELECT pmkShowtimeId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension FROM tblShowtimes
-				 WHERE ((fldShowtimePosts >= ? AND fldShowtimePosts <= ? ) AND (fldShowtimeExpires >= CURDATE() ) AND fnkMovieId=?)
+				 WHERE ( (fldShowtimePosts <= ? ) AND (fldShowtimeExpires >= ? ) AND fnkMovieId=?)
 				 ORDER BY fldDimension, fldMeridian, fldHour, fldMinute";
-				$data=array($date,$dateWeekEnds, $movie['pmkMovieId']);
-				$showtimes=$thisDatabaseReader->select($query,$data,1,4,0,3);
+				$data=array($dateWeekEnds, $date, $movie['pmkMovieId']);
+				$showtimes=$thisDatabaseReader->select($query,$data,1,3,0,2);
 
 				$showtimes2D=array();
 				$showtimes3D=array();
