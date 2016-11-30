@@ -6,12 +6,12 @@
 // interactions with the database.
 // 
 // $dbUserName - username you wish to open the database with, generally here at 
-//               uvm they are yourusername_reader, yourusername_writer, 
+//               UVM they are yourusername_reader, yourusername_writer, 
 //               yourusername_admin
-// $whichPass - techncially i can figure out which passwoard based on the naming
+// $whichPass - technically I can figure out which password based on the naming
 //              conventions of the first letter after the _ in the username. 
 //              However passing the letter in is not that hard and you may not
-//              always have a convienent naming convention.
+//              always have a convenient naming convention.
 //              
 // $dbName - the name of the database that you want to access
 // 
@@ -23,14 +23,14 @@
 // 
 // 
 // You will need to know how many where clauses, quotes, conditional expressions
-// and html characters are in your query as the query must match what is expected
-// as a mechinism to prevent sql injection. If a query does not work pass the query 
+// and HTML characters are in your query as the query must match what is expected
+// as a mechanism to prevent SQL injection. If a query does not work pass the query 
 // to the testquery method which will display the counts for you. The idea is that 
 // you as the programmer will know how many where clauses you have or how many
 // quotes you will have in query where as a hacker would not know this. Let me 
 // explain the parameter list:
 // 
-// $query - this is your sql query less any values that can come from the user
+// $query - this is your SQL query less any values that can come from the user
 //          which would all be replaced with a ? and the values for the question
 //          marks sent as an array for example:
 //          
@@ -38,7 +38,7 @@
 //          $query .= 'AND fldState = ? ORDER BY fldLastName, fldFirstName';
 //          
 // $values - this is the array that would hold the values for the above query for
-//           example if we want to find all the people living in Burlinton, VT:
+//           example if we want to find all the people living in Burlington, VT:
 //           
 //           $data = array("Burlington", "VT");
 //           
@@ -48,7 +48,7 @@
 //           $wheres = 1;
 //           
 // $conditions - is how many logical conditions you have in your query. The 
-//               tricky part is I just look for occurances of the string so the
+//               tricky part is I just look for occurrences of the string so the
 //               word ORDER has the letters OR so that counts as a condition 
 //               along with the logical condition AND. So in this example it
 //               looks like this:
@@ -56,7 +56,7 @@
 //               $conditions = 2;
 //            
 // $quotes - is how many quotes do you have in your query. In our example here 
-//           we dont have any though you may think it does. The way the query 
+//           we don't have any though you may think it does. The way the query 
 //           would be written is:
 //           
 //           SELECT fldFirstName FROM tblPeople WHERE fldCity = "Burlington" 
@@ -80,19 +80,19 @@
 //                  this as they are not allowed but if you needed to change 
 //                  this you could.
 //                  
-// $semiColonAllowed - is a boolean to allow a semi colon in yoru query which
-//                     is one of the technigues hackers use to try and break
+// $semiColonAllowed - is a boolean to allow a semi colon in your query which
+//                     is one of the techniques hackers use to try and break
 //                     your code. Generally it should be false but if you need
 //                     to allow them you can.
 // 
 // I have put a DB_DEBUG variable in each method just in case you need it.
-// ussually you can find your problem with testquery.
+// usually you can find your problem with testquery.
 // 
 // All values should be passed into the methods in the value array and not part
 // of the query string itself
 // 
-// the parameter count is high for a method but i was not sure the best way to 
-// handle the possiblites. however parameter list is the same for select, insert
+// the parameter count is high for a method but I was not sure the best way to 
+// handle the possibles. however parameter list is the same for select, insert
 // update, delete and of course test query.
 //$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$#$
 
@@ -109,7 +109,7 @@ class Database {
     private function connect($dbUserName, $whichPass, $dbName) {
         // Generally I place the password file in a folder outside of my
         // project so there is only one pass.php for all my projects. Then
-        // if i change my passwords i only need to change one file.
+        // if I change my passwords I only need to change one file.
         require("pass.php");
         
 
@@ -158,9 +158,9 @@ class Database {
     // #########################################################################
     // counts the number of conditional statements in the query
     // its tricky since OR is in ORDER as is AND is in LAND etc.
-    // AND, &&	Logical AND
-    // NOT, !	Negates value
-    // ||, OR	Logical OR
+    // AND, &&  Logical AND
+    // NOT, !   Negates value
+    // ||, OR   Logical OR
     // XOR
     private function countConditions($query) {
         $conditions = 0;
@@ -189,7 +189,7 @@ class Database {
     }
 
     // #########################################################################
-    // counts the number of quotes, single and double  plus html entity 
+    // counts the number of quotes, single and double plus HTML entity 
     // equivalents found in your query.
     private function countQuotes($query) {
         $quoteCount = 0;
@@ -211,8 +211,8 @@ class Database {
     }
 
     // #########################################################################
-    // counts the number of symbols, mostly < and > which would be convereted to 
-    // html entites in the method sanitize query if we dont flag them.
+    // counts the number of symbols, mostly < and > which would be converted to 
+    // html entities in the method sanitize query if we don't flag them.
     private function countSymbols($query) {
         $symbolCount = 0;
         $ltCount = 0;
@@ -337,10 +337,10 @@ class Database {
 
     // #########################################################################
     // attempt to sanitize queries
-    // An attempt to stop Hackers as they try to end statments with a semi colon
+    // An attempt to stop Hackers as they try to end statements with a semi colon
     // so I replace those the letter Q (could be anything) which allows the 
     // query to execute but it will fail returning nothing.
-    // spaces in this conext refer to %20 and most likely will not be in your
+    // spaces in this context refer to %20 and most likely will not be in your
     // query
     function sanitizeQuery($query, $spacesAllowed = false, $semiColonAllowed = false) {
         $replaceValue = "Q";
@@ -357,7 +357,7 @@ class Database {
     }
 
     // #########################################################################
-    // Performs a select query and returns an associtative array
+    // Performs a select query and returns an associative array
     // 
     // $query should be in the form:
     //       SELECT fieldNames FROM table WHERE field = ?
@@ -375,7 +375,7 @@ class Database {
     // 
     // $symbols is for < and > in your conditional expression 
     // 
-    // all of the above can be inside the wuery any place.
+    // all of the above can be inside the query any place.
     //
     // function returns "" if it is not correct
     //
