@@ -40,9 +40,6 @@ $ratings=array("G","PG","PG-13","R","Not Rated","NC-17");	//only valid options f
 $displayOptions=array('Hidden', 'Current', 'Coming Soon');		//only valid options 4 display listbox
 
 if(isset($_POST['btnAddMovie'])){
-	echo "<pre>";
-	print_r($_POST);
-	echo "</pre>";
 	$title=htmlentities($_POST['txtMovieTitle'], ENT_QUOTES, "UTF-8");
 	$runtime=htmlentities($_POST['txtRuntime'], ENT_QUOTES, "UTF-8");
 	$rating=htmlentities($_POST['lstRating'], ENT_QUOTES, "UTF-8");

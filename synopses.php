@@ -40,10 +40,6 @@ include	"php/top.php";
 			echo "\t\t</section>\n";
 		}
 
-		// echo "<pre>";
-		// print_r($synopsesList);
-		// echo "</pre>";
-
 		?>
 	</article>
 <?php

@@ -71,4 +71,11 @@ function getFilesInDirectory($url, $extensions = array("jpg","jpeg","png","gif",
     }
     return $correctedFileList;
 }
+
+//display array contents inside pre tags
+function printArray(&$array){
+    echo "<pre>\n";
+    print_r($array);
+    echo "</pre>\n";
+}
 ?>

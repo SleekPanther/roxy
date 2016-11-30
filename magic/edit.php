@@ -63,9 +63,6 @@ $ratings=array("G","PG","PG-13","R","Not Rated","NC-17");	//only valid options f
 $displayOptions=array('Hidden', 'Current', 'Coming Soon');		//only valid options 4 display listbox
 
 if(isset($_POST['btnChooseMovie'])){
-	// echo "<pre>";
-	// print_r($_POST);
-	// echo "</pre>";
 	$currentMovieId=htmlentities($_POST['lstChooseMovie'], ENT_QUOTES, "UTF-8");
 
 	$query="SELECT pmkMovieId FROM tblMovies WHERE pmkMovieId=?";
