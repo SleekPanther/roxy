@@ -8,6 +8,10 @@
 
 
 //LESS extends
+.normalFont{
+	font-size: 1em;
+	font-family: "times new roman",serif;
+}
 .displayNone{
 	display:none;
 }
@@ -27,19 +31,17 @@
 	clear: both;
 }
 .articleBg{
-    padding: 1em;
+    padding: .9em;
     margin: .2em .2em 0 0;
     border-radius: 1em;
     background: @yellowHighlight;
-    
 }
 
 
 body {
 	margin: -11px 0 0 0;
 	background: @baseBgColor url(@picMovieReelBg);
-	font-size: 1em;
-	font-family: "times new roman",serif;
+	&:extend(.normalFont);
 	//https://stock-clip.com/video/4043056-film-reel-background
 	//http://il3.picdn.net/shutterstock/videos/4043056/thumb/1.jpg
 }
@@ -58,7 +60,7 @@ img {
 	width: 100%;
 }
 pre,textarea {
-    font-size: .9em;
+    &:extend(.normalFont);
     margin: 0;
 }
 
@@ -179,32 +181,22 @@ article.movie {
 #synopses .articleBg{
 	display: table;
 	width: 98%;
+	&:extend(.clear);
 	h2{
 		&:extend(.tCent);
 	}
 	@synopsisImgWidth: 200px;
-	div {
-		display: table-cell;
-		background: red;
-		border:1px solid black;
+	> div {
+			width:49%;
+			float:left;
 		&:nth-child(2){
+			float:right;	/*right div is image & floats right*/
 		    width: @synopsisImgWidth;
 		}
 	}
 	figure {
 		width:@synopsisImgWidth;
 	}
-	/*div {
-		&:nth-child(1){
-		    width: 80%;;
-		}
-		&:nth-child(2){
-		    width: 15%;;
-		}
-		display: table-cell;
-		background: red;
-		border:1px solid black;
-	}*/
 }
 /*************** end Synopses **********************/
 

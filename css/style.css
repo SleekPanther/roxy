@@ -1,3 +1,10 @@
+.normalFont,
+body,
+pre,
+textarea {
+  font-size: 1em;
+  font-family: "times new roman", serif;
+}
 .displayNone {
   display: none;
 }
@@ -19,12 +26,13 @@ article.movie,
 #synopses .articleBg h2 {
   text-align: center;
 }
-.clear {
+.clear,
+#synopses .articleBg {
   clear: both;
 }
 .articleBg,
 article.movie {
-  padding: 1em;
+  padding: .9em;
   margin: .2em .2em 0 0;
   border-radius: 1em;
   background: #ffe35d;
@@ -32,8 +40,6 @@ article.movie {
 body {
   margin: -11px 0 0 0;
   background: #db5c02 url('../images/logos/film-reel.jpg');
-  font-size: 1em;
-  font-family: "times new roman", serif;
 }
 .container {
   margin: 0 auto;
@@ -55,7 +61,6 @@ img {
 }
 pre,
 textarea {
-  font-size: .9em;
   margin: 0;
 }
 p {
@@ -148,24 +153,14 @@ article.movie {
 #synopses .articleBg {
   display: table;
   width: 98%;
-  /*div {
-		&:nth-child(1){
-		    width: 80%;;
-		}
-		&:nth-child(2){
-		    width: 15%;;
-		}
-		display: table-cell;
-		background: red;
-		border:1px solid black;
-	}*/
 }
-#synopses .articleBg div {
-  display: table-cell;
-  background: red;
-  border: 1px solid black;
+#synopses .articleBg > div {
+  width: 49%;
+  float: left;
 }
-#synopses .articleBg div:nth-child(2) {
+#synopses .articleBg > div:nth-child(2) {
+  float: right;
+  /*right div is image & floats right*/
   width: 200px;
 }
 #synopses .articleBg figure {

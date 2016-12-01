@@ -27,7 +27,7 @@ include	"php/top.php";
 			echo $movie['fldRating']."<br>\n";
 			if($movie['fldDirector'] !=''){echo "Directed by ".$movie['fldDirector']."<br>"; }
 			echo "</p>\n";
-			echo "\t\t\t\t<p>".$movie['fldSynopsis']."</p>\n";
+			echo "\t\t\t\t<pre><br>".$movie['fldSynopsis']."</pre>\n";		//put in pre tags so that newlines display from the database. Also print <br> to put more space before the synopsis 
 			echo "\t\t\t</div>\n";
 
 			echo "\t\t\t<div>\n";
