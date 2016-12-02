@@ -31,6 +31,9 @@
 .tCent{
 	text-align: center;
 }
+.floatLeft{
+	float: left;
+}
 .clear {
 	clear: both;
 }
@@ -180,6 +183,20 @@ article.movie {
 	&:extend(.articleBg);
 	&:extend(.tCent);
 }
+
+/*--------------- Prices ---------------*/
+.halfCol{
+	width:45%;
+	&:extend(.floatLeft);
+}
+#prices{
+	.articleBg{
+		>h3{
+			color:@accentRed;
+		}
+	}
+}
+/*--------------- end Prices ---------------*/
 
 /*************** Synopses & soon **********************/
 .twoColContainer.articleBg{

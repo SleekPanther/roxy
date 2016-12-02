@@ -30,6 +30,10 @@ article.movie,
 .twoColContainer.articleBg h2 {
   text-align: center;
 }
+.floatLeft,
+.halfCol {
+  float: left;
+}
 .clear,
 .twoColContainer.articleBg {
   clear: both;
@@ -153,6 +157,14 @@ article.movie {
   float: left;
   height: 188px;
 }
+/*--------------- Prices ---------------*/
+.halfCol {
+  width: 45%;
+}
+#prices .articleBg > h3 {
+  color: #c7000f;
+}
+/*--------------- end Prices ---------------*/
 /*************** Synopses & soon **********************/
 .twoColContainer.articleBg {
   display: table;
