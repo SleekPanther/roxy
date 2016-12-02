@@ -23,10 +23,12 @@ include	"php/top.php";
 			$data=array($movie['pmkMovieId']);
 			$reviews=$thisDatabaseReader->select($query,$data,1,1);
 			foreach($reviews as $review){
-				echo "\t\t\t\t\t<p class='reviewMetaInfo'>".$review['fldAuthor']." &nbsp;&nbsp; ".dateSqlToNice($review['fldReviewDate']);
+				echo "\t\t\t\t\t<article class='reviewSection'>\n";
+				echo "\t\t\t\t\t\t<p class='reviewMetaInfo'>by ".$review['fldAuthor']." &nbsp;&nbsp; ".dateSqlToNice($review['fldReviewDate']);
 				if($review['fldReviewSource'] != ''){echo " &nbsp;&nbsp; <span class='italic'>".$review['fldReviewSource']."</span>";}
 				echo "</p>\n";
-				echo "\t\t\t\t\t<p>".nl2br($review['fldReview'],false)."</p>\n";//echoMultiLine(
+				echo "\t\t\t\t\t\t<p>".nl2br($review['fldReview'],false)."</p>\n";	//use nl2br to print on new lines
+				echo "\t\t\t\t\t</article>\n";
 			}
 			echo "\t\t\t</div>\n";
 
