@@ -84,7 +84,7 @@ include	"php/top.php";
 			}
 
 			$repeat=false;	//set false after each iteration
-			if(date("l", strtotime('today')) == 'Tuesday'){		//check if it's 1 day before a new week & then we want to say YES DO REPEAT (to print next week's schedule)
+			if(date("l", strtotime('today')) == 'Thursday'){		//check if it's 1 day before a new week & then we want to say YES DO REPEAT (to print next week's schedule)
 		        $repeat=true;
 		    }
 		}

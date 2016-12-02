@@ -5,6 +5,7 @@
 @baseBgColor:#db5c02;
 @yellowHighlight: #ffe35d;
 @red:#751d00;
+@accentRed:#c7000f;
 
 
 //LESS extends
@@ -177,13 +178,16 @@ article.movie {
 	&:extend(.tCent);
 }
 
-/*************** Synopses **********************/
-#synopses .articleBg{
+/*************** Synopses & soon **********************/
+.twoColContainer.articleBg{
 	display: table;
 	width: 98%;
 	&:extend(.clear);
 	h2{
 		&:extend(.tCent);
+	}
+	h3{
+		color:@accentRed;
 	}
 	@synopsisImgWidth: 200px;
 	> div {

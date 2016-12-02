@@ -23,11 +23,11 @@ header .headerImgRow,
 nav,
 article.movieContainer > h1,
 article.movie,
-#synopses .articleBg h2 {
+.twoColContainer.articleBg h2 {
   text-align: center;
 }
 .clear,
-#synopses .articleBg {
+.twoColContainer.articleBg {
   clear: both;
 }
 .articleBg,
@@ -149,21 +149,24 @@ article.movie {
   float: left;
   height: 188px;
 }
-/*************** Synopses **********************/
-#synopses .articleBg {
+/*************** Synopses & soon **********************/
+.twoColContainer.articleBg {
   display: table;
   width: 98%;
 }
-#synopses .articleBg > div {
+.twoColContainer.articleBg h3 {
+  color: #c7000f;
+}
+.twoColContainer.articleBg > div {
   width: 49%;
   float: left;
 }
-#synopses .articleBg > div:nth-child(2) {
+.twoColContainer.articleBg > div:nth-child(2) {
   float: right;
   /*right div is image & floats right*/
   width: 200px;
 }
-#synopses .articleBg figure {
+.twoColContainer.articleBg figure {
   width: 200px;
 }
 /*************** end Synopses **********************/
