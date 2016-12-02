@@ -12,11 +12,15 @@ textarea {
   margin: 0;
 }
 .margCent {
-  martin: 0 auto;
+  margin: 0 auto;
 }
 .bold,
-.movie .showtimesDetail {
+.movie .showtimesDetail,
+.reviewMetaInfo {
   font-weight: bold;
+}
+.italic {
+  font-style: italic;
 }
 .tCent,
 header .headerImgRow,

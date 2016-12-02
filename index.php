@@ -9,16 +9,10 @@ include	"php/top.php";
 		$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
 		 fldImgFilename FROM tblMovies
 		 JOIN tblPictures ON pmkMovieId=fnkMovieId
-		 WHERE ( (fldDisplay=? OR fldDisplay=?) AND (fldReleaseDate<=CURDATE()) )
+		 WHERE ( (fldDisplay=? ) AND (fldReleaseDate<=CURDATE()) )
 		 ORDER BY fldReleaseDate DESC";
-		$data=array('Current','Coming Soon');
-		$movies=$thisDatabaseReader->select($query,$data,1,3,0,1);
-		
-
-		// $counter=0;
-		// for($date=date("Y-m-d", strtotime('last sunday')); $counter<1; $date2=date("Y-m-d", strtotime($date.'+7 days'))){
-		//$date=date("Y-m-d", strtotime('last friday'));
-		
+		$data=array('Current');
+		$movies=$thisDatabaseReader->select($query,$data,1,2,0,1);
 
 		//$repeat controls if print 1 or 2 copies of showtimes. Start true so always happens once, then print next week's schedule if it's thursday
 		//$date is a friday, the beginning of a 'week'
