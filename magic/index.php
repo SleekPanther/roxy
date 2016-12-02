@@ -7,22 +7,13 @@ $tabIndex=1;		//print on every form input element & increment
 $imageFolderPath='../images/posters/';		//directory to search when adding image to movie
 $imageList=getFilesInDirectory($imageFolderPath);
 
-// $title='';			//variables to hold form input
-// $runtime='';
-// $rating='PG-13';				//most common rating
-// $releaseDate=date("Y-m-d");		//initialize to current date
-// $display='Current';				//default is hidden (since don't want 2 display movie without showtimes)
-// $director='';
-// $synopsis='';
-// $poster='none';
-
-$title='Inception';			
-$runtime='123';
+$title='';			
+$runtime='';
 $rating='PG-13';				//most common rating
 $releaseDate=date('Y-m-d', strtotime('this friday'));		//initialize to the upcoming friday
 $display='Current';				//default is hidden (since don't want 2 display movie without showtimes)
-$director='Christopher Nolan';
-$synopsis='synopsis is optional';
+$director='';
+$synopsis='';
 $poster='none';
 
 
@@ -81,7 +72,7 @@ if(isset($_POST['btnAddMovie'])){
 	}
 
 	if($synopsis !=''){		//only validate if NOT empty
-		if(!verifyAlphaNum($synopsis)){
+		if(!verifyAlphaNumNewline($synopsis)){
 			$errorMsg[]="Synopsis Cannot have special characters";
 			$synopsisError=true;
 		}
