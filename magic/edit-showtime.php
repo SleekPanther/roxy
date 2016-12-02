@@ -77,5 +77,5 @@ $tabIndex=1;		//print on every form input element & increment
 		</form>
 	</article>
 <?php
-include	"../php/footer.php";
+include	$upFolderPlaceholder."php/footer.php";
 ?>

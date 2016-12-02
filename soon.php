@@ -39,5 +39,5 @@ include	"php/top.php";
 		?>
 	</article>
 <?php
-include	"php/footer.php";
+include	$upFolderPlaceholder."php/footer.php";
 ?>

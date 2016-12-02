@@ -420,5 +420,5 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 		</form>
 	</article>
 <?php
-include	"../php/footer.php";
+include	$upFolderPlaceholder."php/footer.php";
 ?>

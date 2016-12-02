@@ -245,5 +245,5 @@ if(isset($_POST['btnAddMovie'])){
 		</form>
 	</article>
 <?php
-include	"../php/footer.php";
+include	$upFolderPlaceholder."php/footer.php";
 ?>
