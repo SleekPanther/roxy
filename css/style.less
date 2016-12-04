@@ -39,10 +39,10 @@
 .tCent{
 	text-align: center;
 }
-.floatLeft{
+.floatL{
 	float: left;
 }
-.floatRight{
+.floatR{
 	float: right;
 }
 .clear {
@@ -86,6 +86,10 @@ img {
 figure{
 	&#imgCredit{
 		width: 169px;
+	}
+	&#imgRoxyAbout{
+		width:250px;
+		&extend(.floatR);
 	}
 }
 pre,textarea {
@@ -174,7 +178,7 @@ footer{
 	&:extend(.tCent);
 	background: @lightBlue;
 		>div{
-		&:extend(.floatLeft);
+		&:extend(.floatL);
 		width:33%;
 	}
 }
@@ -217,7 +221,7 @@ article.movie {
 /*--------------- Prices ---------------*/
 .halfCol{
 	width:100%;
-	&:extend(.floatLeft);
+	&:extend(.floatL);
 	transition: @mediaQueryTransition;
 }
 #prices{
@@ -259,7 +263,7 @@ article.movie {
 	figure {
 		width:@synopsisImgWidth;
 		margin: 0 0 0 1em;
-		&:extend(.floatRight);
+		&:extend(.floatR);
 	}
 }
 /*************** end Synopses **********************/
