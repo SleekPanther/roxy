@@ -21,6 +21,8 @@ define("DOMAIN", "//" . SERVER);
 
 define ("PHP_SELF", htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, "UTF-8"));
 
+define("THIS_URL", DOMAIN.PHP_SELF);    //for security, check if form came from the correct url (same page)
+
 $PATH_PARTS = pathinfo(PHP_SELF);
 
 define ("BASE_PATH", DOMAIN . $PATH_PARTS['dirname'] . "/");

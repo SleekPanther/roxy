@@ -132,6 +132,7 @@ nav a:focus {
 }
 .mistake {
   background: red;
+  color: white;
 }
 footer {
   text-align: center;

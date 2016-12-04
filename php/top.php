@@ -26,10 +26,12 @@ include "lib/constants.php";
 
         //get the current user (uvm id)
         $username = strtolower(htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8"));     //also convert to lowercase to be safe
-        include "lib/net-id-conversion.php";
-        require "lib/validation-functions.php";
-        require "lib/security.php";
     }
+    include $upFolderPlaceholder."php/lib/net-id-conversion.php";
+    require $upFolderPlaceholder."php/lib/validation-functions.php";
+    require $upFolderPlaceholder."php/lib/security.php";
+    require $upFolderPlaceholder."php/lib/mail-message.php";
+
     echo "\t\t<link rel='stylesheet' href='".$upFolderPlaceholder."css/style.css' type='text/css' media='screen'>\n";
 
     // %^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%^%

@@ -185,16 +185,17 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 ?>
 	<article>
 	<?php
-	if ($errorMsg) {
-		echo "<div id='errors'>\n";
-		echo "<h1>Your form has the following mistakes</h1>\n";
-		echo "<ol>\n";
-		foreach ($errorMsg as $err) {
-			echo "<li>" .$err . "</li>\n";
-		}
-		echo "</ol>\n";
-		echo "</div>\n";
-	}
+	include $upFolderPlaceholder.'php/lib/display-form-errors.php';
+	// if ($errorMsg) {
+	// 	echo "<div id='errors'>\n";
+	// 	echo "<h1>Your form has the following mistakes</h1>\n";
+	// 	echo "<ol>\n";
+	// 	foreach ($errorMsg as $err) {
+	// 		echo "<li>" .$err . "</li>\n";
+	// 	}
+	// 	echo "</ol>\n";
+	// 	echo "</div>\n";
+	// }
 	?>
 		<h1>Edit Movie Info (admin)</h1>
 		<form action="<?php echo PHP_SELF.'?movieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
