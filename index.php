@@ -28,6 +28,7 @@ include	"php/top.php";
 			echo "\t\t\t<h3>".dateSqlToNice($date)." to ".dateSqlToNice( $dateWeekEnds )."</h3>\n";
 			echo "\t\t</section>\n";
 			foreach($movies as $movie){
+				echo "\t\t<div class='articleContainer halfCol'>\n";
 				echo "\t\t<article class='movie'>\n";
 				$imgFile=$upFolderPlaceholder.'images/posters/ref/placeholder.png';
 				if(file_exists($upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'])){
@@ -77,6 +78,7 @@ include	"php/top.php";
 
 				echo "\t\t\t</section>\n";
 				echo "\t\t</article>\n";
+				echo "\t\t</div>\n";
 			}
 
 			$repeat=false;	//set false after each iteration

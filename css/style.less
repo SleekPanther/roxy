@@ -43,10 +43,11 @@
 	clear: both;
 }
 .articleBg{
-    padding: .9em;
-    margin: .2em .2em 0 0;
+    padding: .8em;
+    margin: .3em 0 0 0;
     border-radius: 1em;
     background: @yellowHighlight;
+    box-sizing: border-box;		/*makes padding included in width for multiple columns*/
 }
 
 
@@ -183,11 +184,12 @@ article.movieContainer {
 	}
 }
 article.movie {
-	width: 100%;
-	float: left;
 	height: 188px;
-	&:extend(.articleBg);
 	&:extend(.tCent);
+}
+.articleContainer{
+	&:extend(.articleBg);
+	//overflow: auto;
 }
 
 /*--------------- Prices ---------------*/
@@ -314,10 +316,7 @@ input[type='date'] {	/* target all date input fields to have the same width */
 	.container {
 		width:80%;
 	}
-	article.movie {
-		width: 45%;
-	}
 	.halfCol{
-		width: 45%;
+		width: 50%;
 	}
 }

@@ -39,11 +39,13 @@ article.movie,
   clear: both;
 }
 .articleBg,
-article.movie {
-  padding: .9em;
-  margin: .2em .2em 0 0;
+.articleContainer {
+  padding: .8em;
+  margin: .3em 0 0 0;
   border-radius: 1em;
   background: #ffe35d;
+  box-sizing: border-box;
+  /*makes padding included in width for multiple columns*/
 }
 body {
   margin: -11px 0 0 0;
@@ -154,8 +156,6 @@ article.movieContainer > h1 {
   /*main h1 title for every page is centered*/
 }
 article.movie {
-  width: 100%;
-  float: left;
   height: 188px;
 }
 /*--------------- Prices ---------------*/
@@ -278,10 +278,7 @@ input[type='date'] {
   .container {
     width: 80%;
   }
-  article.movie {
-    width: 45%;
-  }
   .halfCol {
-    width: 45%;
+    width: 50%;
   }
 }
