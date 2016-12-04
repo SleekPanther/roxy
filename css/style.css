@@ -31,12 +31,14 @@ article.movie,
 .fullWidth .fullWidthInfo h2 {
   text-align: center;
 }
-.floatLeft,
+.floatL,
 footer > div,
+.movie figure,
 .halfCol {
   float: left;
 }
-.floatRight,
+.floatR,
+figure#imgRoxyAbout,
 .fullWidth figure {
   float: right;
 }
@@ -83,6 +85,9 @@ img {
 /*image sizing css*/
 figure#imgCredit {
   width: 169px;
+}
+figure#imgRoxyAbout {
+  width: 250px;
 }
 pre,
 textarea {
@@ -163,7 +168,6 @@ footer > div {
   margin: 1em 0;
 }
 .movie figure {
-  float: left;
   width: 120px;
   margin: 0 1em 0 0;
 }
