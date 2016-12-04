@@ -189,6 +189,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 	?>
 		<h1>Edit Movie Info (admin)</h1>
 		<form action="<?php echo PHP_SELF.'?movieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
+			<p class='bold'>Make sure to change a movie's "Visibility" to "Current" in order to actually display any showtimes</p>
 			<?php
 			if(isset($_SESSION['whatJustHappened'])){	//tell user last action the form did & then unset the value
 				echo "<p class='whatJustHappened'>".$_SESSION['whatJustHappened']."</p>\n";
@@ -358,7 +359,6 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><h2>Add Showtime</h2></td>\n";
 			echo "\t\t\t\t</tr>\n";
-			echo "\t\t\t\t\t</td colspan='2'>Make sure to change 'Visibility' to 'Current' in order to actually any showtimes</td>\n";
 
 			include "../php/magic/showtime-form.php";
 

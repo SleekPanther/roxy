@@ -1,10 +1,7 @@
 
     <!-- ######################     Main Navigation   ########################## -->
     <nav>
-    <!-- public links for rest of site go here
-    but have 1;eve; down nav here
-
-    if username=in username array (npatullo, rerickso, yling19, ), then show extra link -->
+    <!--if username=in username array (npatullo, rerickso, yling19, ), then show extra link -->
         <a href="<?php echo $upFolderPlaceholder;?>index.php">Home</a>
         <a href="<?php echo $upFolderPlaceholder;?>synopses.php">Synopses</a>
         <a href="<?php echo $upFolderPlaceholder;?>reviews.php">Reviews</a>

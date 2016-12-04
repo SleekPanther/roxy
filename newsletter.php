@@ -74,14 +74,8 @@ if (isset($_POST["btnSubmit"])) {
 					<input type="text" name='txtEmail' id='txtEmail' autofocus value='<?php echo $email;?>' <?php if($emailError){echo "class='mistake'"; } echo "tabindex='".$tabIndex++."'"; ?>><br>
 					<input type="submit" name='btnSubmit' value='Sign Up' <?php echo "tabindex='".$tabIndex++."'";?> >
 				</form>
-				sign up for our weekly mailing list to stay up date on showtimes, special events and upcoming movies
-				validate valid email & displa error
-				email person saying added
-				form saves 2 datebase
-				successfully added page
-				if already in database, then say "This email is already in the list"
 			<?php
-			} // end body submit
+			} // "end body submit"
 			?>
 		</section>
 	</article>

@@ -244,6 +244,35 @@ input[type='date'] {
   /* target all date input fields to have the same width */
   width: 10em;
 }
+.whatJustHappened {
+  background: #fd7413;
+  padding: .5em;
+  -webkit-animation: fadeJustHappened 3s linear 1;
+  animation: fadeJustHappened 3s linear 1;
+  /*animate background when they update something */
+}
+@-webkit-keyframes fadeJustHappened {
+  0% {
+    background: #04cf00;
+  }
+  40% {
+    background: #04cf00;
+  }
+  100% {
+    background: #fd7413;
+  }
+}
+@keyframes fadeJustHappened {
+  0% {
+    background: #04cf00;
+  }
+  40% {
+    background: #04cf00;
+  }
+  100% {
+    background: #fd7413;
+  }
+}
 /*media queries for small screens*/
 @media (min-width: 700px) {
   .container {
