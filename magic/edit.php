@@ -183,7 +183,8 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 	header('Location: delete-movie.php?movieId='.$currentMovieId);
 }
 ?>
-	<article>
+	<article class='movieContainer'>
+	<article class='articleBg'>
 	<?php
 	include $upFolderPlaceholder.'php/lib/display-form-errors.php';
 	?>
@@ -405,11 +406,9 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 				}
 			}
 			echo "\t\t\t</section>\n";
-
-			
-
 			?>
 		</form>
+	</article>
 	</article>
 <?php
 include	$upFolderPlaceholder."php/footer.php";

@@ -79,10 +79,10 @@ h1, h2, h3, h4, h5, h6 {
     margin: .5em 0;
     font-family: arial, sans-serif;
 }
+/*------------------------ image sizing ------------------------*/
 img {
 	width: 100%;
 }
-/*image sizing css*/
 figure{
 	&#imgCredit{
 		width: 169px;
@@ -92,6 +92,7 @@ figure{
 		&:extend(.floatR);
 	}
 }
+/*------------------------ end image sizing ------------------------*/
 pre,textarea {
     &:extend(.normalFont);
     margin: 0;
@@ -125,7 +126,6 @@ header{
 	}
 }
 
-
 .buttonLink{	/* for special anchor tags to make them look like buttons */
 	display: inline-block;
 	background:@lightBlue;
@@ -134,11 +134,6 @@ header{
     padding: .1em .4em;
 	.boxShadowHover();
 }
-/*.boxShadowHover(@selector){
-	@{selector}:hover, @{selector}:focus{
-		box-shadow: black 1px 1px 5px;
-	}
-}*/
 .boxShadowHover(){
 	&:hover, &:focus{
 		box-shadow: black 1px 1px 5px;
@@ -147,9 +142,6 @@ header{
 	}
 }
 
-/*.buttonLink:hover, .buttonLink:focus {
-    box-shadow: black 1px 1px 5px;
-}*/
 nav {
 	background: @red;
 	&:extend(.tCent);
@@ -159,12 +151,6 @@ nav {
 	a{
 		&:extend(.buttonLink);
 		.boxShadowHover();
-
-		/*display: inline-block;
-		padding: .5em;
-		border-radius: 1em;
-		background: lightblue;
-		margin: 0;*/
 	}
 }
 
@@ -183,14 +169,6 @@ footer{
 	}
 }
 
-
-
-.movieInfo {
-    background: grey;
-    padding: .5em;
-    margin: 1em 0;
-}
-
 .movie {
 	figure {
 	    &:extend(.floatL);
@@ -205,8 +183,7 @@ footer{
 article.movieContainer {
 	overflow: auto;
 	>h1{
-		&:extend(.tCent);
-		/*main h1 title for every page is centered*/
+		&:extend(.tCent); /*main h1 title for every page is centered*/
 	}
 }
 article.movie {
@@ -237,29 +214,14 @@ article.movie {
 #soon .articleBg h2+h3{
 	color:@accentRed;
 }
-/*.twoColContainer.articleBg{*/
 .fullWidth {
 	.fullWidthInfo{
 
-/*	display: table;
-	width: 98%;
-	&:extend(.clear);*/
 		h2{
 			&:extend(.tCent);
 		}
 	}
-	/*h3{
-		color:@accentRed;
-	}*/
 	@synopsisImgWidth: 200px;
-	/*> div {
-			width:49%;
-			float:left;
-		&:nth-child(2){
-			float:right;	//right div is image & floats right
-		    width: @synopsisImgWidth;
-		}
-	}*/
 	figure {
 		width:@synopsisImgWidth;
 		margin: 0 0 0 1em;
@@ -301,10 +263,6 @@ body article tr td[colspan='2']{	/* center text to override default of align-rig
 	text-align: left;
 }
 
-/* td, th {
-	border:1px solid black;
-} */
-
 label {
 	display: inline-block;
 }
@@ -323,9 +281,6 @@ label {
 .formColumnContainer article:nth-child(2) {
 	text-align: left;
 }
-/* .showtimeRow.noAlign td, .noAlign th{
-	text-align: left;
-} */
 input[type='date'] {	/* target all date input fields to have the same width */
     width: 10em;
 }
@@ -335,15 +290,15 @@ input[type='date'] {	/* target all date input fields to have the same width */
 }
 
 .whatJustHappened {
-	background: @baseBgLight10;
+	background: @yellowHighlight;	/*starts out matching the articleBg background */
 	padding: .5em;
 	
-	animation: fadeJustHappened 3s linear 1;	/*animate background when they update something */
+	animation: fadeJustHappened 4s linear 1;	/*animate background when they update something */
 }
 .mixi-frames () {
-	0% {background: @highlightGreen;}
+	2% {background: @highlightGreen;}
 	40% {background: @highlightGreen;}
-	100% {background: @baseBgLight10;}
+	100% {background: @yellowHighlight;}
 }
 @keyframes fadeJustHappened {.mixi-frames;}
 

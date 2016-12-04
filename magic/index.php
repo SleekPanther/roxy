@@ -101,11 +101,12 @@ if(isset($_POST['btnAddMovie'])){
 	}
 }
 ?>
-	<article>
+	<article class='movieContainer'>
+		<h1>Add Movie (admin)</h1>
+		<article class='articleBg'>
 	<?php
 	include $upFolderPlaceholder.'php/lib/display-form-errors.php';
 	?>
-		<h1>Add Movie (admin)</h1>
 		<form action="<?php echo PHP_SELF;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
 			<?php
 			if(isset($_SESSION['whatJustHappened'])){	//tell user last action the form did & then unset the value
@@ -206,6 +207,7 @@ if(isset($_POST['btnAddMovie'])){
 			echo "\t\t\t</table>\n";
 
 			echo "\t\t\t<br><input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'><br>\n";
+			echo "\t\t</article>\n";
 
 
 			$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
@@ -216,9 +218,8 @@ if(isset($_POST['btnAddMovie'])){
 			if(!empty($movies)){	//only print if there are movies to show
 				echo "\n\t\t\t<h3>All Movies in Database</h3>\n";
 				echo "\t\t\t<section class='admin-movie-list'>\n";
-				echo "put listbox to narrow by DISPLAY";
 				foreach($movies as $movie){
-					echo "\t\t\t\t<article class='movieInfo'>\n";
+					echo "\t\t\t\t<article class='articleBg'>\n";
 					echo "\t\t\t\t\t<p>Title: ".$movie['fldTitle']."</p>\n";
 					echo "\t\t\t\t\t<p>Runtime: ".$movie['fldRuntime']." minutes</p>\n";
 					echo "\t\t\t\t\t<p>Rating: ".$movie['fldRating']."</p>\n";

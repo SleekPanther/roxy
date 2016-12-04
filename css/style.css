@@ -79,16 +79,17 @@ h6 {
   margin: .5em 0;
   font-family: arial, sans-serif;
 }
+/*------------------------ image sizing ------------------------*/
 img {
   width: 100%;
 }
-/*image sizing css*/
 figure#imgCredit {
   width: 169px;
 }
 figure#imgRoxyAbout {
   width: 250px;
 }
+/*------------------------ end image sizing ------------------------*/
 pre,
 textarea {
   margin: 0;
@@ -126,25 +127,10 @@ nav a {
   text-decoration: none;
   background: #1ab9df;
 }
-/*.boxShadowHover(@selector){
-	@{selector}:hover, @{selector}:focus{
-		box-shadow: black 1px 1px 5px;
-	}
-}*/
-/*.buttonLink:hover, .buttonLink:focus {
-    box-shadow: black 1px 1px 5px;
-}*/
 nav {
   background: #751d00;
   border-radius: .5em;
   padding: .5em 0;
-}
-nav a {
-  /*display: inline-block;
-		padding: .5em;
-		border-radius: 1em;
-		background: lightblue;
-		margin: 0;*/
 }
 nav a:hover,
 nav a:focus {
@@ -161,11 +147,6 @@ footer {
 }
 footer > div {
   width: 33%;
-}
-.movieInfo {
-  background: grey;
-  padding: .5em;
-  margin: 1em 0;
 }
 .movie figure {
   width: 120px;
@@ -192,25 +173,6 @@ article.movie {
 /*************** Synopses & soon **********************/
 #soon .articleBg h2 + h3 {
   color: #c7000f;
-}
-/*.twoColContainer.articleBg{*/
-.fullWidth {
-  /*h3{
-		color:@accentRed;
-	}*/
-  /*> div {
-			width:49%;
-			float:left;
-		&:nth-child(2){
-			float:right;	//right div is image & floats right
-		    width: @synopsisImgWidth;
-		}
-	}*/
-}
-.fullWidth .fullWidthInfo {
-  /*	display: table;
-	width: 98%;
-	&:extend(.clear);*/
 }
 .fullWidth figure {
   width: 200px;
@@ -242,9 +204,6 @@ body article tr td[colspan='2'] {
   /* center text to override default of align-right */
   text-align: left;
 }
-/* td, th {
-	border:1px solid black;
-} */
 label {
   display: inline-block;
 }
@@ -267,40 +226,38 @@ label {
 .formColumnContainer article:nth-child(2) {
   text-align: left;
 }
-/* .showtimeRow.noAlign td, .noAlign th{
-	text-align: left;
-} */
 input[type='date'] {
   /* target all date input fields to have the same width */
   width: 10em;
 }
 .whatJustHappened {
-  background: #fd7413;
+  background: #ffe35d;
+  /*starts out matching the articleBg background */
   padding: .5em;
-  -webkit-animation: fadeJustHappened 3s linear 1;
-  animation: fadeJustHappened 3s linear 1;
+  -webkit-animation: fadeJustHappened 4s linear 1;
+  animation: fadeJustHappened 4s linear 1;
   /*animate background when they update something */
 }
 @-webkit-keyframes fadeJustHappened {
-  0% {
+  2% {
     background: #04cf00;
   }
   40% {
     background: #04cf00;
   }
   100% {
-    background: #fd7413;
+    background: #ffe35d;
   }
 }
 @keyframes fadeJustHappened {
-  0% {
+  2% {
     background: #04cf00;
   }
   40% {
     background: #04cf00;
   }
   100% {
-    background: #fd7413;
+    background: #ffe35d;
   }
 }
 /*media queries for small screens*/

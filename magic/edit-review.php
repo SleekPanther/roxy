@@ -52,24 +52,26 @@ if(isset($_POST['btnUpdateReview'])){
 
 $tabIndex=1;		//print on every form input element & increment
 ?>		
-	<article>
-		<?php
-		include $upFolderPlaceholder.'php/lib/display-form-errors.php';
-		?>
-		<form name='frmEditReview' id='frmEditReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId;?>' method='post'>
+	<article class='movieContainer'>
+		<article class='articleBg'>
 			<?php
-			echo "\t\t\t\t\t<h2>Edit Review</h2>\n";
-
-			echo "\t\t\t<table>\n";
-
-			include '../php/magic/review-form.php';
-
-			echo "\t\t\t</table>\n";
-			
-			echo "\t\t\t<br><input type='submit' name='btnUpdateReview' id='btnUpdateReview' value='Update Review'>";
-			echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
+			include $upFolderPlaceholder.'php/lib/display-form-errors.php';
 			?>
-		</form>
+			<form name='frmEditReview' id='frmEditReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId;?>' method='post'>
+				<?php
+				echo "\t\t\t\t\t\t<h2>Edit Review</h2>\n";
+
+				echo "\t\t\t\t<table>\n";
+
+				include '../php/magic/review-form.php';
+
+				echo "\t\t\t\t</table>\n";
+				
+				echo "\t\t\t\t<br><input type='submit' name='btnUpdateReview' id='btnUpdateReview' value='Update Review'>";
+				echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
+				?>
+			</form>
+		</article>
 	</article>
 <?php
 include	$upFolderPlaceholder."php/footer.php";

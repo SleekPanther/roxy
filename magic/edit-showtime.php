@@ -47,24 +47,26 @@ if(isset($_POST['btnUpdateShowtime'])){
 
 $tabIndex=1;		//print on every form input element & increment
 ?>		
-	<article>
-	<?php
-	include $upFolderPlaceholder.'php/lib/display-form-errors.php';
-	?>
-		<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId;?>' method='post'>
-			<?php
-			echo "\t\t\t\t\t<h2>Edit Showtime</h2>\n";
+	<article class='movieContainer'>
+		<article class='articleBg'>
+		<?php
+		include $upFolderPlaceholder.'php/lib/display-form-errors.php';
+		?>
+			<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId;?>' method='post'>
+				<?php
+				echo "\t\t\t\t\t\t<h2>Edit Showtime</h2>\n";
 
-			echo "\t\t\t<table>\n";
+				echo "\t\t\t\t<table>\n";
 
-			include '../php/magic/showtime-form.php';
+				include '../php/magic/showtime-form.php';
 
-			echo "\t\t\t</table>\n";
-			
-			echo "\t\t\t<br><input type='submit' name='btnUpdateShowtime' id='btnUpdateShowtime' value='Update Showtime'>";
-			echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
-			?>
-		</form>
+				echo "\t\t\t\t</table>\n";
+				
+				echo "\t\t\t\t<br><input type='submit' name='btnUpdateShowtime' id='btnUpdateShowtime' value='Update Showtime'>";
+				echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
+				?>
+			</form>
+		</article>
 	</article>
 <?php
 include	$upFolderPlaceholder."php/footer.php";

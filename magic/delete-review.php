@@ -34,22 +34,24 @@ if(isset($_POST['btnDeleteReview'])){
 $tabIndex=1;		//print on every form input element & increment
 
 ?>		
-	<article>
-		<form name='frmDeleteReview' id='frmDeleteReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId;?>' method='post'>
-			<h2>Delte Review Confirmation</h2>
-			<h3>Are you sure you want to delete the following Review?</h3>
-			<?php
-			foreach($reviewInfo as $oneReview){		//loop is almost pointless since it should only be 1 reivew
-				echo "<p>Review for: ".$oneReview['fldTitle']."</p>\n";
-				echo "\t\t\t<p>Author: ".$oneReview['fldAuthor']."</p>\n";
-				echo "\t\t\t<p>Review Date: ".dateSqlToNice($oneReview['fldReviewDate'])."</p>\n";
-				if(!empty($oneReview['fldSource']) ){echo "\t\t\t<p>Source: ".$oneReview['fldSource']."</p>\n"; }
-				echo "\t\t\t<p>".nl2br($oneReview['fldReview'],false)."</p>\n";
-			}
-			echo "\t\t\t<br><input type='submit' name='btnDeleteReview' id='btnDeleteReview' value='Delete Review'>";
-			echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
-			?>
-		</form>
+	<article class='movieContainer'>
+		<article class='articleBg'>
+			<form name='frmDeleteReview' id='frmDeleteReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId;?>' method='post'>
+				<h2>Delte Review Confirmation</h2>
+				<h3>Are you sure you want to delete the following Review?</h3>
+				<?php
+				foreach($reviewInfo as $oneReview){		//loop is almost pointless since it should only be 1 reivew
+					echo "<p>Review for: ".$oneReview['fldTitle']."</p>\n";
+					echo "\t\t\t\t<p>Author: ".$oneReview['fldAuthor']."</p>\n";
+					echo "\t\t\t\t<p>Review Date: ".dateSqlToNice($oneReview['fldReviewDate'])."</p>\n";
+					if(!empty($oneReview['fldSource']) ){echo "\t\t\t<p>Source: ".$oneReview['fldSource']."</p>\n"; }
+					echo "<br>\t\t\t\t<p>".nl2br($oneReview['fldReview'],false)."</p>\n";
+				}
+				echo "\t\t\t\t<br><input type='submit' name='btnDeleteReview' id='btnDeleteReview' value='Delete Review'>";
+				echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
+				?>
+			</form>
+		</article>
 	</article>
 <?php
 include	$upFolderPlaceholder."php/footer.php";

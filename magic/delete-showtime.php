@@ -34,20 +34,22 @@ if(isset($_POST['btnDeleteShowtime'])){
 $tabIndex=1;		//print on every form input element & increment
 
 ?>		
-	<article>
-		<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId;?>' method='post'>
-			<h2>Delte Showtime Confirmation</h2>
-			<h3>Are you sure you want to delete the showtime with the following information?</h3>
-			<?php
-			foreach($showtimeInfo as $oneShowtime){
-				echo "<p>Title: ".$oneShowtime['fldTitle']."</p>\n";
-				echo "\t\t\t<p>".$oneShowtime['fldHour'].":".leadingZeros($oneShowtime['fldMinute'],2)." ".$oneShowtime['fldMeridian']." ".$oneShowtime['fldDimension']."\n";
-				echo "\t\t\t<p>Showtime Displays: ".dateSqlToNice($oneShowtime['fldShowtimePosts'])." to ".dateSqlToNice($oneShowtime['fldShowtimeExpires'])."\n";
-			}
-			echo "\t\t\t<br><input type='submit' name='btnDeleteShowtime' id='btnDeleteShowtime' value='Delete Showtime'>";
-			echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
-			?>
-		</form>
+	<article class='movieContainer'>
+		<article class='articleBg'>
+			<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId;?>' method='post'>
+				<h2>Delte Showtime Confirmation</h2>
+				<h3>Are you sure you want to delete the showtime with the following information?</h3>
+				<?php
+				foreach($showtimeInfo as $oneShowtime){
+					echo "<p>Title: ".$oneShowtime['fldTitle']."</p>\n";
+					echo "\t\t\t\t<p>".$oneShowtime['fldHour'].":".leadingZeros($oneShowtime['fldMinute'],2)." ".$oneShowtime['fldMeridian']." ".$oneShowtime['fldDimension']."\n";
+					echo "\t\t\t\t<p>Showtime Displays: ".dateSqlToNice($oneShowtime['fldShowtimePosts'])." to ".dateSqlToNice($oneShowtime['fldShowtimeExpires'])."\n";
+				}
+				echo "\t\t\t\t<br><input type='submit' name='btnDeleteShowtime' id='btnDeleteShowtime' value='Delete Showtime'>";
+				echo "<input type='submit' name='btnCancel' id='btnCancel' value='Cancel'>\n";
+				?>
+			</form>
+		</article>
 	</article>
 <?php
 include	$upFolderPlaceholder."php/footer.php";
