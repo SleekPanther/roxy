@@ -27,15 +27,18 @@ header .headerImgRow,
 nav,
 article.movieContainer > h1,
 article.movie,
-.twoColContainer.articleBg h2 {
+.fullWidth .fullWidthInfo h2 {
   text-align: center;
 }
 .floatLeft,
 .halfCol {
   float: left;
 }
-.clear,
-.twoColContainer.articleBg {
+.floatRight,
+.fullWidth figure {
+  float: right;
+}
+.clear {
   clear: both;
 }
 .articleBg,
@@ -46,6 +49,8 @@ article.movie,
   background: #ffe35d;
   box-sizing: border-box;
   /*makes padding included in width for multiple columns*/
+  overflow: auto;
+  /*needed since some content is too tall & the background would run out */
 }
 body {
   margin: -11px 0 0 0;
@@ -167,24 +172,31 @@ article.movie {
 }
 /*--------------- end Prices ---------------*/
 /*************** Synopses & soon **********************/
-.twoColContainer.articleBg {
-  display: table;
-  width: 98%;
-}
-.twoColContainer.articleBg h3 {
+#soon .articleBg h2 + h3 {
   color: #c7000f;
 }
-.twoColContainer.articleBg > div {
-  width: 49%;
-  float: left;
+/*.twoColContainer.articleBg{*/
+.fullWidth {
+  /*h3{
+		color:@accentRed;
+	}*/
+  /*> div {
+			width:49%;
+			float:left;
+		&:nth-child(2){
+			float:right;	//right div is image & floats right
+		    width: @synopsisImgWidth;
+		}
+	}*/
 }
-.twoColContainer.articleBg > div:nth-child(2) {
-  float: right;
-  /*right div is image & floats right*/
-  width: 200px;
+.fullWidth .fullWidthInfo {
+  /*	display: table;
+	width: 98%;
+	&:extend(.clear);*/
 }
-.twoColContainer.articleBg figure {
+.fullWidth figure {
   width: 200px;
+  margin: 0 0 0 1em;
 }
 /*************** end Synopses **********************/
 /*-------------------- Reviews --------------------*/

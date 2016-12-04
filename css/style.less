@@ -39,6 +39,9 @@
 .floatLeft{
 	float: left;
 }
+.floatRight{
+	float: right;
+}
 .clear {
 	clear: both;
 }
@@ -48,6 +51,7 @@
     border-radius: 1em;
     background: @yellowHighlight;
     box-sizing: border-box;		/*makes padding included in width for multiple columns*/
+    overflow: auto;		/*needed since some content is too tall & the background would run out */
 }
 
 
@@ -207,27 +211,36 @@ article.movie {
 /*--------------- end Prices ---------------*/
 
 /*************** Synopses & soon **********************/
-.twoColContainer.articleBg{
-	display: table;
+#soon .articleBg h2+h3{
+	color:@accentRed;
+}
+/*.twoColContainer.articleBg{*/
+.fullWidth {
+	.fullWidthInfo{
+
+/*	display: table;
 	width: 98%;
-	&:extend(.clear);
-	h2{
-		&:extend(.tCent);
+	&:extend(.clear);*/
+		h2{
+			&:extend(.tCent);
+		}
 	}
-	h3{
+	/*h3{
 		color:@accentRed;
-	}
+	}*/
 	@synopsisImgWidth: 200px;
-	> div {
+	/*> div {
 			width:49%;
 			float:left;
 		&:nth-child(2){
-			float:right;	/*right div is image & floats right*/
+			float:right;	//right div is image & floats right
 		    width: @synopsisImgWidth;
 		}
-	}
+	}*/
 	figure {
 		width:@synopsisImgWidth;
+		margin: 0 0 0 1em;
+		&:extend(.floatRight);
 	}
 }
 /*************** end Synopses **********************/

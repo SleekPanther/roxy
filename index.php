@@ -39,10 +39,6 @@ include	"php/top.php";
 				echo "\t\t\t<p>(".$movie['fldRating'].') '.runtimeToHoursMinutes($movie['fldRuntime'])."</p>\n";
 				echo "\t\t\t<section class='showtimesDetail'>\n";
 
-				// $query="SELECT fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension FROM tblShowtimes
-				//  WHERE ((fldShowtimePosts >= CAST('2016-11-25' AS DATE) ) AND (fldShowtimeExpires <= CAST('2016-11-27' AS DATE) ) AND  fnkMovieId=41)
-				//   ORDER BY fldMeridian, fldHour, fldMinute";
-				//WHERE ((fldShowtimePosts >= CAST('2016-11-25' AS DATE) ) AND (fldShowtimeExpires >= CURDATE() ) AND  fnkMovieId=41)
 				$query="SELECT pmkShowtimeId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension FROM tblShowtimes
 				 WHERE ( (fldShowtimePosts <= ? ) AND (fldShowtimeExpires >= ? ) AND fnkMovieId=?)
 				 ORDER BY fldDimension, fldMeridian, fldHour, fldMinute";

@@ -15,9 +15,15 @@ include	"php/top.php";
 		$movies=$thisDatabaseReader->select($query,$data,1,2,0,1);
 
 		foreach($movies as $movie){
-			echo "\t\t<section class='articleBg twoColContainer'>\n";
+			echo "\t\t<section class='articleBg fullWidth'>\n";
 
-			echo "\t\t\t<div>\n";
+			$imgFile=$upFolderPlaceholder.'images/posters/ref/placeholder.png';
+			if(file_exists($upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'])){
+				$imgFile=$upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'];
+			}
+			echo "\t\t\t\t<figure><img alt='".$movie['fldTitle']."' src='".$imgFile."'></figure>\n";
+
+			echo "\t\t\t<div class='fullWidthInfo'>\n";
 			echo "\t\t\t\t<h2>".$movie['fldTitle']."</h2>\n";
 			$query="SELECT fldAuthor, fldReviewDate, fldReviewSource, fldReview FROM tblReviews WHERE fnkMovieId=? ORDER BY fldReviewDate";
 			$data=array($movie['pmkMovieId']);
@@ -30,14 +36,6 @@ include	"php/top.php";
 				echo "\t\t\t\t\t\t<p>".nl2br($review['fldReview'],false)."</p>\n";	//use nl2br to print on new lines
 				echo "\t\t\t\t\t</article>\n";
 			}
-			echo "\t\t\t</div>\n";
-
-			echo "\t\t\t<div>\n";
-			$imgFile=$upFolderPlaceholder.'images/posters/ref/placeholder.png';
-			if(file_exists($upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'])){
-				$imgFile=$upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'];
-			}
-			echo "\t\t\t\t<figure><img alt='".$movie['fldTitle']."' src='".$imgFile."'></figure>\n";
 			echo "\t\t\t</div>\n";
 
 			echo "\t\t</section>\n";
