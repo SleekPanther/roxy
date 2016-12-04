@@ -4,11 +4,13 @@ include	"php/top.php";
 ?>
 	<article class='movieContainer'>
 		<?php
-
-		//get current movies. & only if the release date is BEFORE today
-		$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
+		//get current movies & only if the release date is BEFORE today
+		//Do a INNER JOIN on tblShowtimes to ensure a movie is actually playing. This gets seemingly duplicate results since this 1st query just want general info about a movie (not the showtime) but tblShowtimes JOIN gets a row for each showtime. SO ADD DISTINCT to "only get movies that have showtimes & just the info about the movie itself, not showtimes yet"
+		//doesn't completely solve issue since expired showtimes won't display
+		$query="SELECT DISTINCT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
 		 fldImgFilename FROM tblMovies
-		 JOIN tblPictures ON pmkMovieId=fnkMovieId
+		 LEFT JOIN tblPictures ON pmkMovieId=tblPictures.fnkMovieId
+		 JOIN tblShowtimes ON pmkmovieId=tblShowtimes.fnkMovieId
 		 WHERE ( (fldDisplay=? ) AND (fldReleaseDate<=CURDATE()) )
 		 ORDER BY fldReleaseDate DESC";
 		$data=array('Current');

@@ -367,6 +367,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><h2>Add Showtime</h2></td>\n";
 			echo "\t\t\t\t</tr>\n";
+			echo "\t\t\t\t\t</td colspan='2'>Make sure to change 'Visibility' to 'Current' in order to actually any showtimes</td>\n";
 
 			include "../php/magic/showtime-form.php";
 
@@ -385,7 +386,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			$newestShowtime=$thisDatabaseReader->select($query,$data,1);	//uses same $data array
 
 			echo "\t\t\t<h3>Current Showtimes</h3>\n";
-			echo "\t\t\t<p>Showtimes are only displayed to the public during the specified date range. (No need to delete old ones, they will just be hidden)<br>Since 2D showings are most common the site only prints 3D if a showing is 3D (So it's important to know if a showtime is 2D or 3D, but you will never see 2D on the public site)</p>\n";
+			echo "\t\t\t<p>Showtimes are only displayed to the public during the specified date range. (No need to delete old ones, they will just be hidden when past the 'showtime expires' date)<br>Since 2D showings are most common the site only prints 3D if a showing is 3D (So it's important to know if a showtime is 2D or 3D, but you will never see 2D on the public site)</p>\n<p class='bold'>These admin showtimes are listed by POST DATE. Look carefully to see when they expire</p>\n";
 			echo "\t\t\t<section class='showtimesListAdmin'>\n";
 			//loops week by week (fridays) starting @ the nearest friday to the oldest date, up until the nearest friday the newest showtime, increment by 7 days each iteration
 			for($friday=nearestDate("friday",$oldestShowtime[0][0]); $friday<=nearestDate("friday",$newestShowtime[0][0]); $friday=date('Y-m-d', strtotime($friday.' +7 days'))){

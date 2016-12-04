@@ -5,6 +5,7 @@ include	"php/top.php";
 	<article class='movieContainer'>
 		<h1>Coming Soon</h1>
 		<?php
+		//left join tblSynopses to get movie info even if description is empty
 		$query="SELECT fldTitle, fldRating, fldRuntime, fldReleaseDate, fldSynopsis, fldDirector, fldImgFilename FROM tblMovies
 		 LEFT JOIN tblSynopses ON pmkMovieId=tblSynopses.fnkMovieId
 		 LEFT JOIN tblPictures ON pmkMovieId=tblPictures.fnkMovieId

@@ -5,17 +5,13 @@ include	"php/top.php";
 	<article class='movieContainer'>
 		<h1>Synopses</h1>
 		<?php
-	// 	SELECT fldTitle, fldRating, fldRuntime, fldSynopsis, fldDirector, fldImgFilename FROM tblSynopses
- // JOIN tblMovies ON pmkMovieId=tblSynopses.fnkMovieId
- // JOIN tblPictures ON pmkMovieId=tblPictures.fnkMovieId
- // WHERE ( ( (fldDisplay='Current') OR (fldDisplay='Coming Soon') ) AND fldReleaseDate<=CURDATE() )
- // ORDER BY fldReleaseDate DESC
+		//INNER JOIN instead of LEFT so that even gets movies without pictures
 		$query="SELECT fldTitle, fldRating, fldRuntime, fldSynopsis, fldDirector, fldImgFilename FROM tblSynopses
 		 JOIN tblMovies ON pmkMovieId=tblSynopses.fnkMovieId
-		 JOIN tblPictures ON pmkMovieId=tblPictures.fnkMovieId
+		 LEFT JOIN tblPictures ON pmkMovieId=tblPictures.fnkMovieId
 		 WHERE ( ( (fldDisplay=?)  ) AND fldReleaseDate<=CURDATE() )
 		 ORDER BY fldReleaseDate DESC";
-		$data=array('Current');		//only get current, not 'Coming soon'
+		$data=array('Current');		//only get current
 		$synopsesList=$thisDatabaseReader->select($query,$data,1,2,0,1);
 
 		foreach($synopsesList as $movie){

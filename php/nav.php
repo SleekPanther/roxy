@@ -10,7 +10,7 @@
         <a href="<?php echo $upFolderPlaceholder;?>reviews.php">Reviews</a>
         <a href="<?php echo $upFolderPlaceholder;?>soon.php">Coming Soon</a>
         <a href="<?php echo $upFolderPlaceholder;?>prices.php">Prices</a>
-        <a href="<?php echo $upFolderPlaceholder;?>list.php">Mailing List</a>
+        <a href="<?php echo $upFolderPlaceholder;?>newsletter.php">Newsletter</a>
         <a href="<?php echo $upFolderPlaceholder;?>about.php">About</a>
     	<?php
     	if (in_array($netId, $validAdmins)){		//only print admin links if they're an admin

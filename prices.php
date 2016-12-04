@@ -3,6 +3,11 @@ session_start();
 include	"php/top.php";
 ?>
 	<article class='movieContainer'>
+	<?php
+	//print table using php
+	?>
+	</article>
+	<article class='movieContainer'>
 		<h1>Prices</h1>
 		<article class='halfCol articleBg'>
 			<h2>Matinee Rates (before 6 pm)</h2>
