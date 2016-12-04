@@ -51,9 +51,11 @@ if(isset($_POST['btnUpdateReview'])){
 }
 
 $tabIndex=1;		//print on every form input element & increment
-
 ?>		
 	<article>
+		<?php
+		include $upFolderPlaceholder.'php/lib/display-form-errors.php';
+		?>
 		<form name='frmEditReview' id='frmEditReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId;?>' method='post'>
 			<?php
 			echo "\t\t\t\t\t<h2>Edit Review</h2>\n";

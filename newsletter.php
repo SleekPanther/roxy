@@ -36,23 +36,18 @@ if (isset($_POST["btnSubmit"])) {
 			$emailError=true;
 		}
 
-		// echo "success ".$success." 22";
-		// if($success){
-		// 	echo ' 1235 ';
-		// }
 		if(!$errorMsg){		//secondary check to make sure they entered a unique email
 			$successMsg = "<h2>Thanks for signing up</h2>\n";
 
 			$message=$successMsg."<p>You will receive next week's movie newsletter shortly<p>\n".
-			"<p>-Merrill's Roxy staff</p>\n";
+			"<p>-Merrill&#039;s Roxy staff</p>\n";
 			$to = $email; // the person who filled out the form
 	        $cc = "";
 	        $bcc = "";
-	        $from="noahpatullo+roxy@gmail.com";	//who they can respond to
-	        // $from="npatullo+roxy@uvm.edu";	//who they can respond to
+	        $from="macrobyte2+roxy@gmail.com";	//who they can respond to
 
 	        $todaysDate = strftime("%x");
-	        $subject = "Newsletter Signup Confirmation - Merrill&#039;s Roxy Cinema - ".$todaysDate;
+	        $subject = "Newsletter Signup Confirmation - Merrill Roxy Cinema - ".$todaysDate;	//somehow can't actually print single quote. it's being escaped & won't let me add ampersand
 
 	        $mailed = sendMail($to, $cc, $bcc, $from, $subject, $message);
 	    }

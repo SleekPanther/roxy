@@ -46,20 +46,10 @@ if(isset($_POST['btnUpdateShowtime'])){
 }
 
 $tabIndex=1;		//print on every form input element & increment
-
 ?>		
 	<article>
 	<?php
-	if ($errorMsg) {
-		echo "<div id='errors'>\n";
-		echo "<h1>Your form has the following mistakes</h1>\n";
-		echo "<ol>\n";
-		foreach ($errorMsg as $err) {
-			echo "<li>" .$err . "</li>\n";
-		}
-		echo "</ol>\n";
-		echo "</div>\n";
-	}
+	include $upFolderPlaceholder.'php/lib/display-form-errors.php';
 	?>
 		<form name='frmDeleteShowtime' id='frmDeleteShowtime' action='<?php echo PHP_SELF."?showtimeId=".$showtimeId."&movieId=".$currentMovieId;?>' method='post'>
 			<?php
