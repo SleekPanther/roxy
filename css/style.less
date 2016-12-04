@@ -8,10 +8,13 @@
 @red:#751d00;
 @accentRed:#c7000f;
 @highlightGreen:#04cf00;
+@lightBlue: #50cdeb;
 
 //width & sizing variables
 @textareaMaxWidth: 30em;		//limit textareas so they can't be infinitely wide & mess up css positioning
 
+//transitions
+@mediaQueryTransition: .7s ease-in-out;
 
 //LESS extends
 .normalFont{
@@ -45,6 +48,9 @@
 .clear {
 	clear: both;
 }
+.overflowA{
+	overflow: auto;
+}
 .articleBg{
     padding: .8em;
     margin: .3em 0 0 0;
@@ -66,7 +72,7 @@ body {
 	margin: 0 auto;
 	background: @baseBgLight10;
 	width:100%;
-	transition: .5s ease-in-out;
+	transition: @mediaQueryTransition;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -75,6 +81,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 img {
 	width: 100%;
+}
+/*image sizing css*/
+figure{
+	&#imgCredit{
+		width: 169px;
+	}
 }
 pre,textarea {
     &:extend(.normalFont);
@@ -112,7 +124,7 @@ header{
 
 .buttonLink{	/* for special anchor tags to make them look like buttons */
 	display: inline-block;
-	background:@yellowHighlight;
+	background:@lightBlue;
 	color: black;
 	border-radius: .5em;
     padding: .1em .4em;
@@ -127,7 +139,7 @@ header{
 	&:hover, &:focus{
 		box-shadow: black 1px 1px 5px;
 	    text-decoration: none;
-	    background:lighten(@yellowHighlight,10%);
+	    background: darken(@lightBlue,13%);
 	}
 }
 
@@ -158,7 +170,13 @@ nav {
 }
 
 footer{
-	text-align: center;
+	&:extend(.overflowA);
+	&:extend(.tCent);
+	background: @lightBlue;
+		>div{
+		&:extend(.floatLeft);
+		width:33%;
+	}
 }
 
 
@@ -200,6 +218,7 @@ article.movie {
 .halfCol{
 	width:100%;
 	&:extend(.floatLeft);
+	transition: @mediaQueryTransition;
 }
 #prices{
 	.articleBg{

@@ -25,12 +25,14 @@ textarea {
 .tCent,
 header .headerImgRow,
 nav,
+footer,
 article.movieContainer > h1,
 article.movie,
 .fullWidth .fullWidthInfo h2 {
   text-align: center;
 }
 .floatLeft,
+footer > div,
 .halfCol {
   float: left;
 }
@@ -40,6 +42,10 @@ article.movie,
 }
 .clear {
   clear: both;
+}
+.overflowA,
+footer {
+  overflow: auto;
 }
 .articleBg,
 .articleContainer {
@@ -60,7 +66,7 @@ body {
   margin: 0 auto;
   background: #fd7413;
   width: 100%;
-  transition: 0.5s ease-in-out;
+  transition: 0.7s ease-in-out;
 }
 h1,
 h2,
@@ -73,6 +79,10 @@ h6 {
 }
 img {
   width: 100%;
+}
+/*image sizing css*/
+figure#imgCredit {
+  width: 169px;
 }
 pre,
 textarea {
@@ -100,7 +110,7 @@ header .socialMediaPics img {
 nav a {
   /* for special anchor tags to make them look like buttons */
   display: inline-block;
-  background: #ffe35d;
+  background: #50cdeb;
   color: black;
   border-radius: .5em;
   padding: .1em .4em;
@@ -109,7 +119,7 @@ nav a {
 .buttonLink:focus {
   box-shadow: black 1px 1px 5px;
   text-decoration: none;
-  background: #ffec90;
+  background: #1ab9df;
 }
 /*.boxShadowHover(@selector){
 	@{selector}:hover, @{selector}:focus{
@@ -135,14 +145,17 @@ nav a:hover,
 nav a:focus {
   box-shadow: black 1px 1px 5px;
   text-decoration: none;
-  background: #ffec90;
+  background: #1ab9df;
 }
 .mistake {
   background: red;
   color: white;
 }
 footer {
-  text-align: center;
+  background: #50cdeb;
+}
+footer > div {
+  width: 33%;
 }
 .movieInfo {
   background: grey;
@@ -166,6 +179,7 @@ article.movie {
 /*--------------- Prices ---------------*/
 .halfCol {
   width: 100%;
+  transition: 0.7s ease-in-out;
 }
 #prices .articleBg > h3 {
   color: #c7000f;

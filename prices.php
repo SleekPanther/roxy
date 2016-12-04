@@ -2,10 +2,6 @@
 session_start();
 include	"php/top.php";
 ?>
-	<article class='movieContainer'>
-	<?php
-	//print table using php
-	?>
 	</article>
 	<article class='movieContainer'>
 		<h1>Prices</h1>
