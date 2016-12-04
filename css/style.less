@@ -7,6 +7,9 @@
 @red:#751d00;
 @accentRed:#c7000f;
 
+//width & sizing variables
+@textareaMaxWidth: 30em;		//limit textareas so they can't be infinitely wide & mess up css positioning
+
 
 //LESS extends
 .normalFont{
@@ -239,7 +242,8 @@ article.movie {
 /*-------------------- end Reviews --------------------*/
 
 textarea[name='txtSynopsis'] {
-    width: 30em;
+    width: @textareaMaxWidth;
+    max-width: @textareaMaxWidth;
     height: 7em;
 }
 textarea[name='txtReview']{

@@ -350,7 +350,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 					echo "\t\t\t\t<tr>\n";
 					echo "\t\t\t\t\t<td colspan='2'><details><summary>Expand/Collapse Review";
 					echo "";
-					echo "</summary>\n<p>".nl2br($oneReview['fldReview'])."</p></details><br></td>\n";
+					echo "</summary>\n<p>".nl2br($oneReview['fldReview'], false)."</p></details><br></td>\n";
 					echo "\t\t\t\t</tr>\n";
 				}
 			}

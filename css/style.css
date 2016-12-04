@@ -195,6 +195,7 @@ article.movie {
 /*-------------------- end Reviews --------------------*/
 textarea[name='txtSynopsis'] {
   width: 30em;
+  max-width: 30em;
   height: 7em;
 }
 textarea[name='txtReview'] {
