@@ -11,7 +11,8 @@
 @lightBlue: #50cdeb;
 
 //width & sizing variables
-@textareaMaxWidth: 30em;		//limit textareas so they can't be infinitely wide & mess up css positioning
+@textareaMaxWidthSynopsis: 30em;		//limit textareas so they can't be infinitely wide & mess up css positioning
+@textareaMaxWidthReview: 60em;
 
 //transitions
 @mediaQueryTransition: .7s ease-in-out;
@@ -244,12 +245,13 @@ article.movie {
 /*-------------------- end Reviews --------------------*/
 
 textarea[name='txtSynopsis'] {
-    width: @textareaMaxWidth;
-    max-width: @textareaMaxWidth;
+    width: @textareaMaxWidthSynopsis;
+    max-width: @textareaMaxWidthSynopsis;
     height: 7em;
 }
 textarea[name='txtReview']{
-	width: 60em;
+	width: @textareaMaxWidthReview;
+	max-width: @textareaMaxWidthReview;
 	height:7em;
 }
 

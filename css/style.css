@@ -192,6 +192,7 @@ textarea[name='txtSynopsis'] {
 }
 textarea[name='txtReview'] {
   width: 60em;
+  max-width: 60em;
   height: 7em;
 }
 table {
