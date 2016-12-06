@@ -1,0 +1,2854 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://gitlab.uvm.edu/SleekPanther/roxy/commits/master -->
+<html class="turbolinks-progress-bar" lang="en"><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="object" property="og:type">
+<meta content="GitLab" property="og:site_name">
+<meta content="SleekPanther / roxy" property="og:title">
+<meta content="GitLab" property="og:description">
+<meta content="https://gitlab.uvm.edu/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="og:image">
+<meta content="https://gitlab.uvm.edu/SleekPanther/roxy" property="og:url">
+<meta content="summary" property="twitter:card">
+<meta content="SleekPanther / roxy" property="twitter:title">
+<meta content="GitLab" property="twitter:description">
+<meta content="https://gitlab.uvm.edu/assets/gitlab_logo-7ae504fe4f68fdebb3c2034e36621930cd36ea87924c11ff65dbcb8ed50dca58.png" property="twitter:image">
+
+<title>Commits · master · SleekPanther / roxy · GitLab</title>
+<meta content="GitLab" name="description">
+<link rel="shortcut icon" type="image/x-icon" href="https://gitlab.uvm.edu/assets/favicon-075eba76312e8421991a0c1f89a89ee81678bcde72319dd3e8047e2a47cd3a42.ico">
+<link rel="stylesheet" media="all" href="./git_files/application-a9a2dd7830d86db5390bab17909af7d560b2735c9eebcd549c78a20dbf95773e.css">
+<link rel="stylesheet" media="print" href="./git_files/print-9c3a1eb4a2f45c9f3d7dd4de03f14c2e6b921e757168b595d7f161bbc320fc05.css">
+<script src="./git_files/application-c309b2d6a5d0ec2db9826cfd03b317203852a05c726855fc2ceab384de916ddc.js.download"></script><style>html.turbolinks-progress-bar::before {
+  content: ' ';
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: #0076ff;
+  height: 3px;
+  opacity: 0.99;
+  width: 0%;
+  transition: width 0ms ease-out, opacity 0ms ease-in;
+  transform: translate3d(0,0,0);
+}</style>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="J5fthd4uRMUwNzHUmLgM6LscRBpPi7hjADEcyKOuGNrNazbRCHij7F7peNE82URGLvZFs2mtoQRuTRIqvQwG1A==">
+<meta content="origin-when-cross-origin" name="referrer">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+<meta content="#474D57" name="theme-color">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.uvm.edu/assets/touch-icon-iphone-5a9cee0e8a51212e70b90c87c12f382c428870c0ff67d1eb034d884b78d2dae7.png">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.uvm.edu/assets/touch-icon-ipad-a6eec6aeb9da138e507593b464fdac213047e49d3093fc30e90d9a995df83ba3.png" sizes="76x76">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.uvm.edu/assets/touch-icon-iphone-retina-72e2aadf86513a56e050e7f0f2355deaa19cc17ed97bbe5147847f2748e5a3e3.png" sizes="120x120">
+<link rel="apple-touch-icon" type="image/x-icon" href="https://gitlab.uvm.edu/assets/touch-icon-ipad-retina-8ebe416f5313483d9c1bc772b5bbe03ecad52a54eba443e5215a22caed2a16a2.png" sizes="152x152">
+<link color="rgb(226, 67, 41)" href="https://gitlab.uvm.edu/assets/logo-d36b5212042cebc89b96df4bf6ac24e43db316143e89926c0db839ff694d2de4.svg" rel="mask-icon">
+<meta content="/assets/msapplication-tile-1196ec67452f618d39cdd85e2e3a542f76574c071051ae7effbfde01710eb17d.png" name="msapplication-TileImage">
+<meta content="#30353E" name="msapplication-TileColor">
+<link rel="alternate" type="application/atom+xml" title="roxy activity" href="https://gitlab.uvm.edu/SleekPanther/roxy.atom?private_token=8Bjgz83AAYyy6yen4dxt">
+
+
+
+
+<script type="text/javascript">function a() {	 document.addEventListener('keydown', function(e){		/*console.log('keydown');*/		var keys = [];		if(e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) {			if(e.metaKey) {				keys.push('Cmd');			}			if(e.shiftKey) {				keys.push('Shift');			}			if(e.ctrlKey)			{				keys.push('Ctrl');			}			if(e.altKey) {				keys.push('Alt');			}		}		if(e.which)		{			/*console.log(e.which);*/			keys.push(String.fromCharCode(e.which));		}		/*console.log(keys.join('+'));*/		if(keys.length >= 2 && keys[keys.length-1] != '') {			window.postMessage({type: 'dolphin_shortcuts', keys:keys}, '*');		}	 });}a();</script><script type="text/javascript"> window.oncontextmenu = function(event) {    var target = event.target.getAttribute('obj_url');	 window.postMessage({type: 'dolphin_clickTarget', target:target}, '*'); };</script></head>
+
+<body class="ui_charcoal" data-group="" data-page="projects:commits:show" data-project="roxy">
+<script>
+//<![CDATA[
+window.gon={};gon.api_version="v3";gon.default_avatar_url="https:\/\/gitlab.uvm.edu\/assets\/no_avatar-849f9c04a3a0d0cea2424ae97b27447dc64a7dbfae83c036c45b403392f0e8ba.png";gon.max_file_size=10;gon.relative_url_root="";gon.shortcuts_path="\/help\/shortcuts";gon.user_color_scheme="white";gon.award_menu_url="\/emojis";gon.current_user_id=45;
+//]]>
+</script>
+<script>
+  window.project_uploads_path = "/SleekPanther/roxy/uploads";
+  window.preview_markdown_path = "/SleekPanther/roxy/preview_markdown";
+</script>
+
+<header class="navbar navbar-fixed-top navbar-gitlab with-horizontal-nav">
+<a class="sr-only gl-accessibility" href="https://gitlab.uvm.edu/SleekPanther/roxy/commits/master#content-body" tabindex="1">Skip to content</a>
+<div class="container-fluid">
+<div class="header-content">
+<button aria-label="Toggle global navigation" class="side-nav-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i class="fa fa-bars"></i>
+</button>
+<button class="navbar-toggle" type="button">
+<span class="sr-only">Toggle navigation</span>
+<i class="fa fa-ellipsis-v"></i>
+</button>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="hidden-sm hidden-xs">
+<div class="has-location-badge search search-form">
+<form class="navbar-form" action="https://gitlab.uvm.edu/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><div class="search-input-container">
+<div class="location-badge">This project</div>
+<div class="search-input-wrap">
+<div class="dropdown" data-url="/search/autocomplete">
+<input type="search" name="search" id="search" placeholder="Search" class="search-input dropdown-menu-toggle no-outline js-search-dashboard-options disabled" spellcheck="false" tabindex="1" autocomplete="off" data-toggle="dropdown" data-issues-path="https://gitlab.uvm.edu/dashboard/issues" data-mr-path="https://gitlab.uvm.edu/dashboard/merge_requests" value="">
+<div class="dropdown-menu dropdown-select">
+<div class="dropdown-content"><ul>
+<li>
+<a class="is-focused dropdown-menu-empty-link">
+Loading...
+</a>
+</li>
+</ul>
+</div><div class="dropdown-loading"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+<i class="search-icon"></i>
+<i class="clear-icon js-clear-input"></i>
+</div>
+</div>
+</div>
+<input type="hidden" name="group_id" id="group_id" class="js-search-group-options">
+<input type="hidden" name="project_id" id="search_project_id" value="538" class="js-search-project-options" data-project-path="roxy" data-name="roxy" data-issues-path="/SleekPanther/roxy/issues" data-mr-path="/SleekPanther/roxy/merge_requests">
+<input type="hidden" name="scope" id="scope" value="commits">
+<input type="hidden" name="repository_ref" id="repository_ref" value="master">
+
+<div class="search-autocomplete-opts hide" data-autocomplete-path="/search/autocomplete" data-autocomplete-project-id="538" data-autocomplete-project-ref="master"></div>
+</form></div>
+
+</li>
+<li class="visible-sm visible-xs">
+<a title="Search" aria-label="Search" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://gitlab.uvm.edu/search"><i class="fa fa-search"></i>
+</a></li>
+<li>
+<a title="Todos" aria-label="Todos" data-toggle="tooltip" data-placement="bottom" data-container="body" href="https://gitlab.uvm.edu/dashboard/todos"><i class="fa fa-bell fa-fw"></i>
+<span class="badge hidden todos-pending-count">
+0
+</span>
+</a></li>
+<li class="header-user dropdown">
+<a class="header-user-dropdown-toggle" data-toggle="dropdown" href="https://gitlab.uvm.edu/SleekPanther"><img width="26" height="26" class="header-user-avatar" src="./git_files/avatar.png" alt="Avatar">
+<i class="fa fa-caret-down"></i>
+</a><div class="dropdown-menu-nav dropdown-menu-align-right">
+<ul>
+<li>
+<a class="profile-link" aria-label="Profile" data-user="SleekPanther" href="https://gitlab.uvm.edu/SleekPanther">Profile</a>
+</li>
+<li>
+<a aria-label="Profile Settings" href="https://gitlab.uvm.edu/profile">Profile Settings</a>
+</li>
+<li>
+<a aria-label="Help" href="https://gitlab.uvm.edu/help">Help</a>
+</li>
+<li class="divider"></li>
+<li>
+<a class="sign-out-link" aria-label="Sign out" rel="nofollow" data-method="delete" href="https://gitlab.uvm.edu/users/sign_out">Sign out</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h1 class="title"><a href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a> / <a class="project-item-select-holder" href="https://gitlab.uvm.edu/SleekPanther/roxy">roxy</a><button name="button" type="button" class="dropdown-toggle-caret js-projects-dropdown-toggle" aria-label="Toggle switch project dropdown" data-target=".js-dropdown-menu-projects" data-toggle="dropdown"><i class="fa fa-chevron-down"></i></button></h1>
+<div class="header-logo">
+<a class="home" title="Dashboard" id="logo" href="https://gitlab.uvm.edu/"><img src="./git_files/uvmlogo2014-tiny.png" alt="Uvmlogo2014 tiny">
+</a></div>
+<div class="js-dropdown-menu-projects">
+<div class="dropdown-menu dropdown-select dropdown-menu-projects">
+<div class="dropdown-title"><span>Go to a project</span><button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button"><i class="fa fa-times dropdown-menu-close-icon"></i></button></div>
+<div class="dropdown-input"><input type="search" id="" class="dropdown-input-field" placeholder="Search your projects" autocomplete="off" value=""><i class="fa fa-search dropdown-input-search"></i><i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i></div>
+<div class="dropdown-content"></div>
+<div class="dropdown-loading"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+</div>
+
+</div>
+</div>
+</header>
+
+<script>
+  var findFileURL = "/SleekPanther/roxy/find_file/master";
+</script>
+
+<div class="page-with-sidebar">
+<div class="sidebar-wrapper nicescroll">
+<div class="sidebar-action-buttons">
+<div class="nav-header-btn toggle-nav-collapse" title="Open/Close">
+<span class="sr-only">Toggle navigation</span>
+<i class="fa fa-bars"></i>
+</div>
+<div class="nav-header-btn pin-nav-btn has-tooltip  js-nav-pin" data-container="body" data-placement="right" title="" data-original-title="Pin navigation">
+<span class="sr-only">Toggle navigation pinning</span>
+<i class="fa fa-fw fa-thumb-tack"></i>
+</div>
+</div>
+<div class="nav-sidebar" style="overflow: hidden; outline: none;" tabindex="1">
+<div class="sidebar-header">Across GitLab</div>
+<ul class="nav">
+<li class="active home"><a title="Projects" class="dashboard-shortcuts-projects" href="https://gitlab.uvm.edu/dashboard/projects"><span>
+Projects
+</span>
+</a></li><li class=""><a class="dashboard-shortcuts-activity" title="Activity" href="https://gitlab.uvm.edu/dashboard/activity"><span>
+Activity
+</span>
+</a></li><li class=""><a title="Groups" href="https://gitlab.uvm.edu/dashboard/groups"><span>
+Groups
+</span>
+</a></li><li class=""><a title="Milestones" href="https://gitlab.uvm.edu/dashboard/milestones"><span>
+Milestones
+</span>
+</a></li><li class=""><a title="Issues" class="dashboard-shortcuts-issues" href="https://gitlab.uvm.edu/dashboard/issues?assignee_id=45"><span>
+Issues
+<span class="count">0</span>
+</span>
+</a></li><li class=""><a title="Merge Requests" class="dashboard-shortcuts-merge_requests" href="https://gitlab.uvm.edu/dashboard/merge_requests?assignee_id=45"><span>
+Merge Requests
+<span class="count">0</span>
+</span>
+</a></li><li class=""><a title="Snippets" href="https://gitlab.uvm.edu/dashboard/snippets"><span>
+Snippets
+</span>
+</a></li></ul>
+</div>
+
+<div id="ascrail2001" class="nicescroll-rails nicescroll-rails-vr" style="width: 7px; z-index: 1000; cursor: default; position: absolute; top: 50px; left: 213px; height: 626px; touch-action: none; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; touch-action: none;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 7px; z-index: 1000; top: 669px; left: 0px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 5px; width: 0px; background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div></div>
+<div class="layout-nav">
+<div class="container-fluid">
+<div class="controls">
+<div class="dropdown project-settings-dropdown">
+<a class="dropdown-new btn btn-default" data-toggle="dropdown" href="https://gitlab.uvm.edu/SleekPanther/roxy/commits/master#" id="project-settings-button">
+<i class="fa fa-cog"></i>
+<i class="fa fa-caret-down"></i>
+</a>
+<ul class="dropdown-menu dropdown-menu-align-right">
+<li class=""><a title="Members" class="team-tab tab" href="https://gitlab.uvm.edu/SleekPanther/roxy/project_members"><span>
+Members
+</span>
+</a></li><li class=""><a title="Groups" href="https://gitlab.uvm.edu/SleekPanther/roxy/group_links"><span>
+Groups
+</span>
+</a></li><li class=""><a title="Deploy Keys" href="https://gitlab.uvm.edu/SleekPanther/roxy/deploy_keys"><span>
+Deploy Keys
+</span>
+</a></li><li class=""><a title="Webhooks" href="https://gitlab.uvm.edu/SleekPanther/roxy/hooks"><span>
+Webhooks
+</span>
+</a></li><li class=""><a title="Services" href="https://gitlab.uvm.edu/SleekPanther/roxy/services"><span>
+Services
+</span>
+</a></li><li class=""><a title="Protected Branches" href="https://gitlab.uvm.edu/SleekPanther/roxy/protected_branches"><span>
+Protected Branches
+</span>
+</a></li><li class=""><a title="Runners" href="https://gitlab.uvm.edu/SleekPanther/roxy/runners"><span>
+Runners
+</span>
+</a></li><li class=""><a title="Variables" href="https://gitlab.uvm.edu/SleekPanther/roxy/variables"><span>
+Variables
+</span>
+</a></li><li class=""><a title="Triggers" href="https://gitlab.uvm.edu/SleekPanther/roxy/triggers"><span>
+Triggers
+</span>
+</a></li><li class=""><a title="CI/CD Pipelines" href="https://gitlab.uvm.edu/SleekPanther/roxy/pipelines/settings"><span>
+CI/CD Pipelines
+</span>
+</a></li>
+<li class="divider"></li>
+<li>
+<a href="https://gitlab.uvm.edu/SleekPanther/roxy/edit">Edit Project
+</a></li>
+</ul>
+</div>
+</div>
+<div class="nav-control scrolling-tabs-container">
+<div class="fade-left">
+<i class="fa fa-angle-left"></i>
+</div>
+<div class="fade-right">
+<i class="fa fa-angle-right"></i>
+</div>
+<ul class="nav-links scrolling-tabs">
+<li class="home"><a title="Project" class="shortcuts-project" href="https://gitlab.uvm.edu/SleekPanther/roxy"><span>
+Project
+</span>
+</a></li><li class=""><a title="Activity" class="shortcuts-project-activity" href="https://gitlab.uvm.edu/SleekPanther/roxy/activity"><span>
+Activity
+</span>
+</a></li><li class="active"><a title="Repository" class="shortcuts-tree" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/master"><span>
+Repository
+</span>
+</a></li><li class=""><a title="Pipelines" class="shortcuts-pipelines" href="https://gitlab.uvm.edu/SleekPanther/roxy/pipelines"><span>
+Pipelines
+</span>
+</a></li><li class=""><a title="Graphs" class="shortcuts-graphs" href="https://gitlab.uvm.edu/SleekPanther/roxy/graphs/master"><span>
+Graphs
+</span>
+</a></li><li class=""><a title="Issues" class="shortcuts-issues" href="https://gitlab.uvm.edu/SleekPanther/roxy/issues"><span>
+Issues
+<span class="badge count issue_counter">0</span>
+</span>
+</a></li><li class=""><a title="Merge Requests" class="shortcuts-merge_requests" href="https://gitlab.uvm.edu/SleekPanther/roxy/merge_requests"><span>
+Merge Requests
+<span class="badge count merge_counter">0</span>
+</span>
+</a></li><li class=""><a title="Wiki" class="shortcuts-wiki" href="https://gitlab.uvm.edu/SleekPanther/roxy/wikis/home"><span>
+Wiki
+</span>
+</a></li><li class="hidden">
+<a title="Network" class="shortcuts-network" href="https://gitlab.uvm.edu/SleekPanther/roxy/network/master">Network
+</a></li>
+<li class="hidden">
+<a class="shortcuts-new-issue" href="https://gitlab.uvm.edu/SleekPanther/roxy/issues/new">Create a new issue
+</a></li>
+<li class="hidden">
+<a title="Builds" class="shortcuts-builds" href="https://gitlab.uvm.edu/SleekPanther/roxy/builds">Builds
+</a></li>
+<li class="hidden">
+<a title="Commits" class="shortcuts-commits" href="https://gitlab.uvm.edu/SleekPanther/roxy/commits/master">Commits
+</a></li>
+<li class="hidden">
+<a title="Issue Boards" class="shortcuts-issue-boards" href="https://gitlab.uvm.edu/SleekPanther/roxy/boards">Issue Boards</a>
+</li>
+</ul>
+</div>
+
+</div>
+</div>
+<div class="content-wrapper page-with-layout-nav">
+<div class="scrolling-tabs-container sub-nav-scroll">
+<div class="fade-left">
+<i class="fa fa-angle-left"></i>
+</div>
+<div class="fade-right">
+<i class="fa fa-angle-right"></i>
+</div>
+
+<div class="nav-links sub-nav scrolling-tabs">
+<ul class="container-fluid">
+<li class=""><a href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/master">Files
+</a></li><li class="active"><a href="https://gitlab.uvm.edu/SleekPanther/roxy/commits/master">Commits
+</a></li><li class=""><a href="https://gitlab.uvm.edu/SleekPanther/roxy/network/master">Network
+</a></li><li class=""><a href="https://gitlab.uvm.edu/SleekPanther/roxy/compare?from=master&amp;to=master">Compare
+</a></li><li class=""><a href="https://gitlab.uvm.edu/SleekPanther/roxy/branches">Branches
+</a></li><li class=""><a href="https://gitlab.uvm.edu/SleekPanther/roxy/tags">Tags
+</a></li></ul>
+</div>
+</div>
+
+
+<div class="broadcast-message" style="background-color: #38ae67; color: #FFFFFF"><i class="fa fa-bullhorn"></i> <p><strong>Please note:</strong> If you are using git via HTTPS you must authenticate with the username in your project's URL (e.g. 'Fred.Flintstone') which <strong>may</strong> be different from your UVM NetID</p></div>
+
+<div class="flash-container flash-container-page">
+</div>
+
+
+<div class=" ">
+<div class="content" id="content-body">
+<div class="container-fluid">
+<div class="row-content-block second-block content-component-block">
+<div class="tree-ref-holder">
+<form class="project-refs-form" action="https://gitlab.uvm.edu/SleekPanther/roxy/refs/switch" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="destination" id="destination" value="commits">
+<div class="dropdown">
+<button class="dropdown-menu-toggle js-project-refs-dropdown" type="button" data-toggle="dropdown" data-selected="master" data-ref="master" data-refs-url="/SleekPanther/roxy/refs" data-field-name="ref" data-submit-form-on-click="true"><span class="dropdown-toggle-text ">master</span><i class="fa fa-caret-down"></i></button>
+<div class="dropdown-menu dropdown-menu-selectable">
+<div class="dropdown-title"><span>Switch branch/tag</span><button class="dropdown-title-button dropdown-menu-close" aria-label="Close" type="button"><i class="fa fa-times dropdown-menu-close-icon"></i></button></div>
+<div class="dropdown-input"><input type="search" id="" class="dropdown-input-field" placeholder="Search branches and tags" autocomplete="off" value=""><i class="fa fa-search dropdown-input-search"></i><i role="button" class="fa fa-times dropdown-input-clear js-dropdown-input-clear"></i></div>
+<div class="dropdown-content"></div>
+<div class="dropdown-loading"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+</div>
+</form>
+</div>
+<div class="block-controls hidden-xs hidden-sm">
+<div class="control">
+<form class="commits-search-form" action="https://gitlab.uvm.edu/SleekPanther/roxy/commits/master" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓"><input type="search" name="search" id="commits-search" placeholder="Filter by commit message" class="form-control search-text-input input-short" spellcheck="false" value="">
+</form></div>
+<div class="control">
+<a title="Commits Feed" class="btn" href="https://gitlab.uvm.edu/SleekPanther/roxy/commits/master.atom?private_token=8Bjgz83AAYyy6yen4dxt"><i class="fa fa-rss"></i>
+</a></div>
+</div>
+<ul class="breadcrumb repo-breadcrumb">
+<li><a href="https://gitlab.uvm.edu/SleekPanther/roxy/commits/master">roxy</a></li>
+</ul>
+</div>
+<div id="project_538">
+<ol class="list-unstyled content_list" id="commits-list">
+<li class="commit-header">04 Dec, 2016 12 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-75661bb6">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/75661bb609614670519c715bbdb42654022a176a">articleBG on all admin pages, css cleanup</a>
+<span class="commit-row-message visible-xs-inline">
+·
+75661bb6
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="75661bb609614670519c715bbdb42654022a176a" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/75661bb609614670519c715bbdb42654022a176a">75661bb6</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/75661bb609614670519c715bbdb42654022a176a">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 5:31pm EST" datetime="2016-12-04T22:31:16Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 5:31pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-8bbac878">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/8bbac8787dcded8683a69aa40dfab8fed17f9975">about</a>
+<span class="commit-row-message visible-xs-inline">
+·
+8bbac878
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="8bbac8787dcded8683a69aa40dfab8fed17f9975" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/8bbac8787dcded8683a69aa40dfab8fed17f9975">8bbac878</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/8bbac8787dcded8683a69aa40dfab8fed17f9975">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 4:59pm EST" datetime="2016-12-04T21:59:14Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 4:59pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-8537f9ac">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/8537f9ac18ec86f2dfe21a443aae4974985a7f9f">prices cleanup</a>
+<span class="commit-row-message visible-xs-inline">
+·
+8537f9ac
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="8537f9ac18ec86f2dfe21a443aae4974985a7f9f" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/8537f9ac18ec86f2dfe21a443aae4974985a7f9f">8537f9ac</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/8537f9ac18ec86f2dfe21a443aae4974985a7f9f">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 4:51pm EST" datetime="2016-12-04T21:51:01Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 4:51pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-6dcafbff">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/6dcafbff88445f74fe583b6cf355b07a7ea8dc52">rename extends (float)</a>
+<span class="commit-row-message visible-xs-inline">
+·
+6dcafbff
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="6dcafbff88445f74fe583b6cf355b07a7ea8dc52" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/6dcafbff88445f74fe583b6cf355b07a7ea8dc52">6dcafbff</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/6dcafbff88445f74fe583b6cf355b07a7ea8dc52">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 4:50pm EST" datetime="2016-12-04T21:50:54Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 4:50pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-32328958">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/32328958a709b665dd7f5630b8f829e7165f0095">footer</a>
+<span class="commit-row-message visible-xs-inline">
+·
+32328958
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="32328958a709b665dd7f5630b8f829e7165f0095" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/32328958a709b665dd7f5630b8f829e7165f0095">32328958</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/32328958a709b665dd7f5630b8f829e7165f0095">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 4:42pm EST" datetime="2016-12-04T21:42:22Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 4:42pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-fa00bc8e">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/fa00bc8e3376ed2f45f9adbcc2ce011a946eb638">fixed columns on other pages</a>
+<span class="commit-row-message visible-xs-inline">
+·
+fa00bc8e
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="fa00bc8e3376ed2f45f9adbcc2ce011a946eb638" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/fa00bc8e3376ed2f45f9adbcc2ce011a946eb638">fa00bc8e</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/fa00bc8e3376ed2f45f9adbcc2ce011a946eb638">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 3:55pm EST" datetime="2016-12-04T20:55:02Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 3:55pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-ec33fc57">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ec33fc570ed85a873e5e374dd1dd010e8bdb3a8c">fixed homepage 2col css</a>
+<span class="commit-row-message visible-xs-inline">
+·
+ec33fc57
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="ec33fc570ed85a873e5e374dd1dd010e8bdb3a8c" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ec33fc570ed85a873e5e374dd1dd010e8bdb3a8c">ec33fc57</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/ec33fc570ed85a873e5e374dd1dd010e8bdb3a8c">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 3:26pm EST" datetime="2016-12-04T20:26:23Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 3:26pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-29c72f5b">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/29c72f5b800af36e7c285abf0334a73720a387b9">what just happened animation (keyframes)</a>
+<span class="commit-row-message visible-xs-inline">
+·
+29c72f5b
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="29c72f5b800af36e7c285abf0334a73720a387b9" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/29c72f5b800af36e7c285abf0334a73720a387b9">29c72f5b</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/29c72f5b800af36e7c285abf0334a73720a387b9">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 2:19pm EST" datetime="2016-12-04T19:19:53Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 2:19pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-b9f659b7">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/b9f659b79d3e6257431f8e67e867dc0caaca65df">nl2br fix</a>
+<span class="commit-row-message visible-xs-inline">
+·
+b9f659b7
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="b9f659b79d3e6257431f8e67e867dc0caaca65df" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/b9f659b79d3e6257431f8e67e867dc0caaca65df">b9f659b7</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/b9f659b79d3e6257431f8e67e867dc0caaca65df">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 1:31pm EST" datetime="2016-12-04T18:31:32Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 1:31pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-ddf67867">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ddf678671f196d8994f82e29bd64248e752bedee">php included for display errors</a>
+<span class="commit-row-message visible-xs-inline">
+·
+ddf67867
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="ddf678671f196d8994f82e29bd64248e752bedee" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ddf678671f196d8994f82e29bd64248e752bedee">ddf67867</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/ddf678671f196d8994f82e29bd64248e752bedee">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 1:18pm EST" datetime="2016-12-04T18:18:25Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 1:18pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-24d96cbe">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/24d96cbe0f59a8e693827e02500df711b3be4ae4">newsletter &amp; form validation includes set-up</a>
+<span class="commit-row-message visible-xs-inline">
+·
+24d96cbe
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="24d96cbe0f59a8e693827e02500df711b3be4ae4" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/24d96cbe0f59a8e693827e02500df711b3be4ae4">24d96cbe</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/24d96cbe0f59a8e693827e02500df711b3be4ae4">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 12:15pm EST" datetime="2016-12-04T17:15:29Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 12:15pm EST">a day ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-3f084ac2">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/3f084ac22e25a6f13174790733fee2f20fa7e67a">cleanup, database fixes</a>
+<span class="commit-row-message visible-xs-inline">
+·
+3f084ac2
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="3f084ac22e25a6f13174790733fee2f20fa7e67a" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/3f084ac22e25a6f13174790733fee2f20fa7e67a">3f084ac2</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/3f084ac22e25a6f13174790733fee2f20fa7e67a">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 4, 2016 10:45am EST" datetime="2016-12-04T15:45:59Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 4, 2016 10:45am EST">a day ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">02 Dec, 2016 8 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-eeb42bcb">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/eeb42bcb6550311bfe3037a9f29c70c55f0c6b10">up folder placeholder fix footer includes</a>
+<span class="commit-row-message visible-xs-inline">
+·
+eeb42bcb
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="eeb42bcb6550311bfe3037a9f29c70c55f0c6b10" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/eeb42bcb6550311bfe3037a9f29c70c55f0c6b10">eeb42bcb</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/eeb42bcb6550311bfe3037a9f29c70c55f0c6b10">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 2, 2016 5:08pm EST" datetime="2016-12-02T22:08:36Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 2, 2016 5:08pm EST">3 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-0f309ff6">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/0f309ff6052bcbd17a5d6e77e03f4a601417e975">list page notes</a>
+<span class="commit-row-message visible-xs-inline">
+·
+0f309ff6
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="0f309ff6052bcbd17a5d6e77e03f4a601417e975" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/0f309ff6052bcbd17a5d6e77e03f4a601417e975">0f309ff6</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/0f309ff6052bcbd17a5d6e77e03f4a601417e975">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 2, 2016 5:04pm EST" datetime="2016-12-02T22:04:04Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 2, 2016 5:04pm EST">3 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-bdd3b877">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/bdd3b8774902231aa94856e552f56128b90a0ba5">prices page</a>
+<span class="commit-row-message visible-xs-inline">
+·
+bdd3b877
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="bdd3b8774902231aa94856e552f56128b90a0ba5" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/bdd3b8774902231aa94856e552f56128b90a0ba5">bdd3b877</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/bdd3b8774902231aa94856e552f56128b90a0ba5">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 2, 2016 10:34am EST" datetime="2016-12-02T15:34:29Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 2, 2016 10:34am EST">3 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-4acb9a00">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4acb9a004279265660f7e2f4c591f42baf01b1d3">fixed newlines on reviews</a>
+<span class="commit-row-message visible-xs-inline">
+·
+4acb9a00
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="4acb9a004279265660f7e2f4c591f42baf01b1d3" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4acb9a004279265660f7e2f4c591f42baf01b1d3">4acb9a00</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/4acb9a004279265660f7e2f4c591f42baf01b1d3">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 2, 2016 10:01am EST" datetime="2016-12-02T15:01:33Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 2, 2016 10:01am EST">3 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-b7b11a80">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/b7b11a80590fb0d02262e63113d3897a37a2b68d">review css</a>
+<span class="commit-row-message visible-xs-inline">
+·
+b7b11a80
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="b7b11a80590fb0d02262e63113d3897a37a2b68d" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/b7b11a80590fb0d02262e63113d3897a37a2b68d">b7b11a80</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/b7b11a80590fb0d02262e63113d3897a37a2b68d">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 2, 2016 9:57am EST" datetime="2016-12-02T14:57:41Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 2, 2016 9:57am EST">3 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-9541cb28">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/9541cb28cae5452ccd54987e58756741af58291a">reviews</a>
+<span class="commit-row-message visible-xs-inline">
+·
+9541cb28
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="9541cb28cae5452ccd54987e58756741af58291a" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/9541cb28cae5452ccd54987e58756741af58291a">9541cb28</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/9541cb28cae5452ccd54987e58756741af58291a">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 2, 2016 9:39am EST" datetime="2016-12-02T14:39:09Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 2, 2016 9:39am EST">3 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-d28f839c">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/d28f839c0eb15a50468d1d5108f4ad0000a2fecc">fixed synopsis validation when initially adding movie</a>
+<span class="commit-row-message visible-xs-inline">
+·
+d28f839c
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="d28f839c0eb15a50468d1d5108f4ad0000a2fecc" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/d28f839c0eb15a50468d1d5108f4ad0000a2fecc">d28f839c</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/d28f839c0eb15a50468d1d5108f4ad0000a2fecc">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 2, 2016 8:47am EST" datetime="2016-12-02T13:47:20Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 2, 2016 8:47am EST">3 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-ee156512">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ee156512339305221c5b1771364d017f1ed02ee4">coming soon</a>
+<span class="commit-row-message visible-xs-inline">
+·
+ee156512
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="ee156512339305221c5b1771364d017f1ed02ee4" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ee156512339305221c5b1771364d017f1ed02ee4">ee156512</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/ee156512339305221c5b1771364d017f1ed02ee4">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 2, 2016 8:46am EST" datetime="2016-12-02T13:46:56Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 2, 2016 8:46am EST">3 days ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">01 Dec, 2016 1 commit</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-8bea206a">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/8bea206a2485cc8310231a29287c652a125f53ed">fixed side-by-side columns in synopses</a>
+<span class="commit-row-message visible-xs-inline">
+·
+8bea206a
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="8bea206a2485cc8310231a29287c652a125f53ed" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/8bea206a2485cc8310231a29287c652a125f53ed">8bea206a</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/8bea206a2485cc8310231a29287c652a125f53ed">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Dec 1, 2016 9:15am EST" datetime="2016-12-01T14:15:34Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Dec 1, 2016 9:15am EST">4 days ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+
+<li class="commit-header">30 Nov, 2016 3 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-2c0eb932">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/2c0eb93259b211ef753428ea51d27c7c955d408c">typods database calss</a>
+<span class="commit-row-message visible-xs-inline">
+·
+2c0eb932
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="2c0eb93259b211ef753428ea51d27c7c955d408c" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/2c0eb93259b211ef753428ea51d27c7c955d408c">2c0eb932</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/2c0eb93259b211ef753428ea51d27c7c955d408c">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 30, 2016 8:34am EST" datetime="2016-11-30T13:34:55Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 30, 2016 8:34am EST">5 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-2ead6a64">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/2ead6a64331ea97ddfe234a90215ffab738a63b5">parintArray in pre tags function</a>
+<span class="commit-row-message visible-xs-inline">
+·
+2ead6a64
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="2ead6a64331ea97ddfe234a90215ffab738a63b5" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/2ead6a64331ea97ddfe234a90215ffab738a63b5">2ead6a64</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/2ead6a64331ea97ddfe234a90215ffab738a63b5">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 30, 2016 7:45am EST" datetime="2016-11-30T12:45:40Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 30, 2016 7:45am EST">6 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-717108ad">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/717108ad2ebd8bca30690419600e202fdaf7d442">fill in passwords for database</a>
+<span class="commit-row-message visible-xs-inline">
+·
+717108ad
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="717108ad2ebd8bca30690419600e202fdaf7d442" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/717108ad2ebd8bca30690419600e202fdaf7d442">717108ad</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/717108ad2ebd8bca30690419600e202fdaf7d442">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 30, 2016 7:31am EST" datetime="2016-11-30T12:31:26Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 30, 2016 7:31am EST">6 days ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">29 Nov, 2016 3 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-17aeb90c">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/17aeb90c1e5b294fd9ce6e46deb8a4c28054c8cd">improved runtimeToHoursMinutes function</a>
+<span class="commit-row-message visible-xs-inline">
+·
+17aeb90c
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="17aeb90c1e5b294fd9ce6e46deb8a4c28054c8cd" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/17aeb90c1e5b294fd9ce6e46deb8a4c28054c8cd">17aeb90c</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/17aeb90c1e5b294fd9ce6e46deb8a4c28054c8cd">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 29, 2016 5:22pm EST" datetime="2016-11-29T22:22:20Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 29, 2016 5:22pm EST">6 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-7c524b03">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/7c524b038beb238ed8c2980d93876a9773cd9b77">fix showtimes span weeks (finally, i think)</a>
+<span class="commit-row-message visible-xs-inline">
+·
+7c524b03
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="7c524b038beb238ed8c2980d93876a9773cd9b77" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/7c524b038beb238ed8c2980d93876a9773cd9b77">7c524b03</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/7c524b038beb238ed8c2980d93876a9773cd9b77">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 29, 2016 5:01pm EST" datetime="2016-11-29T22:01:34Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 29, 2016 5:01pm EST">6 days ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-42969106">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/42969106e811f3594a62b68538e891c4700761d8">for loop to display 2 weeks of schedule, fix range on showtimePosts</a>
+<span class="commit-row-message visible-xs-inline">
+·
+42969106
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="42969106e811f3594a62b68538e891c4700761d8" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/42969106e811f3594a62b68538e891c4700761d8">42969106</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/42969106e811f3594a62b68538e891c4700761d8">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 29, 2016 11:03am EST" datetime="2016-11-29T16:03:31Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 29, 2016 11:03am EST">6 days ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">28 Nov, 2016 10 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-ef970c2d">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ef970c2de00cc33266b97de7939d5e35b8b50900">ignore case picture filanems, css center</a>
+<span class="commit-row-message visible-xs-inline">
+·
+ef970c2d
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="ef970c2de00cc33266b97de7939d5e35b8b50900" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ef970c2de00cc33266b97de7939d5e35b8b50900">ef970c2d</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/ef970c2de00cc33266b97de7939d5e35b8b50900">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 28, 2016 9:44pm EST" datetime="2016-11-29T02:44:37Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 28, 2016 9:44pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-fd8dc94e">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/fd8dc94e6621cd5a0ffd9b13f1fad70ad0642f61">add placeholder img for 'none'</a>
+<span class="commit-row-message visible-xs-inline">
+·
+fd8dc94e
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="fd8dc94e6621cd5a0ffd9b13f1fad70ad0642f61" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/fd8dc94e6621cd5a0ffd9b13f1fad70ad0642f61">fd8dc94e</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/fd8dc94e6621cd5a0ffd9b13f1fad70ad0642f61">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 28, 2016 5:14pm EST" datetime="2016-11-28T22:14:07Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 28, 2016 5:14pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-cd40e74c">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/cd40e74cdc450f9f915b521a6d40d2057be4e980">fixed newline validation on synopsis</a>
+<span class="commit-row-message visible-xs-inline">
+·
+cd40e74c
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="cd40e74cdc450f9f915b521a6d40d2057be4e980" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/cd40e74cdc450f9f915b521a6d40d2057be4e980">cd40e74c</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/cd40e74cdc450f9f915b521a6d40d2057be4e980">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 28, 2016 3:15pm EST" datetime="2016-11-28T20:15:22Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 28, 2016 3:15pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-7dc4e0c3">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/7dc4e0c337631b13e63b457024214300edd90dc6">display synopses closer</a>
+<span class="commit-row-message visible-xs-inline">
+·
+7dc4e0c3
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="7dc4e0c337631b13e63b457024214300edd90dc6" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/7dc4e0c337631b13e63b457024214300edd90dc6">7dc4e0c3</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/7dc4e0c337631b13e63b457024214300edd90dc6">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 28, 2016 3:12pm EST" datetime="2016-11-28T20:12:29Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 28, 2016 3:12pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-fa85e217">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/fa85e217a11e301d77a166235e2bee858c92bddc">synopses test</a>
+<span class="commit-row-message visible-xs-inline">
+·
+fa85e217
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="fa85e217a11e301d77a166235e2bee858c92bddc" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/fa85e217a11e301d77a166235e2bee858c92bddc">fa85e217</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/fa85e217a11e301d77a166235e2bee858c92bddc">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 28, 2016 2:34pm EST" datetime="2016-11-28T19:34:15Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 28, 2016 2:34pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-c0b56e94">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/c0b56e94a1d91d3d09fb104e94f8dc70a208442c">nav &amp; css</a>
+<span class="commit-row-message visible-xs-inline">
+·
+c0b56e94
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="c0b56e94a1d91d3d09fb104e94f8dc70a208442c" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/c0b56e94a1d91d3d09fb104e94f8dc70a208442c">c0b56e94</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/c0b56e94a1d91d3d09fb104e94f8dc70a208442c">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 28, 2016 2:34pm EST" datetime="2016-11-28T19:34:07Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 28, 2016 2:34pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-e2e26138">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/e2e261383a9f2029a318afbec6f65859eb4eab5e">link colors</a>
+<span class="commit-row-message visible-xs-inline">
+·
+e2e26138
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="e2e261383a9f2029a318afbec6f65859eb4eab5e" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/e2e261383a9f2029a318afbec6f65859eb4eab5e">e2e26138</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/e2e261383a9f2029a318afbec6f65859eb4eab5e">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 28, 2016 10:30am EST" datetime="2016-11-28T15:30:26Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 28, 2016 10:30am EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-ba018f07">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ba018f0795250fa1d3b621fd8deaeb632b43969f">php fix, links css</a>
+<span class="commit-row-message visible-xs-inline">
+·
+ba018f07
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="ba018f0795250fa1d3b621fd8deaeb632b43969f" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ba018f0795250fa1d3b621fd8deaeb632b43969f">ba018f07</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/ba018f0795250fa1d3b621fd8deaeb632b43969f">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 28, 2016 10:19am EST" datetime="2016-11-28T15:19:48Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 28, 2016 10:19am EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-fb244232">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/fb2442322ff65467722ee185f9404b01fe8727bc">css, ignore images</a>
+<span class="commit-row-message visible-xs-inline">
+·
+fb244232
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="fb2442322ff65467722ee185f9404b01fe8727bc" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/fb2442322ff65467722ee185f9404b01fe8727bc">fb244232</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/fb2442322ff65467722ee185f9404b01fe8727bc">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 28, 2016 8:56am EST" datetime="2016-11-28T13:56:52Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 28, 2016 8:56am EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-12561dc4">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/12561dc485970f3da2d3ab9390b553a3fd1cf23c">fixed showtime query expiration</a>
+<span class="commit-row-message visible-xs-inline">
+·
+12561dc4
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="12561dc485970f3da2d3ab9390b553a3fd1cf23c" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/12561dc485970f3da2d3ab9390b553a3fd1cf23c">12561dc4</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/12561dc485970f3da2d3ab9390b553a3fd1cf23c">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 28, 2016 8:23am EST" datetime="2016-11-28T13:23:13Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 28, 2016 8:23am EST">a week ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">27 Nov, 2016 3 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-ae329317">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ae32931772d54b27a6a5b1a1c66f874fe0587c2c">selects showtimes (not pretty)</a>
+<span class="commit-row-message visible-xs-inline">
+·
+ae329317
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="ae32931772d54b27a6a5b1a1c66f874fe0587c2c" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ae32931772d54b27a6a5b1a1c66f874fe0587c2c">ae329317</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/ae32931772d54b27a6a5b1a1c66f874fe0587c2c">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 27, 2016 9:29pm EST" datetime="2016-11-28T02:29:11Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 27, 2016 9:29pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-00532813">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/00532813a7bc8714cae4bfafb2cd1854d1d7cc99">get all current movies</a>
+<span class="commit-row-message visible-xs-inline">
+·
+00532813
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="00532813a7bc8714cae4bfafb2cd1854d1d7cc99" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/00532813a7bc8714cae4bfafb2cd1854d1d7cc99">00532813</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/00532813a7bc8714cae4bfafb2cd1854d1d7cc99">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 27, 2016 8:24pm EST" datetime="2016-11-28T01:24:32Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 27, 2016 8:24pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-b17a02f6">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/b17a02f63749341dceb3207768bebafdc7ab802e">php cleanup</a>
+<span class="commit-row-message visible-xs-inline">
+·
+b17a02f6
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="b17a02f63749341dceb3207768bebafdc7ab802e" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/b17a02f63749341dceb3207768bebafdc7ab802e">b17a02f6</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/b17a02f63749341dceb3207768bebafdc7ab802e">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 27, 2016 7:24pm EST" datetime="2016-11-28T00:24:13Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 27, 2016 7:24pm EST">a week ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+
+<li class="commit-header">27 Nov, 2016 4 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-53616cc1">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/53616cc136d60b39628a7d8a533ac0332cc220d7">header css</a>
+<span class="commit-row-message visible-xs-inline">
+·
+53616cc1
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="53616cc136d60b39628a7d8a533ac0332cc220d7" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/53616cc136d60b39628a7d8a533ac0332cc220d7">53616cc1</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/53616cc136d60b39628a7d8a533ac0332cc220d7">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 27, 2016 6:54pm EST" datetime="2016-11-27T23:54:31Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 27, 2016 6:54pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-0ca501c9">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/0ca501c96869db3095e0efe7258335061590fbce">header css</a>
+<span class="commit-row-message visible-xs-inline">
+·
+0ca501c9
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="0ca501c96869db3095e0efe7258335061590fbce" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/0ca501c96869db3095e0efe7258335061590fbce">0ca501c9</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/0ca501c96869db3095e0efe7258335061590fbce">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 27, 2016 6:44pm EST" datetime="2016-11-27T23:44:30Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 27, 2016 6:44pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-4c0199be">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4c0199be1eec30977edec1bf7a6d3041194536e8">upfolderplaceholder header</a>
+<span class="commit-row-message visible-xs-inline">
+·
+4c0199be
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="4c0199be1eec30977edec1bf7a6d3041194536e8" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4c0199be1eec30977edec1bf7a6d3041194536e8">4c0199be</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/4c0199be1eec30977edec1bf7a6d3041194536e8">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 27, 2016 6:44pm EST" datetime="2016-11-27T23:44:21Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 27, 2016 6:44pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-11782193">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/11782193631bcc039d197301137325c342e6bc84">less css file</a>
+<span class="commit-row-message visible-xs-inline">
+·
+11782193
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="11782193631bcc039d197301137325c342e6bc84" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/11782193631bcc039d197301137325c342e6bc84">11782193</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/11782193631bcc039d197301137325c342e6bc84">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 27, 2016 4:44pm EST" datetime="2016-11-27T21:44:08Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 27, 2016 4:44pm EST">a week ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">26 Nov, 2016 1 commit</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-f5f3bbed">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/f5f3bbed1f70d6c9ee4faaf3695a8f9e0983817f">test commit</a>
+<span class="commit-row-message visible-xs-inline">
+·
+f5f3bbed
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="f5f3bbed1f70d6c9ee4faaf3695a8f9e0983817f" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/f5f3bbed1f70d6c9ee4faaf3695a8f9e0983817f">f5f3bbed</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/f5f3bbed1f70d6c9ee4faaf3695a8f9e0983817f">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 26, 2016 10:05am EST" datetime="2016-11-26T15:05:02Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 26, 2016 10:05am EST">a week ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">24 Nov, 2016 1 commit</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-65f54da8">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/65f54da82434cd96a6641a5c4ee688ef8c3eb84e">nav admin links</a>
+<span class="commit-row-message visible-xs-inline">
+·
+65f54da8
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="65f54da82434cd96a6641a5c4ee688ef8c3eb84e" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/65f54da82434cd96a6641a5c4ee688ef8c3eb84e">65f54da8</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/65f54da82434cd96a6641a5c4ee688ef8c3eb84e">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 24, 2016 12:11pm EST" datetime="2016-11-24T17:11:52Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 24, 2016 12:11pm EST">a week ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">22 Nov, 2016 13 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-401540b0">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/401540b07af857e9ee2e0fb62f4df6210cf2aa87">default values</a>
+<span class="commit-row-message visible-xs-inline">
+·
+401540b0
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="401540b07af857e9ee2e0fb62f4df6210cf2aa87" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/401540b07af857e9ee2e0fb62f4df6210cf2aa87">401540b0</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/401540b07af857e9ee2e0fb62f4df6210cf2aa87">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 1:00pm EST" datetime="2016-11-22T18:00:35Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 1:00pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-9c6c9d76">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/9c6c9d76acf092e02e5bcc0d57799ca4e566f43c">removed session variables on index (add movie).</a>
+<span class="commit-row-message visible-xs-inline">
+·
+9c6c9d76
+</span>
+<a class="text-expander hidden-xs js-toggle-button">...</a>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="9c6c9d76acf092e02e5bcc0d57799ca4e566f43c" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/9c6c9d76acf092e02e5bcc0d57799ca4e566f43c">9c6c9d76</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/9c6c9d76acf092e02e5bcc0d57799ca4e566f43c">Browse Files</a>
+</div>
+</div>
+<pre class="commit-row-description js-toggle-content">no longer needed since i redirect to edit page once added</pre>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 12:55pm EST" datetime="2016-11-22T17:55:14Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 12:55pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-3d65def9">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/3d65def963c5d8f50a3931fe8d4a16a9111af4ab">validation</a>
+<span class="commit-row-message visible-xs-inline">
+·
+3d65def9
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="3d65def963c5d8f50a3931fe8d4a16a9111af4ab" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/3d65def963c5d8f50a3931fe8d4a16a9111af4ab">3d65def9</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/3d65def963c5d8f50a3931fe8d4a16a9111af4ab">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 12:50pm EST" datetime="2016-11-22T17:50:50Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 12:50pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-4f056d36">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4f056d36f0d630085f1c0d9da9d2d062a2c8793c">fixed adding review validation (only with corresponding button)</a>
+<span class="commit-row-message visible-xs-inline">
+·
+4f056d36
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="4f056d36f0d630085f1c0d9da9d2d062a2c8793c" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4f056d36f0d630085f1c0d9da9d2d062a2c8793c">4f056d36</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/4f056d36f0d630085f1c0d9da9d2d062a2c8793c">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 12:30pm EST" datetime="2016-11-22T17:30:39Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 12:30pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-4806aef7">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4806aef7249374d288952d0abd757b7e2094de84">delete review</a>
+<span class="commit-row-message visible-xs-inline">
+·
+4806aef7
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="4806aef7249374d288952d0abd757b7e2094de84" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4806aef7249374d288952d0abd757b7e2094de84">4806aef7</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/4806aef7249374d288952d0abd757b7e2094de84">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 12:14pm EST" datetime="2016-11-22T17:14:48Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 12:14pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-b63dc3b6">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/b63dc3b6149f3092d6dc5f6d6d1f6dcd5b4395bc">2 nav</a>
+<span class="commit-row-message visible-xs-inline">
+·
+b63dc3b6
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="b63dc3b6149f3092d6dc5f6d6d1f6dcd5b4395bc" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/b63dc3b6149f3092d6dc5f6d6d1f6dcd5b4395bc">b63dc3b6</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/b63dc3b6149f3092d6dc5f6d6d1f6dcd5b4395bc">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 12:14pm EST" datetime="2016-11-22T17:14:30Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 12:14pm EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-959acae7">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/959acae72cc423c19a38e6282ddd39ae30dfc5c7">edit review</a>
+<span class="commit-row-message visible-xs-inline">
+·
+959acae7
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="959acae72cc423c19a38e6282ddd39ae30dfc5c7" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/959acae72cc423c19a38e6282ddd39ae30dfc5c7">959acae7</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/959acae72cc423c19a38e6282ddd39ae30dfc5c7">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 11:40am EST" datetime="2016-11-22T16:40:33Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 11:40am EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-78b0bf7c">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/78b0bf7ceb16a5fef2530da7fce7f89b8da5a300">better error handling showtime</a>
+<span class="commit-row-message visible-xs-inline">
+·
+78b0bf7c
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="78b0bf7ceb16a5fef2530da7fce7f89b8da5a300" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/78b0bf7ceb16a5fef2530da7fce7f89b8da5a300">78b0bf7c</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/78b0bf7ceb16a5fef2530da7fce7f89b8da5a300">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 11:22am EST" datetime="2016-11-22T16:22:43Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 11:22am EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-be6f0732">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/be6f0732eb1beeb7334bfdff6e712100f9dba681">fix forms, remove dead variables</a>
+<span class="commit-row-message visible-xs-inline">
+·
+be6f0732
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="be6f0732eb1beeb7334bfdff6e712100f9dba681" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/be6f0732eb1beeb7334bfdff6e712100f9dba681">be6f0732</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/be6f0732eb1beeb7334bfdff6e712100f9dba681">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 11:08am EST" datetime="2016-11-22T16:08:53Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 11:08am EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-d6ecaf83">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/d6ecaf8315fed427308e6e4c91a488e87532cd45">validate multiline text review</a>
+<span class="commit-row-message visible-xs-inline">
+·
+d6ecaf83
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="d6ecaf8315fed427308e6e4c91a488e87532cd45" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/d6ecaf8315fed427308e6e4c91a488e87532cd45">d6ecaf83</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/d6ecaf8315fed427308e6e4c91a488e87532cd45">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 10:41am EST" datetime="2016-11-22T15:41:56Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 10:41am EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-f72c92f8">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/f72c92f8ca02dcf0b601bac53f0ac997179e782f">display reviews</a>
+<span class="commit-row-message visible-xs-inline">
+·
+f72c92f8
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="f72c92f8ca02dcf0b601bac53f0ac997179e782f" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/f72c92f8ca02dcf0b601bac53f0ac997179e782f">f72c92f8</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/f72c92f8ca02dcf0b601bac53f0ac997179e782f">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 8:57am EST" datetime="2016-11-22T13:57:15Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 8:57am EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-8ceee1d7">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/8ceee1d7533d0169b67f5a3ecc4d34f80e233222">session variables for review</a>
+<span class="commit-row-message visible-xs-inline">
+·
+8ceee1d7
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="8ceee1d7533d0169b67f5a3ecc4d34f80e233222" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/8ceee1d7533d0169b67f5a3ecc4d34f80e233222">8ceee1d7</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/8ceee1d7533d0169b67f5a3ecc4d34f80e233222">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 8:32am EST" datetime="2016-11-22T13:32:32Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 8:32am EST">a week ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-23659c43">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/23659c436fbd42b0b9fd293b99f3081933c02a76">add review</a>
+<span class="commit-row-message visible-xs-inline">
+·
+23659c43
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="23659c436fbd42b0b9fd293b99f3081933c02a76" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/23659c436fbd42b0b9fd293b99f3081933c02a76">23659c43</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/23659c436fbd42b0b9fd293b99f3081933c02a76">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 22, 2016 8:15am EST" datetime="2016-11-22T13:15:16Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 22, 2016 8:15am EST">2 weeks ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">21 Nov, 2016 16 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-c6eb3a5f">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/c6eb3a5f55b91e5a860a136189fcff649041fb1a">fixed movie dropdown so titles update</a>
+<span class="commit-row-message visible-xs-inline">
+·
+c6eb3a5f
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="c6eb3a5f55b91e5a860a136189fcff649041fb1a" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/c6eb3a5f55b91e5a860a136189fcff649041fb1a">c6eb3a5f</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/c6eb3a5f55b91e5a860a136189fcff649041fb1a">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 9:30pm EST" datetime="2016-11-22T02:30:59Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 9:30pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-b4166aa9">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/b4166aa960a1a26dc8f0b02b4bd1320b75e386d2">whatJustHappened session variable msg, minor redirect fixes, cancel buttons</a>
+<span class="commit-row-message visible-xs-inline">
+·
+b4166aa9
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="b4166aa960a1a26dc8f0b02b4bd1320b75e386d2" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/b4166aa960a1a26dc8f0b02b4bd1320b75e386d2">b4166aa9</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/b4166aa960a1a26dc8f0b02b4bd1320b75e386d2">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 9:26pm EST" datetime="2016-11-22T02:26:22Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 9:26pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-30be2fb5">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/30be2fb5953a181e450e66cae081ccc87311d344">delete movie kind of works</a>
+<span class="commit-row-message visible-xs-inline">
+·
+30be2fb5
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="30be2fb5953a181e450e66cae081ccc87311d344" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/30be2fb5953a181e450e66cae081ccc87311d344">30be2fb5</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/30be2fb5953a181e450e66cae081ccc87311d344">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 6:18pm EST" datetime="2016-11-21T23:18:28Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 6:18pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-8fa0040f">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/8fa0040f04bfa294a276e61001d2eccf9bcc3c8e">delete redirect, reorganize ubttons</a>
+<span class="commit-row-message visible-xs-inline">
+·
+8fa0040f
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="8fa0040f04bfa294a276e61001d2eccf9bcc3c8e" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/8fa0040f04bfa294a276e61001d2eccf9bcc3c8e">8fa0040f</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/8fa0040f04bfa294a276e61001d2eccf9bcc3c8e">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 5:51pm EST" datetime="2016-11-21T22:51:41Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 5:51pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-f8d19c7a">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/f8d19c7aed2991d510a2c4ca2d678281bba602e8">edite: switch between movies dropdown</a>
+<span class="commit-row-message visible-xs-inline">
+·
+f8d19c7a
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="f8d19c7aed2991d510a2c4ca2d678281bba602e8" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/f8d19c7aed2991d510a2c4ca2d678281bba602e8">f8d19c7a</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/f8d19c7aed2991d510a2c4ca2d678281bba602e8">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 5:45pm EST" datetime="2016-11-21T22:45:53Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 5:45pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-5ac14924">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/5ac1492429008ba388477cb863fa1de02984b32b">cleanup</a>
+<span class="commit-row-message visible-xs-inline">
+·
+5ac14924
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="5ac1492429008ba388477cb863fa1de02984b32b" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/5ac1492429008ba388477cb863fa1de02984b32b">5ac14924</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/5ac1492429008ba388477cb863fa1de02984b32b">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 5:18pm EST" datetime="2016-11-21T22:18:11Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 5:18pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-c6183069">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/c61830699e7ec217651531c394ccd29a56d19ba1">increment by 5 for mintues</a>
+<span class="commit-row-message visible-xs-inline">
+·
+c6183069
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="c61830699e7ec217651531c394ccd29a56d19ba1" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/c61830699e7ec217651531c394ccd29a56d19ba1">c6183069</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/c61830699e7ec217651531c394ccd29a56d19ba1">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 5:17pm EST" datetime="2016-11-21T22:17:40Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 5:17pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-37ac7d3c">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/37ac7d3ced790f9166a87e0a6f5a125bb59a15b3">edit showtime</a>
+<span class="commit-row-message visible-xs-inline">
+·
+37ac7d3c
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="37ac7d3ced790f9166a87e0a6f5a125bb59a15b3" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/37ac7d3ced790f9166a87e0a6f5a125bb59a15b3">37ac7d3c</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/37ac7d3ced790f9166a87e0a6f5a125bb59a15b3">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 5:15pm EST" datetime="2016-11-21T22:15:16Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 5:15pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-785708d3">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/785708d3c1950c2b45a3035bc4fecc26ca7cf095">can delete showtimes</a>
+<span class="commit-row-message visible-xs-inline">
+·
+785708d3
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="785708d3c1950c2b45a3035bc4fecc26ca7cf095" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/785708d3c1950c2b45a3035bc4fecc26ca7cf095">785708d3</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/785708d3c1950c2b45a3035bc4fecc26ca7cf095">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 4:32pm EST" datetime="2016-11-21T21:32:26Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 4:32pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-cf71b3d3">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/cf71b3d38bdaf2bebd37bae42b0ebad7ab81ba99">select &amp; display correct showtimes in week range</a>
+<span class="commit-row-message visible-xs-inline">
+·
+cf71b3d3
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="cf71b3d38bdaf2bebd37bae42b0ebad7ab81ba99" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/cf71b3d38bdaf2bebd37bae42b0ebad7ab81ba99">cf71b3d3</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/cf71b3d38bdaf2bebd37bae42b0ebad7ab81ba99">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 3:32pm EST" datetime="2016-11-21T20:32:44Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 3:32pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-66bc2780">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/66bc27803503dbd0b821a2539114f6db01d4d3e2">leading zeros function</a>
+<span class="commit-row-message visible-xs-inline">
+·
+66bc2780
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="66bc27803503dbd0b821a2539114f6db01d4d3e2" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/66bc27803503dbd0b821a2539114f6db01d4d3e2">66bc2780</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/66bc27803503dbd0b821a2539114f6db01d4d3e2">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 3:32pm EST" datetime="2016-11-21T20:32:29Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 3:32pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-12b591f6">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/12b591f650ba60dc798d26b53da8f9325f2ccf44">get a list of showtimes, all per 1 week</a>
+<span class="commit-row-message visible-xs-inline">
+·
+12b591f6
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="12b591f650ba60dc798d26b53da8f9325f2ccf44" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/12b591f650ba60dc798d26b53da8f9325f2ccf44">12b591f6</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/12b591f650ba60dc798d26b53da8f9325f2ccf44">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 2:21pm EST" datetime="2016-11-21T19:21:39Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 2:21pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-3870a690">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/3870a690fa2aeeca979e85458c3f9f82cdc1a718">functions for nearest date &amp; pretty runtime</a>
+<span class="commit-row-message visible-xs-inline">
+·
+3870a690
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="3870a690fa2aeeca979e85458c3f9f82cdc1a718" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/3870a690fa2aeeca979e85458c3f9f82cdc1a718">3870a690</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/3870a690fa2aeeca979e85458c3f9f82cdc1a718">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 1:49pm EST" datetime="2016-11-21T18:49:23Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 1:49pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-cacdedab">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/cacdedabc78f75e14aa820946e07ade307627218">showtimes are added to table</a>
+<span class="commit-row-message visible-xs-inline">
+·
+cacdedab
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="cacdedabc78f75e14aa820946e07ade307627218" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/cacdedabc78f75e14aa820946e07ade307627218">cacdedab</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/cacdedabc78f75e14aa820946e07ade307627218">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 12:40pm EST" datetime="2016-11-21T17:40:37Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 12:40pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-67f53912">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/67f5391206625d96cb7dfcfd46e6c3f45bf2d4c8">am pm &amp; adds to database</a>
+<span class="commit-row-message visible-xs-inline">
+·
+67f53912
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="67f5391206625d96cb7dfcfd46e6c3f45bf2d4c8" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/67f5391206625d96cb7dfcfd46e6c3f45bf2d4c8">67f53912</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/67f5391206625d96cb7dfcfd46e6c3f45bf2d4c8">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 11:55am EST" datetime="2016-11-21T16:55:11Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 11:55am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-944ef3c0">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/944ef3c0f817531d03c2ed4f437be3ee6f8e79f6">setting up showtimes (hour)</a>
+<span class="commit-row-message visible-xs-inline">
+·
+944ef3c0
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="944ef3c0f817531d03c2ed4f437be3ee6f8e79f6" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/944ef3c0f817531d03c2ed4f437be3ee6f8e79f6">944ef3c0</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/944ef3c0f817531d03c2ed4f437be3ee6f8e79f6">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 21, 2016 11:25am EST" datetime="2016-11-21T16:25:40Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 21, 2016 11:25am EST">2 weeks ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">20 Nov, 2016 4 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-4d41df60">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4d41df6082796cec5c109e2eddb55407dd6704fc">much better date validation regex</a>
+<span class="commit-row-message visible-xs-inline">
+·
+4d41df60
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="4d41df6082796cec5c109e2eddb55407dd6704fc" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4d41df6082796cec5c109e2eddb55407dd6704fc">4d41df60</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/4d41df6082796cec5c109e2eddb55407dd6704fc">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 20, 2016 9:32pm EST" datetime="2016-11-21T02:32:47Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 20, 2016 9:32pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-7508a45e">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/7508a45eba489e927ff8779f418db60be1afae18">return to index link, default today date</a>
+<span class="commit-row-message visible-xs-inline">
+·
+7508a45e
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="7508a45eba489e927ff8779f418db60be1afae18" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/7508a45eba489e927ff8779f418db60be1afae18">7508a45e</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/7508a45eba489e927ff8779f418db60be1afae18">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 20, 2016 8:56pm EST" datetime="2016-11-21T01:56:39Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 20, 2016 8:56pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-023c79df">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/023c79dfbe640992a345fdbddc4a4bd1f4911650">date validation</a>
+<span class="commit-row-message visible-xs-inline">
+·
+023c79df
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="023c79dfbe640992a345fdbddc4a4bd1f4911650" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/023c79dfbe640992a345fdbddc4a4bd1f4911650">023c79df</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/023c79dfbe640992a345fdbddc4a4bd1f4911650">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 20, 2016 8:51pm EST" datetime="2016-11-21T01:51:58Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 20, 2016 8:51pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-824adb9f">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/824adb9f68db0fae0f799a5894018ec0f7bb117f">say "movie updated", pictures change</a>
+<span class="commit-row-message visible-xs-inline">
+·
+824adb9f
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="824adb9f68db0fae0f799a5894018ec0f7bb117f" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/824adb9f68db0fae0f799a5894018ec0f7bb117f">824adb9f</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/824adb9f68db0fae0f799a5894018ec0f7bb117f">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 20, 2016 8:31pm EST" datetime="2016-11-21T01:31:23Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 20, 2016 8:31pm EST">2 weeks ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">18 Nov, 2016 1 commit</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-61e80f2d">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/61e80f2d387a98318a9bc3cd578bb5f877e8974f">fixed no image (current image ) radio</a>
+<span class="commit-row-message visible-xs-inline">
+·
+61e80f2d
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="61e80f2d387a98318a9bc3cd578bb5f877e8974f" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/61e80f2d387a98318a9bc3cd578bb5f877e8974f">61e80f2d</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/61e80f2d387a98318a9bc3cd578bb5f877e8974f">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="Nov 18, 2016 4:51pm EST" datetime="2016-11-18T21:51:06Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 18, 2016 4:51pm EST">2 weeks ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">18 Nov, 2016 9 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-ae521d0c">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ae521d0c55ec19d90fe1e240aec223d80a056023">removes empty synopses from databse</a>
+<span class="commit-row-message visible-xs-inline">
+·
+ae521d0c
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="ae521d0c55ec19d90fe1e240aec223d80a056023" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ae521d0c55ec19d90fe1e240aec223d80a056023">ae521d0c</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/ae521d0c55ec19d90fe1e240aec223d80a056023">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T21:12:51Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 18, 2016 4:12pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-60a49087">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/60a490879c8bb43a8fa3db6130cb66e5e255f58b">fixed synopses: now doesn't add to synopsis table if empty</a>
+<span class="commit-row-message visible-xs-inline">
+·
+60a49087
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="60a490879c8bb43a8fa3db6130cb66e5e255f58b" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/60a490879c8bb43a8fa3db6130cb66e5e255f58b">60a49087</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/60a490879c8bb43a8fa3db6130cb66e5e255f58b">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T15:05:47Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 18, 2016 10:05am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-c33f1f4c">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/c33f1f4cd6435ed6e8f71aa9bce16a9972bdfff0">update or add synopsis</a>
+<span class="commit-row-message visible-xs-inline">
+·
+c33f1f4c
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="c33f1f4cd6435ed6e8f71aa9bce16a9972bdfff0" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/c33f1f4cd6435ed6e8f71aa9bce16a9972bdfff0">c33f1f4c</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/c33f1f4cd6435ed6e8f71aa9bce16a9972bdfff0">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T14:51:42Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 18, 2016 9:51am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-330bc06c">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/330bc06cf95cd2211fde4122a84ece779d832d3f">movie table updates info</a>
+<span class="commit-row-message visible-xs-inline">
+·
+330bc06c
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="330bc06cf95cd2211fde4122a84ece779d832d3f" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/330bc06cf95cd2211fde4122a84ece779d832d3f">330bc06c</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/330bc06cf95cd2211fde4122a84ece779d832d3f">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T14:36:08Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 18, 2016 9:36am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-bba9973a">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/bba9973a02f86ee6befb1c72520e23f289d3193e">remove printing all movies</a>
+<span class="commit-row-message visible-xs-inline">
+·
+bba9973a
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="bba9973a02f86ee6befb1c72520e23f289d3193e" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/bba9973a02f86ee6befb1c72520e23f289d3193e">bba9973a</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/bba9973a02f86ee6befb1c72520e23f289d3193e">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T14:14:37Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 18, 2016 9:14am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-ff368378">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ff368378c5671d0e8a77c43c951d2f1046daec2d">remove session variables in edit, fill out form from databse</a>
+<span class="commit-row-message visible-xs-inline">
+·
+ff368378
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="ff368378c5671d0e8a77c43c951d2f1046daec2d" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ff368378c5671d0e8a77c43c951d2f1046daec2d">ff368378</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/ff368378c5671d0e8a77c43c951d2f1046daec2d">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T14:11:20Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 18, 2016 9:11am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-9c03af0e">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/9c03af0ec751cc139811cb6dbe666057de96067b">only add synopsis if NOT empty</a>
+<span class="commit-row-message visible-xs-inline">
+·
+9c03af0e
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="9c03af0ec751cc139811cb6dbe666057de96067b" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/9c03af0ec751cc139811cb6dbe666057de96067b">9c03af0e</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/9c03af0ec751cc139811cb6dbe666057de96067b">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T14:10:58Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 18, 2016 9:10am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-654fc0b5">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/654fc0b5736d2890bda5788c17640e7ad6a4bff3">edit page: copy of add page page</a>
+<span class="commit-row-message visible-xs-inline">
+·
+654fc0b5
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="654fc0b5736d2890bda5788c17640e7ad6a4bff3" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/654fc0b5736d2890bda5788c17640e7ad6a4bff3">654fc0b5</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/654fc0b5736d2890bda5788c17640e7ad6a4bff3">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T13:27:37Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 18, 2016 8:27am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-92a3dc12">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/92a3dc12b0cb14d8a6fd9876f5cf5c204d6b2ffc">cleanup</a>
+<span class="commit-row-message visible-xs-inline">
+·
+92a3dc12
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="92a3dc12b0cb14d8a6fd9876f5cf5c204d6b2ffc" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/92a3dc12b0cb14d8a6fd9876f5cf5c204d6b2ffc">92a3dc12</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/92a3dc12b0cb14d8a6fd9876f5cf5c204d6b2ffc">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T13:23:48Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 18, 2016 8:23am EST">2 weeks ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">17 Nov, 2016 11 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-4c0edd08">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4c0edd0820868db1611e52046ac842e2042182d6">choose picture &amp; add to table</a>
+<span class="commit-row-message visible-xs-inline">
+·
+4c0edd08
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="4c0edd0820868db1611e52046ac842e2042182d6" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4c0edd0820868db1611e52046ac842e2042182d6">4c0edd08</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/4c0edd0820868db1611e52046ac842e2042182d6">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T02:30:43Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 9:30pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-9e229568">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/9e22956876a7fb38102b550ad2fb07e24a3c4aa5">convert sql date using php</a>
+<span class="commit-row-message visible-xs-inline">
+·
+9e229568
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="9e22956876a7fb38102b550ad2fb07e24a3c4aa5" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/9e22956876a7fb38102b550ad2fb07e24a3c4aa5">9e229568</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/9e22956876a7fb38102b550ad2fb07e24a3c4aa5">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-18T01:26:27Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 8:26pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-3d30fcc3">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/3d30fcc30e16145b12ff6c6030258e51e39b774d">imagelist from database</a>
+<span class="commit-row-message visible-xs-inline">
+·
+3d30fcc3
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="3d30fcc30e16145b12ff6c6030258e51e39b774d" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/3d30fcc30e16145b12ff6c6030258e51e39b774d">3d30fcc3</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/3d30fcc30e16145b12ff6c6030258e51e39b774d">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T21:03:52Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 4:03pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-21fad0de">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/21fad0de53eaa441cb7600e10ba956ab3b92cbcc">setting up pictures table</a>
+<span class="commit-row-message visible-xs-inline">
+·
+21fad0de
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="21fad0de53eaa441cb7600e10ba956ab3b92cbcc" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/21fad0de53eaa441cb7600e10ba956ab3b92cbcc">21fad0de</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/21fad0de53eaa441cb7600e10ba956ab3b92cbcc">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T16:26:21Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 11:26am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-4328c4cb">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4328c4cbefe08c67d0b03543dd8a3afc4d01cf00">fix table input button</a>
+<span class="commit-row-message visible-xs-inline">
+·
+4328c4cb
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="4328c4cbefe08c67d0b03543dd8a3afc4d01cf00" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/4328c4cbefe08c67d0b03543dd8a3afc4d01cf00">4328c4cb</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/4328c4cbefe08c67d0b03543dd8a3afc4d01cf00">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T16:12:29Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 11:12am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-24daf636">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/24daf6362e56116ce59a21477298327385271d04">get file list function</a>
+<span class="commit-row-message visible-xs-inline">
+·
+24daf636
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="24daf6362e56116ce59a21477298327385271d04" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/24daf6362e56116ce59a21477298327385271d04">24daf636</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/24daf6362e56116ce59a21477298327385271d04">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T16:12:21Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 11:12am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-da97b9d2">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/da97b9d21cf0ca9c76f6c8cdc7b3cb2f36bea7ef">deleted NON table alignment</a>
+<span class="commit-row-message visible-xs-inline">
+·
+da97b9d2
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="da97b9d21cf0ca9c76f6c8cdc7b3cb2f36bea7ef" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/da97b9d21cf0ca9c76f6c8cdc7b3cb2f36bea7ef">da97b9d2</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/da97b9d21cf0ca9c76f6c8cdc7b3cb2f36bea7ef">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T15:57:57Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 10:57am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-389da14e">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/389da14e55a436efd378e91f333cc530980247b1">table form alignment</a>
+<span class="commit-row-message visible-xs-inline">
+·
+389da14e
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="389da14e55a436efd378e91f333cc530980247b1" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/389da14e55a436efd378e91f333cc530980247b1">389da14e</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/389da14e55a436efd378e91f333cc530980247b1">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T15:57:33Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 10:57am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-24150332">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/24150332ff5ae42145b4cf8dd23c2697db32e6fb">session variables to clear form after submission</a>
+<span class="commit-row-message visible-xs-inline">
+·
+24150332
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="24150332ff5ae42145b4cf8dd23c2697db32e6fb" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/24150332ff5ae42145b4cf8dd23c2697db32e6fb">24150332</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/24150332ff5ae42145b4cf8dd23c2697db32e6fb">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T15:14:51Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 10:14am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-f0ac0ad7">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/f0ac0ad722ea529667d0713573c4e8c0bc5dd150">get link setup</a>
+<span class="commit-row-message visible-xs-inline">
+·
+f0ac0ad7
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="f0ac0ad722ea529667d0713573c4e8c0bc5dd150" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/f0ac0ad722ea529667d0713573c4e8c0bc5dd150">f0ac0ad7</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/f0ac0ad722ea529667d0713573c4e8c0bc5dd150">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T14:56:25Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 9:56am EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-5cd354cd">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/5cd354cdafe2bc967339fc5591014bf0834958b3">htaccess</a>
+<span class="commit-row-message visible-xs-inline">
+·
+5cd354cd
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="5cd354cdafe2bc967339fc5591014bf0834958b3" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/5cd354cdafe2bc967339fc5591014bf0834958b3">5cd354cd</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/5cd354cdafe2bc967339fc5591014bf0834958b3">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T14:24:49Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 17, 2016 9:24am EST">2 weeks ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">16 Nov, 2016 5 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-84b7ad2a">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/84b7ad2afaa8008e57a4cd26cc7fe592886010cf">display movie, add synopsis</a>
+<span class="commit-row-message visible-xs-inline">
+·
+84b7ad2a
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="84b7ad2afaa8008e57a4cd26cc7fe592886010cf" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/84b7ad2afaa8008e57a4cd26cc7fe592886010cf">84b7ad2a</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/84b7ad2afaa8008e57a4cd26cc7fe592886010cf">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T03:02:05Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 16, 2016 10:02pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-c32587ef">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/c32587ef123a0f97dea4df2a79bc46edd185f923">add move 2 database</a>
+<span class="commit-row-message visible-xs-inline">
+·
+c32587ef
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="c32587ef123a0f97dea4df2a79bc46edd185f923" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/c32587ef123a0f97dea4df2a79bc46edd185f923">c32587ef</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/c32587ef123a0f97dea4df2a79bc46edd185f923">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T01:44:00Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 16, 2016 8:44pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-ebc85711">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ebc85711451682bddd76f0b3192743d0792672d4">form validates</a>
+<span class="commit-row-message visible-xs-inline">
+·
+ebc85711
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="ebc85711451682bddd76f0b3192743d0792672d4" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/ebc85711451682bddd76f0b3192743d0792672d4">ebc85711</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/ebc85711451682bddd76f0b3192743d0792672d4">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-17T01:12:16Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 16, 2016 8:12pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-75f3e186">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/75f3e186b495f67770480d7e99ea9c27c3584e39">value submit &amp; save (no validate)</a>
+<span class="commit-row-message visible-xs-inline">
+·
+75f3e186
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="75f3e186b495f67770480d7e99ea9c27c3584e39" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/75f3e186b495f67770480d7e99ea9c27c3584e39">75f3e186</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/75f3e186b495f67770480d7e99ea9c27c3584e39">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-16T23:32:28Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 16, 2016 6:32pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-83134a4f">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/83134a4fd3a141950df349e540ac3ac62e07bb65">add movie form setup</a>
+<span class="commit-row-message visible-xs-inline">
+·
+83134a4f
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="83134a4fd3a141950df349e540ac3ac62e07bb65" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/83134a4fd3a141950df349e540ac3ac62e07bb65">83134a4f</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/83134a4fd3a141950df349e540ac3ac62e07bb65">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-16T15:42:29Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 16, 2016 10:42am EST">2 weeks ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+<li class="commit-header">15 Nov, 2016 2 commits</li>
+<li class="commits-row">
+<ul class="list-unstyled commit-list">
+<li class="commit js-toggle-container" id="commit-97bed0c2">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/97bed0c2e2ae08f14b2f0c98f1bcfd55eb4d03e2">functions</a>
+<span class="commit-row-message visible-xs-inline">
+·
+97bed0c2
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="97bed0c2e2ae08f14b2f0c98f1bcfd55eb4d03e2" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/97bed0c2e2ae08f14b2f0c98f1bcfd55eb4d03e2">97bed0c2</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/97bed0c2e2ae08f14b2f0c98f1bcfd55eb4d03e2">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-15T22:07:43Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 15, 2016 5:07pm EST">2 weeks ago</time>
+</div>
+</li>
+<li class="commit js-toggle-container" id="commit-f80e5b8f">
+<a href="https://gitlab.uvm.edu/SleekPanther"><img class="avatar has-tooltip s36 hidden-xs" alt="SleekPanther&#39;s avatar" title="SleekPanther" data-container="body" src="./git_files/avatar.png"></a>
+<div class="commit-info-block">
+<div class="commit-row-title">
+<span class="item-title">
+<a class="commit-row-message" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/f80e5b8f868d5a4d62e555ea179cb4e59a169f39">file setup</a>
+<span class="commit-row-message visible-xs-inline">
+·
+f80e5b8f
+</span>
+</span>
+<div class="commit-actions hidden-xs">
+<button class="btn btn-clipboard btn-transparent" data-toggle="tooltip" data-placement="bottom" data-container="body" data-clipboard-text="f80e5b8f868d5a4d62e555ea179cb4e59a169f39" type="button" title="Copy to Clipboard"><i class="fa fa-clipboard"></i></button>
+<a class="commit-short-id btn btn-transparent" href="https://gitlab.uvm.edu/SleekPanther/roxy/commit/f80e5b8f868d5a4d62e555ea179cb4e59a169f39">f80e5b8f</a>
+<a class="btn btn-default" href="https://gitlab.uvm.edu/SleekPanther/roxy/tree/f80e5b8f868d5a4d62e555ea179cb4e59a169f39">Browse Files</a>
+</div>
+</div>
+<a class="commit-author-link has-tooltip" title="noahpatullo@gmail.com" href="https://gitlab.uvm.edu/SleekPanther">SleekPanther</a>
+authored
+<time class="js-timeago" title="" datetime="2016-11-15T21:53:56Z" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Nov 15, 2016 4:53pm EST">2 weeks ago</time>
+</div>
+</li>
+
+</ul>
+</li>
+
+
+
+</ul>
+</li>
+</ol>
+</div>
+<div class="loading hide" style="display: none;"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+<script>
+  CommitsList.init(40);
+</script>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="device-xs visible-xs"></div><div class="device-sm visible-sm"></div><div class="device-md visible-md"></div><div class="device-lg visible-lg"></div><div style="display: block;"></div><div style="display: block;"></div></body></html>
