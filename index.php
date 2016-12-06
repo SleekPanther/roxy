@@ -51,15 +51,23 @@ include	"php/top.php";
 					//IF AM, then print AM
 					
 					if($showtime['fldDimension']=='3D'){
-						$showtimes3D[]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2).' '.$showtime['fldDimension'];
+						$meridian='';
+						if($showtime['fldMeridian']=='AM'){
+							$meridian='AM';
+						}
+						$showtimes3D[]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2).' '.$meridian.' 3D';
 					}else{
-						$showtimes2D[]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2);
+						$meridian='';
+						if($showtime['fldMeridian']=='AM'){
+							$meridian='AM';
+						}
+						$showtimes2D[]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2).' '.$meridian;
 					}
 				}
 				if(!empty($showtimes2D)){
 					echo "\t\t\t\t<p>";
 					foreach($showtimes2D as $time){
-						echo $time.' ';
+						echo $time.' &nbsp;';
 					}
 					echo "</p>\n";
 				}
