@@ -52,6 +52,13 @@ if($showtimeExpires==''){
 	$errorMsg[]='Showtime Expiration date must be in the form YYYY-MM-DD (January 15, 2016 is 2016-15-01)';
 	$showtimeExpiresError=true;
 }
+
+if(!$showtimePostsError && !$showtimeExpiresError){		//if no errors, make sure expiration is AFTER posting
+	if(!validateDateRange($showtimePosts, $showtimeExpires)){
+		$errorMsg[]='Showtime Expiration must be AFTER post date';
+		$showtimeExpiresError=true;
+	}
+}
 	
 if($showtimeDimension==''){
 	$errorMsg[]='Showtime 2D or 3D cannot be empty';
