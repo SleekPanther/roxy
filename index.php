@@ -45,39 +45,32 @@ include	"php/top.php";
 				$data=array($dateWeekEnds, $date, $movie['pmkMovieId']);
 				$showtimes=$thisDatabaseReader->select($query,$data,1,3,0,2);
 
-				$showtimes2D=array();
-				$showtimes3D=array();
-				foreach($showtimes as $showtime){
-					//IF AM, then print AM
-					
+				$showtimesDimensionArray=array(array(),array());	//0th index=2D showtimes, 1st=3D showtimes
+				foreach($showtimes as $showtime){		//loop through & add 3D to each showtimes if it is 3D
 					if($showtime['fldDimension']=='3D'){
-						$meridian='';
+						$meridian='';					//IF AM, then print AM, else just print nothing
 						if($showtime['fldMeridian']=='AM'){
 							$meridian='AM';
 						}
-						$showtimes3D[]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2).' '.$meridian.' 3D';
+						$showtimesDimensionArray[2][]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2).' '.$meridian.' 3D';
 					}else{
 						$meridian='';
 						if($showtime['fldMeridian']=='AM'){
 							$meridian='AM';
 						}
-						$showtimes2D[]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2).' '.$meridian;
+						$showtimesDimensionArray[0][]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2).' '.$meridian;
 					}
-				}
-				if(!empty($showtimes2D)){
-					echo "\t\t\t\t<p>";
-					foreach($showtimes2D as $time){
-						echo $time.' &nbsp;';
-					}
-					echo "</p>\n";
 				}
 
-				if(!empty($showtimes3D)){
-					echo "\t\t\t\t<p>";
-					foreach($showtimes3D as $time){
-						echo $time." &nbsp;";
+				foreach($showtimesDimensionArray as $showtimesDimention){
+					// printArray($showtimesDimention);
+					if(!empty($showtimesDimention)){
+						echo "\t\t\t\t<p>";
+						foreach($showtimesDimention as $time){
+							echo $time.' &nbsp;';
+						}
+						echo "</p>\n";
 					}
-					echo "</p>\n";
 				}
 
 				echo "\t\t\t</section>\n";
@@ -90,12 +83,6 @@ include	"php/top.php";
 		        $repeat=true;
 		    }
 		}
-
-		// $a=0;
-		// for($date=date("Y-m-d", strtotime('last sunday'));$a<3;$date=date("Y-m-d", strtotime($date.'+7 days'))){
-		// 	echo $date."<br>";
-		// 	$a++;
-		// }
 		?>
 	</article>
 <?php
