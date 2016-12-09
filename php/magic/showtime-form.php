@@ -53,7 +53,7 @@ if($showtimeDimensionError){echo " class='mistake' ";}
 echo ">\n";
 foreach($validDimensionss as $onedimension){
 	echo "\t\t\t\t\t\t<option value='".$onedimension."'";
-	if($showtimeMeridian==$onedimension){ echo ' selected '; }
+	if($showtimeDimension==$onedimension){ echo ' selected '; }
 	echo ">".$onedimension."</option>\n";
 }
 echo "\t\t\t\t\t</select>\n";
