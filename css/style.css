@@ -88,6 +88,7 @@ figure#imgCredit {
 }
 figure#imgRoxyAbout {
   width: 250px;
+  margin: 1em 0 1em 1em;
 }
 /*------------------------ end image sizing ------------------------*/
 pre,

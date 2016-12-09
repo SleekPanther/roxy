@@ -13,6 +13,7 @@
 //width & sizing variables
 @textareaMaxWidthSynopsis: 30em;		//limit textareas so they can't be infinitely wide & mess up css positioning
 @textareaMaxWidthReview: 60em;
+@figureMargin: 1em;
 
 //transitions
 @mediaQueryTransition: .7s ease-in-out;
@@ -91,6 +92,7 @@ figure{
 	&#imgRoxyAbout{
 		width:250px;
 		&:extend(.floatR);
+		margin: @figureMargin 0 @figureMargin @figureMargin;
 	}
 }
 /*------------------------ end image sizing ------------------------*/
@@ -103,7 +105,7 @@ p {
 	margin: .4em 0;
 }
 figure {
-	margin: 1em 0;
+	margin: @figureMargin 0;
 }
 
 header{
