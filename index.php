@@ -20,7 +20,7 @@ include	"php/top.php";
 		//$date is a friday, the beginning of a 'week'
 		//iterates while $repeat==true & only 1 or 2 iterations (no more)
 		//increments increase $iterations & add 7 days to the week's start date
-		for($repeat=true, $iterations=0, $date=date("Y-m-d", strtotime('last friday')); $repeat && $iterations<2; $iterations++, $date=date("Y-m-d", strtotime($date.' +7 days'))){
+		for($repeat=true, $iterations=0, $date=date("Y-m-d", strtotime('last friday', strtotime('tomorrow')) ); $repeat && $iterations<2; $iterations++, $date=date("Y-m-d", strtotime($date.' +7 days'))){
 			$dateWeekEnds=date("Y-m-d", strtotime($date.'+6 days'));
 
 			echo "<section class='tCent clear'>\n";
