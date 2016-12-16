@@ -11,10 +11,6 @@ include "lib/constants.php";
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/sin/trunk/html5.js"></script>
-    <![endif]-->
-
     <?php
     $directories =explode("/",$PATH_PARTS['dirname']);
     $parentFolder=$directories[count($directories)-1];
