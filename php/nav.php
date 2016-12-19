@@ -10,11 +10,9 @@
         <a href="<?php echo $upFolderPlaceholder;?>newsletter.php">Newsletter</a>
         <a href="<?php echo $upFolderPlaceholder;?>about.php">About</a>
     	<?php
-    	if (in_array($netId, $validAdmins)){		//only print admin links if they're an admin
-		?>
-        	<a href="<?php echo $upFolderPlaceholder;?>magic/index.php">Admin</a>
-        <?php
-	    }
+    	if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']){		//only print admin links if they're an admin
+    	   echo "<a href='".$upFolderPlaceholder."magic/index.php'>Admin</a>\n";
+	    }        
 	    ?>
     </nav>
     <!-- #################### Ends Main Navigation    ########################## -->

@@ -65,6 +65,9 @@ session_start();
     $netId='';      //initialize variable to empty since $_SERVER["REMOTE_USER"] is unset if they're not logged in
     if(isset($_SERVER["REMOTE_USER"])){
         $netId=strtolower(htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8"));  //get uvm netid
+        if (in_array($netId, $validAdmins)){
+            $_SESSION['loggedIn']=true;
+        }
     }
     ?>
 </head>
