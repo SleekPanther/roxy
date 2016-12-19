@@ -1,5 +1,4 @@
 <?php
-session_start();
 include	"../php/top.php";
 
 $tabIndex=1;		//print on every form input element & increment

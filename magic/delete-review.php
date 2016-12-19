@@ -1,5 +1,4 @@
 <?php
-session_start();
 include	"../php/top.php";
 
 if (!( isset($_GET['reviewId']) && isset($_GET['movieId']) )){
