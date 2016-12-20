@@ -24,7 +24,7 @@ $directorError=false;
 $synopsisError=false;
 
 $validDisplayFilters=array('All','Current','Hidden');
-$displayFilter='All';
+$displayFilter='All';		//default is to show all movies
 $displayFilterError=false;
 
 $errorMsg=array();
@@ -111,11 +111,7 @@ if(isset($_POST['btnAddMovie'])){
 		$errorMsg[]='Display Filter option must be a valid choice from dropdown';
 		$displayFilterError=true;
 	}
-	
-	printArray($_POST);
-	if(!$errorMsg){
-		echo ' no errs ';
-	}
+	//the effect of this button is seen later when actually querying the database & adding a where clause
 }
 ?>
 	<article class='movieContainer'>
@@ -232,7 +228,13 @@ if(isset($_POST['btnAddMovie'])){
 			$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
 			 fldSynopsis FROM tblMovies 
 			  LEFT JOIN tblSynopses ON pmkMovieId=fnkMovieId";		//need left join since I DO want to have movie info even if there's no synopsis
-			$movies=$thisDatabaseReader->select($query,'',0);
+			if(!$displayFilterError && $displayFilter !='All'){
+				$query.=" WHERE fldDisplay LIKE ?";
+				$data=array($displayFilter);
+				$movies=$thisDatabaseReader->select($query,$data,1);
+			}else{
+				$movies=$thisDatabaseReader->select($query,'',0);
+			}
 
 			if(!empty($movies)){	//only print if there are movies to show
 				echo "\n\t\t\t<h3>Movies in Database</h3>\n";
