@@ -139,10 +139,18 @@ nav a:focus {
   text-decoration: none;
   background: #1ab9df;
 }
+/*------------------------forms ---------------------*/
 .mistake {
   background: red;
   color: white;
 }
+#errors {
+  /* highlight form mistakes */
+  border: 1px dashed white;
+  background: #ff2f2f;
+  padding: 0 1em;
+}
+/*------------------------end forms ---------------------*/
 footer {
   background: #50cdeb;
 }

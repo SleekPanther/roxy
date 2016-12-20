@@ -7,6 +7,7 @@
 @yellowHighlight: #ffe35d;
 @red:#751d00;
 @accentRed:#c7000f;
+@redHighlight:#ff2f2f;
 @highlightGreen:#04cf00;
 @lightBlue: #50cdeb;
 
@@ -157,10 +158,18 @@ nav {
 	}
 }
 
+
+/*------------------------forms ---------------------*/
 .mistake{
 	background: red;
 	color: white;
 }
+#errors{		/* highlight form mistakes */
+    border: 1px dashed white;
+    background: @redHighlight;
+    padding: 0 1em;
+}
+/*------------------------end forms ---------------------*/
 
 footer{
 	&:extend(.overflowA);
@@ -305,6 +314,7 @@ input[type='date'] {	/* target all date input fields to have the same width */
 	100% {background: @yellowHighlight;}
 }
 @keyframes fadeJustHappened {.mixi-frames;}
+
 
 /*media queries for small screens*/
 @media (min-width: 700px) {
