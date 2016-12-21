@@ -7,7 +7,7 @@ if (!( isset($_GET['reviewId']) && isset($_GET['movieId']) )){
 $reviewId=htmlentities($_GET['reviewId'], ENT_QUOTES, "UTF-8");	//sanitize value from GET array
 $currentMovieId=htmlentities($_GET['movieId'], ENT_QUOTES, "UTF-8");
 
-$query="SELECT fldTitle, pmkReviewId, fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReview 
+$query="SELECT fldTitle, pmkReviewId, fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReviewLink, fldReview 
 	 FROM tblReviews
 	 JOIN tblMovies ON pmkMovieId=fnkMovieId
 	 WHERE pmkReviewId=? AND fnkMovieId=?";
@@ -24,6 +24,7 @@ $errorMsg=array();
 $_SESSION['reviewAuthor']=$reviewInfo[0]['fldAuthor'];
 $_SESSION['reviewDate']=$reviewInfo[0]['fldReviewDate'];
 $_SESSION['reviewSource']=$reviewInfo[0]['fldReviewSource'];
+$_SESSION['reviewLink']=$reviewInfo[0]['fldReviewLink'];
 $_SESSION['review']=$reviewInfo[0]['fldReview'];
 
 
@@ -31,14 +32,16 @@ if(isset($_POST['btnUpdateReview'])){
 	include "../php/magic/review-validation.php";
 
 	if(!$errorMsg){
-		$query="UPDATE tblReviews SET fldAuthor=?, fldReviewDate=?, fldReviewSource=?, fldReview=? WHERE pmkReviewId=?";
-		$data=array($_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['review'],$reviewInfo[0]['pmkReviewId']);
+		$query="UPDATE tblReviews SET fldAuthor=?, fldReviewDate=?, fldReviewSource=?, fldReviewLink=?, fldReview=? WHERE pmkReviewId=?";
+		$data=array($_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['review'],$_SESSION['reviewLink'],$reviewInfo[0]['pmkReviewId']);
+		$thisDatabaseWriter->testquery($query,$data,1);
 		$thisDatabaseWriter->insert($query,$data,1);
 
 		//reset values
 		$_SESSION['reviewAuthor']='';
 		$_SESSION['reviewDate']=date('Y-m-d', strtotime('today'));
 		$_SESSION['reviewSource']='';
+		$_SESSION['reviewLink']='';
 		$_SESSION['review']='';
 
 		$_SESSION['whatJustHappened']='Review Updated';

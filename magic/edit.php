@@ -129,14 +129,15 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 		include '../php/magic/review-validation.php';
 
 		if(!$errorMsg){
-			$query="INSERT INTO tblReviews (fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReview) VALUES (?,?,?,?,?)";
-			$data=array($currentMovieId,$_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['review']);
+			$query="INSERT INTO tblReviews (fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReviewLink, fldReview) VALUES (?,?,?,?,?,?)";
+			$data=array($currentMovieId,$_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['reviewLink'],$_SESSION['review']);
 			$thisDatabaseWriter->insert($query,$data,0);
 
-			//reset values so it doesn't "remember the last thing entered"
+			//reset values so it doesn't "remember" the last thing entered
 			$_SESSION['reviewAuthor']='';
 			$_SESSION['reviewDate']=date('Y-m-d', strtotime('today'));
 			$_SESSION['reviewSource']='';
+			$_SESSION['reviewLink']='';
 			$_SESSION['review']='';
 
 			$_SESSION['whatJustHappened']='Review added';
