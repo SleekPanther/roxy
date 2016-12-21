@@ -33,8 +33,7 @@ if(isset($_POST['btnUpdateReview'])){
 
 	if(!$errorMsg){
 		$query="UPDATE tblReviews SET fldAuthor=?, fldReviewDate=?, fldReviewSource=?, fldReviewLink=?, fldReview=? WHERE pmkReviewId=?";
-		$data=array($_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['review'],$_SESSION['reviewLink'],$reviewInfo[0]['pmkReviewId']);
-		$thisDatabaseWriter->testquery($query,$data,1);
+		$data=array($_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['reviewLink'],$_SESSION['review'],$reviewInfo[0]['pmkReviewId']);
 		$thisDatabaseWriter->insert($query,$data,1);
 
 		//reset values

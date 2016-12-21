@@ -24,13 +24,19 @@ include	"php/top.php";
 
 			echo "\t\t\t<div class='fullWidthInfo'>\n";
 			echo "\t\t\t\t<h2>".$movie['fldTitle']."</h2>\n";
-			$query="SELECT fldAuthor, fldReviewDate, fldReviewSource, fldReview FROM tblReviews WHERE fnkMovieId=? ORDER BY fldReviewDate";
+			$query="SELECT fldAuthor, fldReviewDate, fldReviewSource, fldReviewLink, fldReview FROM tblReviews WHERE fnkMovieId=? ORDER BY fldReviewDate";
 			$data=array($movie['pmkMovieId']);
 			$reviews=$thisDatabaseReader->select($query,$data,1,1);
 			foreach($reviews as $review){
 				echo "\t\t\t\t\t<article class='reviewSection'>\n";
 				echo "\t\t\t\t\t\t<p class='reviewMetaInfo'>by ".$review['fldAuthor']." &nbsp;&nbsp; ".dateSqlToNice($review['fldReviewDate']);
-				if($review['fldReviewSource'] != ''){echo " &nbsp;&nbsp; <span class='italic'>".$review['fldReviewSource']."</span>";}
+				if(!empty($review['fldReviewSource'])){
+					if(!empty($review['fldReviewLink'])){
+						echo " <em><a href='".$review['fldReviewLink']."'>".$review['fldReviewSource']."</a></em>";
+					}else{
+						echo " &nbsp;&nbsp; <em>".$review['fldReviewSource']."</em>";
+					}
+				}
 				echo "</p>\n";
 				echo "\t\t\t\t\t\t<p>".nl2br($review['fldReview'],false)."</p>\n";	//use nl2br to print on new lines
 				echo "\t\t\t\t\t</article>\n";

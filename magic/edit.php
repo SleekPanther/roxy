@@ -333,7 +333,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			echo "\t\t\t\t</tr>\n";
 
 			//get a list of reviews already in database
-			$query="SELECT pmkReviewId, fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReview FROM tblReviews WHERE fnkMovieId=? ORDER BY fldReviewDate, fldAuthor";
+			$query="SELECT pmkReviewId, fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReviewLink, fldReview FROM tblReviews WHERE fnkMovieId=? ORDER BY fldReviewDate, fldAuthor";
 			$data=array($currentMovieId);
 			$reviewList=$thisDatabaseReader->select($query,$data,1,1);
 			if(!empty($reviewList)){
@@ -343,9 +343,15 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 				foreach($reviewList as $oneReview){
 					echo "\t\t\t\t<tr>\n";
 					echo "\t\t\t\t\t<td colspan='2'>By ".$oneReview['fldAuthor'];
-					if(!empty($oneReview['fldReviewSource'])){ echo " <em>".$oneReview['fldReviewSource']."</em>";}
-					echo " (".$oneReview['fldReviewDate'].") ";
-					echo "<a class='buttonLink' href='edit-review.php?reviewId=".$oneReview['pmkReviewId']."&movieId=".$currentMovieId."'>Edit Review</a> \n";
+					if(!empty($oneReview['fldReviewSource'])){
+						if(!empty($oneReview['fldReviewLink'])){
+							echo " <em><a href='".$oneReview['fldReviewLink']."'>".$oneReview['fldReviewSource']."</a></em>";
+						}else{
+							echo " <em>".$oneReview['fldReviewSource']."</em>";
+						}
+					}
+					echo " ".dateSqlToNice($oneReview['fldReviewDate']);
+					echo " <a class='buttonLink' href='edit-review.php?reviewId=".$oneReview['pmkReviewId']."&movieId=".$currentMovieId."'>Edit Review</a> \n";
 					echo "<a class='buttonLink' href='delete-review.php?reviewId=".$oneReview['pmkReviewId']."&movieId=".$currentMovieId."'>Delete Review</a></td>\n";
 					echo "\t\t\t\t</tr>\n";
 
