@@ -1,6 +1,6 @@
 <?php
 echo "\t\t\t\t<tr>\n";
-echo "\t\t\t\t\t<td colspan='2'><label for='txtAuthor'>Review Author </label>\n";
+echo "\t\t\t\t\t<td colspan='2'><label for='txtAuthor'>Author </label>\n";
 echo "\t\t\t\t\t<input type='text' name='txtAuthor' id='txtAuthor' tabindex='".$tabIndex++."' value='".$_SESSION['reviewAuthor']."'";
 if($reviewAuthorError){echo " class='mistake' ";}
 echo ">\n";
@@ -10,9 +10,14 @@ echo "\t\t\t\t\t<input type='date' name='datReviewDate' id='datReviewDate' tabin
 if($reviewDateError){echo " class='mistake' ";}
 echo ">\n";
 
-echo "\t\t\t\t\t<label for='txtReviewSource'>Source (i.e. newspaper, magazine website) (optional)</label>\n";
+echo "\t\t\t\t\t<label for='txtReviewSource'>Source (becomes link text) (optional)</label>\n";
 echo "\t\t\t\t\t<input type='text' name='txtReviewSource' id='txtReviewSource' tabindex='".$tabIndex++."' value='".$_SESSION['reviewSource']."'";
 if($reviewSourceError){echo " class='mistake' ";}
+echo ">\n";
+
+echo "\t\t\t\t\t<label for='txtReviewLink'>Link (optional)</label>\n";
+echo "\t\t\t\t\t<input type='text' name='txtReviewLink' id='txtReviewLink' tabindex='".$tabIndex++."' value='".$_SESSION['reviewLink']."'";
+if($reviewLinkError){echo " class='mistake' ";}
 echo ">\n";
 
 echo "\t\t\t\t\t</td>\n";
