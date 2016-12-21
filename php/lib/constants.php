@@ -47,15 +47,17 @@ define("BIN_PATH", $www_rootPath . "../bin");
 // define("LIB_PATH", $www_rootPath . "lib");
 define("LIB_PATH", "lib");
 
-        if (DEBUG) {
-            print "<p>Domain: " . DOMAIN;
-            print "<p>php Self: " . PHP_SELF;
-            print "<p>Path Parts<pre>";
-            print_r($PATH_PARTS);
-            print "</pre></p>";
-            print "<p>BASE_PATH: " . BASE_PATH;
-            print "<p>WEB_ROOT_PATH: " . WEB_ROOT_PATH;
-            print "<p>BIN_PATH: " . BIN_PATH;
-            print "<p>LIB_PATH: " . LIB_PATH;
-        }
+    if (DEBUG) {
+        print "<p>Domain: " . DOMAIN;
+        print "<p>php Self: " . PHP_SELF;
+        print "<p>Path Parts<pre>";
+        print_r($PATH_PARTS);
+        print "</pre></p>";
+        print "<p>BASE_PATH: " . BASE_PATH;
+        print "<p>WEB_ROOT_PATH: " . WEB_ROOT_PATH;
+        print "<p>BIN_PATH: " . BIN_PATH;
+        print "<p>LIB_PATH: " . LIB_PATH;
+    }
+
+define('ROOT_DIRECTORY','roxy');    //root directory for entire project. All relative links are based on this
 ?>
