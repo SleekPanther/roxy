@@ -3,9 +3,6 @@ include	"../php/top.php";
 
 $tabIndex=1;		//print on every form input element & increment
 
-$imageFolderPath='../images/posters/';		//directory to search when adding image to movie
-$imageList=getFilesInDirectory($imageFolderPath);
-
 $title='';			
 $runtime='';
 $rating='PG-13';				//most common rating
@@ -15,23 +12,19 @@ $director='';
 $synopsis='';
 $poster='none';
 
-$titleError=false;		//error variables for form input validation
-$runtimeError=false;
-$ratingError=false;
-$releaseDateError=false;
-$displayError=false;
-$directorError=false;
-$synopsisError=false;
+include $upFolderPlaceholder.'php/magic/add-edit-variables.php';
+
+
 
 $validDisplayFilters=array('All','Current','Hidden');
 $displayFilter='All';		//default is to show all movies
 $displayFilterError=false;
 
-$errorMsg=array();
+// $errorMsg=array();
 
 //used for validation & printing valid listbox options
-$ratings=array("G","PG","PG-13","R","Not Rated","NC-17");	//only valid options for MPAA ratings listbox
-$displayOptions=array('Hidden', 'Current', 'Coming Soon');		//only valid options 4 display listbox
+// $ratings=array("G","PG","PG-13","R","Not Rated","NC-17");	//only valid options for MPAA ratings listbox
+// $displayOptions=array('Hidden', 'Current', 'Coming Soon');		//only valid options 4 display listbox
 
 if(isset($_POST['btnAddMovie'])){
 	$title=htmlentities($_POST['txtMovieTitle'], ENT_QUOTES, "UTF-8");
@@ -215,7 +208,7 @@ if(isset($_POST['btnAddMovie'])){
 			foreach($imageList as $image){		//iterate through all possible files in folder (called @ start of this file)
 				if(!in_array($image, $pictures)){	//only print picture if it's NOT already in the database
 					echo "\t\t\t\t<tr>\n";
-					echo "<td><label for='radImg-".$image."'>".$image."</label> <a href='".$imageFolderPath.$image."' target='_blank'>View Image (new tab)</a></td>\n";
+					echo "<td><label for='radImg-".$image."'>".$image."</label> <a href='".IMAGE_POSTER_PATH.$image."' target='_blank'>View Image (new tab)</a></td>\n";
 					echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$image."' value='".$image."' ";
 					if($poster==$image){echo ' checked ';}
 					echo "></td>\n";

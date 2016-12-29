@@ -21,13 +21,6 @@ if(empty($movieInfo)){			//redirect them again if the movie doesn't exist
 	header('Location: index.php');
 }
 
-//query reviews table
-
-
-$imageFolderPath='../images/posters/';		//directory to search when adding image to movie
-$imageList=getFilesInDirectory($imageFolderPath);
-
-
 //variables to hold form input (get from database)
 $title=$movieInfo[0]['fldTitle'];
 $runtime=$movieInfo[0]['fldRuntime'];
@@ -46,20 +39,7 @@ include '../php/magic/review-variables.php';
 
 include '../php/magic/showtime-variables.php';	//initialize variables in separate file
 
-
-$titleError=false;		//error variables for form input validation
-$runtimeError=false;
-$ratingError=false;
-$releaseDateError=false;
-$displayError=false;
-$directorError=false;
-$synopsisError=false;
-//showtime error variables innitialized in showtime-variables.php
-
-$errorMsg=array();
-
-$ratings=array("G","PG","PG-13","R","Not Rated","NC-17");	//only valid options for MPAA ratings listbox
-$displayOptions=array('Hidden', 'Current', 'Coming Soon');		//only valid options 4 display listbox
+include $upFolderPlaceholder.'php/magic/add-edit-variables.php';
 
 if(isset($_POST['btnChooseMovie'])){
 	$currentMovieId=htmlentities($_POST['lstChooseMovie'], ENT_QUOTES, "UTF-8");
@@ -305,7 +285,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 
 				// Print the actual image from the database
 				echo "\t\t\t\t<tr>\n";
-				echo "\t\t\t\t\t<td><label for='radImg-".$poster."'><strong>".$poster." (CURRENT)</strong></label> <a href='".$imageFolderPath.$poster."' target='_blank'>View Image (new tab)</a></td>\n";
+				echo "\t\t\t\t\t<td><label for='radImg-".$poster."'><strong>".$poster." (CURRENT)</strong></label> <a href='".IMAGE_POSTER_PATH.$poster."' target='_blank'>View Image (new tab)</a></td>\n";
 				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$poster."' value='".$poster."' checked >";
 				echo "\t\t\t\t</tr>\n";
 			}
@@ -319,7 +299,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			foreach($imageList as $image){		//iterate through all possible files in folder (called @ start of this file)
 				if(!in_array($image, $pictures)){	//only print picture if it's NOT already in the database
 					echo "\t\t\t\t<tr>\n";
-					echo "\t\t\t\t\t<td><label for='radImg-".$image."'>".$image."</label> <a href='".$imageFolderPath.$image."' target='_blank'>View Image (new tab)</a></td>\n";
+					echo "\t\t\t\t\t<td><label for='radImg-".$image."'>".$image."</label> <a href='".IMAGE_POSTER_PATH.$image."' target='_blank'>View Image (new tab)</a></td>\n";
 					echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$image."' value='".$image."' ";
 					echo "></td>\n";
 					echo "\t\t\t\t</tr>\n";

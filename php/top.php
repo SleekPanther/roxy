@@ -94,6 +94,8 @@ session_start();
             $_SESSION['loggedIn']=true;
         }
     }
+
+    define('IMAGE_POSTER_PATH',$upFolderPlaceholder.'images/posters/');
     ?>
 </head>
 
