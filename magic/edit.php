@@ -130,7 +130,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 	printFormErrors($errorMsgMovie);
 	?>
 		<h1>Edit Movie Info (admin)</h1>
-		<form action="<?php echo PHP_SELF.'?movieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
+		<form action="<?php echo PHP_SELF.'?movieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' enctype="multipart/form-data">
 			<p class='bold'>Make sure to change a movie's "Visibility" to "Current" in order to actually display any showtimes</p>
 			<?php
 			if(isset($_SESSION['whatJustHappened'])){	//tell user last action the form did & then unset the value

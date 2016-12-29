@@ -62,4 +62,5 @@ define("LIB_PATH", "lib");
 define('ROOT_DIRECTORY','roxy');    //root directory for entire project. All relative links are based on this
 
 //IMAGE_POSTER_PATH defined in top.php
+$VALID_IMAGE_TYPES=array("jpg","jpeg","png","gif","tif","tiff");    //php 5.5 doesn't allow array constant
 ?>

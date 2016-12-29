@@ -62,7 +62,7 @@ if(isset($_POST['btnAddMovie'])){
 	<?php
 	printFormErrors($errorMsgMovie);
 	?>
-		<form action="<?php echo PHP_SELF;?>" method='post' id='frmAddMovie' name='frmAddMovie' >
+		<form action="<?php echo PHP_SELF;?>" method='post' id='frmAddMovie' name='frmAddMovie' enctype="multipart/form-data">
 			<?php
 			if(isset($_SESSION['whatJustHappened'])){	//tell user last action the form did & then unset the value
 				echo "<p class='whatJustHappened'>".$_SESSION['whatJustHappened']."</p>\n";

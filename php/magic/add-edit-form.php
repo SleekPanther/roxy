@@ -76,6 +76,11 @@ echo "\t\t\t\t</tr>\n";
 
 
 echo "\t\t\t\t<tr>\n";
+echo "\t\t\t\t\t<td colspan='2'>Choose Poster Image (best aspect ratio is 470:700, max 3MB) <input type='file' name='filPosterImageFile' id='filPosterImageFile'></td>";
+echo "\t\t\t\t</tr>\n";
+
+
+echo "\t\t\t\t<tr>\n";
 echo "\t\t\t\t\t<td colspan='2'>Choose Poster Image (contact webmaster if no images are left)</td>";
 echo "\t\t\t\t</tr>\n";
 
