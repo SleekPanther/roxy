@@ -15,6 +15,8 @@ session_start();
     <?php
     require 'supplementary/helper-functions.php';
 
+    date_default_timezone_set('America/New_York');
+
     $split_url = explode('/', $PATH_PARTS['dirname']);  //split dirname part of the array at each / character (creates array)
 
     $baseLevelIndex = 0;        //used to find the "base directory" in the url. If the site's home is in "topLevel/level1/level2/ROOT_SITE_FOLDER_HERE" then it's 3 folders down, so everything should relate the the url array from index 3. We iterate through the URL array to find the $ROOT_FOLDER, then adjust and make a new array

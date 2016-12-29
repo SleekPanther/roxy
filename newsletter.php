@@ -61,7 +61,7 @@ if (isset($_POST["btnSubmit"])) {
 				echo $successMsg;
 				$mailedMsgStatus="<p>A confirmation has been sent to: <a href='mailto:".$email."'>".$email."</a><p>\n";
 				if(!$mailed){
-					$mailedMsgStatus="<h2 class='mistake'>Error</h2>\n<p>A confirmation failed to send to has been sent to: <a href='mailto:".$email."'>".$email."</a><p>\n";
+					$mailedMsgStatus="<h2 class='mistake'>Error</h2>\n<p>Server Error. Failed to send confirmation to: <a href='mailto:".$email."'>".$email."</a><p>\n";
 				}
 				echo $mailedMsgStatus;
 			}else{
