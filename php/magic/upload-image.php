@@ -1,23 +1,25 @@
 <?php
-//this entire file is includes in a block which already check if the submit button is set
+//this entire file is included in a block which already checks if a submit button is set
 
-$targetFolder = IMAGE_POSTER_PATH.'1/';
+$targetFolder = IMAGE_POSTER_PATH;
+$targetFile = strtolower( str_replace(' ','-', basename($_FILES["filPosterImageFile"]["name"])) );	//replace spaces with hyphens
+$targetFile = str_replace("'",'', $targetFile);											//replace single quotes
+$targetFile= $targetFolder.$targetFile;
 
-$targetFile = $targetFolder.basename($_FILES["filPosterImageFile"]["name"]);
-$okToUpload = 1;
+$okToUpload = 1;		//assume it has no errors to start with
+
 $imageFileType = pathinfo($targetFile,PATHINFO_EXTENSION);
-
-$imageAttributes = getimagesize($_FILES["filPosterImageFile"]["tmp_name"]);	//returns 0 if not a valid image
+$imageAttributes = getimagesize($_FILES["filPosterImageFile"]["tmp_name"]);
 if($imageAttributes === false) {
     $errorMsgMovie[]="Error! File is not an image";
     $okToUpload = 0;
-}elseif(!in_array($imageFileType, $VALID_IMAGE_TYPES)) {	//double checl extension is on MY list of valid images
+}elseif(!in_array($imageFileType, $VALID_IMAGE_TYPES)) {	//double check extension is on MY LIST of valid images
     $errorMsgMovie[]="Sorry, only image file types are allowed";
     $okToUpload = 0;
 }
 
 if (file_exists($targetFile)) {
-	$errorMsgMovie[]="Sorry, file already exists.";
+	$errorMsgMovie[]="Sorry, file already exists";
 	$okToUpload = 0;
 }
 if ($_FILES["filPosterImageFile"]["size"] > 3000000) {		//size in bytes, so divide by 1000
@@ -26,13 +28,13 @@ if ($_FILES["filPosterImageFile"]["size"] > 3000000) {		//size in bytes, so divi
 }
 
 if ($okToUpload == 0) {
-    $errorMsgMovie[]="Sorry, your file was not uploaded.";
+    $errorMsgMovie[]="Sorry, your file was not uploaded";
 } else {
 	if(!$errorMsgMovie){
 	    if (move_uploaded_file($_FILES["filPosterImageFile"]["tmp_name"], $targetFile)) {
-	        $errorMsgMovie[]="The file ". basename( $_FILES["filPosterImageFile"]["name"]). " has been uploaded.";
-	    } else {
-	        $errorMsgMovie[]="Sorry, there was an error uploading your file.";
+	        //save img to variable for sql
+	    }else{
+	    	$errorMsgMovie[]="Sorry, there was an error uploading your file";
 	    }
 	}
 }
