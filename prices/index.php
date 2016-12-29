@@ -1,5 +1,5 @@
 <?php
-include	"php/top.php";
+include	"../php/top.php";
 ?>
 	<article class='movieContainer'>
 		<h1>Prices</h1>

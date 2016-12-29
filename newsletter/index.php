@@ -1,5 +1,5 @@
 <?php
-include	"php/top.php";
+include	"../php/top.php";
 
 $tabIndex=1;	//increment for every form element
 
