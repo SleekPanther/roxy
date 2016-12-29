@@ -21,7 +21,6 @@ include	"php/top.php";
 			 ORDER BY fldReleaseDate DESC";
 			$data=array('Current',$dateWeekEnds,$dateWeekEnds,$dateWeekStarts);
 			$movies=$thisDatabaseReader->select($query,$data,1,4,0,3);
-			$thisDatabaseReader->testquery($query,$data,1,4,0,3);
 
 			echo "<section class='tCent clear'>\n";
 			echo "\t\t\t<h2>Showtimes for</h2>\n";
