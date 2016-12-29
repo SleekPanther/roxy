@@ -23,6 +23,8 @@ $displayFilterError=false;
 if(isset($_POST['btnAddMovie'])){
 	include $upFolderPlaceholder.'php/magic/add-edit-validation.php';
 
+	include $upFolderPlaceholder.'php/magic/image-validation.php';
+
 	if(!$errorMsgMovie){
 		$query="INSERT INTO tblMovies (fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector) VALUES (?,?,?,?,?,?)";
 		$data=array($title,$runtime,$rating,$releaseDate,$display,$director);

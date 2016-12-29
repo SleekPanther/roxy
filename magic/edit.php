@@ -82,9 +82,9 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 		}
 	}
 	
-
 	include $upFolderPlaceholder.'php/magic/showtime-validation.php';
-	
+
+	include $upFolderPlaceholder.'php/magic/image-validation.php';
 
 	if(!$errorMsgMovie){
 		if(isset($_POST['btnUpdateMovie'])){

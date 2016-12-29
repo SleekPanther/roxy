@@ -45,6 +45,4 @@ if($synopsis !=''){		//only validate if NOT empty
 		$synopsisError=true;
 	}
 }
-
-include $upFolderPlaceholder.'php/magic/upload-image.php';
 ?>
