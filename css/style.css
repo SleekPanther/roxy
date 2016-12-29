@@ -161,6 +161,9 @@ footer > div {
   width: 120px;
   margin: 0 1em 0 0;
 }
+.dimension-label-highlight {
+  background: #50cdeb;
+}
 article.movieContainer {
   overflow: auto;
 }

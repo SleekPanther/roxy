@@ -52,7 +52,7 @@ include	"php/top.php";
 						if($showtime['fldMeridian']=='AM'){
 							$meridian='AM';
 						}
-						$showtimesDimensionArray[2][]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2).' '.$meridian.' 3D';
+						$showtimesDimensionArray[1][]= $showtime['fldHour'].":".leadingZeros($showtime['fldMinute'],2).' '.$meridian;
 					}else{
 						$meridian='';
 						if($showtime['fldMeridian']=='AM'){
@@ -62,12 +62,15 @@ include	"php/top.php";
 					}
 				}
 
-				foreach($showtimesDimensionArray as $showtimesDimention){
-					// printArray($showtimesDimention);
-					if(!empty($showtimesDimention)){
-						echo "\t\t\t\t<p>";
-						foreach($showtimesDimention as $time){
-							echo $time.' &nbsp;';
+				$whichDimensionLabels=array('',"<span class='dimension-label-highlight'>".'3D'.":</span> &nbsp;&nbsp;");
+				for($i=0; $i<count($showtimesDimensionArray); $i++){
+					if($showtimesDimensionArray[$i]){	
+						if($showtimesDimensionArray[1]){	//if there are 3d showtimes, we print labels for both
+							$whichDimensionLabels[0]="<span class='dimension-label-highlight'>".'2D'.":</span> &nbsp;&nbsp;";
+						}
+						echo "\t\t\t\t<p>".$whichDimensionLabels[$i];
+						foreach($showtimesDimensionArray[$i] as $time){
+							echo $time.' &nbsp;&nbsp;&nbsp;';
 						}
 						echo "</p>\n";
 					}
