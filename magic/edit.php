@@ -49,11 +49,11 @@ if(isset($_POST['btnChooseMovie'])){
 	$newMovie=$thisDatabaseReader->select($query,$data,1);
 
 	if(empty($newMovie)){
-		$errorMsg[]='"Choose Movie" dropdown has Invalid Movie Id';
+		$errorMsgMovie[]='"Choose Movie" dropdown has Invalid Movie Id';
 		$currentMovieIdError=true;
 	}
 
-	if(!$errorMsg){		//switch the movie selected using a redirect
+	if(!$errorMsgMovie){		//switch the movie selected using a redirect
 		header('Location: edit.php?movieId='.$currentMovieId);
 	}
 }
@@ -63,7 +63,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 	if(isset($_POST['btnAddReview'])){
 		include $upFolderPlaceholder.'php/magic/review-validation.php';
 
-		if(!$errorMsg){
+		if(!$errorMsgMovie){
 			$query="INSERT INTO tblReviews (fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReviewLink, fldReview) VALUES (?,?,?,?,?,?)";
 			$data=array($currentMovieId,$_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['reviewLink'],$_SESSION['review']);
 			$databaseSuccess=$thisDatabaseWriter->insert($query,$data,0);
@@ -86,7 +86,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 	include $upFolderPlaceholder.'php/magic/showtime-validation.php';
 	
 
-	if(!$errorMsg){
+	if(!$errorMsgMovie){
 		if(isset($_POST['btnUpdateMovie'])){
 			$query="UPDATE tblMovies SET fldTitle=?, fldRuntime=?, fldRating=?, fldReleaseDate=?, fldDisplay=?, fldDirector=? WHERE pmkMovieId LIKE ?";
 			$data=array($title,$runtime,$rating,$releaseDate,$display,$director,$currentMovieId);
@@ -127,7 +127,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 	<article class='movieContainer'>
 	<article class='articleBg'>
 	<?php
-	include $upFolderPlaceholder.'php/lib/display-form-errors.php';
+	printFormErrors($errorMsgMovie);
 	?>
 		<h1>Edit Movie Info (admin)</h1>
 		<form action="<?php echo PHP_SELF.'?movieId='.$currentMovieId;?>" method='post' id='frmAddMovie' name='frmAddMovie' >

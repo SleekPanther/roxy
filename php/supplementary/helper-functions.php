@@ -72,10 +72,22 @@ function getFilesInDirectory($url, $extensions = array("jpg","jpeg","png","gif",
     return $correctedFileList;
 }
 
-//display array contents inside pre tags
-function printArray(&$array){
+function printArray($array){
     echo "<pre>\n";
     print_r($array);
     echo "</pre>\n";
+}
+
+function printFormErrors($errorMsgArray){
+    if ($errorMsgArray) {
+        echo "<div id='errors'>\n";
+        echo "<h1>Your form has the following mistakes</h1>\n";
+        echo "<ol>\n";
+        foreach ($errorMsgArray as $error) {
+            echo "<li>" .$error . "</li>\n";
+        }
+        echo "</ol>\n";
+        echo "</div>\n";
+    }
 }
 ?>
