@@ -34,7 +34,7 @@ if(isset($_POST['btnUpdateReview'])){
 	if(!$errorMsg){
 		$query="UPDATE tblReviews SET fldAuthor=?, fldReviewDate=?, fldReviewSource=?, fldReviewLink=?, fldReview=? WHERE pmkReviewId=?";
 		$data=array($_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['reviewLink'],$_SESSION['review'],$reviewInfo[0]['pmkReviewId']);
-		$thisDatabaseWriter->insert($query,$data,1);
+		$databaseSuccess=$thisDatabaseWriter->insert($query,$data,1);
 
 		//reset values
 		$_SESSION['reviewAuthor']='';
@@ -44,6 +44,9 @@ if(isset($_POST['btnUpdateReview'])){
 		$_SESSION['review']='';
 
 		$_SESSION['whatJustHappened']='Review Updated';
+		if(!$databaseSuccess){
+			$_SESSION['whatJustHappened']='Error! Failed to update review';
+		}
 		header('Location: edit.php?movieId='.$currentMovieId);
 	}
 }elseif(isset($_POST['btnCancel'])){

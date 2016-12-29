@@ -21,9 +21,12 @@ if(empty($reviewInfo)){		//redirect if showtime doesn't exist
 if(isset($_POST['btnDeleteReview'])){
 	$query="DELETE FROM tblReviews WHERE pmkReviewId=?";
 	$data=array($reviewId);
-	$thisDatabaseWriter->insert($query,$data,1);
+	$databaseSuccess=$thisDatabaseWriter->insert($query,$data,1);	
 
 	$_SESSION['whatJustHappened']='Review Deleted';
+	if(!$databaseSuccess){
+		$_SESSION['whatJustHappened']='Error! Failed to delete review';
+	}
 	header('Location: edit.php?movieId='.$currentMovieId);
 }elseif(isset($_POST['btnCancel'])){
 	$_SESSION['whatJustHappened']='Canceled Deleting Review';

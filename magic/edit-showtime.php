@@ -34,9 +34,12 @@ if(isset($_POST['btnUpdateShowtime'])){
 	if(!$errorMsg){
 		$query="UPDATE tblShowtimes SET fldHour=?, fldMinute=?, fldMeridian=?, fldShowtimePosts=?, fldShowtimeExpires=?, fldDimension=? WHERE pmkShowtimeId=?";
 		$data=array($showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension,$showtimeInfo[0]['pmkShowtimeId']);
-		$thisDatabaseWriter->insert($query,$data,1);
+		$databaseSuccess=$thisDatabaseWriter->insert($query,$data,1);
 
 		$_SESSION['whatJustHappened']='Showtime Updated';
+		if(!$databaseSuccess){
+			$_SESSION['whatJustHappened']='Error! Failed to update showtime';
+		}
 		header('Location: edit.php?movieId='.$currentMovieId);
 	}
 }elseif(isset($_POST['btnCancel'])){

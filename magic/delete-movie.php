@@ -16,22 +16,25 @@ if(empty($movieInfo)){
 
 if(isset($_POST['btnDeleteMovie'])){
 	$query="DELETE FROM tblShowtimes WHERE fnkMovieId=?";
-	$data=array($currentMovieId);
-	$thisDatabaseWriter->select($query,$data,1);		//uses same data array
+	$data=array($currentMovieId);					//same data for all queries
+	$thisDatabaseWriter->delete($query,$data,1);
 
 	$query="DELETE FROM tblPictures WHERE fnkMovieId=?";
-	$thisDatabaseWriter->select($query,$data,1);		//uses same data array
+	$thisDatabaseWriter->delete($query,$data,1);
 
 	$query="DELETE FROM tblSynopses WHERE fnkMovieId=?";
-	$thisDatabaseWriter->select($query,$data,1);		//uses same data array
+	$thisDatabaseWriter->delete($query,$data,1);
 
 	$query="DELETE FROM tblReviews WHERE fnkMovieId=?";
-	$thisDatabaseWriter->select($query,$data,1);		//uses same data array
+	$thisDatabaseWriter->delete($query,$data,1);
 
 	$query="DELETE FROM tblMovies WHERE pmkMovieId=?";
-	$thisDatabaseWriter->select($query,$data,1);		//uses same data array
+	$databaseSuccess=$thisDatabaseWriter->delete($query,$data,1);
 
 	$_SESSION['whatJustHappened']='Movie Succesfully Deleted';
+	if(!$databaseSuccess){
+		$_SESSION['whatJustHappened']='Error! Failed to delete movie';
+	}
 	header('Location: index.php');
 }elseif(isset($_POST['btnCancel'])){
 	$_SESSION['whatJustHappened']='Canceled Movie Deletion';

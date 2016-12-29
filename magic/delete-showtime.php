@@ -21,9 +21,12 @@ if(empty($showtimeInfo)){		//redirect if showtime doesn't exist
 if(isset($_POST['btnDeleteShowtime'])){
 	$query="DELETE FROM tblShowtimes WHERE pmkShowtimeId=?";
 	$data=array($showtimeId);
-	$thisDatabaseWriter->insert($query,$data,1);
+	$databaseSuccess=$thisDatabaseWriter->insert($query,$data,1);
 
 	$_SESSION['whatJustHappened']='Showtime Deleted';
+	if(!$databaseSuccess){
+		$_SESSION['whatJustHappened']='Error! Failed to delete showtime';
+	}
 	header('Location: edit.php?movieId='.$currentMovieId);
 }elseif(isset($_POST['btnCancel'])){
 	$_SESSION['whatJustHappened']='Canceled Showtime Deletion';

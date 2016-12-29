@@ -131,7 +131,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 		if(!$errorMsg){
 			$query="INSERT INTO tblReviews (fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReviewLink, fldReview) VALUES (?,?,?,?,?,?)";
 			$data=array($currentMovieId,$_SESSION['reviewAuthor'],$_SESSION['reviewDate'],$_SESSION['reviewSource'],$_SESSION['reviewLink'],$_SESSION['review']);
-			$thisDatabaseWriter->insert($query,$data,0);
+			$databaseSuccess=$thisDatabaseWriter->insert($query,$data,0);
 
 			//reset values so it doesn't "remember" the last thing entered
 			$_SESSION['reviewAuthor']='';
@@ -141,6 +141,9 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			$_SESSION['review']='';
 
 			$_SESSION['whatJustHappened']='Review added';
+			if(!$databaseSuccess){
+				$_SESSION['whatJustHappened']='Error! Failed to add review';
+			}
 		}
 	}
 	
@@ -174,9 +177,12 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 		}elseif(isset($_POST['btnAddShowtime'])){
 			$query="INSERT INTO tblShowtimes (fnkMovieId, fldHour, fldMinute, fldMeridian, fldShowtimePosts, fldShowtimeExpires, fldDimension) VALUES (?,?,?,?,?,?,?)";
 			$data=array($currentMovieId,$showtimeHour,$showtimeMinute,$showtimeMeridian,$showtimePosts,$showtimeExpires,$showtimeDimension);
-			$thisDatabaseWriter->insert($query,$data,0);
+			$databaseSuccess=$thisDatabaseWriter->insert($query,$data,0);
 
 			$_SESSION['whatJustHappened']='Showtime Added';
+			if(!$databaseSuccess){
+				$_SESSION['whatJustHappened']='Error! Failed to add showtime';
+			}
 		}
 	}
 }elseif(isset($_POST['btnDeleteMovie'])){
