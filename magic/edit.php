@@ -35,9 +35,9 @@ if($movieInfo[0]['fldImgFilename'] == NULL){	//if no image is selected, then sto
 	$poster=$movieInfo[0]['fldImgFilename'];
 }
 
-include '../php/magic/review-variables.php';
+include $upFolderPlaceholder.'php/magic/review-variables.php';
 
-include '../php/magic/showtime-variables.php';	//initialize variables in separate file
+include $upFolderPlaceholder.'php/magic/showtime-variables.php';	//initialize variables in separate file
 
 include $upFolderPlaceholder.'php/magic/add-edit-variables.php';
 
@@ -58,55 +58,10 @@ if(isset($_POST['btnChooseMovie'])){
 	}
 }
 elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || isset($_POST['btnAddReview'])){
-	$title=htmlentities($_POST['txtMovieTitle'], ENT_QUOTES, "UTF-8");
-	$runtime=htmlentities($_POST['txtRuntime'], ENT_QUOTES, "UTF-8");
-	$rating=htmlentities($_POST['lstRating'], ENT_QUOTES, "UTF-8");
-	$releaseDate=htmlentities($_POST['datReleaseDate'], ENT_QUOTES, "UTF-8");
-	$display=htmlentities($_POST['lstDisplay'], ENT_QUOTES, "UTF-8");
-	$director=htmlentities($_POST['txtDirector'], ENT_QUOTES, "UTF-8");
-	$synopsis=htmlentities($_POST['txtSynopsis'], ENT_QUOTES, "UTF-8");
-	$poster=htmlentities($_POST['radImageChoose'], ENT_QUOTES, "UTF-8");
-
-	if($title==""){
-		$errorMsg[]="Title cannot be empty";
-		$titleError=true;
-	}elseif (!verifyAlphaNum($title)) {
-		$errorMsg[]="Title cannot have Special Characters";
-		$titleError=true;
-	}
-
-	if($runtime==""){
-		$errorMsg[]="Runtime cannot be empty";
-		$runtimeError=true;
-	}elseif(!verifyNumeric($runtime)){
-		$errorMsg[]="Runtime must be a number";
-		$runtimeError=true;
-	}
-
-	//skip rating & visibility validation since listboxes almost impossible to "hack".
-
-	if($releaseDate==''){
-		$errorMsg[]='Release Date cannot be empty';
-		$releaseDateError=true;
-	}elseif(!validateSqlDate($releaseDate)){
-		$errorMsg[]='Release Date must be in the form YYYY-MM-DD (January 15, 2016 is 2016-15-01)';
-		$releaseDateError=true;
-	}
-
-	if(!verifyAlphaNum($director)){
-		$errorMsg[]="Director text cannot have special characters";
-		$directorError=true;
-	}
-
-	if($synopsis !=''){		//only validate if NOT empty
-		if(!verifyAlphaNumNewline($synopsis)){
-			$errorMsg[]="Synopsis Cannot have special characters";
-			$synopsisError=true;
-		}
-	}
+	include $upFolderPlaceholder.'php/magic/add-edit-validation.php';
 
 	if(isset($_POST['btnAddReview'])){
-		include '../php/magic/review-validation.php';
+		include $upFolderPlaceholder.'php/magic/review-validation.php';
 
 		if(!$errorMsg){
 			$query="INSERT INTO tblReviews (fnkMovieId, fldAuthor, fldReviewDate, fldReviewSource, fldReviewLink, fldReview) VALUES (?,?,?,?,?,?)";
@@ -128,7 +83,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 	}
 	
 
-	include '../php/magic/showtime-validation.php';
+	include $upFolderPlaceholder.'php/magic/showtime-validation.php';
 	
 
 	if(!$errorMsg){
@@ -316,7 +271,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			echo "\t\t\t\t\t<td><h2>Add Review (optional)</h2></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
-			include '../php/magic/review-form.php';
+			include $upFolderPlaceholder.'php/magic/review-form.php';
 
 			echo "\t\t\t\t\t<tr>\n";
 			echo "\t\t\t\t<td><input type='submit' name='btnAddReview' id='btnAddReview' tabindex='".$tabIndex++."' value='Add Review'></td>\n";
@@ -357,7 +312,7 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			echo "\t\t\t\t\t<td><h2>Add Showtime</h2></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
-			include "../php/magic/showtime-form.php";
+			include $upFolderPlaceholder.'php/magic/showtime-form.php';
 
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t<td><br><input type='submit' name='btnAddShowtime' value='Add New Showtime' tabindex='".$tabIndex++."'></td>\n";
