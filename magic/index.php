@@ -69,7 +69,7 @@ if(isset($_POST['btnAddMovie'])){
 		$releaseDateError=true;
 	}
 
-	if(!verifyAlphaNum($director)){
+	if($director!='' && !verifyAlphaNum($director)){
 		$errorMsg[]="Director text cannot have special characters";
 		$directorError=true;
 	}
@@ -165,23 +165,29 @@ if(isset($_POST['btnAddMovie'])){
 			echo "\t\t\t\t\t<td><select id='lstDisplay' name='lstDisplay' tabindex='".$tabIndex++."' >\n";
 				foreach($displayOptions as $option){
 					echo "\t\t\t\t\t\t<option value='".$option."'";
-					if($option==$display){echo ' selected ';}
+					if($option==$display){
+						echo ' selected ';
+					}
 					echo ">".$option."</option>\n";
 				}
 			echo "\t\t\t\t\t</select></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td><label for='txtDirector'>Director (optional)</label></td>\n";
+			echo "\t\t\t\t\t<td><label for='txtDirector'>Director</label></td>\n";
 			echo "\t\t\t\t\t<td><input type='text' name='txtDirector' id='txtDirector' tabindex='".$tabIndex++."' value='".$director."'";
-			if($directorError){echo " class='mistake' ";}
+			if($directorError){
+				echo " class='mistake' ";
+			}
 			echo "></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtSynopsis'>Synopsis (optional) <br>(1000 characters max)</label></td>\n";
 			echo "\t\t\t\t\t<td><textarea name='txtSynopsis' id='txtSynopsis' tabindex='".$tabIndex++."'";
-			if($synopsisError){echo " class='mistake' ";}
+			if($synopsisError){
+				echo " class='mistake' ";
+			}
 			echo ">".$synopsis."</textarea></td>\n";	//make it sticky to remember what they entered
 			echo "\t\t\t\t</tr>\n";
 

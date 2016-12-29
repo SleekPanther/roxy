@@ -17,24 +17,34 @@ if(empty($movieInfo)){
 if(isset($_POST['btnDeleteMovie'])){
 	$query="DELETE FROM tblShowtimes WHERE fnkMovieId=?";
 	$data=array($currentMovieId);					//same data for all queries
-	$thisDatabaseWriter->delete($query,$data,1);
+	$databaseSuccess=array();
+	$databaseSuccess[]=$thisDatabaseWriter->delete($query,$data,1);
 
 	$query="DELETE FROM tblPictures WHERE fnkMovieId=?";
-	$thisDatabaseWriter->delete($query,$data,1);
+	$databaseSuccess[]=$thisDatabaseWriter->delete($query,$data,1);
 
 	$query="DELETE FROM tblSynopses WHERE fnkMovieId=?";
-	$thisDatabaseWriter->delete($query,$data,1);
+	$databaseSuccess[]=$thisDatabaseWriter->delete($query,$data,1);
 
 	$query="DELETE FROM tblReviews WHERE fnkMovieId=?";
-	$thisDatabaseWriter->delete($query,$data,1);
+	$databaseSuccess[]=$thisDatabaseWriter->delete($query,$data,1);
 
 	$query="DELETE FROM tblMovies WHERE pmkMovieId=?";
-	$databaseSuccess=$thisDatabaseWriter->delete($query,$data,1);
+	$databaseSuccess[]=$thisDatabaseWriter->delete($query,$data,1);
 
-	$_SESSION['whatJustHappened']='Movie Succesfully Deleted';
-	if(!$databaseSuccess){
-		$_SESSION['whatJustHappened']='Error! Failed to delete movie';
+	$_SESSION['whatJustHappened']='';	//have to initialize to empty since the loop uses concatenation & yields 2 copies of the list of errors
+	$orderOfQuerriesInWords=array('Showtime','Picture','Synopsis','Review','Movie');
+	$doErrorsExist=false;
+	for($i=0; $i<count($databaseSuccess); $i++){
+		if(!$databaseSuccess[$i]){
+			$doErrorsExist=true;
+			$_SESSION['whatJustHappened'].='Failed to delete '.$orderOfQuerriesInWords[$i]."<br>\n";
+		}
 	}
+	if(!$doErrorsExist){
+		$_SESSION['whatJustHappened']='Movie Succesfully Deleted';
+	}
+	
 	header('Location: index.php');
 }elseif(isset($_POST['btnCancel'])){
 	$_SESSION['whatJustHappened']='Canceled Movie Deletion';

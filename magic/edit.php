@@ -264,16 +264,20 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t\t<tr>\n";
-			echo "\t\t\t\t\t<td><label for='txtDirector'>Director (optional)</label></td>\n";
+			echo "\t\t\t\t\t<td><label for='txtDirector'>Director</label></td>\n";
 			echo "\t\t\t\t\t<td><input type='text' name='txtDirector' id='txtDirector' tabindex='".$tabIndex++."' value='".$director."'";
-			if($directorError){echo " class='mistake' ";}
+			if($directorError){
+				echo " class='mistake' ";
+			}
 			echo "></td>\n";
 			echo "\t\t\t\t</tr>\n";
 
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t\t\t<td><label for='txtSynopsis'>Synopsis (optional) <br>(1000 characters max)</label></td>\n";
 			echo "\t\t\t\t\t<td><textarea name='txtSynopsis' id='txtSynopsis' tabindex='".$tabIndex++."'";
-			if($synopsisError){echo " class='mistake' ";}
+			if($synopsisError){
+				echo " class='mistake' ";
+			}
 			echo ">".$synopsis."</textarea></td>\n";	//make it sticky to remember what they entered
 			echo "\t\t\t\t</tr>\n";
 
