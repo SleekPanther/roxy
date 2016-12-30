@@ -100,7 +100,9 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 				$thisDatabaseWriter->insert($query,$data,1);
 			}
 			
-			//deleteImage(getFullPosterLinkPath($oldPosterToDelete));
+			if(isset($oldPosterToDelete)){
+				deleteImage(getFullPosterLinkPath($oldPosterToDelete));
+			}			
 			$query="UPDATE tblPictures SET fldImgFilename=? WHERE (fnkMovieId=? AND fldImgType=?)";
 			$data=array($poster,$currentMovieId,'Poster');
 			$thisDatabaseWriter->update($query,$data,1,1);

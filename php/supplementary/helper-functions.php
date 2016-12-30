@@ -94,4 +94,13 @@ function printFormErrors($errorMsgArray){
 function getFullPosterLinkPath($imageFIleName){
     return IMAGE_POSTER_PATH.$imageFIleName;
 }
+
+function deleteImage($imageFilePath){
+    if($imageFilePath!='' && file_exists($imageFilePath)){
+        if(unlink($imageFilePath)){
+            return true;
+        }
+    }
+    return false;
+}
 ?>

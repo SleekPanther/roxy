@@ -16,10 +16,7 @@ if(!$movieInfo){
 }
 
 if(isset($_POST['btnDeleteMovie'])){
-	$fullImagePath=getFullPosterLinkPath($movieInfo[0]['fldImgFilename']);
-	if($fullImagePath!='' && file_exists($fullImagePath)){		//silently attempt to delete. No error if no file
-		unlink($fullImagePath);
-	}
+	deleteImage(getFullPosterLinkPath($movieInfo[0]['fldImgFilename']));
 
 	$query="DELETE FROM tblPictures WHERE fnkMovieId=?";
 	$data=array($currentMovieId);						//same data for all queries
