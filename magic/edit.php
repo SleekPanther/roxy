@@ -100,9 +100,10 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 				$thisDatabaseWriter->insert($query,$data,1);
 			}
 			
-			$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename,fldImgType) VALUES (?,?,?) ON DUPLICATE KEY UPDATE fldImgFilename=?";
-			$data=array($currentMovieId,$poster,'Poster',$poster);
-			$thisDatabaseWriter->insert($query,$data,0);
+			//deleteImage(getFullPosterLinkPath($oldPosterToDelete));
+			$query="UPDATE tblPictures SET fldImgFilename=? WHERE (fnkMovieId=? AND fldImgType=?)";
+			$data=array($poster,$currentMovieId,'Poster');
+			$thisDatabaseWriter->update($query,$data,1,1);
 
 			$_SESSION['whatJustHappened']='Movie Info Updated';
 		}elseif(isset($_POST['btnAddShowtime'])){
