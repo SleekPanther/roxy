@@ -59,7 +59,7 @@ $tabIndex=1;		//print on every form input element & increment
 	<article class='movieContainer'>
 		<article class='articleBg'>
 			<?php
-			include $upFolderPlaceholder.'php/lib/display-form-errors.php';
+			printFormErrors($errorMsg);
 			?>
 			<form name='frmEditReview' id='frmEditReview' action='<?php echo PHP_SELF."?reviewId=".$reviewId."&movieId=".$currentMovieId;?>' method='post'>
 				<?php

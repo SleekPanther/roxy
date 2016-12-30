@@ -65,7 +65,7 @@ if (isset($_POST["btnSubmit"])) {
 				}
 				echo $mailedMsgStatus;
 			}else{
-				include $upFolderPlaceholder.'php/lib/display-form-errors.php';
+				printFormErrors($errorMsg);
 			?>
 				<form action="<?php echo PHP_SELF;?>" method='post'>
 					<p>Sign up for our weekly mailing list to stay up date on showtimes, special events and upcoming movies</p>
