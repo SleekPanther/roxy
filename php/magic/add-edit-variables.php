@@ -1,6 +1,4 @@
 <?php
-$imageList=getFilesInDirectory(IMAGE_POSTER_PATH);
-
 $titleError=false;
 $runtimeError=false;
 $ratingError=false;

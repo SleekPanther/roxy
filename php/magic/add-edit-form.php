@@ -74,22 +74,14 @@ if($synopsisError){
 echo ">".$synopsis."</textarea></td>\n";	//make it sticky to remember what they entered
 echo "\t\t\t\t</tr>\n";
 
-
-echo "\t\t\t\t<tr>\n";
-echo "\t\t\t\t\t<td colspan='2'>Choose Poster Image (best aspect ratio is 470:700, max 3MB) <input type='file' name='filPosterImageFile' id='filPosterImageFile'></td>";
-echo "\t\t\t\t</tr>\n";
-
-
-echo "\t\t\t\t<tr>\n";
-echo "\t\t\t\t\t<td colspan='2'>Choose Poster Image (contact webmaster if no images are left)</td>";
-echo "\t\t\t\t</tr>\n";
-
-//query database to get list of all pictures already associated with a movie
-$query ="SELECT fldImgFilename FROM tblPictures";
-$dbPictures=$thisDatabaseReader->select($query,"",0);
-
-$pictures=array();		//this array converts the mysql associative array to a normal array
-foreach($dbPictures as $onePic){
-	$pictures[]=$onePic['fldImgFilename'];
+if($parentFolder.'/'.$fileName=='magic/edit.php'){
+	echo "\t\t\t\t<tr>\n";
+	echo "\t\t\t\t\t<td><strong>".$poster." (Current) </strong><a href='".IMAGE_POSTER_PATH.$poster."' target='_blank'>View Image (new tab)</a><td>\n";
+	echo "\t\t\t\t</tr>\n";
 }
+
+echo "\t\t\t\t<tr>\n";
+echo "\t\t\t\t\t<td>Choose Poster Image <br>(best aspect ratio is 470:700, max 3MB)</td>\n";
+echo "\t\t\t\t\t<td><input type='file' name='filPosterImageFile' id='filPosterImageFile'></td>";
+echo "\t\t\t\t</tr>\n";
 ?>

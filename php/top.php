@@ -47,6 +47,7 @@ session_start();
 
     $directories =explode("/",$PATH_PARTS['dirname']);
     $parentFolder=$directories[count($directories)-1];
+    $fileName=$PATH_PARTS['basename'];
 
     if($parentFolder=='magic'){     //get username since they must be logged in
         $username = strtolower(htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8"));

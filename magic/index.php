@@ -70,24 +70,6 @@ if(isset($_POST['btnAddMovie'])){
 
 			include $upFolderPlaceholder.'php/magic/add-edit-form.php';
 
-			//always print the 1st row so that they can choose NO IMAGE
-			echo "\t\t\t\t<tr>\n";
-			echo "<td><label for='radImg-none'>No Image</label></td>\n";
-			echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' ";
-			if($poster=='none'){echo ' checked ';}
-			echo "></td>\n";
-			echo "\t\t\t\t</tr>\n";
-			foreach($imageList as $image){		//iterate through all possible files in folder (called @ start of this file)
-				if(!in_array($image, $pictures)){	//only print picture if it's NOT already in the database
-					echo "\t\t\t\t<tr>\n";
-					echo "<td><label for='radImg-".$image."'>".$image."</label> <a href='".IMAGE_POSTER_PATH.$image."' target='_blank'>View Image (new tab)</a></td>\n";
-					echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$image."' value='".$image."' ";
-					if($poster==$image){echo ' checked ';}
-					echo "></td>\n";
-					echo "\t\t\t\t</tr>\n";
-				}
-			}
-
 			echo "\t\t\t</table>\n";
 
 			echo "\t\t\t<br><input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'><br>\n";

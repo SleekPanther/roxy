@@ -155,37 +155,6 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 			
 			include $upFolderPlaceholder.'php/magic/add-edit-form.php';
 
-			//Print the currently selected image (this basically puts 'checked' )
-			if($poster !='none'){
-				//print the option to select NO IMAGE
-				echo "\t\t\t\t<tr>\n";
-				echo "\t\t\t\t\t<td><label for='radImg-none'>No Image</label></td>\n";
-				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' ></td>\n";
-				echo "\t\t\t\t</tr>\n";
-
-				// Print the actual image from the database
-				echo "\t\t\t\t<tr>\n";
-				echo "\t\t\t\t\t<td><label for='radImg-".$poster."'><strong>".$poster." (CURRENT)</strong></label> <a href='".IMAGE_POSTER_PATH.$poster."' target='_blank'>View Image (new tab)</a></td>\n";
-				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$poster."' value='".$poster."' checked >";
-				echo "\t\t\t\t</tr>\n";
-			}
-			else{		//else print no image. Similar to above, but this time it's current
-				echo "\t\t\t\t<tr>\n";
-				echo "\t\t\t\t\t<td><label for='radImg-none'><strong>No Image (CURRENT)</strong></label></td>\n";
-				echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-none' value='none' checked ></td>\n";
-				echo "\t\t\t\t</tr>\n";
-			}
-
-			foreach($imageList as $image){		//iterate through all possible files in folder (called @ start of this file)
-				if(!in_array($image, $pictures)){	//only print picture if it's NOT already in the database
-					echo "\t\t\t\t<tr>\n";
-					echo "\t\t\t\t\t<td><label for='radImg-".$image."'>".$image."</label> <a href='".IMAGE_POSTER_PATH.$image."' target='_blank'>View Image (new tab)</a></td>\n";
-					echo "\t\t\t\t<td><input type='radio' name='radImageChoose' id='radImg-".$image."' value='".$image."' ";
-					echo "></td>\n";
-					echo "\t\t\t\t</tr>\n";
-				}
-			}
-
 			echo "\t\t\t\t<tr>\n";
 			echo "\t\t\t<td><br><input type='submit' name='btnUpdateMovie' value='Update Movie Info' tabindex='".$tabIndex++."'></td>";
 			echo "<td><br><input type='submit' name='btnDeleteMovie' value='Delete Movie' tabindex='".$tabIndex++."'>";
