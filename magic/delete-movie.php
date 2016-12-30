@@ -7,20 +7,26 @@ if (!(isset($_GET['movieId']) )){
 $currentMovieId=htmlentities($_GET['movieId'], ENT_QUOTES, "UTF-8");
 
 
-$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector FROM tblMovies WHERE pmkMovieId=?";
+$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector, fldImgFilename FROM tblMovies 
+JOIN tblPictures ON pmkMovieId=fnkMovieId WHERE pmkMovieId=?";
 $data=array($currentMovieId);
 $movieInfo=$thisDatabaseReader->select($query,$data,1);
-if(empty($movieInfo)){
+if(!$movieInfo){
 	header('Location: index.php');	//redirect them if no movie exists in the database
 }
 
 if(isset($_POST['btnDeleteMovie'])){
-	$query="DELETE FROM tblShowtimes WHERE fnkMovieId=?";
-	$data=array($currentMovieId);					//same data for all queries
+	$fullImagePath=getFullPosterLinkPath($movieInfo[0]['fldImgFilename']);
+	if($fullImagePath!='' && file_exists($fullImagePath)){		//silently attempt to delete. No error if no file
+		unlink($fullImagePath);
+	}
+
+	$query="DELETE FROM tblPictures WHERE fnkMovieId=?";
+	$data=array($currentMovieId);						//same data for all queries
 	$databaseSuccess=array();
 	$databaseSuccess[]=$thisDatabaseWriter->delete($query,$data,1);
 
-	$query="DELETE FROM tblPictures WHERE fnkMovieId=?";
+	$query="DELETE FROM tblShowtimes WHERE fnkMovieId=?";
 	$databaseSuccess[]=$thisDatabaseWriter->delete($query,$data,1);
 
 	$query="DELETE FROM tblSynopses WHERE fnkMovieId=?";
@@ -52,8 +58,7 @@ if(isset($_POST['btnDeleteMovie'])){
 }
 
 $tabIndex=1;		//print on every form input element & increment
-
-?>		
+?>
 	<article class='movieContainer'>
 		<article class='articleBg'>
 			<form name='frmDeleteMovie' id='frmDeleteMovie' action='<?php echo PHP_SELF."?movieId=".$currentMovieId."'";?>' method='post'>

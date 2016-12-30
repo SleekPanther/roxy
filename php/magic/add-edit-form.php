@@ -75,7 +75,7 @@ echo ">".$synopsis."</textarea></td>\n";	//make it sticky to remember what they 
 echo "\t\t\t\t</tr>\n";
 
 if($parentFolder.'/'.$fileName=='magic/edit.php'){
-	$posterLinkPath=IMAGE_POSTER_PATH.$poster;
+	$posterLinkPath=getFullPosterLinkPath($poster);
 
 	if(!file_exists($posterLinkPath)){
 		echo "\t\t\t\t<tr>\n";

@@ -90,4 +90,8 @@ function printFormErrors($errorMsgArray){
         echo "</div>\n";
     }
 }
+
+function getFullPosterLinkPath($imageFIleName){
+    return IMAGE_POSTER_PATH.$imageFIleName;
+}
 ?>
