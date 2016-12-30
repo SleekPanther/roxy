@@ -144,11 +144,13 @@ nav a:focus {
   background: red;
   color: white;
 }
-#errors {
+#errors,
+.errors {
   /* highlight form mistakes */
   border: 1px dashed white;
   background: #ff2f2f;
-  padding: 0 1em;
+  padding: .3em 1em;
+  color: white;
 }
 /*------------------------end forms ---------------------*/
 footer {

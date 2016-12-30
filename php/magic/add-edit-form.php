@@ -75,8 +75,16 @@ echo ">".$synopsis."</textarea></td>\n";	//make it sticky to remember what they 
 echo "\t\t\t\t</tr>\n";
 
 if($parentFolder.'/'.$fileName=='magic/edit.php'){
+	$posterLinkPath=IMAGE_POSTER_PATH.$poster;
+
+	if(!file_exists($posterLinkPath)){
+		echo "\t\t\t\t<tr>\n";
+		echo "\t\t\t\t\t<td colspan='2' class='errors'>Poster image link appears to be broken. Please upload a new image. <br>Broken link appears below for reference<td>\n";
+		echo "\t\t\t\t</tr>\n";
+	}
+
 	echo "\t\t\t\t<tr>\n";
-	echo "\t\t\t\t\t<td><strong>".$poster." (Current) </strong><a href='".IMAGE_POSTER_PATH.$poster."' target='_blank'>View Image (new tab)</a><td>\n";
+	echo "\t\t\t\t\t<td><strong>".$poster." (Current) </strong><a href='".$posterLinkPath."' target='_blank'>View Image (new tab)</a><td>\n";
 	echo "\t\t\t\t</tr>\n";
 }
 

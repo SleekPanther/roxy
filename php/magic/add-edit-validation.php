@@ -6,7 +6,6 @@ $releaseDate=htmlentities($_POST['datReleaseDate'], ENT_QUOTES, "UTF-8");
 $display=htmlentities($_POST['lstDisplay'], ENT_QUOTES, "UTF-8");
 $director=htmlentities($_POST['txtDirector'], ENT_QUOTES, "UTF-8");
 $synopsis=htmlentities($_POST['txtSynopsis'], ENT_QUOTES, "UTF-8");
-$poster=htmlentities($_POST['radImageChoose'], ENT_QUOTES, "UTF-8");
 
 if($title==""){
 	$errorMsgMovie[]="Title cannot be empty";
