@@ -85,8 +85,8 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 
 	if(!$errorMsgMovie){
 		if(isset($_POST['btnUpdateMovie'])){
-			$query="UPDATE tblMovies SET fldTitle=?, fldRuntime=?, fldRating=?, fldReleaseDate=?, fldDisplay=?, fldDirector=? WHERE pmkMovieId LIKE ?";
-			$data=array($title,$runtime,$rating,$releaseDate,$display,$director,$currentMovieId);
+			$query="UPDATE tblMovies SET fldTitle=?, fldRuntime=?, fldRating=?, fldReleaseDate=?, fldDisplay=?, fldDirector=?, fldTrailerLink=? WHERE pmkMovieId LIKE ?";
+			$data=array($title,$runtime,$rating,$releaseDate,$display,$director,$trailer,$currentMovieId);
 			$thisDatabaseWriter->insert($query,$data,1);
 
 			if($synopsis !=''){		//if it's not empty, add to the database

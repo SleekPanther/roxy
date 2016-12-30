@@ -27,8 +27,8 @@ if(isset($_POST['btnAddMovie'])){
 	include $upFolderPlaceholder.'php/magic/image-validation.php';
 
 	if(!$errorMsgMovie){
-		$query="INSERT INTO tblMovies (fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector) VALUES (?,?,?,?,?,?)";
-		$data=array($title,$runtime,$rating,$releaseDate,$display,$director);
+		$query="INSERT INTO tblMovies (fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector, fldTrailerLink) VALUES (?,?,?,?,?,?,?)";
+		$data=array($title,$runtime,$rating,$releaseDate,$display,$trailer,$director);
 		$thisDatabaseWriter->insert($query,$data,0);
 		$lastMovieId=$thisDatabaseWriter->lastInsert();		//get id of movie just added so for synopsis
 
@@ -76,8 +76,7 @@ if(isset($_POST['btnAddMovie'])){
 			echo "\t\t\t<br><input type='submit' name='btnAddMovie' value='Add Movie' tabindex='".$tabIndex++."'><br>\n";
 			echo "\t\t</article>\n";
 
-			$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
-			 fldSynopsis FROM tblMovies 
+			$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector, fldTrailerLink, fldSynopsis FROM tblMovies 
 			  LEFT JOIN tblSynopses ON pmkMovieId=fnkMovieId";		//need left join since I DO want to have movie info even if there's no synopsis
 			if(!$displayFilterError && $displayFilter !='All'){
 				$query.=" WHERE fldDisplay LIKE ?";
@@ -114,6 +113,7 @@ if(isset($_POST['btnAddMovie'])){
 					echo "\t\t\t\t\t<p>Release Date: ".dateSqlToNice($movie['fldReleaseDate'])."</p>\n";
 					echo "\t\t\t\t\t<p>Visibility (show or hide): ".$movie['fldDisplay']."</p>\n";
 					echo "\t\t\t\t\t<p>Director: ".$movie['fldDirector']."</p>\n";
+					echo "\t\t\t\t\t<p>Trailer (new tab): <a href='".$movie['fldTrailerLink']."'>".$movie['fldTrailerLink']."</a></p>\n";
 					echo "\t\t\t\t\t<p>Synopsis:<br> ".$movie['fldSynopsis']."</p>\n";
 
 					echo "\t\t\t\t\t<a class='buttonLink' href='edit.php?movieId=".$movie['pmkMovieId']."'>Edit Info</a> (add showtimes & reviews)\n";
