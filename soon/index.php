@@ -5,7 +5,7 @@ include	"../php/top.php";
 		<h1>Coming Soon</h1>
 		<?php
 		//left join tblSynopses to get movie info even if description is empty
-		$query="SELECT fldTitle, fldRating, fldRuntime, fldReleaseDate, fldSynopsis, fldDirector, fldImgFilename FROM tblMovies
+		$query="SELECT fldTitle, fldRating, fldRuntime, fldReleaseDate, fldSynopsis, fldDirector, fldTrailerLink, fldImgFilename FROM tblMovies
 		 LEFT JOIN tblSynopses ON pmkMovieId=tblSynopses.fnkMovieId
 		 LEFT JOIN tblPictures ON pmkMovieId=tblPictures.fnkMovieId
 		 WHERE ( ( (fldDisplay=?)  ) AND fldReleaseDate>=CURDATE() )
@@ -20,7 +20,8 @@ include	"../php/top.php";
 			if(file_exists(IMAGE_POSTER_PATH.$movie['fldImgFilename'])){
 				$imgFile=IMAGE_POSTER_PATH.$movie['fldImgFilename'];
 			}
-			echo "\t\t\t\t<figure><img alt='".$movie['fldTitle']."' src='".$imgFile."'></figure>\n";
+			echo "\t\t\t\t<figure><img alt='".$movie['fldTitle']."' src='".$imgFile."'>\n";
+			echo "</figure>\n";
 
 			echo "\t\t\t<div class='fullWidthInfo'>\n";
 			echo "\t\t\t\t<h2>".$movie['fldTitle']."</h2>\n";
@@ -28,8 +29,13 @@ include	"../php/top.php";
 			echo "\t\t\t\t<p>";
 			echo runtimeToHoursMinutes($movie['fldRuntime'])."<br>\n";
 			echo $movie['fldRating']."<br>\n";
-			if($movie['fldDirector'] !=''){echo "Directed by ".$movie['fldDirector']."<br>"; }
+			if($movie['fldDirector'] !=''){
+				echo "Directed by ".$movie['fldDirector']."<br>";
+			}
 			echo "</p>\n";
+			if($movie['fldTrailerLink'] && urlExists($movie['fldTrailerLink'])){
+				echo "<p><a href='".$movie['fldTrailerLink']."' target='_blank'>"."<img class='imgTrailerLink' src='".$upFolderPlaceholder.'images/logos/embedded/watch-trailer.png'."'>"."</a></p>\n";
+			}
 			echo "\t\t\t\t<p><br>".$movie['fldSynopsis']."</p>\n";
 			echo "\t\t\t</div>\n";
 

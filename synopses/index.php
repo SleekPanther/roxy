@@ -5,7 +5,7 @@ include	"../php/top.php";
 		<h1>Synopses</h1>
 		<?php
 		//INNER JOIN instead of LEFT so that even gets movies without pictures
-		$query="SELECT fldTitle, fldRating, fldRuntime, fldSynopsis, fldDirector, fldImgFilename FROM tblSynopses
+		$query="SELECT fldTitle, fldRating, fldRuntime, fldSynopsis, fldDirector, fldTrailerLink, fldImgFilename FROM tblSynopses
 		 JOIN tblMovies ON pmkMovieId=tblSynopses.fnkMovieId
 		 LEFT JOIN tblPictures ON pmkMovieId=tblPictures.fnkMovieId
 		 WHERE ( ( (fldDisplay=?)  ) AND fldReleaseDate<=CURDATE() )
@@ -26,7 +26,12 @@ include	"../php/top.php";
 			echo "\t\t\t\t<p>";
 			echo runtimeToHoursMinutes($movie['fldRuntime'])."<br>\n";
 			echo $movie['fldRating']."<br>\n";
-			if($movie['fldDirector'] !=''){echo "Directed by ".$movie['fldDirector']."<br>"; }
+			if($movie['fldDirector'] !=''){
+				echo "Directed by ".$movie['fldDirector']."<br>";
+			}
+			if($movie['fldTrailerLink'] && urlExists($movie['fldTrailerLink'])){
+				echo "<p><a href='".$movie['fldTrailerLink']."' target='_blank'>"."<img class='imgTrailerLink' src='".$upFolderPlaceholder.'images/logos/embedded/watch-trailer.png'."'>"."</a></p>\n";
+			}
 			echo "</p>\n";
 			echo "\t\t\t\t<p><br>".$movie['fldSynopsis']."</p>\n";		//put in pre tags so that newlines display from the database. Also print <br> to put more space before the synopsis
 			echo "\t\t\t</div>\n";

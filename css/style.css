@@ -90,6 +90,9 @@ figure#imgRoxyAbout {
   width: 250px;
   margin: 1em 0 1em 1em;
 }
+.imgTrailerLink {
+  width: 11em;
+}
 /*------------------------ end image sizing ------------------------*/
 pre,
 textarea {
