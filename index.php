@@ -29,9 +29,9 @@ include	"php/top.php";
 			foreach($movies as $movie){
 				echo "\t\t<div class='articleContainer halfCol'>\n";
 				echo "\t\t<article class='movie'>\n";
-				$imgFile=$upFolderPlaceholder.'images/posters/ref/placeholder.png';
-				if(file_exists($upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'])){
-					$imgFile=$upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'];
+				$imgFile=IMAGE_POSTER_PATH.'ref/placeholder.png';
+				if(file_exists(IMAGE_POSTER_PATH.$movie['fldImgFilename'])){
+					$imgFile=IMAGE_POSTER_PATH.$movie['fldImgFilename'];
 				}
 				echo "\t\t\t<figure><img alt='' src='".$imgFile."'></figure>\n";
 				echo "\t\t\t<h2>".$movie['fldTitle']."</h2>\n";

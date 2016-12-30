@@ -16,9 +16,9 @@ include	"../php/top.php";
 		foreach($moviesSoon as $movie){
 			echo "\t\t<section class='articleBg fullWidth'>\n";
 
-			$imgFile=$upFolderPlaceholder.'images/posters/ref/placeholder.png';
-			if(file_exists($upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'])){
-				$imgFile=$upFolderPlaceholder.'images/posters/'.$movie['fldImgFilename'];
+			$imgFile=IMAGE_POSTER_PATH.'ref/placeholder.png';
+			if(file_exists(IMAGE_POSTER_PATH.$movie['fldImgFilename'])){
+				$imgFile=IMAGE_POSTER_PATH.$movie['fldImgFilename'];
 			}
 			echo "\t\t\t\t<figure><img alt='".$movie['fldTitle']."' src='".$imgFile."'></figure>\n";
 

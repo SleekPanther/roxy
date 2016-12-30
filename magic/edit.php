@@ -29,11 +29,7 @@ $releaseDate=$movieInfo[0]['fldReleaseDate'];
 $display=$movieInfo[0]['fldDisplay'];
 $director=$movieInfo[0]['fldDirector'];
 $synopsis=$movieInfo[0]['fldSynopsis'];
-if($movieInfo[0]['fldImgFilename'] == NULL){	//if no image is selected, then store 'none' so that the correct radio button will be CHECKED
-	$poster='none';
-}else{
-	$poster=$movieInfo[0]['fldImgFilename'];
-}
+$poster=$movieInfo[0]['fldImgFilename'];
 
 include $upFolderPlaceholder.'php/magic/review-variables.php';
 
