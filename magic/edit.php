@@ -103,9 +103,8 @@ elseif(isset($_POST['btnUpdateMovie']) || isset($_POST['btnAddShowtime']) || iss
 				$thisDatabaseWriter->insert($query,$data,1);
 			}
 			
-
-			$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename) VALUES (?,?) ON DUPLICATE KEY UPDATE fldImgFilename=?";
-			$data=array($currentMovieId,$poster,$poster);
+			$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename,fldImgType) VALUES (?,?,?) ON DUPLICATE KEY UPDATE fldImgFilename=?";
+			$data=array($currentMovieId,$poster,'Poster',$poster);
 			$thisDatabaseWriter->insert($query,$data,0);
 
 			$_SESSION['whatJustHappened']='Movie Info Updated';

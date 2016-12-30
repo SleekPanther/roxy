@@ -37,12 +37,9 @@ if(isset($_POST['btnAddMovie'])){
 			$thisDatabaseWriter->insert($query,$data,0);
 		}
 
-		//only insert into table if they selected a radio button image filename
-		if($poster !='none'){
-			$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename) VALUES (?,?)";
-			$data=array($lastMovieId,$poster);
-			$thisDatabaseWriter->insert($query,$data,0);
-		}
+		$query="INSERT INTO tblPictures (fnkMovieId, fldImgFilename,fldImgType) VALUES (?,?,?) ON DUPLICATE KEY UPDATE fldImgFilename=?";
+		$data=array($lastMovieId,$poster,'Poster',$poster);
+		$thisDatabaseWriter->insert($query,$data,0);
 
 		header('Location: edit.php?movieId='.$lastMovieId);		//redirect to Edit page
 	}

@@ -32,7 +32,8 @@ if ($okToUpload == 0) {
 } else {
 	if(!$errorMsgMovie){
 	    if (move_uploaded_file($_FILES["filPosterImageFile"]["tmp_name"], $targetFilePath)) {
-	        echo $targetFileName.' pat ' .$targetFilePath;
+	    	//most important line: actually saves filename so it can be stored in database
+	        $poster=$targetFileName;
 	    }else{
 	    	$errorMsgMovie[]="Sorry, there was an error uploading your file";
 	    }
