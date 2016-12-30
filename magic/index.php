@@ -28,7 +28,7 @@ if(isset($_POST['btnAddMovie'])){
 
 	if(!$errorMsgMovie){
 		$query="INSERT INTO tblMovies (fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector, fldTrailerLink) VALUES (?,?,?,?,?,?,?)";
-		$data=array($title,$runtime,$rating,$releaseDate,$display,$trailer,$director);
+		$data=array($title,$runtime,$rating,$releaseDate,$display,$director,$trailer);
 		$thisDatabaseWriter->insert($query,$data,0);
 		$lastMovieId=$thisDatabaseWriter->lastInsert();		//get id of movie just added so for synopsis
 

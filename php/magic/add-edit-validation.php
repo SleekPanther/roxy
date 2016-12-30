@@ -46,7 +46,7 @@ if($synopsis !=''){		//only validate if NOT empty
 	}
 }
 
-if($trailer!='') {		//only check if NOT empty (since it's optional)
+if($trailer!=''){		//only check if NOT empty (since it's optional)
 	if(!filter_var($trailer, FILTER_VALIDATE_URL)){
 		$errorMsgMovie[]='Please enter a valid URL for the Trailer';
 		$trailerError=true;
