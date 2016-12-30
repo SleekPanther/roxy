@@ -9,6 +9,7 @@ $rating='PG-13';				//most common rating
 $releaseDate=date('Y-m-d', strtotime('this friday'));		//initialize to the upcoming friday
 $display='Current';				//default is hidden (since don't want 2 display movie without showtimes)
 $director='';
+$trailer='';
 $synopsis='';
 $poster='none';
 

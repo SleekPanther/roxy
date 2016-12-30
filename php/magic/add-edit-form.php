@@ -74,6 +74,15 @@ if($synopsisError){
 echo ">".$synopsis."</textarea></td>\n";	//make it sticky to remember what they entered
 echo "\t\t\t\t</tr>\n";
 
+echo "\t\t\t\t<tr>\n";
+echo "\t\t\t\t\t<td><label for='txtTrailer'>Trailer Link (optional)</label></td>\n";
+echo "\t\t\t\t\t<td><input type='text' name='txtTrailer' id='txtTrailer' tabindex='".$tabIndex++."' value='".$trailer."'";
+if($trailerError){
+	echo " class='mistake' ";
+}
+echo "></td>\n";
+echo "\t\t\t\t</tr>\n";
+
 if($parentFolder.'/'.$fileName=='magic/edit.php'){
 	$posterLinkPath=getFullPosterLinkPath($poster);
 
@@ -90,6 +99,10 @@ if($parentFolder.'/'.$fileName=='magic/edit.php'){
 
 echo "\t\t\t\t<tr>\n";
 echo "\t\t\t\t\t<td>Choose Poster Image <br>(best aspect ratio is 470:700, max 3MB)</td>\n";
-echo "\t\t\t\t\t<td><input type='file' name='filPosterImageFile' id='filPosterImageFile'></td>";
+echo "\t\t\t\t\t<td><input type='file' name='filPosterImageFile' id='filPosterImageFile'";
+if($posterError){
+	echo " class='mistake' ";
+}
+echo "></td>\n";
 echo "\t\t\t\t</tr>\n";
 ?>

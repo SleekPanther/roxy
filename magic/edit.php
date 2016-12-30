@@ -9,7 +9,7 @@ if (!isset($_GET['movieId'])){
 $currentMovieId=htmlentities($_GET['movieId'], ENT_QUOTES, "UTF-8");		//sanitize value from GET array
 $currentMovieIdError=false;
 
-$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector,
+$query="SELECT pmkMovieId, fldTitle, fldRuntime, fldRating, fldReleaseDate, fldDisplay, fldDirector, fldTrailerLink,
 fldSynopsis,
 fldImgFilename FROM tblMovies
  LEFT JOIN tblSynopses ON pmkMovieId=tblSynopses.fnkMovieId
@@ -28,6 +28,7 @@ $rating=$movieInfo[0]['fldRating'];
 $releaseDate=$movieInfo[0]['fldReleaseDate'];
 $display=$movieInfo[0]['fldDisplay'];
 $director=$movieInfo[0]['fldDirector'];
+$trailer=$movieInfo[0]['fldTrailerLink'];
 $synopsis=$movieInfo[0]['fldSynopsis'];
 $poster=$movieInfo[0]['fldImgFilename'];
 

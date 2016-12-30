@@ -6,6 +6,8 @@ $releaseDateError=false;
 $displayError=false;
 $directorError=false;
 $synopsisError=false;
+$trailerError=false;
+$posterError=false;
 
 $errorMsgMovie=array();
 

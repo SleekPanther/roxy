@@ -6,6 +6,7 @@ $releaseDate=htmlentities($_POST['datReleaseDate'], ENT_QUOTES, "UTF-8");
 $display=htmlentities($_POST['lstDisplay'], ENT_QUOTES, "UTF-8");
 $director=htmlentities($_POST['txtDirector'], ENT_QUOTES, "UTF-8");
 $synopsis=htmlentities($_POST['txtSynopsis'], ENT_QUOTES, "UTF-8");
+$trailer=htmlentities($_POST['txtTrailer'], ENT_QUOTES, "UTF-8");
 
 if($title==""){
 	$errorMsgMovie[]="Title cannot be empty";
@@ -42,6 +43,18 @@ if($synopsis !=''){		//only validate if NOT empty
 	if(!verifyAlphaNumNewline($synopsis)){
 		$errorMsgMovie[]="Synopsis Cannot have special characters";
 		$synopsisError=true;
+	}
+}
+
+if($trailer!='') {		//only check if NOT empty (since it's optional)
+	if(!filter_var($trailer, FILTER_VALIDATE_URL)){
+		$errorMsgMovie[]='Please enter a valid URL for the Trailer';
+		$trailerError=true;
+	}else{
+		if(!urlExists($trailer)){
+			$errorMsgMovie[]='The Trailer link you entered appears to link to a dead page';
+			$trailerError=true;
+		}
 	}
 }
 ?>
