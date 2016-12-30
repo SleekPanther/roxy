@@ -43,5 +43,13 @@ function verifyPhone ($testString) {
         $regex = '/^(?:1(?:[. -])?)?(?:\((?=\d{3}\)))?([2-9]\d{2})(?:(?<=\(\d{3})\))? ?(?:(?<=\d{3})[.-])?([2-9]\d{2})[. -]?(\d{4})(?: (?i:ext)\.? ?(\d{1,5}))?$/';
 	return (preg_match($regex, $testString));
 }
+
+function urlExists($url){
+	$headers = get_headers($url);
+	if(!strpos($headers[0], '200')){
+		return false;
+	}
+	return true;
+}
 print "<!--  END include validation-functions -->\n";
 ?>

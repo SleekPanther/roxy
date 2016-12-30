@@ -28,8 +28,7 @@ if(($_SESSION['reviewSource']!='') && ($_SESSION['reviewLink']!='') ) {		//only 
 		$errorMsg[]='Please enter a valid URL';
 		$reviewLinkError=true;
 	}else{
-		$headers = get_headers($_SESSION['reviewLink']);
-		if(!strpos($headers[0], '200')){
+		if(!urlExists($_SESSION['reviewLink'])){
 			$errorMsg[]='The link you entered appears to link to a dead page';
 			$reviewLinkError=true;
 		}
