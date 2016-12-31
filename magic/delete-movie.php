@@ -12,7 +12,7 @@ JOIN tblPictures ON pmkMovieId=fnkMovieId WHERE pmkMovieId=?";
 $data=array($currentMovieId);
 $movieInfo=$thisDatabaseReader->select($query,$data,1);
 if(!$movieInfo){
-	header('Location: index.php');	//redirect them if no movie exists in the database
+	header('Location: index.php');
 }
 
 if(isset($_POST['btnDeleteMovie'])){
@@ -61,9 +61,9 @@ $tabIndex=1;		//print on every form input element & increment
 			<form name='frmDeleteMovie' id='frmDeleteMovie' action='<?php echo PHP_SELF."?movieId=".$currentMovieId."'";?>' method='post'>
 				<h2>Delte Movie Confirmation</h2>
 				<h3>Are you sure you want to delete this movie & all of it's showtimes?</h3>
-				<p>Upcoming movies with visibility "Coming Soon" aren't displayed to the public</p>
-				<p>Showtimes can be deleted individually & aren't <strong>showtimes in the past aren't displayed</strong> to the public</p>
-				<p>You can also mark a movie as hidden</p>
+				<p>You can always change <strong>visibility to "Hidden"</strong> to hide from the public</p>
+				<p>Movies with release dates are automatically deemed <strong>"Coming Soon"</strong></p>
+				<p>Showtimes can be deleted individually & <strong>EXPIRED showtimes aren't displayed</strong></p>
 				<?php
 				foreach($movieInfo as $oneMovie){
 					echo "<br><p>Title: ".$oneMovie['fldTitle']."</p>\n";

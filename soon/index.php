@@ -10,7 +10,7 @@ include	"../php/top.php";
 		 LEFT JOIN tblPictures ON pmkMovieId=tblPictures.fnkMovieId
 		 WHERE ( ( (fldDisplay=?)  ) AND fldReleaseDate>=CURDATE() )
 		 ORDER BY fldReleaseDate ";
-		$data=array('Coming Soon');		//only get 'Coming soon'
+		$data=array('Current');				//current movies with release date in the future
 		$moviesSoon=$thisDatabaseReader->select($query,$data,1,2,0,1);
 
 		foreach($moviesSoon as $movie){
