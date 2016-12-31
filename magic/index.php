@@ -114,7 +114,7 @@ if(isset($_POST['btnAddMovie'])){
 					echo "\t\t\t\t\t<p>Visibility (show or hide): ".$movie['fldDisplay']."</p>\n";
 					echo "\t\t\t\t\t<p>Director: ".$movie['fldDirector']."</p>\n";
 					echo "\t\t\t\t\t<p>Trailer (new tab): <a href='".$movie['fldTrailerLink']."' target='_blank'>".$movie['fldTrailerLink']."</a></p>\n";
-					echo "\t\t\t\t\t<p>Synopsis:<br> ".$movie['fldSynopsis']."</p>\n";
+					echo "\t\t\t\t\t<p>Synopsis:<br> ".nl2br($movie['fldSynopsis'],false)."</p>\n";
 
 					echo "\t\t\t\t\t<a class='buttonLink' href='edit.php?movieId=".$movie['pmkMovieId']."'>Edit Info</a> (add showtimes & reviews)\n";
 					echo "\t\t\t\t</article >\n";

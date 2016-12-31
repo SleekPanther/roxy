@@ -36,7 +36,7 @@ include	"../php/top.php";
 			if($movie['fldTrailerLink'] && urlExists($movie['fldTrailerLink'])){
 				echo "<p><a href='".$movie['fldTrailerLink']."' target='_blank'>"."<img class='imgTrailerLink' src='".$upFolderPlaceholder.'images/logos/embedded/watch-trailer.png'."'>"."</a></p>\n";
 			}
-			echo "\t\t\t\t<p><br>".$movie['fldSynopsis']."</p>\n";
+			echo "\t\t\t\t<p><br>".nl2br($movie['fldSynopsis'],false)."</p>\n";
 			echo "\t\t\t</div>\n";
 
 			echo "\t\t</section>\n";
